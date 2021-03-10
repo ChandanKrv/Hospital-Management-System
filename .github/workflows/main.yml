@@ -14,3 +14,4 @@ jobs:
         server: ftp.softcse.ml
         username: hms@hospital.softcse.ml
         password: ${{ secrets.HMS_FTP_PASSWORD }}
+        
