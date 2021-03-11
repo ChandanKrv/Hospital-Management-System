@@ -1,17 +1,61 @@
 <?php 
 include_once('admin_header.php');
-$c_name = $_POST["c_name"];
-$c_subhead = $_POST["c_subhead"];
-$c_duration = $_POST["c_duration"];
-$c_level = $_POST["c_level"];
-$c_category = $_POST["c_category"];
-$c_image = $_POST["image"];
-$c_price = $_POST["c_price"];
-$c_dis_price = $_POST["c_dis_price"];
-$video_link = $_POST["c_video"];
-$c_video = getYoutubeEmbedUrl($video_link, '1');
-$s_link = $_POST["s_link"];
-$c_id = $_POST["c_id"];
+
+if (isset($_POST['add_doctor'])) {
+    $u_id = $_POST["u_id"];
+    $d_image = $_POST["d_image"];
+    $d_gender = $_POST["d_gender"];
+    $d_dob = $_POST["d_dob"];
+    $d_speciality = $_POST["d_speciality"];
+    $d_address = $_POST["d_address"];
+    $d_timings = $_POST["d_timings"];
+    $d_phone = $_POST["d_phone"];
+    $sc_id = $_POST["sc_id"];
+    // Getting file name
+    $filename = $_FILES['d_image']['name'];
+    // Valid extension
+    $valid_ext = array('png', 'jpeg', 'jpg');
+    $photoExt1 = @end(explode('.', $filename)); // explode the image name to get the extension
+    $phototest1 = strtolower($photoExt1);
+    $new_profle_pic = uniqid() . '.' . $phototest1;
+    // Image Location
+    $location = "../assets/images/doctors_img/" . $new_profle_pic;
+    // file extension
+    $file_extension = pathinfo($location, PATHINFO_EXTENSION);
+    $file_extension = strtolower($file_extension);
+    // Check extension
+    if (in_array($file_extension, $valid_ext)) {
+        // Compress Image
+        compressedImage($_FILES['image']['tmp_name'], $location, 60);
+        //Here i am enter the insert code in the step ........
+        //Pushing All data into database
+        $data = array(
+            'c_id' => $c_id,
+            'c_pos' => $lastIdValue,
+            'c_name'  =>  cleanInput($_POST['c_name']),
+            'c_subhead'  =>  cleanInput($_POST['c_subhead']),
+            'c_duration'  =>  cleanInput($_POST['c_duration']),
+            'c_image'  =>   $new_profle_pic,
+            'c_level'  =>  $c_level,
+            'c_category'  =>  $c_category,
+            'c_detail'  =>  $c_detail_final,
+            'c_price'  =>  cleanInput($_POST['c_price']),
+            'c_dis_price'  =>  cleanInput($_POST['c_dis_price']),
+            'c_video'  =>  $c_video,
+            's_link'  =>  $_POST['s_link'],
+            'c_rating' => rand(40, 50) / 10.0,
+            'c_timestamp' => $timestamp,
+            'c_trash'  => "0",
+        );
+        if (insertData('course', $data)) {
+            echo "<script>alert('Course Added Successfully')</script>";
+        } else {
+            echo "<script>alert('Error!! Course Not Added')</script>";
+        }
+    } else {
+        echo "<script>alert('Error!! Only png/jpg/jpeg are Allowed')</script>";
+    }
+}
 ?>
 <div class="container-fluid">
     <div class="layout-specing">
@@ -181,7 +225,7 @@ $c_id = $_POST["c_id"];
                         </div>
                         <!--end row-->
 
-                        <button type="submit" class="btn btn-primary">Add Doctor</button>
+                        <button type="submit" name="add_doctor" class="btn btn-primary">Add Doctor</button>
                     </form>
                 </div>
             </div>
