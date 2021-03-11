@@ -159,7 +159,7 @@ $forgot = "";
                             Sign up
                         </button></a>
                 </div>
-                <img src="../assets/img/log.svg" class="image" alt="" />
+                <img src="assets/img/log.svg" class="image" alt="" />
             </div>
             <div class="panel right-panel">
                 <div class="content">
@@ -173,7 +173,7 @@ $forgot = "";
                         Sign in
                     </button>
                 </div>
-                <img src="../assets/img/register.svg" class="image" alt="" />
+                <img src="assets/img/register.svg" class="image" alt="" />
             </div>
         </div>
     </div>

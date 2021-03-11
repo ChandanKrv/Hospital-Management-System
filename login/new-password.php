@@ -76,7 +76,7 @@ if($email == false){
               Sign up
             </button> -->
           </div>
-          <img src="../assets/img/log.svg" class="image" alt="" />
+          <img src="assets/img/log.svg" class="image" alt="" />
         </div>
         
       </div>

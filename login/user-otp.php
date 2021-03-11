@@ -141,7 +141,7 @@ if ($email == false) {
               Sign up
             </button> -->
                 </div>
-                <img src="../assets/img/log.svg" class="image" alt="" />
+                <img src="assets/img/log.svg" class="image" alt="" />
             </div>
             <div class="panel right-panel">
                 <div class="content">
@@ -155,7 +155,7 @@ if ($email == false) {
               Sign up
             </button></a> -->
                 </div>
-                <img src="../assets/img/register.svg" class="image" alt="" />
+                <img src="assets/img/register.svg" class="image" alt="" />
             </div>
         </div>
     </div>
