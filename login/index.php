@@ -1,6 +1,5 @@
 <?php require_once "controllerUserData.php";
 include_once('sessionCheck.php');
-session_start();
 $u_email = $_SESSION['email'];
 ?>
 <!DOCTYPE html>
