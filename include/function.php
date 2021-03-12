@@ -60,13 +60,13 @@ function doctorGigDisplay($match_this)
         $c_rating = $row_product['c_rating'];
         $rating = ($c_rating * 100.0) / 5.0;
 
+        $forLocation = "Unknown variable ?";
         if ($forLocation != "admin") {
             echo "
    <div class='col-lg-4'>
     <div class='properties properties2 mb-30'>
         <div class='properties__card'>
             <div cla";
-
         }
     }
 }
@@ -99,9 +99,3 @@ function getOneData($table_name, $column_name, $where_condition, $match_this)
     $row = mysqli_fetch_array($run);
     return $row[$column_name];
 }
-
-
-
-
-
-?>
