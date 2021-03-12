@@ -1,9 +1,18 @@
 <?php
 //session_start(); //Already Started in dp.php
 include_once('../include/function.php');
-include_once('../login/session-check.php');
-
 ?>
+<?php
+//Session Checking
+if (isset($_SESSION['email']) && !empty($_SESSION['email']) && isset($_SESSION['u_role']) && !empty($_SESSION['u_role'])) {
+    $u_role = $_SESSION['u_role'];
+    if ($u_role != 'admin')
+        echo "<script>location.href='../$u_role'</script>";
+} else {
+    header('location: ../login/login-user.php');
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <!-- Mirrored from shreethemes.in/doctris/admin/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 28 Feb 2021 09:57:05 GMT -->

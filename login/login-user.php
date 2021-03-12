@@ -1,12 +1,10 @@
 <?php
 require_once "controllerUserData.php";
-//require_once "sessionCheck.php";
 if (isset($_SESSION['email']) && !empty($_SESSION['email']) && isset($_SESSION['u_role']) && !empty($_SESSION['u_role'])) {
-    // echo "<script>location.href='../admin'</script>";
-    header('location: ../' . $_SESSION['u_role']);
-} 
+    $u_role = $_SESSION['u_role'];
+    echo "<script>location.href='../$u_role'</script>";
+}
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
