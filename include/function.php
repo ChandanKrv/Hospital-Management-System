@@ -1,6 +1,7 @@
 <?php
 require 'db.php'; //Already Started in dp.php
 
+//Common Functions
 
 //$ip = getUserIP();
 date_default_timezone_set('Asia/Kolkata');
@@ -11,6 +12,7 @@ $plusOneYear = date('Y-m-d', strtotime('+1 year'));
 $time24h = date('H:i:s');
 $time = date("g:iA", strtotime($time24h));
 $timestamp = $date . ' ' . $time24h; //Date and Time
+
 
 //for getting user ip
 /* function getUserIp()
@@ -138,7 +140,7 @@ function doctorGigDisplay($match_this)
 
 /* LOGIN FUNCTION */
 function logout()
-{ 
+{
     //  session_start();  //Already Started in dp.php
     session_unset();
     session_destroy();

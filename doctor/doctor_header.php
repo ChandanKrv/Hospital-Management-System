@@ -1,7 +1,10 @@
 <?php
 //session_start(); //Already Started in dp.php
 include_once('../include/function.php');
-include_once('../login/session_admin.php');
+include_once('../login/sessionCheck.php');
+
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
