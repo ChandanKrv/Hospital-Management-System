@@ -1,6 +1,6 @@
 <?php
 require_once "controllerUserData.php";
-require_once "sessionCheck.php";
+//require_once "sessionCheck.php";
 
 ?>
 <?php
@@ -8,10 +8,11 @@ require_once "sessionCheck.php";
 error_reporting(E_ERROR | E_WARNING | E_PARSE);
 $email =  $_SESSION['email'];
 $u_role = $_SESSION['u_role'];
-
-header('location: ../$u_role');
+$u_role = "staff";
+header('location: ../' . $u_role);
 $forgot = "";
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">

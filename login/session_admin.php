@@ -1,11 +1,12 @@
 <?php
-//session_start();
+session_start();
 error_reporting(E_ERROR | E_WARNING | E_PARSE);
 $email =  $_SESSION['email'];
 $u_role =  $_SESSION['u_role'];
 
 if (!isset($email)) {
-    header("location:../login/login-user.php");
+    //header("location:../login/login-user.php");
+    
 } else {
     $sql = "SELECT * FROM user WHERE u_email ='$email'";
     $run_Sql = mysqli_query($con, $sql);

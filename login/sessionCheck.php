@@ -5,7 +5,7 @@ $email =  $_SESSION['email'];
 $u_role =  $_SESSION['u_role'];
 
 if (!isset($email) || !isset($u_role)) {
-    header("location: login-user.php");
+    header("location: ../login/login-user.php");
 } else {
     header("location: ../$u_role");
     // echo "<script>alert('Set Email: $email  U_Role: $u_role') </script>";

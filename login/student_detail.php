@@ -20,7 +20,7 @@ if (isset($_POST['submit'])) {
     // $s_email = $_POST['s_email'];
     $s_phone = $_POST['s_phone'];
     $s_class = $_POST['s_class'];
-    $s_RMID = generateRMID($s_class);
+    $s_RMID = generateHMSID($s_class);
     $s_school_name = $_POST['s_school_name'];
     $s_gender = $_POST['s_gender'];
     $s_dob = $_POST['s_dob'];

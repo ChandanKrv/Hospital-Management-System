@@ -1,6 +1,32 @@
 <?php
 require 'db.php'; //Already Started in dp.php
 
+
+//$ip = getUserIP();
+date_default_timezone_set('Asia/Kolkata');
+$date = date('Y-m-d');
+$year4 = date("Y");
+$year2 = date("y"); //Get last two digits
+$plusOneYear = date('Y-m-d', strtotime('+1 year'));
+$time24h = date('H:i:s');
+$time = date("g:iA", strtotime($time24h));
+$timestamp = $date . ' ' . $time24h; //Date and Time
+
+//for getting user ip
+/* function getUserIp()
+{
+    switch (true) {
+        case (!empty($_SERVER['HTTP_X_REAL_IP'])):
+            return $_SERVER['HTTP_X_REAL_IP'];
+        case (!empty($_SERVER['HTTP_CLIENT_IP'])):
+            return $_SERVER['HTTP_CLIENT_IP'];
+        case (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])):
+            return $_SERVER['HTTP_X_FORWARDED_FOR'];
+        default:
+            return $_SERVER['REMOTE_ADDR'];
+    }
+} */
+
 /* DOCTOR FUNCTION */
 // Compress image
 function compressedImage($source, $path, $quality)
@@ -17,6 +43,34 @@ function compressedImage($source, $path, $quality)
     elseif ($info['mime'] == 'image/png')
         $image = imagecreatefrompng($source);
     imagejpeg($image, $path, $quality);
+}
+
+//Generating ID
+function generateHMSID($className)
+{ //WARNING:: DO NOT MODIFY THIS FUNCTION
+    global $year2;
+    //RM21-S1-01
+    $step1 = "HMS";
+    $step2 = $year2;
+    $step3 = $className;
+    $step4 = countRows('student_detail', 's_class', $className) + 1;
+    if ($step4 < 10) {
+        $step4 = '0' . $step4;
+    }
+    $final = $step1 . $step2 . $step3 . $step4;
+    return strtoupper($final);
+}
+//$where_condition, $match_this are optional just pass null 
+function countRows($table_name, $where_condition, $match_this)
+{
+    global $mysqli;
+    if ($where_condition == NULL || $match_this == NULL)
+        $get = "SELECT * FROM $table_name";
+    else
+        $get = "SELECT * FROM $table_name WHERE $where_condition='$match_this'";
+    $run = mysqli_query($mysqli, $get);
+    $counted = mysqli_num_rows($run);
+    return $counted;
 }
 
 // clean input field
