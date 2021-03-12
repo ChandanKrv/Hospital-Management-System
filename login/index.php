@@ -1,7 +1,7 @@
 <?php require_once "controllerUserData.php";
-include_once('session.php');
+include_once('sessionCheck.php');
 session_start();
-$u_email = $_SESSION['student_email'];
+$u_email = $_SESSION['email'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -62,7 +62,7 @@ $u_email = $_SESSION['student_email'];
 <body>
     <nav class="navbar">
         <a class="navbar-brand" href="#">HMS</a>
-        <button type="button" class="btn btn-light"><a href="logout-user.php">Logout</a></button>
+        <button type="button" class="btn btn-light"><a href="logout.php">Logout</a></button>
     </nav>
     <!--<h1>Welcome <?php echo $name ?> Bro Its working</h1>
     <h3>Your full name is <?php echo $full_name ?></h3>

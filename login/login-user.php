@@ -1,23 +1,15 @@
-<?php 
+<?php
 require_once "controllerUserData.php";
 require_once "sessionCheck.php";
+
 ?>
 <?php
 //session_start();  //Already Started in dp.php : Edited by Chandan
 error_reporting(E_ERROR | E_WARNING | E_PARSE);
 $email =  $_SESSION['email'];
-$sql = "SELECT * FROM user WHERE u_email ='$email'";
-$run_Sql = mysqli_query($con, $sql);
-if ($run_Sql) {
-    $fetch_info = mysqli_fetch_assoc($run_Sql);
-    $u_role = $fetch_info['u_role'];
-}
+$u_role = $_SESSION['u_role'];
 
-if ($u_role == "doctor")
-    header('location: ../doctor');
-else
-if ($u_role == "admin")
-    header('location: ../admin');
+header('location: ../$u_role');
 $forgot = "";
 ?>
 
