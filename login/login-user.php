@@ -10,8 +10,8 @@ if ($run_Sql) {
     $u_role = $fetch_info['u_role'];
 }
 
-if ($u_role == "student")
-    header('location: ../dashboard');
+if ($u_role == "doctor")
+    header('location: ../doctor');
 else
 if ($u_role == "admin")
     header('location: ../admin');
