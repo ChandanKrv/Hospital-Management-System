@@ -1,5 +1,5 @@
 <?php require_once "controllerUserData.php";
-include_once('session-check.php');
+//include_once('session-check.php');
 $u_email = $_SESSION['email'];
 
 //For Temporary 
