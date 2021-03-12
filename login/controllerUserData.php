@@ -123,9 +123,6 @@ if (isset($_POST['login'])) {
             if ($status == 'verified') {
                 $_SESSION['password'] = $password;
                 $_SESSION['u_role'] = $u_role;
-                //Folder name must be same as the data in u_role
-                // header('location: ../' . $u_role);
-                echo "<script>location.href='session-check.php'</script>";
             } else {
                 $query = mysqli_query($con, "SELECT * FROM user WHERE u_email='$email'");
                 while ($row = mysqli_fetch_assoc($query))

@@ -1,5 +1,14 @@
-<?php 
+<?php
 include_once('admin_header.php');
+
+$email = $_SESSION['email'];
+$sql = "SELECT * FROM user WHERE u_email ='$email'";
+$run_Sql = mysqli_query($con, $sql);
+if ($run_Sql) {
+    $fetch_info = mysqli_fetch_assoc($run_Sql);
+    $u_name = $fetch_info['u_name'];
+   // echo "<script>alert('Alert!! $u_name')</script>";
+}
 
 if (isset($_POST['add_doctor'])) {
     $u_id = $_POST["u_id"];
@@ -40,7 +49,7 @@ if (isset($_POST['add_doctor'])) {
             'd_timings'  =>  cleanInput($_POST['d_timings']),
             'd_phone'  =>  cleanInput($_POST['d_phone']),
             'd_bio'  =>  cleanInput($_POST['d_bio']),
-            
+
         );
         if (insertData('doctor', $data)) {
             echo "<script>alert('Doctor Added Successfully')</script>";
@@ -97,7 +106,7 @@ if (isset($_POST['add_doctor'])) {
                     <form class="mt-4" action="add-doctor.php" method="post" enctype='multipart/form-data'>
                         <div class="row">
 
-                        <div class="col-md-6">
+                            <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label">User Name</label>
                                     <input name="u_name" type="text" class="form-control" placeholder="User Name :">
@@ -131,7 +140,7 @@ if (isset($_POST['add_doctor'])) {
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label">Gender</label>
-                                    <select class="form-control department-name select2input" name="d_gender" >
+                                    <select class="form-control department-name select2input" name="d_gender">
                                         <option value="Male">Male</option>
                                         <option value="Female">Female</option>
                                         <option value="Others">Others</option>
@@ -142,7 +151,7 @@ if (isset($_POST['add_doctor'])) {
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label">Date Of Birth</label>
-                                    <input name="d_dob" type="date" class="form-control" >
+                                    <input name="d_dob" type="date" class="form-control">
                                 </div>
                             </div>
                             <div class="col-md-6">

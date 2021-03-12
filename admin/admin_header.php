@@ -13,10 +13,6 @@ if (isset($_SESSION['email']) && !empty($_SESSION['email']) && isset($_SESSION['
     header('location: ../login/login-user.php');
 }
 
-
-
-
-
 ?>
 
 <!DOCTYPE html>
