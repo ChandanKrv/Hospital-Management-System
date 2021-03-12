@@ -84,8 +84,7 @@ function doctorGigDisplay($match_this)
 
 /* LOGIN FUNCTION */
 function logout()
-{  //Main Logout Function
-    
+{ 
     //  session_start();  //Already Started in dp.php
     session_unset();
     session_destroy();
