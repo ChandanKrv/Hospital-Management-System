@@ -1,4 +1,7 @@
-<?php require_once "controllerUserData.php"; ?>
+<?php 
+require_once "controllerUserData.php";
+require_once "sessionCheck.php";
+?>
 <?php
 //session_start();  //Already Started in dp.php : Edited by Chandan
 error_reporting(E_ERROR | E_WARNING | E_PARSE);
