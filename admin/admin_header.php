@@ -4,6 +4,7 @@ include_once('../include/function.php');
 ?>
 <?php
 //Session Checking
+//WARNING: Don't Include this code in other file.
 if (isset($_SESSION['email']) && !empty($_SESSION['email']) && isset($_SESSION['u_role']) && !empty($_SESSION['u_role'])) {
     $u_role = $_SESSION['u_role'];
     if ($u_role != 'admin')

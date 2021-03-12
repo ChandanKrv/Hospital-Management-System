@@ -1,6 +1,5 @@
 <?php require_once "controllerUserData.php"; ?>
 <?php
-session_start();  //Already Started in controllerUserData: Edited by Chandan
 error_reporting(E_ERROR | E_WARNING | E_PARSE);
 $email =  $_SESSION['email'];
 $sql = "SELECT * FROM user WHERE u_email ='$email'";

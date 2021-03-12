@@ -1,7 +1,17 @@
 <?php
 //session_start(); //Already Started in dp.php
 include_once('../include/function.php');
-include_once('../login/session-check.php');
+?>
+<?php
+//Session Checking
+//WARNING: Don't Include this code in other file.
+if (isset($_SESSION['email']) && !empty($_SESSION['email']) && isset($_SESSION['u_role']) && !empty($_SESSION['u_role'])) {
+    $u_role = $_SESSION['u_role'];
+    if ($u_role != 'pharmacy')
+        echo "<script>location.href='../$u_role'</script>";
+} else {
+    header('location: ../login/login-user.php');
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
