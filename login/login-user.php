@@ -1,14 +1,10 @@
 <?php
 require_once "controllerUserData.php";
 //require_once "sessionCheck.php";
-
-?>
-<?php
-//session_start();  //Already Started in dp.php : Edited by Chandan
-/* $email =  $_SESSION['email'];
-$u_role = $_SESSION['u_role'];
-header('location: ../' . $u_role); */
-$forgot = "";
+if (isset($_SESSION['email']) && !empty($_SESSION['email']) && isset($_SESSION['u_role']) && !empty($_SESSION['u_role'])) {
+    // echo "<script>location.href='../admin'</script>";
+    header('location: ../' . $_SESSION['u_role']);
+} 
 ?>
 
 
@@ -51,8 +47,6 @@ $forgot = "";
                         <i class="fas fa-lock"></i>
                         <input class="form-control" type="password" name="password" placeholder="Password" required>
                     </div>
-                    <?php echo $forgot; ?>
-
                     <!-- <div class="link login-link text-center">Not yet a member? <a href="signup-user.php">Signup now</a></div> -->
 
                     <!-- <input class="form-control button" type="submit" name="login" value="Login"> -->

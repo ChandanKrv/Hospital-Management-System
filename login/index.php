@@ -1,13 +1,22 @@
 <?php require_once "controllerUserData.php";
-include_once('sessionCheck.php');
+include_once('session-check.php');
 $u_email = $_SESSION['email'];
+
+//For Temporary 
+if (isset($_SESSION['email']) && !empty($_SESSION['email']) && isset($_SESSION['u_role']) && !empty($_SESSION['u_role'])) {
+    // echo "<script>location.href='../admin'</script>";
+    header('location: ../' . $_SESSION['u_role']);
+} else {
+    header('location: login-user.php');
+    //echo "<script>location.href='../login/login-user.php'</script>";
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <title><?php echo $name ?> | Home</title>
+    <title><?php echo $u_email ?> | Home</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
