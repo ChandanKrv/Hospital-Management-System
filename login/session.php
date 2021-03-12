@@ -1,4 +1,6 @@
 <?php
+//This page not in use
+
 //session_start();  //Already Started in controllerUserData: Edited by Chandan
 error_reporting(E_ERROR | E_WARNING | E_PARSE);
 $email =  $_SESSION['email'];
@@ -34,5 +36,3 @@ if (!isset($email)) {
            }        
     }
 }
-
-?>

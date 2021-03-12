@@ -51,6 +51,11 @@ if (isset($_POST['add_doctor'])) {
         echo "<script>alert('Error!! Only png/jpg/jpeg are Allowed')</script>";
     }
 }
+
+
+
+
+
 ?>
 <div class="container-fluid">
     <div class="layout-specing">

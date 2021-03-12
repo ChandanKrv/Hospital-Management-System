@@ -1,4 +1,5 @@
 <?php
+//Not in use
 session_start();
 if (!isset($_SESSION['student_email'])) {
     echo "<script>alert('Please Login With RM-ID Or Email')</script>";
