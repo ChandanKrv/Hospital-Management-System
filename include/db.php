@@ -1,5 +1,5 @@
 <?php
-//session_start();
+session_start(); //Main Session 
 
 //For Localhost 
 if($_SERVER['HTTP_HOST']=="localhost" or $_SERVER['HTTP_HOST']=="192.168.1.125")
@@ -20,5 +20,3 @@ DEFINE ('DB_NAME', 'candyapkof_hms');
 
 $mysqli=$con=mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
 $conn=$con;
-
-?>

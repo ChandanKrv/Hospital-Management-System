@@ -1,5 +1,5 @@
 <?php
-session_start();
+//session_start(); //Already Started in dp.php
 require '../include/function.php';
 $email = "";
 $name = "";

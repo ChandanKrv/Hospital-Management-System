@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php 
+<?php
+//session_start();
 include_once('../include/function.php');
-//include_once('../login/session_admin.php');
+include_once('../login/session_admin.php');
 ?>
 
 <!-- Mirrored from shreethemes.in/doctris/admin/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 28 Feb 2021 09:57:05 GMT -->
@@ -35,6 +36,7 @@ include_once('../include/function.php');
     <link href="../assets/css/style.min.css" rel="stylesheet" type="text/css" />
 
 </head>
+
 <body>
     <!-- Loader -->
     <div id="preloader">

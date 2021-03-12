@@ -1,5 +1,5 @@
 <?php
-require 'db.php';
+require 'db.php'; //Already Started in dp.php
 
 /* DOCTOR FUNCTION */
 // Compress image
