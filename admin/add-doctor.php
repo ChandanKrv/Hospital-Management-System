@@ -6,12 +6,15 @@ $sql = "SELECT * FROM user WHERE u_email ='$email'";
 $run_Sql = mysqli_query($con, $sql);
 if ($run_Sql) {
     $fetch_info = mysqli_fetch_assoc($run_Sql);
+    $u_id = $fetch_info['u_id'];
     $u_name = $fetch_info['u_name'];
-    echo "<script>alert('Username- $u_name')</script>";
+    $u_full_name = $fetch_info['u_full_name'];
+    $u_email = $fetch_info['u_email'];
+    //echo "<script>alert('Username- $u_id')</script>";
 }
 
 if (isset($_POST['add_doctor'])) {
-    $u_id = $_POST["u_id"];
+    //$u_id = $_POST["u_id"];
     //$d_image = $_POST["d_image"];
     $d_gender = $_POST["d_gender"];
     $d_dob = $_POST["d_dob"];
@@ -40,7 +43,7 @@ if (isset($_POST['add_doctor'])) {
         //Here i am enter the insert code in the step ........
         //Pushing All data into database
         $data = array(
-            'u_id' => 62,
+            'u_id' => $u_id,
             'd_image'  =>   $new_profle_pic,
             'd_gender'  =>  $d_gender,
             'd_dob'  =>  $d_dob,
@@ -109,14 +112,14 @@ if (isset($_POST['add_doctor'])) {
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label">User Name</label>
-                                    <input name="u_name" type="text" class="form-control" placeholder="User Name :">
+                                    <input name="u_name" type="text" class="form-control" placeholder="<?php echo $u_name ?>" disabled>
                                 </div>
                             </div>
 
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label">Full Name</label>
-                                    <input name="u_full_name" type="text" class="form-control" placeholder="Full Name :">
+                                    <input name="u_full_name" type="text" class="form-control" placeholder="<?php echo $u_full_name ?>" disabled>
                                 </div>
                             </div>
                             <!--end col-->
@@ -124,7 +127,7 @@ if (isset($_POST['add_doctor'])) {
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label">Email Id</label>
-                                    <input name="u_email" type="email" class="form-control" placeholder="Email Id :">
+                                    <input name="u_email" type="email" class="form-control" placeholder="<?php echo $u_email ?>" disabled>
                                 </div>
                             </div>
                             <!--end col-->
