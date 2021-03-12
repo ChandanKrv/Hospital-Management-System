@@ -7,7 +7,7 @@ $run_Sql = mysqli_query($con, $sql);
 if ($run_Sql) {
     $fetch_info = mysqli_fetch_assoc($run_Sql);
     $u_name = $fetch_info['u_name'];
-   // echo "<script>alert('Alert!! $u_name')</script>";
+    echo "<script>alert('Username- $u_name')</script>";
 }
 
 if (isset($_POST['add_doctor'])) {
