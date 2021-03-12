@@ -124,13 +124,21 @@ if (isset($_POST['login'])) {
                 $_SESSION['email'] = $email;
                 $_SESSION['password'] = $password;
                 $checkUser = getOneData("user", "u_role", "u_email", $email);
-                if ($checkUser == "student") {
+                if ($checkUser == "patient") {
                     $_SESSION['student_email'] = $email;
-                    header('location: ../dashboard');
+                    header('location: ../patient');
                 } elseif ($checkUser == "admin") {
                     $_SESSION['admin_email'] = $email;
                     $_SESSION['u_role'] = $u_role;
-                    header('location: ../admin/index.php');
+                    header('location: ../admin');
+                } elseif ($checkUser == "doctor") {
+                    $_SESSION['admin_email'] = $email;
+                    $_SESSION['u_role'] = $u_role;
+                    header('location: ../doctor');
+                } elseif ($checkUser == "staff") {
+                    $_SESSION['admin_email'] = $email;
+                    $_SESSION['u_role'] = $u_role;
+                    header('location: ../staff');
                 } else {
                     logout();
                     echo "<script>alert('Login Error Please Contact Us line');
