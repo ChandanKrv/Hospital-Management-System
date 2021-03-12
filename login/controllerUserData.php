@@ -121,30 +121,10 @@ if (isset($_POST['login'])) {
             $status = $fetch['u_status'];
             $u_role = $fetch['u_role'];
             if ($status == 'verified') {
-                $_SESSION['email'] = $email;
                 $_SESSION['password'] = $password;
-                $checkUser = getOneData("user", "u_role", "u_email", $email);
-                if ($checkUser == "patient") {
-                    $_SESSION['student_email'] = $email;
-                    header('location: ../patient');
-                } elseif ($checkUser == "admin") {
-                    $_SESSION['admin_email'] = $email;
-                    $_SESSION['u_role'] = $u_role;
-                    header('location: ../admin');
-                } elseif ($checkUser == "doctor") {
-                    $_SESSION['admin_email'] = $email;
-                    $_SESSION['u_role'] = $u_role;
-                    header('location: ../doctor');
-                } elseif ($checkUser == "staff") {
-                    $_SESSION['admin_email'] = $email;
-                    $_SESSION['u_role'] = $u_role;
-                    header('location: ../staff');
-                } else {
-                    logout();
-                    echo "<script>alert('Login Error Please Contact Us line');
-                    window.location.href='login-user.php';</script>";
-                }
-                exit();
+                $_SESSION['u_role'] = $u_role;
+                //Folder name must be same as the data in u_role
+                header('location: ../$u_role');
             } else {
                 $query = mysqli_query($con, "SELECT * FROM user WHERE u_email='$email'");
                 while ($row = mysqli_fetch_assoc($query))
