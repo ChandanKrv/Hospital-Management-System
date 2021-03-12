@@ -61,7 +61,7 @@ $u_email = $_SESSION['student_email'];
 
 <body>
     <nav class="navbar">
-        <a class="navbar-brand" href="#">Robomanthan</a>
+        <a class="navbar-brand" href="#">HMS</a>
         <button type="button" class="btn btn-light"><a href="logout-user.php">Logout</a></button>
     </nav>
     <!--<h1>Welcome <?php echo $name ?> Bro Its working</h1>
