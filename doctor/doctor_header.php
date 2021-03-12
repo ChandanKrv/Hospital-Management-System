@@ -1,7 +1,10 @@
+<?php
+//session_start(); //Already Started in dp.php
+include_once('../include/function.php');
+include_once('../login/session_admin.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
-
-
 <!-- Mirrored from shreethemes.in/doctris/admin/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 28 Feb 2021 09:57:05 GMT -->
 
 <head>
@@ -66,7 +69,7 @@
                         </div>
                     </li>
 
-                   
+
                     <li class="sidebar-dropdown">
                         <a href="javascript:void(0)"><i class="uil uil-shopping-cart me-2 d-inline-block"></i>Pharmacy</a>
                         <div class="sidebar-submenu">
@@ -233,7 +236,7 @@
                                     <a class="dropdown-item text-dark" href="index-2.html"><span class="mb-0 d-inline-block me-1"><i class="uil uil-dashboard align-middle h6"></i></span> Dashboard</a>
                                     <a class="dropdown-item text-dark" href="dr-profile.html"><span class="mb-0 d-inline-block me-1"><i class="uil uil-setting align-middle h6"></i></span> Profile Settings</a>
                                     <div class="dropdown-divider border-top"></div>
-                                    <a class="dropdown-item text-dark" href="lock-screen.html"><span class="mb-0 d-inline-block me-1"><i class="uil uil-sign-out-alt align-middle h6"></i></span> Logout</a>
+                                    <a class="dropdown-item text-dark" href="" onclick=<?php logout(); ?>><span class="mb-0 d-inline-block me-1"><i class="uil uil-sign-out-alt align-middle h6"></i></span> Logout</a>
                                 </div>
                             </div>
                         </li>

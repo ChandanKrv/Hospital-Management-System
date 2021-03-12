@@ -1,11 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
 <?php
-//session_start();
+//session_start(); //Already Started in dp.php
 include_once('../include/function.php');
 include_once('../login/session_admin.php');
 ?>
-
+<!DOCTYPE html>
+<html lang="en">
 <!-- Mirrored from shreethemes.in/doctris/admin/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 28 Feb 2021 09:57:05 GMT -->
 
 <head>
