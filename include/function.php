@@ -85,10 +85,10 @@ function doctorGigDisplay($match_this)
 /* LOGIN FUNCTION */
 function logout()
 {
-    session_start();
+    //  session_start();
     session_unset();
     session_destroy();
-    // header('location: login-user.php');
+    echo "<script> location.href='../' </script>";
 }
 
 function getOneData($table_name, $column_name, $where_condition, $match_this)
