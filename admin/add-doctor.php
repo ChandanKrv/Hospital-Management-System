@@ -54,7 +54,6 @@ if (isset($_POST['add_doctor'])) {
             'd_splst'  =>  $_POST['d_splst'],
             'd_fees'  => $_POST['d_fees'],
             'd_bio'  =>  $_POST['d_bio'],
-
         );
         if (insertData('doctor', $data)) {
             echo "<script>alert('Doctor Added Successfully')</script>";
