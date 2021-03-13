@@ -46,7 +46,7 @@ if (isset($_SESSION['email']) && !empty($_SESSION['email']) && isset($_SESSION['
     <!-- Css -->
     <link href="../assets/css/style.min.css" rel="stylesheet" type="text/css" />
 
-    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="https://cdn.tiny.cloud/1/bmnlktul2fb3s7jcgj8tp5nf9clebe6e3clfzcj7k23ku9r5/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 </head>
 <script>
     tinymce.init({
