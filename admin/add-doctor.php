@@ -49,7 +49,7 @@ if (isset($_POST['add_doctor'])) {
             'd_gender'  =>  $d_gender,
             'd_dob'  =>  $d_dob,
             'd_department'  =>  $d_department,
-            'd_address'  =>  cleanInput($_POST['d_address']),
+            'd_address'  =>  $_POST['d_address'],
             'd_timings'  =>  cleanInput($_POST['d_timings']),
             'd_phone'  =>  cleanInput($_POST['d_phone']),
             'd_splst'  =>  cleanInput($_POST['d_splst']),
