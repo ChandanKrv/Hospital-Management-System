@@ -177,23 +177,22 @@ if (isset($_POST['add_doctor'])) {
                                 </div>
                             </div>
 
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <div class="mb-3">
                                     <label class="form-label">Specialist</label>
                                     <input name="d_splst" type="text" class="form-control" placeholder="Specialist :">
-                                </div>
-                            </div>
-
-                            <div class="col-md-12">
-                                <div class="mb-3">
-                                    <label class="form-label">Address</label>
-                                    <textarea name="d_address" rows="3" class="form-control" placeholder="Address :"></textarea>
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="mb-3">
                                     <label class="form-label">Visiting Hrs</label>
                                     <textarea name="d_timings" rows="3" class="form-control" placeholder="Visiting Hrs :"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="mb-3">
+                                    <label class="form-label">Address</label>
+                                    <textarea name="d_address" rows="3" class="form-control" placeholder="Address :"></textarea>
                                 </div>
                             </div>
                             <div class="col-md-12">
