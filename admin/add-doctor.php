@@ -22,7 +22,6 @@ if (isset($_POST['add_doctor'])) {
     $d_address = $_POST["d_address"];
     //$d_timings = $_POST["d_timings"];
     $d_phone = $_POST["d_phone"];
-    $d_splst = $_POST["d_splst"];
     //$sc_id = $_POST["sc_id"];
     // Getting file name
     $filename = $_FILES['d_image']['name'];
@@ -50,10 +49,11 @@ if (isset($_POST['add_doctor'])) {
             'd_dob'  =>  $d_dob,
             'd_department'  =>  $d_department,
             'd_address'  =>  $_POST['d_address'],
-            'd_timings'  =>  cleanInput($_POST['d_timings']),
-            'd_phone'  =>  cleanInput($_POST['d_phone']),
-            'd_splst'  =>  cleanInput($_POST['d_splst']),
-            'd_bio'  =>  cleanInput($_POST['d_bio']),
+            'd_timings'  =>  $_POST['d_timings'],
+            'd_phone'  =>  $_POST['d_phone'],
+            'd_splst'  =>  $_POST['d_splst'],
+            'd_fees'  => $_POST['d_fees'],
+            'd_bio'  =>  $_POST['d_bio'],
 
         );
         if (insertData('doctor', $data)) {
@@ -177,10 +177,16 @@ if (isset($_POST['add_doctor'])) {
                                 </div>
                             </div>
 
-                            <div class="col-md-12">
+                            <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label">Specialist</label>
                                     <input name="d_splst" type="text" class="form-control" placeholder="Specialist :">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Fees</label>
+                                    <input name="d_fees" type="number" class="form-control" placeholder="Enter Amount :">
                                 </div>
                             </div>
                             <div class="col-md-12">
