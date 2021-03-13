@@ -22,6 +22,7 @@ if (isset($_POST['add_doctor'])) {
     $d_address = $_POST["d_address"];
     //$d_timings = $_POST["d_timings"];
     $d_phone = $_POST["d_phone"];
+    $d_splst = $_POST["d_splst"];
     //$sc_id = $_POST["sc_id"];
     // Getting file name
     $filename = $_FILES['d_image']['name'];
@@ -51,6 +52,7 @@ if (isset($_POST['add_doctor'])) {
             'd_address'  =>  cleanInput($_POST['d_address']),
             'd_timings'  =>  cleanInput($_POST['d_timings']),
             'd_phone'  =>  cleanInput($_POST['d_phone']),
+            'd_splst'  =>  cleanInput($_POST['d_splst']),
             'd_bio'  =>  cleanInput($_POST['d_bio']),
 
         );
@@ -63,10 +65,6 @@ if (isset($_POST['add_doctor'])) {
         echo "<script>alert('Error!! Only png/jpg/jpeg are Allowed')</script>";
     }
 }
-
-
-
-
 
 ?>
 <div class="container-fluid">
@@ -178,6 +176,14 @@ if (isset($_POST['add_doctor'])) {
                                     <input name="d_phone" type="number" class="form-control" placeholder="Phone Number :">
                                 </div>
                             </div>
+
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Specialist</label>
+                                    <input name="d_splst" type="text" class="form-control" placeholder="Specialist :">
+                                </div>
+                            </div>
+
                             <div class="col-md-12">
                                 <div class="mb-3">
                                     <label class="form-label">Address</label>
