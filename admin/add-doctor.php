@@ -323,4 +323,5 @@ if (isset($_POST['add_doctor'])) {
     </div>
 </div>
 <!--end container-->
+
 <?php include_once('admin_footer.php') ?>

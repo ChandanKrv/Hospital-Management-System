@@ -46,7 +46,13 @@ if (isset($_SESSION['email']) && !empty($_SESSION['email']) && isset($_SESSION['
     <!-- Css -->
     <link href="../assets/css/style.min.css" rel="stylesheet" type="text/css" />
 
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 </head>
+<script>
+    tinymce.init({
+        selector: 'textarea'
+    });
+</script>
 
 <body>
     <!-- Loader -->
