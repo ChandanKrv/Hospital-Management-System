@@ -11,6 +11,20 @@ if (isset($_SESSION['email']) && !empty($_SESSION['email']) && isset($_SESSION['
 } else {
     header('location: ../login/login-user.php');
 }
+
+/* FETCHING USER DATA */
+$email = $_SESSION['email'];
+$sql = "SELECT * FROM user WHERE u_email ='$email'";
+$run_Sql = mysqli_query($con, $sql);
+if ($run_Sql) {
+    $fetch_info = mysqli_fetch_assoc($run_Sql);
+    $u_id = $fetch_info['u_id'];
+    $u_name = $fetch_info['u_name'];
+    $u_full_name = $fetch_info['u_full_name'];
+    $u_email = $fetch_info['u_email'];
+    $hms_id = $fetch_info['hms_id'];
+    //echo "<script>alert('Username- $u_id')</script>";
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -235,15 +249,15 @@ if (isset($_SESSION['email']) && !empty($_SESSION['email']) && isset($_SESSION['
                             <div class="dropdown dropdown-primary">
                                 <button type="button" class="btn btn-pills btn-soft-primary dropdown-toggle p-0" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../assets/images/doctors/01.jpg" class="avatar avatar-ex-small rounded-circle" alt=""></button>
                                 <div class="dropdown-menu dd-menu dropdown-menu-end bg-white shadow border-0 mt-3 py-3" style="min-width: 200px;">
-                                    <a class="dropdown-item d-flex align-items-center text-dark" href="profile.html">
+                                    <a class="dropdown-item d-flex align-items-center text-dark" href="dr-profile">
                                         <img src="../assets/images/doctors/01.jpg" class="avatar avatar-md-sm rounded-circle border shadow" alt="">
                                         <div class="flex-1 ms-2">
                                             <span class="d-block mb-1">Calvin Carlo</span>
                                             <small class="text-muted">Orthopedic</small>
                                         </div>
                                     </a>
-                                    <a class="dropdown-item text-dark" href="index-2.html"><span class="mb-0 d-inline-block me-1"><i class="uil uil-dashboard align-middle h6"></i></span> Dashboard</a>
-                                    <a class="dropdown-item text-dark" href="dr-profile.html"><span class="mb-0 d-inline-block me-1"><i class="uil uil-setting align-middle h6"></i></span> Profile Settings</a>
+                                    <a class="dropdown-item text-dark" href="index"><span class="mb-0 d-inline-block me-1"><i class="uil uil-dashboard align-middle h6"></i></span> Dashboard</a>
+                                    <a class="dropdown-item text-dark" href="dr-profile"><span class="mb-0 d-inline-block me-1"><i class="uil uil-setting align-middle h6"></i></span> Profile Settings</a>
                                     <div class="dropdown-divider border-top"></div>
                                     <a class="dropdown-item text-dark" href="../login/logout"><span class="mb-0 d-inline-block me-1"><i class="uil uil-sign-out-alt align-middle h6"></i></span> Logout</a>
                                 </div>

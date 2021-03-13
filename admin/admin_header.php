@@ -69,6 +69,16 @@ if (isset($_SESSION['email']) && !empty($_SESSION['email']) && isset($_SESSION['
 
                 <ul class="sidebar-menu pt-3">
                     <li><a href="index"><i class="uil uil-dashboard me-2 d-inline-block"></i>Dashboard</a></li>
+                    <li class="sidebar-dropdown">
+                        <a href="javascript:void(0)"><i class="uil uil-user-md me-2 d-inline-block"></i>Admin</a>
+                        <div class="sidebar-submenu">
+                            <ul>
+                                <li><a href="doctors">Admin</a></li>
+                                <li><a href="add-doctor">Add Admin</a></li>
+                                <li><a href="dr-profile">Profile</a></li>
+                            </ul>
+                        </div>
+                    </li>
                     <li><a href="appointment"><i class="uil uil-stethoscope me-2 d-inline-block"></i>Appointment</a></li>
 
                     <li class="sidebar-dropdown">

@@ -91,6 +91,14 @@ function insertData($table_name, $data_array)
     return mysqli_query($mysqli, "INSERT INTO $table_name(" . implode(",", $fields) . ") VALUES ('" . implode("','", $values) . "');");
 }
 
+/* UPDATE ONE DATA */
+function updateOneData($table_name, $columnName, $updatingData, $where_condition, $match_this)
+{
+    global $con;
+    $getData = "UPDATE $table_name SET $columnName='$updatingData' WHERE $where_condition='$match_this'";
+    return mysqli_query($con, $getData);
+}
+
 
 function doctorGigDisplay()
 {

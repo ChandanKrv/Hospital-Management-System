@@ -1,4 +1,11 @@
-<?php include_once('doctor_header.php') ?>
+<?php include_once('doctor_header.php'); 
+ 
+if($hms_id == '')
+{
+    echo "<script>alert('It seems that you have not created your HMS Id. Please create it to continue!!')</script>";
+    echo "<script>location.href='doctor-id'</script>";
+}
+?>
 
 <div class="container-fluid">
     <div class="layout-specing">
