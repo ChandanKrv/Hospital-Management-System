@@ -19,7 +19,7 @@
                             </div><!--end col-->
                         </div><!--end row-->
                         
-                        <div class="row row-cols-xl-5">
+                        <div class="row">
 
 
                         

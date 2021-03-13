@@ -100,7 +100,34 @@ function updateOneData($table_name, $columnName, $updatingData, $where_condition
     return mysqli_query($con, $getData);
 }
 
+/* STAFF GIG */
+function staffGigDisplay()
+{
+    global $con;
+    //For local
+    $get_product = "SELECT * FROM user INNER JOIN staff ON user.u_id=staff.u_id ORDER BY staff.s_id DESC";
+    $run_products = mysqli_query($con, $get_product);
+    while ($row_product = mysqli_fetch_array($run_products)) {
+        $u_full_name = $row_product['u_full_name'];
+        $s_department = $row_product['s_department'];
+        $s_image = $row_product['s_image'];
 
+        echo "<div class='col-xl col-lg-4 col-md-6 mt-4'>
+        <div class='card team border-0 rounded shadow overflow-hidden'>
+            <div class='team-img position-relative'>
+                <img src='../assets/images/staffs_img/$d_image' class='img-fluid' alt=''>
+                
+            </div>
+            <div class='card-body content text-center'>
+                <a href='dr-profile' class='title text-dark h5 d-block mb-0'>Dr. $u_full_name</a>
+                <small class='text-muted speciality'>$d_department</small>
+            </div>
+        </div>
+    </div>";
+    }
+}
+
+/* DOCTOR GIG */
 function doctorGigDisplay()
 {
     global $con;
@@ -110,20 +137,47 @@ function doctorGigDisplay()
     while ($row_product = mysqli_fetch_array($run_products)) {
         $u_full_name = $row_product['u_full_name'];
         $d_department = $row_product['d_department'];
+        $d_address = $row_product['d_address'];
+        $d_timings = $row_product['d_timings'];
+        $d_price = $row_product['d_price'];
         $d_image = $row_product['d_image'];
+        /* $d_address = $row_product['$d_address'];
+         */
 
-        echo "<div class='col-xl col-lg-4 col-md-6 mt-4'>
+        echo "<div class='col-lg-6 col-md-12'>
         <div class='card team border-0 rounded shadow overflow-hidden'>
-            <div class='team-img position-relative'>
-                <img src='../assets/images/doctors_img/$d_image' class='img-fluid' alt=''>
-                
-            </div>
-            <div class='card-body content text-center'>
-                <a href='dr-profile' class='title text-dark h5 d-block mb-0'>Dr. $u_full_name</a>
-                <small class='text-muted speciality'>$d_department</small>
+            <div class='row align-items-center'>
+                <div class='col-md-6'>
+                    <div class='team-person position-relative overflow-hidden'>
+                        <img src='../assets/images/doctors_img/$d_image' class='img-fluid' alt=''>
+                        
+                    </div>
+                </div>
+                <div class='col-md-6'>
+                    <div class='card-body'>
+                        <a href='#' class='title text-dark h5 d-block mb-0'>Dr. $u_full_name</a>
+                        <small class='text-muted speciality'>$d_department</small>
+                        
+                        <ul class='list-unstyled mt-2 mb-0'>
+                            <li class='d-flex'>
+                                <i class='ri-map-pin-line text-primary align-middle'></i>
+                                <small class='text-muted ms-2'>$d_address</small>
+                            </li>
+                            <li class='d-flex mt-2'>
+                                <i class='ri-time-line text-primary align-middle'></i>
+                                <small class='text-muted ms-2'>$d_timings</small>
+                            </li>
+                            <li class='d-flex mt-2'>
+                                <i class='ri-money-dollar-circle-line text-primary align-middle'></i>
+                                <small class='text-muted ms-2'>$d_price</small>
+                            </li>
+                        </ul>
+                        
+                    </div>
+                </div>
             </div>
         </div>
-    </div>";
+        </div>";
     }
 }
 
