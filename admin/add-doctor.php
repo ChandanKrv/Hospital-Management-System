@@ -186,7 +186,7 @@ if (isset($_POST['add_doctor'])) {
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label">Fees</label>
-                                    <input name="d_fees" type="number" class="form-control" placeholder="Enter Amount :">
+                                    <input name="d_fees" type="number" class="form-control" placeholder="Enter Amount (INR) :">
                                 </div>
                             </div>
                             <div class="col-md-12">
