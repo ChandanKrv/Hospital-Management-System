@@ -48,18 +48,19 @@ function compressedImage($source, $path, $quality)
 }
 
 //Generating ID
-function generateHMSID($className)
+function generateHMSID($u_role)
 { //WARNING:: DO NOT MODIFY THIS FUNCTION
     global $year2;
-    //RM21-S1-01
+    //HMS21-DOC-01
     $step1 = "HMS";
     $step2 = $year2;
-    $step3 = $className;
-    $step4 = countRows('student_detail', 's_class', $className) + 1;
+    $step3 = $u_role[0] . $u_role[1] . $u_role[2];
+    $hyphen = "-";
+    $step4 = countRows('user', 'u_role', $u_role) + 1;
     if ($step4 < 10) {
         $step4 = '0' . $step4;
     }
-    $final = $step1 . $step2 . $step3 . $step4;
+    $final = $step1 . $step2 . $hyphen . $step3 . $hyphen . $step4;
     return strtoupper($final);
 }
 //$where_condition, $match_this are optional just pass null 
@@ -110,7 +111,7 @@ function doctorGigDisplay()
         $u_full_name = $row_product['u_full_name'];
         $d_department = $row_product['d_department'];
         $d_image = $row_product['d_image'];
-        
+
         echo "<div class='col-xl col-lg-4 col-md-6 mt-4'>
         <div class='card team border-0 rounded shadow overflow-hidden'>
             <div class='team-img position-relative'>
@@ -123,7 +124,7 @@ function doctorGigDisplay()
             </div>
         </div>
     </div>";
-        }
+    }
 }
 
 

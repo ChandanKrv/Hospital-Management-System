@@ -1,8 +1,7 @@
 <?php
 include_once('doctor_header.php');
 
-if($hms_id != '')
-{
+if ($hms_id != '') {
     echo "<script>location.href='index'</script>";
 }
 
@@ -47,11 +46,13 @@ if (isset($_POST['add_doctor'])) {
             'd_bio'  =>  cleanInput($_POST['d_bio']),
 
         );
-        updateOneData('user', 'hms_id', 'HELLO', 'u_id', $u_id);
-
         if (insertData('doctor', $data)) {
-            echo "<script>alert('Doctor Added Successfully')</script>";
-            echo "<script>location.href='index'</script>";
+            if (updateOneData('user', 'hms_id', generateHMSID('doctor'), 'u_email', $email)) {
+                echo "<script>alert('Doctor Added Successfully')</script>";
+                echo "<script>location.href='index'</script>";
+            } else {
+                echo "<script>alert('Data Inserted, HMS-Id NOT generated')</script>";
+            }
         } else {
             echo "<script>alert('Error!! Doctor Not Added')</script>";
         }
@@ -245,7 +246,7 @@ if (isset($_POST['add_doctor'])) {
                         </div>
                         <!--end row-->
 
-                        <button type="submit" name="add_doctor" class="btn btn-primary">Add Doctor Id</button>
+                        <button type="submit" name="add_doctor" class="btn btn-primary">Create Doctor Id</button>
                     </form>
                 </div>
             </div>
