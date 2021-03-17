@@ -11,9 +11,9 @@ START TRANSACTION;
 SET time_zone = "+00:00";
 
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET @OLs_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLs_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLs_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
 
 --
@@ -43,16 +43,16 @@ CREATE TABLE `admin` (
 --
 
 CREATE TABLE `doctor` (
-  `d_id` int(15) NOT NULL,
+  `s_id` int(15) NOT NULL,
   `u_id` int(15) NOT NULL,
-  `d_image` varchar(225) NOT NULL,
-  `d_gender` varchar(15) NOT NULL,
-  `d_dob` varchar(15) NOT NULL,
-  `d_department` varchar(225) NOT NULL,
-  `d_address` varchar(225) NOT NULL,
-  `d_timings` varchar(225) NOT NULL,
-  `d_bio` varchar(5000) NOT NULL,
-  `d_phone` varchar(15) NOT NULL
+  `s_image` varchar(225) NOT NULL,
+  `s_gender` varchar(15) NOT NULL,
+  `s_dob` varchar(15) NOT NULL,
+  `s_department` varchar(225) NOT NULL,
+  `s_address` varchar(225) NOT NULL,
+  `s_timings` varchar(225) NOT NULL,
+  `s_bio` varchar(5000) NOT NULL,
+  `s_phone` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -68,7 +68,7 @@ CREATE TABLE `patient` (
   `p_gender` int(15) NOT NULL,
   `p_dob` date NOT NULL,
   `p_dept` varchar(225) NOT NULL,
-  `d_id` int(15) NOT NULL,
+  `s_id` int(15) NOT NULL,
   `p_address` varchar(225) NOT NULL,
   `p_phone` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -135,7 +135,7 @@ ALTER TABLE `admin`
 -- Indexes for table `doctor`
 --
 ALTER TABLE `doctor`
-  ADD PRIMARY KEY (`d_id`),
+  ADD PRIMARY KEY (`s_id`),
   ADD KEY `u_id` (`u_id`);
 
 --
@@ -144,7 +144,7 @@ ALTER TABLE `doctor`
 ALTER TABLE `patient`
   ADD PRIMARY KEY (`p_id`),
   ADD KEY `u_id` (`u_id`),
-  ADD KEY `d_id` (`d_id`);
+  ADD KEY `s_id` (`s_id`);
 
 --
 -- Indexes for table `staff`
@@ -176,7 +176,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `doctor`
 --
 ALTER TABLE `doctor`
-  MODIFY `d_id` int(15) NOT NULL AUTO_INCREMENT;
+  MODIFY `s_id` int(15) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `patient`
@@ -217,7 +217,7 @@ ALTER TABLE `doctor`
 --
 ALTER TABLE `patient`
   ADD CONSTRAINT `patient_ibfk_1` FOREIGN KEY (`u_id`) REFERENCES `user` (`u_id`),
-  ADD CONSTRAINT `patient_ibfk_2` FOREIGN KEY (`d_id`) REFERENCES `doctor` (`d_id`);
+  ADD CONSTRAINT `patient_ibfk_2` FOREIGN KEY (`s_id`) REFERENCES `doctor` (`s_id`);
 
 --
 -- Constraints for table `staff`
@@ -226,6 +226,6 @@ ALTER TABLE `staff`
   ADD CONSTRAINT `staff to user` FOREIGN KEY (`u_id`) REFERENCES `user` (`u_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLs_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLs_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLs_COLLATION_CONNECTION */;

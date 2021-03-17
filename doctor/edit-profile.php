@@ -1,22 +1,22 @@
 <?php
 include_once('doctor_header.php');
 
-if (isset($_POST['add_doctor'])) {
+if (isset($_POST['ads_doctor'])) {
     //$u_id = $_POST["u_id"];
-    //$d_image = $_POST["d_image"];
-    $d_gender = $_POST["d_gender"];
-    $d_dob = $_POST["d_dob"];
-    $d_department = $_POST["d_department"];
-    $d_address = $_POST["d_address"];
-    $d_timings = $_POST["d_timings"];
-    $d_phone = $_POST["d_phone"];
-    $d_bio = $_POST["d_bio"];
-    $d_fees = $_POST["d_fees"];
-    $d_speciality = $_POST["d_speciality"];
+    //$s_image = $_POST["s_image"];
+    $s_gender = $_POST["s_gender"];
+    $s_dob = $_POST["s_dob"];
+    $s_department = $_POST["s_department"];
+    $s_address = $_POST["s_address"];
+    $s_timings = $_POST["s_timings"];
+    $s_phone = $_POST["s_phone"];
+    $s_bio = $_POST["s_bio"];
+    $s_fees = $_POST["s_fees"];
+    $s_speciality = $_POST["s_speciality"];
     // Getting file name
-    $filename = $_FILES['d_image']['name'];
+    $filename = $_FILES['s_image']['name'];
     // Valid extension
-    $valid_ext = array('png', 'jpeg', 'jpg');
+    $valis_ext = array('png', 'jpeg', 'jpg');
     $photoExt1 = @end(explode('.', $filename)); // explode the image name to get the extension
     $phototest1 = strtolower($photoExt1);
     $new_profle_pic = uniqid() . '.' . $phototest1;
@@ -26,24 +26,24 @@ if (isset($_POST['add_doctor'])) {
     $file_extension = pathinfo($location, PATHINFO_EXTENSION);
     $file_extension = strtolower($file_extension);
     // Check extension
-    echo $d_address;
-    if (in_array($file_extension, $valid_ext)) {
+    echo $s_address;
+    if (in_array($file_extension, $valis_ext)) {
         // Compress Image
-        compressedImage($_FILES['d_image']['tmp_name'], $location, 60);
+        compressedImage($_FILES['s_image']['tmp_name'], $location, 60);
         //Here i am enter the insert code in the step ........
         //Pushing All data into database
         $data = array(
             'u_id' => $u_id,
-            'd_image'  =>   $new_profle_pic,
-            'd_gender'  =>  $d_gender,
-            'd_dob'  =>  $d_dob,
-            'd_department'  =>  $d_department,
-            'd_address'  =>  cleanInput($_POST['d_address']),
-            'd_timings'  =>  $d_timings,
-            'd_phone'  =>  cleanInput($_POST['d_phone']),
-            'd_bio'  =>  $d_bio,
-            'd_fees'  =>  cleanInput($_POST['d_fees']),
-            'd_speciality'  =>  $d_speciality,
+            's_image'  =>   $new_profle_pic,
+            's_gender'  =>  $s_gender,
+            's_dob'  =>  $s_dob,
+            's_department'  =>  $s_department,
+            's_address'  =>  cleanInput($_POST['s_address']),
+            's_timings'  =>  $s_timings,
+            's_phone'  =>  cleanInput($_POST['s_phone']),
+            's_bio'  =>  $s_bio,
+            's_fees'  =>  cleanInput($_POST['s_fees']),
+            's_speciality'  =>  $s_speciality,
 
         );
         if (insertData('doctor', $data)) {
@@ -134,7 +134,7 @@ if (isset($_POST['add_doctor'])) {
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label">Gender</label>
-                                    <select class="form-control department-name select2input" name="d_gender">
+                                    <select class="form-control department-name select2input" name="s_gender">
                                         <option value="Male">Male</option>
                                         <option value="Female">Female</option>
                                         <option value="Others">Others</option>
@@ -145,13 +145,13 @@ if (isset($_POST['add_doctor'])) {
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label">Date Of Birth</label>
-                                    <input name="d_dob" type="date" class="form-control">
+                                    <input name="s_dob" type="date" class="form-control">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label">Departments</label>
-                                    <select class="form-control department-name select2input" name="d_department">
+                                    <select class="form-control department-name select2input" name="s_department">
                                         <option value="Eye Care">Eye Care</option>
                                         <option value="Gynecologist">Gynecologist</option>
                                         <option value="Psychotherapist">Psychotherapist</option>
@@ -166,52 +166,52 @@ if (isset($_POST['add_doctor'])) {
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label">Phone Number</label>
-                                    <input name="d_phone" type="number" class="form-control" placeholder="Phone Number :">
+                                    <input name="s_phone" type="number" class="form-control" placeholder="Phone Number :">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label">Appointment Fees</label>
-                                    <input name="d_fees" type="number" class="form-control" placeholder="Appointment Fees :">
+                                    <input name="s_fees" type="number" class="form-control" placeholder="Appointment Fees :">
                                 </div>
                             </div>
                             
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label">Address</label>
-                                    <textarea name="d_address" rows="3" class="form-control" placeholder="Address :"></textarea>
+                                    <textarea name="s_address" rows="3" class="form-control" placeholder="Address :"></textarea>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label">Profile Image</label>
-                                    <input name="d_image" type="file" class="form-control" required>
+                                    <input name="s_image" type="file" class="form-control" required>
                                 </div>
                             </div>
                             <!--end col-->
                             <div class="col-md-12">
                                 <div class="mb-3">
                                     <label class="form-label">Visiting Hrs</label>
-                                    <textarea name="d_timings" rows="3" class="form-control" placeholder="Visiting Hrs :"></textarea>
+                                    <textarea name="s_timings" rows="3" class="form-control" placeholder="Visiting Hrs :"></textarea>
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="mb-3">
                                     <label class="form-label">Your Bio Here</label>
-                                    <textarea name="d_bio" rows="3" class="form-control" placeholder="Bio :"></textarea>
+                                    <textarea name="s_bio" rows="3" class="form-control" placeholder="Bio :"></textarea>
                                 </div>
                             </div>                            
                             <div class="col-md-12">
                                 <div class="mb-3">
                                     <label class="form-label">Your Specialities</label>
-                                    <textarea name="d_speciality" rows="3" class="form-control" placeholder="Enter specialization in your field :"></textarea>
+                                    <textarea name="s_speciality" rows="3" class="form-control" placeholder="Enter specialization in your field :"></textarea>
                                 </div>
                             </div>
                            
                         </div>
                         <!--end row-->
 
-                        <button type="submit" name="add_doctor" class="btn btn-primary">Edit Profile</button>
+                        <button type="submit" name="ads_doctor" class="btn btn-primary">Edit Profile</button>
                     </form>
                 </div>
             </div>

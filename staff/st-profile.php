@@ -1,17 +1,17 @@
 <?php 
-include_once('doctor_header.php'); 
-//$data=getAllData('doctor','user.u_id', $u_id);
+include_once('staff_header.php'); 
+//$data=getAllData('staff','user.u_id', $u_id);
 
 ?>
 <div class="container-fluid">
                     <div class="layout-specing">
                         <div class="d-md-flex justify-content-between">
-                            <h5 class="mb-0">Doctor Profile & Settings</h5>
+                            <h5 class="mb-0">staff Profile & Settings</h5>
 
                             <nav aria-label="breadcrumb" class="d-inline-block mt-4 mt-sm-0">
                                 <ul class="breadcrumb bg-transparent rounded mb-0 p-0">
                                     <li class="breadcrumb-item"><a href="index">Doctris</a></li>
-                                    <li class="breadcrumb-item"><a href="doctors">Doctor</a></li>
+                                    <li class="breadcrumb-item"><a href="staffs">staff</a></li>
                                     <li class="breadcrumb-item active" aria-current="page">Profile</li>
                                 </ul>
                             </nav>
@@ -139,7 +139,7 @@ include_once('doctor_header.php');
                                 
                                                             <div class="card-body p-0 mt-4">
                                                                 <h5 class="title fw-bold">Phone</h5>
-                                                                <p class="text-muted">Great doctor if you need your family member to get effective immediate assistance</p>
+                                                                <p class="text-muted">Great staff if you need your family member to get effective immediate assistance</p>
                                                                 <a href="tel:<?php echo $data['s_phone']; ?>" class="link"><?php echo $data['s_phone']; ?></a>
                                                             </div>
                                                         </div>
@@ -153,7 +153,7 @@ include_once('doctor_header.php');
                                 
                                                             <div class="card-body p-0 mt-4">
                                                                 <h5 class="title fw-bold">Email</h5>
-                                                                <p class="text-muted">Great doctor if you need your family member to get effective immediate assistance</p>
+                                                                <p class="text-muted">Great staff if you need your family member to get effective immediate assistance</p>
                                                                 <a href="mailto:<?php echo $data['u_email']; ?>" class="link"><?php echo $data['u_email']; ?></a>
                                                             </div>
                                                         </div>
@@ -376,4 +376,4 @@ include_once('doctor_header.php');
                         </div>
                     </div>
                 </div><!--end container-->
-<?php include_once('doctor_footer.php') ?>
+<?php include_once('staff_footer.php') ?>

@@ -21,8 +21,8 @@ function getUserIp()
             return $_SERVER['HTTP_X_REAL_IP'];
         case (!empty($_SERVER['HTTP_CLIENT_IP'])):
             return $_SERVER['HTTP_CLIENT_IP'];
-        case (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])):
-            return $_SERVER['HTTP_X_FORWARDED_FOR'];
+        case (!empty($_SERVER['HTTP_X_FORWARDEs_FOR'])):
+            return $_SERVER['HTTP_X_FORWARDEs_FOR'];
         default:
             return $_SERVER['REMOTE_ADDR'];
     }
@@ -615,8 +615,8 @@ function trashCourseDisplay()
         $c_level = $row['c_level'];
         $c_category = $row['c_category'];
         $c_dis_price = $row['c_dis_price'];
-        $created_on =  timestampToDate($row['c_timestamp']);
-        $deleted_on = timestampToDate($row['trash_timestamp']);
+        $creates_on =  timestampToDate($row['c_timestamp']);
+        $deletes_on = timestampToDate($row['trash_timestamp']);
 
         echo "<tr>
               <td><img class='rounded-circle' width='35' src='images/course_img/$c_image' alt=''></td>
@@ -625,8 +625,8 @@ function trashCourseDisplay()
             <td>$c_level</td>
             <td>$c_category</td>
             <td>₹$c_dis_price</td>
-            <td>$created_on</td>
-            <td>$deleted_on</td>
+            <td>$creates_on</td>
+            <td>$deletes_on</td>
             <td>
                 <a href='restore-course?cid=$c_id' class='btn btn-sm btn-primary'><i class='la la-undo'></i> Restore</a>
                <!--  <a href='#' class='btn btn-sm btn-danger'><i class='la la-remove'></i></a> -->

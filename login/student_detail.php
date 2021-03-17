@@ -15,26 +15,26 @@ if (getOneData('user', 'rm_id', 'u_email', $u_email)) {
     exit();
 }
 
-$s_name = getOneData('user', 'u_full_name', 'u_email', $u_email);
+$d_name = getOneData('user', 'u_full_name', 'u_email', $u_email);
 
 if (isset($_POST['submit'])) {
-    // $s_email = $_POST['s_email'];
-    $s_phone = $_POST['s_phone'];
-    $s_class = $_POST['s_class'];
-    $s_RMID = generateHMSID($s_class);
-    $s_school_name = $_POST['s_school_name'];
-    $s_gender = $_POST['s_gender'];
-    $s_dob = $_POST['s_dob'];
-    $s_city = $_POST['s_city'];
-    $s_state = $_POST['s_state'];
-    $s_pin = $_POST['s_pin'];
-    $s_parent_name = $_POST['s_parent_name'];
-    $s_parent_email = $_POST['s_parent_email'];
-    $s_parent_phone = $_POST['s_parent_phone'];
+    // $d_email = $_POST['d_email'];
+    $d_phone = $_POST['d_phone'];
+    $d_class = $_POST['d_class'];
+    $d_RMID = generateHMSID($d_class);
+    $d_school_name = $_POST['d_school_name'];
+    $d_gender = $_POST['d_gender'];
+    $d_dob = $_POST['d_dob'];
+    $d_city = $_POST['d_city'];
+    $d_state = $_POST['d_state'];
+    $d_pin = $_POST['d_pin'];
+    $d_parent_name = $_POST['d_parent_name'];
+    $d_parent_email = $_POST['d_parent_email'];
+    $d_parent_phone = $_POST['d_parent_phone'];
 
     if (!empty($_POST['check_list'])) {
         foreach ($_POST['check_list'] as $check) {
-            $s_timing = $s_timing . $check . ',';
+            $d_timing = $d_timing . $check . ',';
         }
     }
 
@@ -55,24 +55,24 @@ if (isset($_POST['submit'])) {
         compressedImage($_FILES['pic']['tmp_name'], $location, 60);
         $data = array(
             'u_email'  =>  $u_email,
-            's_phone'  =>  cleanInput($_POST['s_phone']),
-            's_class'  =>  cleanInput($_POST['s_class']),
-            's_image'  =>   $new_profle_pic,
-            's_school_name'  =>  cleanInput($_POST['s_school_name']),
-            's_gender'  =>  cleanInput($_POST['s_gender']),
-            's_dob'  =>  cleanInput($_POST['s_dob']),
-            's_city'  =>  cleanInput($_POST['s_city']),
-            's_state'  =>  cleanInput($_POST['s_state']),
-            's_pin'  =>  cleanInput($_POST['s_pin']),
-            's_parent_name'  =>  cleanInput($_POST['s_parent_name']),
-            's_parent_email'  =>  cleanInput($_POST['s_parent_email']),
-            's_parent_phone'  =>  cleanInput($_POST['s_parent_phone']),
-            's_timing'  =>  $s_timing,
-            's_timestamp' => $timestamp,
-            's_ip' => $ip,
+            'd_phone'  =>  cleanInput($_POST['d_phone']),
+            'd_class'  =>  cleanInput($_POST['d_class']),
+            'd_image'  =>   $new_profle_pic,
+            'd_school_name'  =>  cleanInput($_POST['d_school_name']),
+            'd_gender'  =>  cleanInput($_POST['d_gender']),
+            'd_dob'  =>  cleanInput($_POST['d_dob']),
+            'd_city'  =>  cleanInput($_POST['d_city']),
+            'd_state'  =>  cleanInput($_POST['d_state']),
+            'd_pin'  =>  cleanInput($_POST['d_pin']),
+            'd_parent_name'  =>  cleanInput($_POST['d_parent_name']),
+            'd_parent_email'  =>  cleanInput($_POST['d_parent_email']),
+            'd_parent_phone'  =>  cleanInput($_POST['d_parent_phone']),
+            'd_timing'  =>  $d_timing,
+            'd_timestamp' => $timestamp,
+            'd_ip' => $ip,
         );
         if (insertData('student_detail', $data)) {
-            if (updateOneData('user', 'rm_id', $s_RMID, 'u_email', $u_email)) {
+            if (updateOneData('user', 'rm_id', $d_RMID, 'u_email', $u_email)) {
                 echo "<script>alert('Submitted Successfully')</script>";
                 echo "<script>location.href='index'</script>";
             } else
@@ -146,7 +146,7 @@ if (isset($_POST['submit'])) {
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label>Student Name</label>
-                    <input disabled type="text" class="form-control" placeholder="<?php echo $s_name  ?>">
+                    <input disabled type="text" class="form-control" placeholder="<?php echo $d_name  ?>">
                 </div>
                 <div class="form-group col-md-6">
                     <label>Email ID</label>
@@ -156,11 +156,11 @@ if (isset($_POST['submit'])) {
             <div class="form-row">
                 <div class="form-group col-md-4">
                     <label>Phone Number *</label>
-                    <input name="s_phone" required type="number" placeholder="Your Contact Number" class="form-control">
+                    <input name="d_phone" required type="number" placeholder="Your Contact Number" class="form-control">
                 </div>
                 <div class="form-group col-md-4">
                     <label for="inputState">Select Your Class *</label>
-                    <select class="form-control" name="s_class" required>
+                    <select class="form-control" name="d_class" required>
                         <option value="S1">Below 6</option>
                         <option value="S6">6 to 8</option>
                         <option value="S9">9 to 12</option>
@@ -179,11 +179,11 @@ if (isset($_POST['submit'])) {
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label>School/College Name *</label>
-                    <input name="s_school_name" type="text" class="form-control" required>
+                    <input name="d_school_name" type="text" class="form-control" required>
                 </div>
                 <div class="form-group col-md-3">
                     <label>Gender *</label>
-                    <select class="form-control" name="s_gender" required>
+                    <select class="form-control" name="d_gender" required>
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
                         <option value="Other">Other</option>
@@ -191,17 +191,17 @@ if (isset($_POST['submit'])) {
                 </div>
                 <div class="form-group col-md-3">
                     <label>Date Of Birth *</label>
-                    <input name="s_dob" type="date" class="form-control" required>
+                    <input name="d_dob" type="date" class="form-control" required>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-4">
                     <label>City *</label>
-                    <input name="s_city" type="text" class="form-control" required>
+                    <input name="d_city" type="text" class="form-control" required>
                 </div>
                 <div class="form-group col-md-4">
                     <label>State *</label>
-                    <select id="" name="s_state" class="form-control" required>
+                    <select id="" name="d_state" class="form-control" required>
                         <option value="Andhra Pradesh">Andhra Pradesh</option>
                         <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
                         <option value="Arunachal Pradesh">Arunachal Pradesh</option>
@@ -242,23 +242,23 @@ if (isset($_POST['submit'])) {
                 </div>
                 <div class="form-group col-md-4">
                     <label>Pin Code *</label>
-                    <input type="number" name="s_pin" class="form-control" required>
+                    <input type="number" name="d_pin" class="form-control" required>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label>Parent's Name *</label>
-                    <input type="text" name="s_parent_name" class="form-control" required>
+                    <input type="text" name="d_parent_name" class="form-control" required>
                 </div>
                 <div class="form-group col-md-6">
                     <label>Parent's Email ID</label>
-                    <input type="email" name="s_parent_email" class="form-control" placeholder="Email">
+                    <input type="email" name="d_parent_email" class="form-control" placeholder="Email">
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label>Parent's Phone Number</label>
-                    <input type="number" name="s_parent_phone" class="form-control">
+                    <input type="number" name="d_parent_phone" class="form-control">
                 </div>
 
 

@@ -1,10 +1,15 @@
-<?php include_once('staff_header.php') ?>
-
-
+<?php include_once('staff_header.php'); 
+ 
+if($hms_id == '')
+{
+    echo "<script>alert('It seems that you have not created your HMS Id. Please create it to continue!!')</script>";
+    echo "<script>location.href='staff-id'</script>";
+}
+?>
 
 <div class="container-fluid">
     <div class="layout-specing">
-        <h5 class="mb-0">Dashboard</h5>
+        <h5 class="mb-0">Staff's Dashboard</h5>
 
         <div class="row">
             <div class="col-xl-2 col-lg-4 col-md-4 mt-4">

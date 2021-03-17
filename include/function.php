@@ -22,8 +22,8 @@ $timestamp = $date . ' ' . $time24h; //Date and Time
             return $_SERVER['HTTP_X_REAL_IP'];
         case (!empty($_SERVER['HTTP_CLIENT_IP'])):
             return $_SERVER['HTTP_CLIENT_IP'];
-        case (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])):
-            return $_SERVER['HTTP_X_FORWARDED_FOR'];
+        case (!empty($_SERVER['HTTP_X_FORWARDEs_FOR'])):
+            return $_SERVER['HTTP_X_FORWARDEs_FOR'];
         default:
             return $_SERVER['REMOTE_ADDR'];
     }
@@ -115,12 +115,12 @@ function staffGigDisplay()
         echo "<div class='col-xl col-lg-4 col-md-6 mt-4'>
         <div class='card team border-0 rounded shadow overflow-hidden'>
             <div class='team-img position-relative'>
-                <img src='../assets/images/staffs_img/$d_image' class='img-fluid' alt=''>
+                <img src='../assets/images/staffs_img/$s_image' class='img-fluid' alt=''>
                 
             </div>
             <div class='card-body content text-center'>
                 <a href='dr-profile' class='title text-dark h5 d-block mb-0'>Dr. $u_full_name</a>
-                <small class='text-muted speciality'>$d_department</small>
+                <small class='text-muted speciality'>$s_department</small>
             </div>
         </div>
     </div>";
@@ -132,16 +132,16 @@ function doctorGigDisplay()
 {
     global $con;
     //For local
-    $get_product = "SELECT * FROM user INNER JOIN doctor ON user.u_id=doctor.u_id ORDER BY doctor.d_id DESC";
+    $get_product = "SELECT * FROM user INNER JOIN doctor ON user.u_id=doctor.u_id ORDER BY doctor.s_id DESC";
     $run_products = mysqli_query($con, $get_product);
     while ($row_product = mysqli_fetch_array($run_products)) {
         $u_full_name = $row_product['u_full_name'];
-        $d_department = $row_product['d_department'];
-        $d_address = $row_product['d_address'];
-        $d_timings = $row_product['d_timings'];
-        $d_price = $row_product['d_price'];
-        $d_image = $row_product['d_image'];
-        /* $d_address = $row_product['$d_address'];
+        $s_department = $row_product['s_department'];
+        $s_address = $row_product['s_address'];
+        $s_timings = $row_product['s_timings'];
+        $s_price = $row_product['s_price'];
+        $s_image = $row_product['s_image'];
+        /* $s_address = $row_product['$s_address'];
          */
 
         echo "<div class='col-lg-6 col-md-12'>
@@ -149,27 +149,27 @@ function doctorGigDisplay()
             <div class='row align-items-center'>
                 <div class='col-md-6'>
                     <div class='team-person position-relative overflow-hidden'>
-                        <img src='../assets/images/doctors_img/$d_image' class='img-fluid' alt=''>
+                        <img src='../assets/images/doctors_img/$s_image' class='img-fluid' alt=''>
                         
                     </div>
                 </div>
                 <div class='col-md-6'>
                     <div class='card-body'>
                         <a href='#' class='title text-dark h5 d-block mb-0'>Dr. $u_full_name</a>
-                        <small class='text-muted speciality'>$d_department</small>
+                        <small class='text-muted speciality'>$s_department</small>
                         
                         <ul class='list-unstyled mt-2 mb-0'>
                             <li class='d-flex'>
                                 <i class='ri-map-pin-line text-primary align-middle'></i>
-                                <small class='text-muted ms-2'>$d_address</small>
+                                <small class='text-muted ms-2'>$s_address</small>
                             </li>
                             <li class='d-flex mt-2'>
                                 <i class='ri-time-line text-primary align-middle'></i>
-                                <small class='text-muted ms-2'>$d_timings</small>
+                                <small class='text-muted ms-2'>$s_timings</small>
                             </li>
                             <li class='d-flex mt-2'>
                                 <i class='ri-money-dollar-circle-line text-primary align-middle'></i>
-                                <small class='text-muted ms-2'>$d_price</small>
+                                <small class='text-muted ms-2'>$s_price</small>
                             </li>
                         </ul>
                         

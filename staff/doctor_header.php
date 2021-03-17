@@ -6,7 +6,7 @@ include_once('../include/function.php');
 //Session Checking
 if (isset($_SESSION['email']) && !empty($_SESSION['email']) && isset($_SESSION['u_role']) && !empty($_SESSION['u_role'])) {
     $u_role = $_SESSION['u_role'];
-    if ($u_role != 'doctor')
+    if ($u_role != 'staff')
         echo "<script>location.href='../$u_role'</script>";
 } else {
     header('location: ../login/login-user.php');
@@ -14,7 +14,7 @@ if (isset($_SESSION['email']) && !empty($_SESSION['email']) && isset($_SESSION['
 
 /* FETCHING USER DATA */
 $email = $_SESSION['email'];
-$data=getAllData('doctor','user.u_email', $email);
+$data=getAllData('staff','user.u_email', $email);
 $sql = "SELECT * FROM user WHERE u_email ='$email'";
 
     $u_id = $data['u_id'];
@@ -31,7 +31,7 @@ $sql = "SELECT * FROM user WHERE u_email ='$email'";
 
 <head>
     <meta charset="utf-8" />
-    <title>HMS- Doctor Appointment Booking System</title>
+    <title>HMS- staff Appointment Booking System</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Premium Bootstrap 4 Landing Page Template" />
     <meta name="keywords" content="Appointment, Booking, System, Dashboard, Health" />
@@ -91,7 +91,7 @@ $sql = "SELECT * FROM user WHERE u_email ='$email'";
                         <div class="sidebar-submenu">
                             <ul>
                                 <li><a href="patients">All Patients</a></li>
-                                <li><a href="add-doctor.html">Add Patients</a></li>
+                                <li><a href="add-staff.html">Add Patients</a></li>
                             </ul>
                         </div>
                     </li> -->

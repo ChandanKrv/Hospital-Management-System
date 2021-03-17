@@ -106,7 +106,7 @@ if (isset($_POST['resend'])) {
 if (isset($_POST['login'])) {
     $rawEmail = mysqli_real_escape_string($con, $_POST['email']);
     if (!filter_var($rawEmail, FILTER_VALIDATE_EMAIL)) {
-        //   $email = getOneData('user', 'u_email', 'hms_id', $rawEmail);
+        //   $email = getOneData('user', 'u_email', 'hmd_id', $rawEmail);
         echo "<script>alert('Invalid Email')</script>";
     } else
         $email = $rawEmail;
