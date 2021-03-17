@@ -1,6 +1,6 @@
 <?php 
 include_once('doctor_header.php'); 
-$data=getAllData('doctor','user.u_id', $u_id);
+//$data=getAllData('doctor','user.u_id', $u_id);
 
 ?>
 <div class="container-fluid">

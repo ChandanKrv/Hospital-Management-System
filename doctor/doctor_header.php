@@ -14,17 +14,16 @@ if (isset($_SESSION['email']) && !empty($_SESSION['email']) && isset($_SESSION['
 
 /* FETCHING USER DATA */
 $email = $_SESSION['email'];
+$data=getAllData('doctor','user.u_email', $email);
 $sql = "SELECT * FROM user WHERE u_email ='$email'";
-$run_Sql = mysqli_query($con, $sql);
-if ($run_Sql) {
-    $fetch_info = mysqli_fetch_assoc($run_Sql);
-    $u_id = $fetch_info['u_id'];
-    $u_name = $fetch_info['u_name'];
-    $u_full_name = $fetch_info['u_full_name'];
-    $u_email = $fetch_info['u_email'];
-    $hms_id = $fetch_info['hms_id'];
+
+    $u_id = $data['u_id'];
+    $u_name = $data['u_name'];
+    $u_full_name = $data['u_full_name'];
+    $u_email = $data['u_email'];
+    $hms_id = $data['hms_id'];
     //echo "<script>alert('Username- $u_id')</script>";
-}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -84,7 +83,7 @@ if ($run_Sql) {
                 </div>
 
                 <ul class="sidebar-menu pt-3">
-                    <li><a href="index-2.html"><i class="uil uil-dashboard me-2 d-inline-block"></i>Dashboard</a></li>
+                    <li><a href="index"><i class="uil uil-dashboard me-2 d-inline-block"></i>Dashboard</a></li>
                     <li><a href="appointment.html"><i class="uil uil-stethoscope me-2 d-inline-block"></i>Appointment</a></li>
 
                     <li class="sidebar-dropdown">
@@ -113,7 +112,7 @@ if ($run_Sql) {
 
 
                     <li><a href="components.html"><i class="uil uil-cube me-2 d-inline-block"></i>Employee</a></li>
-
+                    <li><a href="edit-profile"><i class="uil uil-cube me-2 d-inline-block"></i>Edit Profile</a></li>
                     <li><a href="components.html"><i class="uil uil-window me-2 d-inline-block"></i>Miscellaneous</a></li>
 
                 </ul>
@@ -252,13 +251,13 @@ if ($run_Sql) {
 
                         <li class="list-inline-item mb-0 ms-1">
                             <div class="dropdown dropdown-primary">
-                                <button type="button" class="btn btn-pills btn-soft-primary dropdown-toggle p-0" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../assets/images/doctors/01.jpg" class="avatar avatar-ex-small rounded-circle" alt=""></button>
+                                <button type="button" class="btn btn-pills btn-soft-primary dropdown-toggle p-0" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../assets/images/doctors_img/<?php echo $data['d_image'] ?>" class="avatar avatar-ex-small rounded-circle" alt=""></button>
                                 <div class="dropdown-menu dd-menu dropdown-menu-end bg-white shadow border-0 mt-3 py-3" style="min-width: 200px;">
                                     <a class="dropdown-item d-flex align-items-center text-dark" href="dr-profile">
-                                        <img src="../assets/images/doctors/01.jpg" class="avatar avatar-md-sm rounded-circle border shadow" alt="">
+                                        <img src="../assets/images/doctors_img/<?php echo $data['d_image'] ?>" class="avatar avatar-md-sm rounded-circle border shadow" alt="">
                                         <div class="flex-1 ms-2">
                                             <span class="d-block mb-1">Dr.<?php echo $u_full_name ?></span>
-                                            <small class="text-muted">Orthopedic</small>
+                                            <small class="text-muted"><?php echo $data['d_department'] ?></small>
                                         </div>
                                     </a>
                                     <a class="dropdown-item text-dark" href="index"><span class="mb-0 d-inline-block me-1"><i class="uil uil-dashboard align-middle h6"></i></span> Dashboard</a>
