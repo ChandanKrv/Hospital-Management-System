@@ -209,3 +209,14 @@ function getOneData($table_name, $column_name, $where_condition, $match_this)
     $row = mysqli_fetch_array($run);
     return $row[$column_name];
 }
+/* Get all data for profile */
+//SELECT * FROM user INNER JOIN staff ON user.u_id=staff.u_id ORDER BY staff.s_id DESC
+function getAllData($table_name, $where_condition, $match_this)
+{
+    global $con;
+    $getData="SELECT * FROM user INNER JOIN $table_name ON user.u_id=$table_name.u_id WHERE $where_condition='$match_this'";
+    //$getData = "SELECT $column_name FROM $table_name WHERE $where_condition='$match_this'";
+    $run = mysqli_query($con, $getData);
+    $row = mysqli_fetch_array($run);
+    return $row;
+}

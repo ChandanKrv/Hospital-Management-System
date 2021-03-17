@@ -1,13 +1,9 @@
 <?php
 include_once('doctor_header.php');
 
-if ($hms_id != '') {
-    echo "<script>location.href='index'</script>";
-}
-
 if (isset($_POST['add_doctor'])) {
     //$u_id = $_POST["u_id"];
-    $u_full_name = $_POST["d_full_name"];
+    //$d_image = $_POST["d_image"];
     $d_gender = $_POST["d_gender"];
     $d_dob = $_POST["d_dob"];
     $d_department = $_POST["d_department"];
@@ -50,9 +46,8 @@ if (isset($_POST['add_doctor'])) {
             'd_speciality'  =>  $d_speciality,
 
         );
-        
         if (insertData('doctor', $data)) {
-            if (updateOneData('user', 'hms_id', generateHMSID('doctor'), 'u_email', $email) && updateOneData('user', 'u_full_name', $u_full_name, 'u_email', $email)) {
+            if (updateOneData('user', 'hms_id', generateHMSID('doctor'), 'u_email', $email)) {
                 echo "<script>alert('Doctor Added Successfully')</script>";
                 echo "<script>location.href='index'</script>";
             } else {
@@ -121,7 +116,7 @@ if (isset($_POST['add_doctor'])) {
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label">Full Name</label>
-                                    <input name="d_full_name" type="text" class="form-control" value="<?php echo $u_full_name ?>" >
+                                    <input name="u_full_name" type="text" class="form-control" value="<?php echo $u_full_name ?>">
                                 </div>
                             </div>
                             <!--end col-->
@@ -216,7 +211,7 @@ if (isset($_POST['add_doctor'])) {
                         </div>
                         <!--end row-->
 
-                        <button type="submit" name="add_doctor" class="btn btn-primary">Create Doctor Id</button>
+                        <button type="submit" name="add_doctor" class="btn btn-primary">Edit Profile</button>
                     </form>
                 </div>
             </div>

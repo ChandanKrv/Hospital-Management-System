@@ -56,8 +56,13 @@ if ($run_Sql) {
     <link rel="stylesheet" href="../assets/css/tiny-slider.css" />
     <!-- Css -->
     <link href="../assets/css/style.min.css" rel="stylesheet" type="text/css" />
-
+    <script src="https://cdn.tiny.cloud/1/bmnlktul2fb3s7jcgj8tp5nf9clebe6e3clfzcj7k23ku9r5/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 </head>
+<script>
+    tinymce.init({
+        selector: 'textarea'
+    });
+</script>
 
 <body>
     <!-- Loader -->
@@ -252,7 +257,7 @@ if ($run_Sql) {
                                     <a class="dropdown-item d-flex align-items-center text-dark" href="dr-profile">
                                         <img src="../assets/images/doctors/01.jpg" class="avatar avatar-md-sm rounded-circle border shadow" alt="">
                                         <div class="flex-1 ms-2">
-                                            <span class="d-block mb-1">Calvin Carlo</span>
+                                            <span class="d-block mb-1">Dr.<?php echo $u_full_name ?></span>
                                             <small class="text-muted">Orthopedic</small>
                                         </div>
                                     </a>
