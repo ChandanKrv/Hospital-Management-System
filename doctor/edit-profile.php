@@ -47,7 +47,7 @@ if (isset($_POST['ads_doctor'])) {
 
         );
         if (insertData('doctor', $data)) {
-            if (updateOneData('user', 'hms_id', generateHMSID('doctor'), 'u_email', $email)) {
+            if (updateOneData('user', 'hms_id', generateHMSID('doctor'), 'u_email', $email)&& updateOneData('user', 'u_full_name', $u_full_name, 'u_email', $email)) {
                 echo "<script>alert('Doctor Added Successfully')</script>";
                 echo "<script>location.href='index'</script>";
             } else {
