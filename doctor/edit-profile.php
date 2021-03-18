@@ -135,9 +135,9 @@ if (isset($_POST['add_doctor'])) {
                                 <div class="mb-3">
                                     <label class="form-label">Gender</label>
                                     <select class="form-control department-name select2input" name="d_gender">
-                                        <option value="Male">Male</option>
-                                        <option value="Female">Female</option>
-                                        <option value="Others">Others</option>
+                                        <option value="Male" <?php if ($data['d_gender'] == 'Male') { ?>selected<?php } ?>>Male</option>
+                                        <option value="Female" <?php if ($data['d_gender'] == 'Female') { ?>selected<?php } ?>>Female</option>
+                                        <option value="Others" <?php if ($data['d_gender'] == 'Others') { ?>selected<?php } ?>>Others</option>
                                     </select>
                                 </div>
                             </div>
@@ -145,7 +145,7 @@ if (isset($_POST['add_doctor'])) {
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label">Date Of Birth</label>
-                                    <input name="d_dob" type="date" class="form-control">
+                                    <input name="d_dob" type="date" class="form-control" value="<?php echo $data['d_dob'] ?>">
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -166,13 +166,13 @@ if (isset($_POST['add_doctor'])) {
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label">Phone Number</label>
-                                    <input name="d_phone" type="number" class="form-control" placeholder="Phone Number :">
+                                    <input name="d_phone" type="number" class="form-control" placeholder="Phone Number :" value="<?php echo $data['d_phone'] ?>">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label">Appointment Fees</label>
-                                    <input name="d_fees" type="number" class="form-control" placeholder="Appointment Fees :">
+                                    <input name="d_fees" type="number" class="form-control" placeholder="Appointment Fees :" value="<?php echo $data['d_fees'] ?>">
                                 </div>
                             </div>
 

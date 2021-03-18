@@ -16,7 +16,6 @@ if (isset($_SESSION['email']) && !empty($_SESSION['email']) && isset($_SESSION['
 $email = $_SESSION['email'];
 $data=getAllData('doctor','user.u_email', $email);
 $sql = "SELECT * FROM user WHERE u_email ='$email'";
-
     $u_id = $data['u_id'];
     $u_name = $data['u_name'];
     $u_full_name = $data['u_full_name'];
