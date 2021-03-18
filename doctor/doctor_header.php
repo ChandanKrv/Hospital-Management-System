@@ -14,14 +14,16 @@ if (isset($_SESSION['email']) && !empty($_SESSION['email']) && isset($_SESSION['
 
 /* FETCHING USER DATA */
 $email = $_SESSION['email'];
-$data=getAllData('doctor','user.u_email', $email);
+$data = getAllData('doctor', 'user.u_email', $email);
 $sql = "SELECT * FROM user WHERE u_email ='$email'";
-    $u_id = $data['u_id'];
-    $u_name = $data['u_name'];
-    $u_full_name = $data['u_full_name'];
-    $u_email = $data['u_email'];
-    $hms_id = $data['hms_id'];
-    //echo "<script>alert('Username- $u_id')</script>";
+$u_id = $data['u_id'];
+$u_name = $data['u_name'];
+$u_full_name = $data['u_full_name'];
+$u_email = $data['u_email'];
+$hms_id = $data['hms_id'];
+$d_gender = $data['d_gender'];
+$d_department = $data['d_department'];
+//echo "<script>alert('Username- $u_id')</script>";
 
 ?>
 <!DOCTYPE html>

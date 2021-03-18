@@ -16,6 +16,72 @@ if (isset($_POST['add_doctor'])) {
     // Getting file name
     $filename = $_FILES['d_image']['name'];
     // Valid extension
+    if ($filename) {
+        $imageUploaded = true;
+        // Valid extension
+        $valid_ext = array('png', 'jpeg', 'jpg');
+        $photoExt1 = @end(explode('.', $filename)); // explode the image name to get the extension
+        $phototest1 = strtolower($photoExt1);
+        $new_profle_pic = uniqid() . '.' . $phototest1;
+        // Image Location
+        $location = "../assets/images/doctors_img/" . $new_profle_pic;
+        // file extension
+        $file_extension = pathinfo(
+            $location,
+            PATHINFO_EXTENSION
+        );
+        $file_extension = strtolower($file_extension);
+        // Check extension
+        if (in_array($file_extension, $valid_ext)) {
+            // Compress Image
+            compressedImage($_FILES['d_image']['tmp_name'], $location, 60);
+            //Here i am enter the insert code in the step ........
+            //Pushing All data into database
+            $data = array(
+                'u_id' => $u_id,
+                'd_image'  =>   $new_profle_pic,
+                'd_gender'  =>  $d_gender,
+                'd_dob'  =>  $d_dob,
+                'd_department'  =>  $d_department,
+                'd_address'  =>  cleanInput($_POST['d_address']),
+                'd_timings'  =>  $d_timings,
+                'd_phone'  =>  cleanInput($_POST['d_phone']),
+                'd_bio'  =>  $d_bio,
+                'd_fees'  =>  cleanInput($_POST['d_fees']),
+                'd_speciality'  =>  $d_speciality,
+
+            );
+        }
+        if (updateData('doctor', $data, "WHERE u_id = '$u_id'")) {
+            echo "<script>alert('Profile Updated Successfully')</script>";
+            //echo "<script> location.href='all-courses'; </script>";
+        } else {
+            echo "<script>alert('Error!!Not Updated')</script>";
+        }
+    } else {
+        $data = array(
+            'u_id' => $u_id,
+            // 'd_image'  =>   $new_profle_pic,
+            'd_gender'  =>  $d_gender,
+            'd_dob'  =>  $d_dob,
+            'd_department'  =>  $d_department,
+            'd_address'  =>  cleanInput($_POST['d_address']),
+            'd_timings'  =>  $d_timings,
+            'd_phone'  =>  cleanInput($_POST['d_phone']),
+            'd_bio'  =>  $d_bio,
+            'd_fees'  =>  cleanInput($_POST['d_fees']),
+            'd_speciality'  =>  $d_speciality,
+
+        );
+        if (updateData('doctor', $data, "WHERE u_id = '$u_id'")) {
+            echo "<script>alert('Profile Updated Successfully')</script>";
+            //echo "<script> location.href='all-courses'; </script>";
+        } else {
+            echo "<script>alert('Error!!Not Updated')</script>";
+        }
+    }
+
+    /* 
     $valid_ext = array('png', 'jpeg', 'jpg');
     $photoExt1 = @end(explode('.', $filename)); // explode the image name to get the extension
     $phototest1 = strtolower($photoExt1);
@@ -27,6 +93,8 @@ if (isset($_POST['add_doctor'])) {
     $file_extension = strtolower($file_extension);
     // Check extension
     echo $d_address;
+
+
     if (in_array($file_extension, $valid_ext)) {
         // Compress Image
         compressedImage($_FILES['d_image']['tmp_name'], $location, 60);
@@ -58,12 +126,8 @@ if (isset($_POST['add_doctor'])) {
         }
     } else {
         echo "<script>alert('Error!! Only png/jpg/jpeg are Allowed')</script>";
-    }
+    } */
 }
-
-
-
-
 
 ?>
 <div class="container-fluid">
@@ -152,14 +216,14 @@ if (isset($_POST['add_doctor'])) {
                                 <div class="mb-3">
                                     <label class="form-label">Departments</label>
                                     <select class="form-control department-name select2input" name="d_department">
-                                        <option value="Eye Care">Eye Care</option>
-                                        <option value="Gynecologist">Gynecologist</option>
-                                        <option value="Psychotherapist">Psychotherapist</option>
-                                        <option value="Orthopedic">Orthopedic</option>
-                                        <option value="Dentist">Dentist</option>
-                                        <option value="Gastrologist">Gastrologist</option>
-                                        <option value="Urologist">Urologist</option>
-                                        <option value="Neurologist">Neurologist</option>
+                                        <option value="Eye Care" <?php if ($d_department == 'Eye Care') { ?>selected<?php } ?>>Eye Care</option>
+                                        <option value="Gynecologist" <?php if ($d_department == 'Gynecologist') { ?>selected<?php } ?>>Gynecologist</option>
+                                        <option value="Psychotherapist" <?php if ($d_department == 'Psychotherapist') { ?>selected<?php } ?>>Psychotherapist</option>
+                                        <option value="Orthopedic" <?php if ($d_department == 'Orthopedic') { ?>selected<?php } ?>>Orthopedic</option>
+                                        <option value="Dentist" <?php if ($d_department == 'Dentist') { ?>selected<?php } ?>>Dentist</option>
+                                        <option value="Gastrologist" <?php if ($d_department == 'Gastrologist') { ?>selected<?php } ?>>Gastrologist</option>
+                                        <option value="Urologist" <?php if ($d_department == 'Urologist') { ?>selected<?php } ?>>Urologist</option>
+                                        <option value="Neurologist" <?php if ($d_department == 'Neurologist') { ?>selected<?php } ?>>Neurologist</option>
                                     </select>
                                 </div>
                             </div>
@@ -185,7 +249,7 @@ if (isset($_POST['add_doctor'])) {
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label">Profile Image</label>
-                                    <input name="d_image" type="file" class="form-control" required>
+                                    <input name="d_image" type="file" class="form-control">
                                 </div>
                             </div>
                             <!--end col-->
