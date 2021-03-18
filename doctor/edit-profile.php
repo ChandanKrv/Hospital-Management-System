@@ -47,7 +47,7 @@ if (isset($_POST['add_doctor'])) {
 
         );
         if (insertData('doctor', $data)) {
-            if (updateOneData('user', 'hms_id', generateHMSID('doctor'), 'u_email', $email)&& updateOneData('user', 'u_full_name', $u_full_name, 'u_email', $email)) {
+            if (updateOneData('user', 'hms_id', generateHMSID('doctor'), 'u_email', $email) && updateOneData('user', 'u_full_name', $u_full_name, 'u_email', $email)) {
                 echo "<script>alert('Doctor Added Successfully')</script>";
                 echo "<script>location.href='index'</script>";
             } else {
@@ -129,7 +129,7 @@ if (isset($_POST['add_doctor'])) {
                             </div>
                             <!--end col-->
 
-                            
+
 
                             <div class="col-md-6">
                                 <div class="mb-3">
@@ -175,11 +175,11 @@ if (isset($_POST['add_doctor'])) {
                                     <input name="d_fees" type="number" class="form-control" placeholder="Appointment Fees :">
                                 </div>
                             </div>
-                            
+
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label">Address</label>
-                                    <textarea name="d_address" rows="3" class="form-control" placeholder="Address :"></textarea>
+                                    <textarea name="d_address" rows="3" class="form-control" placeholder="Address :"><?php echo $data['d_address'] ?> </textarea>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -192,22 +192,22 @@ if (isset($_POST['add_doctor'])) {
                             <div class="col-md-12">
                                 <div class="mb-3">
                                     <label class="form-label">Visiting Hrs</label>
-                                    <textarea name="d_timings" rows="3" class="form-control" placeholder="Visiting Hrs :"></textarea>
+                                    <textarea name="d_timings" rows="3" class="form-control" placeholder="Visiting Hrs :"><?php echo $data['d_timings'] ?></textarea>
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="mb-3">
                                     <label class="form-label">Your Bio Here</label>
-                                    <textarea name="d_bio" rows="3" class="form-control" placeholder="Bio :"></textarea>
+                                    <textarea name="d_bio" rows="3" class="form-control" placeholder="Bio :"><?php echo $data['d_bio'] ?></textarea>
                                 </div>
-                            </div>                            
+                            </div>
                             <div class="col-md-12">
                                 <div class="mb-3">
                                     <label class="form-label">Your Specialities</label>
-                                    <textarea name="d_speciality" rows="3" class="form-control" placeholder="Enter specialization in your field :"></textarea>
+                                    <textarea name="d_speciality" rows="3" class="form-control" placeholder="Enter specialization in your field :"><?php echo $data['d_speciality'] ?></textarea>
                                 </div>
                             </div>
-                           
+
                         </div>
                         <!--end row-->
 
