@@ -20,10 +20,10 @@ include_once('doctor_header.php');
                         <div class="card bg-white rounded shadow overflow-hidden mt-4 border-0">
                             <div class="p-5 bg-primary bg-gradient"></div>
                             <div class="avatar-profile d-flex margin-nagative mt-n5 position-relative ps-3">
-                                <img src="../assets/images/doctors_img/<?php echo $data['s_image']; ?>" class="rounded-circle shadow-md avatar avatar-medium" alt="">
+                                <img src="../assets/images/doctors_img/<?php echo $data['d_image']; ?>" class="rounded-circle shadow-md avatar avatar-medium" alt="">
                                 <div class="mt-4 ms-3 pt-3">
                                     <h5 class="mt-3 mb-1">Dr. <?php echo $data['u_full_name']; ?></h5>
-                                    <p class="text-muted mb-0"><?php echo $data['s_department']; ?></p>
+                                    <p class="text-muted mb-0"><?php echo $data['d_department']; ?></p>
                                 </div>
                             </div>
                             
@@ -74,10 +74,10 @@ include_once('doctor_header.php');
             
                                         <div class="tab-content mt-2" id="pills-tabContent">
                                             <div class="tab-pane fade show active" id="pills-overview" role="tabpanel" aria-labelledby="overview-tab">
-                                                <p class="text-muted"><?php echo $data['s_bio']; ?></p>
+                                                <p class="text-muted"><?php echo $data['d_bio']; ?></p>
                                             
                                                 <h6 class="mb-0">Specialties: </h6>
-                                                <p><?php echo $data['s_speciality']; ?></p>
+                                                <p><?php echo $data['d_speciality']; ?></p>
             
                                                 <!-- <ul class="list-unstyled mt-4">
                                                     <li class="mt-1"><i class="uil uil-arrow-right text-primary"></i> Women's health services</li>
@@ -96,7 +96,7 @@ include_once('doctor_header.php');
                                                 <div class="row">
                                                     <div class="col-lg-4 col-md-12">
                                                     <h4>Visiting Hours</h4>
-                                                    <p><?php echo $data['s_timings']; ?></p>
+                                                    <p><?php echo $data['d_timings']; ?></p>
                                                         <!-- <div class="card border-0 p-3 rounded shadow">
                                                             <ul class="list-unstyled mb-0">
                                                                 <li class="d-flex justify-content-between my-1">
@@ -140,7 +140,7 @@ include_once('doctor_header.php');
                                                             <div class="card-body p-0 mt-4">
                                                                 <h5 class="title fw-bold">Phone</h5>
                                                                 <p class="text-muted">Great doctor if you need your family member to get effective immediate assistance</p>
-                                                                <a href="tel:<?php echo $data['s_phone']; ?>" class="link"><?php echo $data['s_phone']; ?></a>
+                                                                <a href="tel:<?php echo $data['d_phone']; ?>" class="link"><?php echo $data['d_phone']; ?></a>
                                                             </div>
                                                         </div>
                                                     </div><!--end col-->
@@ -173,7 +173,7 @@ include_once('doctor_header.php');
                                                             <div class="p-4">
                                                                 <div class="row align-items-center">
                                                                     <div class="col-lg-2 col-md-4">
-                                                                        <img src="../assets/images/doctors_img/<?php echo $data['s_image']; ?>" class="avatar avatar-md-md rounded-pill shadow mx-auto d-block" alt="">
+                                                                        <img src="../assets/images/doctors_img/<?php echo $data['d_image']; ?>" class="avatar avatar-md-md rounded-pill shadow mx-auto d-block" alt="">
                                                                     </div><!--end col-->
 
                                                                     <div class="col-lg-5 col-md-8 text-center text-md-start mt-4 mt-sm-0">
