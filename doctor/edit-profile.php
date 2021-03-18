@@ -51,15 +51,13 @@ if (isset($_POST['add_doctor'])) {
                 echo "<script>alert('Profile Updated Successfully')</script>";
                 //echo "<script> location.href='all-courses'; </script>";
             } else {
-                echo "<script>alert('Error!!Not Updated')</script>";
+                echo "<script>alert('Not Updated (Hint: Do not use Apostrophe)')</script>";
             }
         } else {
             echo "<script>alert('Error!! Only png/jpg/jpeg are Allowed')</script>";
         }
     } else {
-        $pushData = array(
-            // 'u_id' => $u_id,
-            //'d_image'  =>   $new_profle_pic,
+        $pushData2 = array(
             'd_gender'  =>  $d_gender,
             'd_dob'  =>  $d_dob,
             'd_department'  =>  $d_department,
@@ -69,13 +67,13 @@ if (isset($_POST['add_doctor'])) {
             'd_phone'  =>  $d_phone,
             'd_fees'  =>  $d_fees,
             'd_speciality'  =>  $d_speciality
-
         );
-        if (updateData('doctor', $pushData, "WHERE u_id = '$u_id'")) {
+        $ret = updateData('doctor', $pushData2, "WHERE u_id = '$u_id'");
+        if ($ret) {
             echo "<script>alert('Profile Updated Successfully')</script>";
             //echo "<script> location.href='all-courses'; </script>";
         } else {
-            echo "<script>alert('Error!!Not Updated')</script>";
+            echo "<script>alert('Not Updated (Hint: Do not use Apostrophe)')</script>";
         }
     }
 

@@ -51,7 +51,7 @@ if (isset($_POST['ads_doctor'])) {
             's_address'  =>  $_POST['s_address'],
             's_timings'  =>  $_POST['s_timings'],
             's_phone'  =>  $_POST['s_phone'],
-            's_splst'  =>  $_POST['s_splst'],
+            's_speciality'  =>  $_POST['s_splst'],
             's_fees'  => $_POST['s_fees'],
             's_bio'  =>  $_POST['s_bio'],
         );
