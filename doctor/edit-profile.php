@@ -43,33 +43,36 @@ if (isset($_POST['add_doctor'])) {
                 'd_gender'  =>  $d_gender,
                 'd_dob'  =>  $d_dob,
                 'd_department'  =>  $d_department,
-                'd_address'  =>  cleanInput($_POST['d_address']),
+                'd_address'  =>  $d_address,
                 'd_timings'  =>  $d_timings,
-                'd_phone'  =>  cleanInput($_POST['d_phone']),
+                'd_phone'  =>  $d_phone,
                 'd_bio'  =>  $d_bio,
-                'd_fees'  =>  cleanInput($_POST['d_fees']),
+                'd_fees'  =>  $d_fees,
                 'd_speciality'  =>  $d_speciality,
 
             );
-        }
-        if (updateData('doctor', $data, "WHERE u_id = '$u_id'")) {
-            echo "<script>alert('Profile Updated Successfully')</script>";
-            //echo "<script> location.href='all-courses'; </script>";
+
+            if (updateData('doctor', $data, "WHERE u_id = '$u_id'")) {
+                echo "<script>alert('Profile Updated Successfully')</script>";
+                //echo "<script> location.href='all-courses'; </script>";
+            } else {
+                echo "<script>alert('Error!!Not Updated')</script>";
+            }
         } else {
-            echo "<script>alert('Error!!Not Updated')</script>";
+            echo "<script>alert('Error!! Only png/jpg/jpeg are Allowed')</script>";
         }
     } else {
         $data = array(
             'u_id' => $u_id,
-            // 'd_image'  =>   $new_profle_pic,
+           // 'd_image'  =>   $new_profle_pic,
             'd_gender'  =>  $d_gender,
             'd_dob'  =>  $d_dob,
             'd_department'  =>  $d_department,
-            'd_address'  =>  cleanInput($_POST['d_address']),
+            'd_address'  =>  $d_address,
             'd_timings'  =>  $d_timings,
-            'd_phone'  =>  cleanInput($_POST['d_phone']),
+            'd_phone'  =>  $d_phone,
             'd_bio'  =>  $d_bio,
-            'd_fees'  =>  cleanInput($_POST['d_fees']),
+            'd_fees'  =>  $d_fees,
             'd_speciality'  =>  $d_speciality,
 
         );
