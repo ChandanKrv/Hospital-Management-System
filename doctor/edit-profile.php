@@ -16,6 +16,7 @@ if (isset($_POST['add_doctor'])) {
     // Getting file name
     $filename = $_FILES['d_image']['name'];
     // Valid extension
+
     if ($filename) {
         $imageUploaded = true;
         // Valid extension
@@ -26,33 +27,27 @@ if (isset($_POST['add_doctor'])) {
         // Image Location
         $location = "../assets/images/doctors_img/" . $new_profle_pic;
         // file extension
-        $file_extension = pathinfo(
-            $location,
-            PATHINFO_EXTENSION
-        );
+        $file_extension = pathinfo($location, PATHINFO_EXTENSION);
         $file_extension = strtolower($file_extension);
         // Check extension
         if (in_array($file_extension, $valid_ext)) {
             // Compress Image
             compressedImage($_FILES['d_image']['tmp_name'], $location, 60);
-            //Here i am enter the insert code in the step ........
             //Pushing All data into database
-            $data = array(
-                'u_id' => $u_id,
+            $pushData = array(
+                // 'u_id' => $u_id,
                 'd_image'  =>   $new_profle_pic,
                 'd_gender'  =>  $d_gender,
                 'd_dob'  =>  $d_dob,
                 'd_department'  =>  $d_department,
                 'd_address'  =>  $d_address,
                 'd_timings'  =>  $d_timings,
-                'd_phone'  =>  $d_phone,
                 'd_bio'  =>  $d_bio,
+                'd_phone'  =>  $d_phone,
                 'd_fees'  =>  $d_fees,
-                'd_speciality'  =>  $d_speciality,
-
+                'd_speciality'  =>  $d_speciality
             );
-
-            if (updateData('doctor', $data, "WHERE u_id = '$u_id'")) {
+            if (updateData('doctor', $pushData, "WHERE u_id = '$u_id'")) {
                 echo "<script>alert('Profile Updated Successfully')</script>";
                 //echo "<script> location.href='all-courses'; </script>";
             } else {
@@ -62,21 +57,21 @@ if (isset($_POST['add_doctor'])) {
             echo "<script>alert('Error!! Only png/jpg/jpeg are Allowed')</script>";
         }
     } else {
-        $data = array(
-            'u_id' => $u_id,
-           // 'd_image'  =>   $new_profle_pic,
+        $pushData = array(
+            // 'u_id' => $u_id,
+            //'d_image'  =>   $new_profle_pic,
             'd_gender'  =>  $d_gender,
             'd_dob'  =>  $d_dob,
             'd_department'  =>  $d_department,
             'd_address'  =>  $d_address,
             'd_timings'  =>  $d_timings,
-            'd_phone'  =>  $d_phone,
             'd_bio'  =>  $d_bio,
+            'd_phone'  =>  $d_phone,
             'd_fees'  =>  $d_fees,
-            'd_speciality'  =>  $d_speciality,
+            'd_speciality'  =>  $d_speciality
 
         );
-        if (updateData('doctor', $data, "WHERE u_id = '$u_id'")) {
+        if (updateData('doctor', $pushData, "WHERE u_id = '$u_id'")) {
             echo "<script>alert('Profile Updated Successfully')</script>";
             //echo "<script> location.href='all-courses'; </script>";
         } else {
@@ -183,7 +178,7 @@ if (isset($_POST['add_doctor'])) {
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label">Full Name</label>
-                                    <input name="u_full_name" type="text" class="form-control" value="<?php echo $u_full_name ?>">
+                                    <input name="u_full_name" disabled type="text" class="form-control" value="<?php echo $u_full_name ?>">
                                 </div>
                             </div>
                             <!--end col-->

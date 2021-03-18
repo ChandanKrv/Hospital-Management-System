@@ -100,6 +100,29 @@ function updateOneData($table_name, $columnName, $updatingData, $where_condition
     return mysqli_query($con, $getData);
 }
 
+function updateData($table_name, $form_data, $where_clause = '')
+{
+    global $mysqli;
+    $whereSQL = '';
+    if (!empty($where_clause)) {
+        if (substr(strtoupper(trim($where_clause)), 0, 5) != 'WHERE') {
+            $whereSQL = " WHERE " . $where_clause;
+        } else {
+            $whereSQL = " " . trim($where_clause);
+        }
+    }
+    $sql = "UPDATE " . $table_name . " SET ";
+    $sets = array();
+    foreach ($form_data as $column => $value) {
+        $sets[] = "`" . $column . "` = '" . $value . "'";
+    }
+    $sql .= implode(', ', $sets);
+    $sql .= $whereSQL;
+    return mysqli_query($mysqli, $sql);
+}
+
+
+
 /* STAFF GIG */
 function staffGigDisplay()
 {
@@ -214,7 +237,7 @@ function getOneData($table_name, $column_name, $where_condition, $match_this)
 function getAllData($table_name, $where_condition, $match_this)
 {
     global $con;
-    $getData="SELECT * FROM user INNER JOIN $table_name ON user.u_id=$table_name.u_id WHERE $where_condition='$match_this'";
+    $getData = "SELECT * FROM user INNER JOIN $table_name ON user.u_id=$table_name.u_id WHERE $where_condition='$match_this'";
     //$getData = "SELECT $column_name FROM $table_name WHERE $where_condition='$match_this'";
     $run = mysqli_query($con, $getData);
     $row = mysqli_fetch_array($run);
