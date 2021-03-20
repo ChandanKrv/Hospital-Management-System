@@ -1,7 +1,6 @@
-<?php include_once('doctor_header.php'); 
- 
-if($hms_id == '')
-{
+<?php include_once('doctor_header.php');
+$IdCheck = getOneData('user', 'hms_id', 'u_email', $email);
+if ($IdCheck == '') {
     echo "<script>alert('It seems that you have not created your HMS Id. Please create it to continue!!')</script>";
     echo "<script>location.href='doctor-id'</script>";
 }

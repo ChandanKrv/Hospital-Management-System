@@ -49,7 +49,7 @@ function apostrophePull($gimmePullingString)
     $insert = "'";
     $strLen = strlen($gimmePullingString);
     $all = preg_replace($pattern, $insert, $gimmePullingString);
-   /*  for ($i = 1; $i <= $strLen; $i++) {
+    /*  for ($i = 1; $i <= $strLen; $i++) {
         $all = preg_replace($pattern, $insert, $gimmePullingString);
     } */
     return $all;
@@ -261,6 +261,7 @@ function getOneData($table_name, $column_name, $where_condition, $match_this)
     return $row[$column_name];
 }
 /* Get all data for profile */
+
 //SELECT * FROM user INNER JOIN staff ON user.u_id=staff.u_id ORDER BY staff.s_id DESC
 function getAllData($table_name, $where_condition, $match_this)
 {

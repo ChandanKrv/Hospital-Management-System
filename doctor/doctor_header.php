@@ -1,6 +1,8 @@
 <?php
 //session_start(); //Already Started in dp.php
 include_once('../include/function.php');
+
+$email = $_SESSION['email'];
 ?>
 <?php
 //Session Checking
@@ -11,11 +13,18 @@ if (isset($_SESSION['email']) && !empty($_SESSION['email']) && isset($_SESSION['
 } else {
     header('location: ../login/login-user.php');
 }
-
+$IdCheck = getOneData('user', 'hms_id', 'u_email', $email);
+if ($IdCheck == '') {
+    /* echo "<script>alert('It seems that you have not created your HMS Id. Please create it to continue!!')</script>";
+    echo "<script>location.href='doctor-id'</script>"; */
+    $u_name = getOneData('user', 'u_name', 'u_email', $email);
+    $u_full_name = getOneData('user', 'u_full_name', 'u_email', $email);
+}
+else
+{
 /* FETCHING USER DATA */
-$email = $_SESSION['email'];
+
 $data = getAllData('doctor', 'user.u_email', $email);
-$sql = "SELECT * FROM user WHERE u_email ='$email'";
 $u_id = $data['u_id'];
 $u_name = $data['u_name'];
 $u_full_name = $data['u_full_name'];
@@ -23,8 +32,7 @@ $u_email = $data['u_email'];
 $hms_id = $data['hms_id'];
 $d_gender = $data['d_gender'];
 $d_department = $data['d_department'];
-//echo "<script>alert('Username- $u_id')</script>";
-
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">

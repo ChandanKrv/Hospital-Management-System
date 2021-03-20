@@ -1,13 +1,15 @@
 <?php
 include_once('doctor_header.php');
-
+/* 
 if ($hms_id != '') {
     echo "<script>location.href='index'</script>";
-}
+} */
+
+
 
 if (isset($_POST['add_doctor'])) {
     //$u_id = $_POST["u_id"];
-    $u_full_name = $_POST["u_full_name"];
+    $u_full_name = $_POST["d_full_name"];
     $d_gender = $_POST["d_gender"];
     $d_dob = $_POST["d_dob"];
     $d_department = $_POST["d_department"];
@@ -47,10 +49,10 @@ if (isset($_POST['add_doctor'])) {
             'd_phone'  =>  cleanInput($_POST['d_phone']),
             'd_bio'  =>  $d_bio,
             'd_fees'  =>  cleanInput($_POST['d_fees']),
-            'd_speciality'  =>  $d_speciality,
+            'd_speciality'  =>  $d_speciality
 
         );
-        
+
         if (insertData('doctor', $data)) {
             if (updateOneData('user', 'hms_id', generateHMSID('doctor'), 'u_email', $email) && updateOneData('user', 'u_full_name', $u_full_name, 'u_email', $email)) {
                 echo "<script>alert('Doctor Added Successfully')</script>";
@@ -121,7 +123,7 @@ if (isset($_POST['add_doctor'])) {
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label">Full Name</label>
-                                    <input name="d_full_name" type="text" class="form-control" value="<?php echo $u_full_name ?>" >
+                                    <input name="d_full_name" type="text" class="form-control" value="<?php echo $u_full_name ?>">
                                 </div>
                             </div>
                             <!--end col-->
@@ -129,12 +131,12 @@ if (isset($_POST['add_doctor'])) {
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label">Email Id</label>
-                                    <input name="u_email" type="email" class="form-control" value="<?php echo $u_email ?>" disabled>
+                                    <input name="u_email" type="email" class="form-control" value="<?php echo $email ?>" disabled>
                                 </div>
                             </div>
                             <!--end col-->
 
-                            
+
 
                             <div class="col-md-6">
                                 <div class="mb-3">
@@ -180,7 +182,7 @@ if (isset($_POST['add_doctor'])) {
                                     <input name="d_fees" type="number" class="form-control" placeholder="Appointment Fees :">
                                 </div>
                             </div>
-                            
+
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label">Address</label>
@@ -205,14 +207,14 @@ if (isset($_POST['add_doctor'])) {
                                     <label class="form-label">Your Bio Here</label>
                                     <textarea name="d_bio" rows="3" class="form-control" placeholder="Bio :"></textarea>
                                 </div>
-                            </div>                            
+                            </div>
                             <div class="col-md-12">
                                 <div class="mb-3">
                                     <label class="form-label">Your Specialities</label>
                                     <textarea name="d_speciality" rows="3" class="form-control" placeholder="Enter specialization in your field :"></textarea>
                                 </div>
                             </div>
-                           
+
                         </div>
                         <!--end row-->
 
