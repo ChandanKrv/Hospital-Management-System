@@ -4,18 +4,18 @@ include_once('doctor_header.php');
 if (isset($_POST['add_doctor'])) {
     //$u_id = $_POST["u_id"];
     //$d_image = $_POST["d_image"];
+
     $d_gender = $_POST["d_gender"];
     $d_dob = $_POST["d_dob"];
     $d_department = $_POST["d_department"];
-    $d_address = $_POST["d_address"];
-    $d_timings = $_POST["d_timings"];
+    $d_address = apostrophePush($_POST["d_address"]);
+    $d_timings = apostrophePush($_POST["d_timings"]);
     $d_phone = $_POST["d_phone"];
-    $d_bio = $_POST["d_bio"];
+    $d_bio = apostrophePush($_POST["d_bio"]);
     $d_fees = $_POST["d_fees"];
-    $d_speciality = $_POST["d_speciality"];
+    $d_speciality = apostrophePush($_POST["d_speciality"]);
     // Getting file name
     $filename = $_FILES['d_image']['name'];
-    // Valid extension
 
     if ($filename) {
         $imageUploaded = true;
@@ -239,7 +239,7 @@ if (isset($_POST['add_doctor'])) {
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label">Address</label>
-                                    <textarea name="d_address" rows="3" class="form-control" placeholder="Address :"><?php echo $data['d_address'] ?> </textarea>
+                                    <textarea name="d_address" rows="3" class="form-control" placeholder="Address :"><?php echo apostrophePull($data['d_address']) ?> </textarea>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -252,19 +252,19 @@ if (isset($_POST['add_doctor'])) {
                             <div class="col-md-12">
                                 <div class="mb-3">
                                     <label class="form-label">Visiting Hrs</label>
-                                    <textarea name="d_timings" rows="3" class="form-control" placeholder="Visiting Hrs :"><?php echo $data['d_timings'] ?></textarea>
+                                    <textarea name="d_timings" rows="3" class="form-control" placeholder="Visiting Hrs :"><?php echo apostrophePull($data['d_timings'])  ?></textarea>
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="mb-3">
                                     <label class="form-label">Your Bio Here</label>
-                                    <textarea name="d_bio" rows="3" class="form-control" placeholder="Bio :"><?php echo $data['d_bio'] ?></textarea>
+                                    <textarea name="d_bio" rows="3" class="form-control" placeholder="Bio :"><?php echo apostrophePull($data['d_bio']) ?></textarea>
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="mb-3">
                                     <label class="form-label">Your Specialities</label>
-                                    <textarea name="d_speciality" rows="3" class="form-control" placeholder="Enter specialization in your field :"><?php echo $data['d_speciality'] ?></textarea>
+                                    <textarea name="d_speciality" rows="3" class="form-control" placeholder="Enter specialization in your field :"><?php echo apostrophePull($data['d_speciality']) ?></textarea>
                                 </div>
                             </div>
 

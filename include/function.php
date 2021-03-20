@@ -29,6 +29,33 @@ $timestamp = $date . ' ' . $time24h; //Date and Time
     }
 } */
 
+
+function apostrophePush($gimmePushingString)
+{
+    $pattern = "/'/i";
+    $insert = "~>";
+    $strLen = strlen($gimmePushingString);
+
+    for ($i = 1; $i <= $strLen; $i++) {
+        $all = preg_replace($pattern, $insert, $gimmePushingString);
+    }
+    return $all;
+}
+
+function apostrophePull($gimmePullingString)
+{
+    $pattern = '/~>/i';
+    $insert = "'";
+    $strLen = strlen($gimmePullingString);
+
+    for ($i = 1; $i <= $strLen; $i++) {
+        $all = preg_replace($pattern, $insert, $gimmePullingString);
+    }
+    return $all;
+}
+
+
+
 /* DOCTOR FUNCTION */
 // Compress image
 function compressedImage($source, $path, $quality)
