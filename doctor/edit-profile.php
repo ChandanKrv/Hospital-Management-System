@@ -7,6 +7,7 @@ if (isset($_POST['add_doctor'])) {
 
     $d_gender = $_POST["d_gender"];
     $d_dob = $_POST["d_dob"];
+    $u_full_name = $_POST["u_full_name"];
     $d_department = $_POST["d_department"];
     $d_address = apostrophePush($_POST["d_address"]);
     $d_timings = apostrophePush($_POST["d_timings"]);
@@ -26,7 +27,7 @@ if (isset($_POST['add_doctor'])) {
         $new_profle_pic = uniqid() . '.' . $phototest1;
         // Image Location
         $location = "../assets/images/doctors_img/" . $new_profle_pic;
-        // file extension
+        // file extension Hello
         $file_extension = pathinfo($location, PATHINFO_EXTENSION);
         $file_extension = strtolower($file_extension);
         // Check extension
@@ -47,9 +48,8 @@ if (isset($_POST['add_doctor'])) {
                 'd_fees'  =>  $d_fees,
                 'd_speciality'  =>  $d_speciality
             );
-            if (updateData('doctor', $pushData, "WHERE u_id = '$u_id'")) {
+            if (updateData('doctor', $pushData, "WHERE u_id = '$u_id'") and updateOneData('user', 'u_full_name', $u_full_name, 'u_email', $email)) {
                 echo "<script>alert('Profile Updated Successfully')</script>";
-                //echo "<script> location.href='all-courses'; </script>";
             } else {
                 echo "<script>alert('Not Updated (Hint: Do not use Apostrophe)')</script>";
             }
@@ -68,10 +68,8 @@ if (isset($_POST['add_doctor'])) {
             'd_fees'  =>  $d_fees,
             'd_speciality'  =>  $d_speciality
         );
-        $ret = updateData('doctor', $pushData2, "WHERE u_id = '$u_id'");
-        if ($ret) {
+        if (updateData('doctor', $pushData2, "WHERE u_id = '$u_id'") and updateOneData('user', 'u_full_name', $u_full_name, 'u_email', $email)) {
             echo "<script>alert('Profile Updated Successfully')</script>";
-            //echo "<script> location.href='all-courses'; </script>";
         } else {
             echo "<script>alert('Not Updated (Hint: Do not use Apostrophe)')</script>";
         }
@@ -176,7 +174,7 @@ if (isset($_POST['add_doctor'])) {
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label">Full Name</label>
-                                    <input name="u_full_name" disabled type="text" class="form-control" value="<?php echo $u_full_name ?>">
+                                    <input name="u_full_name" type="text" class="form-control" value="<?php echo $u_full_name ?>">
                                 </div>
                             </div>
                             <!--end col-->

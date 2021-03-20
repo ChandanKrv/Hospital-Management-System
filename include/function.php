@@ -36,9 +36,10 @@ function apostrophePush($gimmePushingString)
     $insert = "~>";
     $strLen = strlen($gimmePushingString);
 
-    for ($i = 1; $i <= $strLen; $i++) {
+    $all = preg_replace($pattern, $insert, $gimmePushingString);
+    /* for ($i = 1; $i <= $strLen; $i++) {
         $all = preg_replace($pattern, $insert, $gimmePushingString);
-    }
+    } */
     return $all;
 }
 
@@ -47,10 +48,10 @@ function apostrophePull($gimmePullingString)
     $pattern = '/~>/i';
     $insert = "'";
     $strLen = strlen($gimmePullingString);
-
-    for ($i = 1; $i <= $strLen; $i++) {
+    $all = preg_replace($pattern, $insert, $gimmePullingString);
+   /*  for ($i = 1; $i <= $strLen; $i++) {
         $all = preg_replace($pattern, $insert, $gimmePullingString);
-    }
+    } */
     return $all;
 }
 
