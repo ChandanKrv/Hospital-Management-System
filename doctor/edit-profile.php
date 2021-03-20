@@ -50,7 +50,7 @@ if (isset($_POST['add_doctor'])) {
             );
             if (updateData('doctor', $pushData, "WHERE u_id = '$u_id'") and updateOneData('user', 'u_full_name', $u_full_name, 'u_email', $email)) {
                 echo "<script>alert('Profile Updated Successfully')</script>";
-                echo "<meta http-equiv='refresh' content='0'>";
+                echo "<meta http-equiv='refresh' content='0'>";//Auto Refresh
             } else {
                 echo "<script>alert('Alert!! Profile Not Updated')</script>";
             }
