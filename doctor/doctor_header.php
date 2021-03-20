@@ -15,8 +15,7 @@ if (isset($_SESSION['email']) && !empty($_SESSION['email']) && isset($_SESSION['
 }
 $IdCheck = getOneData('user', 'hms_id', 'u_email', $email);
 if ($IdCheck == '') {
-    /* echo "<script>alert('It seems that you have not created your HMS Id. Please create it to continue!!')</script>";
-    echo "<script>location.href='doctor-id'</script>"; */
+    $u_id = getOneData('user', 'u_id', 'u_email', $email);
     $u_name = getOneData('user', 'u_name', 'u_email', $email);
     $u_full_name = getOneData('user', 'u_full_name', 'u_email', $email);
 }
@@ -121,7 +120,7 @@ $d_department = $data['d_department'];
 
 
                     <li><a href="components.html"><i class="uil uil-cube me-2 d-inline-block"></i>Staff</a></li>
-                    <li><a href="edit-profile"><i class="uil uil-cube me-2 d-inline-block"></i>Edit Profile</a></li>
+                    <li><a href="dr-profile"><i class="uil uil-user-md me-2 d-inline-block"></i>Profile</a></li>
                     <li><a href="components.html"><i class="uil uil-window me-2 d-inline-block"></i>Miscellaneous</a></li>
 
                 </ul>
