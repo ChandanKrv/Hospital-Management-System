@@ -7,7 +7,7 @@ if ($hms_id != '') {
 
 if (isset($_POST['add_doctor'])) {
     //$u_id = $_POST["u_id"];
-    $u_full_name = $_POST["d_full_name"];
+    $u_full_name = $_POST["u_full_name"];
     $d_gender = $_POST["d_gender"];
     $d_dob = $_POST["d_dob"];
     $d_department = $_POST["d_department"];
