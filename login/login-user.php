@@ -46,7 +46,7 @@ if (isset($_SESSION['email']) && !empty($_SESSION['email']) && isset($_SESSION['
                         <i class="fas fa-lock"></i>
                         <input class="form-control" type="password" name="password" placeholder="Password" required>
                     </div>
-                    <!-- <div class="link login-link text-center">Not yet a member? <a href="signup-user.php">Signup now</a></div> -->
+                    <div class="link login-link text-center"><a href="forgot-password">Forgot Password ?</a></div>
 
                     <!-- <input class="form-control button" type="submit" name="login" value="Login"> -->
                     <input type="submit" value="Login" name="login" class="btn solid" />
