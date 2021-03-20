@@ -50,9 +50,9 @@ if (isset($_POST['add_doctor'])) {
             );
             if (updateData('doctor', $pushData, "WHERE u_id = '$u_id'") and updateOneData('user', 'u_full_name', $u_full_name, 'u_email', $email)) {
                 echo "<script>alert('Profile Updated Successfully')</script>";
-                header("Refresh:0");
+                echo "<meta http-equiv='refresh' content='0'>";
             } else {
-                echo "<script>alert('Not Updated (Hint: Do not use Apostrophe)')</script>";
+                echo "<script>alert('Alert!! Profile Not Updated')</script>";
             }
         } else {
             echo "<script>alert('Error!! Only png/jpg/jpeg are Allowed')</script>";
@@ -71,9 +71,9 @@ if (isset($_POST['add_doctor'])) {
         );
         if (updateData('doctor', $pushData2, "WHERE u_id = '$u_id'") and updateOneData('user', 'u_full_name', $u_full_name, 'u_email', $email)) {
             echo "<script>alert('Profile Updated Successfully')</script>";
-            header("Refresh:0");
+            echo "<meta http-equiv='refresh' content='0'>";
         } else {
-            echo "<script>alert('Not Updated (Hint: Do not use Apostrophe)')</script>";
+            echo "<script>alert('Profile Not Updated')</script>";
         }
     }
 
