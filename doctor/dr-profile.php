@@ -23,7 +23,7 @@ include_once('doctor_header.php');
                 <div class="mt-4 ms-3 pt-3">
                     <h5 class="mt-3 mb-1">Dr. <?php echo $data['u_full_name']; ?></h5>
                     <p class="text-muted mb-0"><?php echo $data['d_department']; ?></p>
-                </div>
+                </div>d_
             </div>
 
             <div class="row">
@@ -81,10 +81,10 @@ include_once('doctor_header.php');
                         <div class="tab-content mt-2" id="pills-tabContent">
                             <div class="tab-pane fade show active" id="pills-overview" role="tabpanel" aria-labelledby="overview-tab">
                                 <p class="text-muted"><?php echo apostrophePull($data['d_bio']); ?></p>
-
+']data['d_
                                 <h6 class="mb-0">Specialties: </h6>
                                 <p><?php echo apostrophePull($data['d_speciality']); ?></p>
-
+d_d_
                                 <!-- <ul class="list-unstyled mt-4">
                                                     <li class="mt-1"><i class="uil uil-arrow-right text-primary"></i> Women's health services</li>
                                                     <li class="mt-1"><i class="uil uil-arrow-right text-primary"></i> Pregnancy care</li>
@@ -104,7 +104,7 @@ include_once('doctor_header.php');
                                     <div class="col-lg-4 col-md-12">
                                         <h4>Visiting Hours</h4>
                                         <p><?php echo apostrophePull($data['d_timings']); ?></p>
-                                        <!-- <div class="card border-0 p-3 rounded shadow">
+                                        <!-- <div class="card border-0nded show">
                                                             <ul class="list-unstyled mb-0">
                                                                 <li class="d-flex justify-content-between my-1">
                                                                     <p class="text-muted mb-0"><i class="ri-time-fill text-primary align-middle h5 mb-0"></i> Monday</p>
@@ -149,7 +149,7 @@ include_once('doctor_header.php');
                                                 <h5 class="title fw-bold">Phone</h5>
                                                 <p class="text-muted">Great doctor if you need your family member to get effective immediate assistance</p>
                                                 <a href="tel:<?php echo $data['d_phone']; ?>" class="link"><?php echo $data['d_phone']; ?></a>
-                                            </div>
+                                            </div>d_
                                         </div>
                                     </div>
                                     <!--end col-->

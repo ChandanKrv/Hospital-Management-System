@@ -9,7 +9,7 @@ if ($hms_id != '') {
 
 if (isset($_POST['add_doctor'])) {
     //$u_id = $_POST["u_id"];
-    $u_full_name = $_POST["d_full_name"];
+    $u_full_name = $_POST["u_full_name"];
     $d_gender = $_POST["d_gender"];
     $d_dob = $_POST["d_dob"];
     $d_department = $_POST["d_department"];
@@ -123,7 +123,7 @@ if (isset($_POST['add_doctor'])) {
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label">Full Name</label>
-                                    <input name="d_full_name" type="text" class="form-control" value="<?php echo $u_full_name ?>">
+                                    <input name="u_full_name" type="text" class="form-control" value="<?php echo $u_full_name ?>">
                                 </div>
                             </div>
                             <!--end col-->

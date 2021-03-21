@@ -19,7 +19,7 @@ if ($IdCheck == '') {
     $u_name = getOneData('user', 'u_name', 'u_email', $email);
     $u_full_name = getOneData('user', 'u_full_name', 'u_email', $email);
     $image = "../assets/images/dummy.png";
-    $d_department = "DEPARTMENT";
+    $department = "DEPARTMENT";
 
     $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
     if (!strpos($actual_link, 'doctor-id')) {
@@ -35,9 +35,18 @@ if ($IdCheck == '') {
     $u_full_name = $data['u_full_name'];
     $u_email = $data['u_email'];
     $hms_id = $data['hms_id'];
-    $d_gender = $data['d_gender'];
-    $d_department = $data['d_department'];
+    $gender = $data['d_gender'];
+    $department = $data['d_department'];
     $image = "../assets/images/doctors_img/" . $data['d_image'];
+    $dob = $data['d_dob'];
+    $address = $data['d_address'];
+    $timings = $data['d_timings'];
+    $bio = $data['d_bio'];
+    $phone = $data['d_phone'];
+    $fees = $data['d_fees'];
+    $speciality = $data['d_speciality'];
+
+
 }
 ?>
 <!DOCTYPE html>
@@ -272,7 +281,7 @@ if ($IdCheck == '') {
                                         <img src="<?php echo $image ?>" class="avatar avatar-md-sm rounded-circle border shadow" alt="">
                                         <div class="flex-1 ms-2">
                                             <span class="d-block mb-1">Dr.<?php echo $u_full_name ?></span>
-                                            <small class="text-muted"><?php echo $d_department ?></small>
+                                            <small class="text-muted"><?php echo $department ?></small>
                                         </div>
                                     </a>
                                     <a class="dropdown-item text-dark" href="index"><span class="mb-0 d-inline-block me-1"><i class="uil uil-dashboard align-middle h6"></i></span> Dashboard</a>
