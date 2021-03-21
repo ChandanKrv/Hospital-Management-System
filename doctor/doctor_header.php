@@ -18,8 +18,7 @@ if ($IdCheck == '') {
     $u_id = getOneData('user', 'u_id', 'u_email', $email);
     $u_name = getOneData('user', 'u_name', 'u_email', $email);
     $u_full_name = getOneData('user', 'u_full_name', 'u_email', $email);
-    // $image = "../assets/images/doctors_img/" . "dummy.jpg";
-    $image = "https://icons-for-free.com/iconfiles/png/512/doctor+pediatrician+icon-1320185104387356300.png";
+    $image = "../assets/images/dummy.png";
     $d_department = "DEPARTMENT";
 } else {
     /* FETCHING USER DATA */
@@ -261,7 +260,7 @@ if ($IdCheck == '') {
 
                         <li class="list-inline-item mb-0 ms-1">
                             <div class="dropdown dropdown-primary">
-                                <button type="button" class="btn btn-pills btn-soft-primary dropdown-toggle p-0" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../assets/images/doctors_img/<?php echo $data['d_image'] ?>" class="avatar avatar-ex-small rounded-circle" alt=""></button>
+                                <button type="button" class="btn btn-pills btn-soft-primary dropdown-toggle p-0" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="<?php echo $image ?>" class="avatar avatar-ex-small rounded-circle" alt=""></button>
                                 <div class="dropdown-menu dd-menu dropdown-menu-end bg-white shadow border-0 mt-3 py-3" style="min-width: 200px;">
                                     <a class="dropdown-item d-flex align-items-center text-dark" href="dr-profile">
                                         <img src="<?php echo $image ?>" class="avatar avatar-md-sm rounded-circle border shadow" alt="">
