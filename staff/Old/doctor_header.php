@@ -1,8 +1,6 @@
 <?php
 //session_start(); //Already Started in dp.php
 include_once('../include/function.php');
-
-$email = $_SESSION['email'];
 ?>
 <?php
 //Session Checking
@@ -13,41 +11,19 @@ if (isset($_SESSION['email']) && !empty($_SESSION['email']) && isset($_SESSION['
 } else {
     header('location: ../login/login-user.php');
 }
-$IdCheck = getOneData('user', 'hms_id', 'u_email', $email);
-if ($IdCheck == '') {
-    $u_id = getOneData('user', 'u_id', 'u_email', $email);
-    $u_name = getOneData('user', 'u_name', 'u_email', $email);
-    $u_full_name = getOneData('user', 'u_full_name', 'u_email', $email);
-    $image = "../assets/images/dummy.png";
-    $department = "DEPARTMENT";
 
-    $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-    if (!strpos($actual_link, 'doctor-id')) {
-        echo "<script>alert('It seems that you have not created your HMS Id. Please create it to continue!!')</script>";
-        echo "<script>location.href='doctor-id'</script>";
-    }
-} else {
-    /* FETCHING USER DATA */
+/* FETCHING USER DATA */
+$email = $_SESSION['email'];
+$data=getAllData('staff','user.u_email', $email);
+$sql = "SELECT * FROM user WHERE u_email ='$email'";
 
-    $data = getAllData('doctor', 'user.u_email', $email);
     $u_id = $data['u_id'];
     $u_name = $data['u_name'];
     $u_full_name = $data['u_full_name'];
     $u_email = $data['u_email'];
     $hms_id = $data['hms_id'];
-    $gender = $data['d_gender'];
-    $department = $data['d_department'];
-    $image = "../assets/images/doctors_img/" . $data['d_image'];
-    $dob = $data['d_dob'];
-    $address = $data['d_address'];
-    $timings = $data['d_timings'];
-    $bio = $data['d_bio'];
-    $phone = $data['d_phone'];
-    $fees = $data['d_fees'];
-    $speciality = $data['d_speciality'];
+    //echo "<script>alert('Username- $u_id')</script>";
 
-
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -55,7 +31,7 @@ if ($IdCheck == '') {
 
 <head>
     <meta charset="utf-8" />
-    <title>HMS- Doctor Appointment Booking System</title>
+    <title>HMS- staff Appointment Booking System</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Premium Bootstrap 4 Landing Page Template" />
     <meta name="keywords" content="Appointment, Booking, System, Dashboard, Health" />
@@ -115,7 +91,7 @@ if ($IdCheck == '') {
                         <div class="sidebar-submenu">
                             <ul>
                                 <li><a href="patients">All Patients</a></li>
-                                <li><a href="add-doctor.html">Add Patients</a></li>
+                                <li><a href="add-staff.html">Add Patients</a></li>
                             </ul>
                         </div>
                     </li> -->
@@ -136,7 +112,7 @@ if ($IdCheck == '') {
 
 
                     <li><a href="components.html"><i class="uil uil-cube me-2 d-inline-block"></i>Staff</a></li>
-                    <li><a href="dr-profile"><i class="uil uil-user-md me-2 d-inline-block"></i>Profile</a></li>
+                    <li><a href="edit-profile"><i class="uil uil-cube me-2 d-inline-block"></i>Edit Profile</a></li>
                     <li><a href="components.html"><i class="uil uil-window me-2 d-inline-block"></i>Miscellaneous</a></li>
 
                 </ul>
@@ -275,13 +251,13 @@ if ($IdCheck == '') {
 
                         <li class="list-inline-item mb-0 ms-1">
                             <div class="dropdown dropdown-primary">
-                                <button type="button" class="btn btn-pills btn-soft-primary dropdown-toggle p-0" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="<?php echo $image ?>" class="avatar avatar-ex-small rounded-circle" alt=""></button>
+                                <button type="button" class="btn btn-pills btn-soft-primary dropdown-toggle p-0" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../assets/images/doctors_img/<?php echo $data['s_image'] ?>" class="avatar avatar-ex-small rounded-circle" alt=""></button>
                                 <div class="dropdown-menu dd-menu dropdown-menu-end bg-white shadow border-0 mt-3 py-3" style="min-width: 200px;">
                                     <a class="dropdown-item d-flex align-items-center text-dark" href="dr-profile">
-                                        <img src="<?php echo $image ?>" class="avatar avatar-md-sm rounded-circle border shadow" alt="">
+                                        <img src="../assets/images/doctors_img/<?php echo $data['s_image'] ?>" class="avatar avatar-md-sm rounded-circle border shadow" alt="">
                                         <div class="flex-1 ms-2">
                                             <span class="d-block mb-1">Dr.<?php echo $u_full_name ?></span>
-                                            <small class="text-muted"><?php echo $department ?></small>
+                                            <small class="text-muted"><?php echo $data['s_department'] ?></small>
                                         </div>
                                     </a>
                                     <a class="dropdown-item text-dark" href="index"><span class="mb-0 d-inline-block me-1"><i class="uil uil-dashboard align-middle h6"></i></span> Dashboard</a>

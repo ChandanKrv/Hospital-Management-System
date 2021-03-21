@@ -1,4 +1,4 @@
-<?php include_once('doctor_header.php') ?>
+<?php include_once('staff_header.php') ?>
 <div class="container-fluid">
                     <div class="layout-specing">
                         <div class="row">
@@ -51,7 +51,7 @@
                                                 <th class="border-bottom py-3">Department</th>
                                                 <th class="border-bottom py-3" style="min-width: 150px;">Date</th>
                                                 <th class="border-bottom py-3">Time</th>
-                                                <th class="border-bottom py-3" style="min-width: 220px;">Doctor</th>
+                                                <th class="border-bottom py-3" style="min-width: 220px;">staff</th>
                                                 <th class="border-bottom py-3">Fees</th>
                                                 <th class="border-bottom py-3" style="min-width: 150px;"></th>
                                             </tr>
@@ -147,8 +147,8 @@
                                 
                                 <div class="col-lg-4 col-md-6">
                                     <div class="mb-3">
-                                        <label class="form-label">Doctor</label>
-                                        <select class="form-control doctor-name select2input">
+                                        <label class="form-label">staff</label>
+                                        <select class="form-control staff-name select2input">
                                             <option value="CA">Dr. Calvin Carlo</option>
                                             <option value="CR">Dr. Cristino Murphy</option>
                                             <option value="AL">Dr. Alia Reddy</option>
@@ -254,7 +254,7 @@
                                     </li>
 
                                     <li class="d-flex">
-                                        <h6 class="mb-0">Doctor:</h6>
+                                        <h6 class="mb-0">staff:</h6>
                                         <p class="text-muted ms-2 mb-0">Dr. Calvin Carlo</p>
                                     </li>
                                 </ul>
@@ -277,7 +277,7 @@
                             </div>
                             <div class="mt-4">
                                 <h4>Accept Appointment</h4>
-                                <p class="para-desc mx-auto text-muted mb-0">Great doctor if you need your family member to get immediate assistance, emergency treatment.</p>
+                                <p class="para-desc mx-auto text-muted mb-0">Great staff if you need your family member to get immediate assistance, emergency treatment.</p>
                                 <div class="mt-4">
                                     <a href="#" class="btn btn-soft-success">Accept</a>
                                 </div>
@@ -300,7 +300,7 @@
                             </div>
                             <div class="mt-4">
                                 <h4>Cancel Appointment</h4>
-                                <p class="para-desc mx-auto text-muted mb-0">Great doctor if you need your family member to get immediate assistance, emergency treatment.</p>
+                                <p class="para-desc mx-auto text-muted mb-0">Great staff if you need your family member to get immediate assistance, emergency treatment.</p>
                                 <div class="mt-4">
                                     <a href="#" class="btn btn-soft-danger">Cancel</a>
                                 </div>
@@ -312,4 +312,4 @@
         </div>
         <!-- Cancel Appointment End -->
         <!-- Modal end -->
-<?php include_once('doctor_footer.php') ?>
+<?php include_once('staff_footer.php') ?>

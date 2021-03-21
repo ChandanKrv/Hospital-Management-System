@@ -1,82 +1,76 @@
 <?php
 include_once('doctor_header.php');
+/* 
+if ($hms_id != '') {
+    echo "<script>location.href='index'</script>";
+} */
+
+
 
 if (isset($_POST['add_doctor'])) {
     //$u_id = $_POST["u_id"];
-    //$d_image = $_POST["d_image"];
-
+    $u_full_name = $_POST["u_full_name"];
     $d_gender = $_POST["d_gender"];
     $d_dob = $_POST["d_dob"];
-    $u_full_name = $_POST["u_full_name"];
     $d_department = $_POST["d_department"];
-    $d_address = apostrophePush($_POST["d_address"]);
-    $d_timings = apostrophePush($_POST["d_timings"]);
+    $d_address = $_POST["d_address"];
+    $d_timings = $_POST["d_timings"];
     $d_phone = $_POST["d_phone"];
-    $d_bio = apostrophePush($_POST["d_bio"]);
+    $d_bio = $_POST["d_bio"];
     $d_fees = $_POST["d_fees"];
-    $d_speciality = apostrophePush($_POST["d_speciality"]);
+    $d_speciality = $_POST["d_speciality"];
     // Getting file name
     $filename = $_FILES['d_image']['name'];
-
-    if ($filename) {
-        $imageUploaded = true;
-        // Valid extension
-        $valid_ext = array('png', 'jpeg', 'jpg');
-        $photoExt1 = @end(explode('.', $filename)); // explode the image name to get the extension
-        $phototest1 = strtolower($photoExt1);
-        $new_profle_pic = uniqid() . '.' . $phototest1;
-        // Image Location
-        $location = "../assets/images/doctors_img/" . $new_profle_pic;
-        // file extension Hello
-        $file_extension = pathinfo($location, PATHINFO_EXTENSION);
-        $file_extension = strtolower($file_extension);
-        // Check extension
-        if (in_array($file_extension, $valid_ext)) {
-            // Compress Image
-            compressedImage($_FILES['d_image']['tmp_name'], $location, 60);
-            //Pushing All data into database
-            $pushData = array(
-                // 'u_id' => $u_id,
-                'd_image'  =>   $new_profle_pic,
-                'd_gender'  =>  $d_gender,
-                'd_dob'  =>  $d_dob,
-                'd_department'  =>  $d_department,
-                'd_address'  =>  $d_address,
-                'd_timings'  =>  $d_timings,
-                'd_bio'  =>  $d_bio,
-                'd_phone'  =>  $d_phone,
-                'd_fees'  =>  $d_fees,
-                'd_speciality'  =>  $d_speciality
-            );
-            if (updateData('doctor', $pushData, "WHERE u_id = '$u_id'") and updateOneData('user', 'u_full_name', $u_full_name, 'u_email', $email)) {
-                echo "<script>alert('Profile Updated Successfully')</script>";
-                echo "<meta http-equiv='refresh' content='0'>"; //Auto Refresh
-            } else {
-                echo "<script>alert('Alert!! Profile Not Updated')</script>";
-            }
-        } else {
-            echo "<script>alert('Error!! Only png/jpg/jpeg are Allowed')</script>";
-        }
-    } else {
-        $pushData2 = array(
+    // Valid extension
+    $valid_ext = array('png', 'jpeg', 'jpg');
+    $photoExt1 = @end(explode('.', $filename)); // explode the image name to get the extension
+    $phototest1 = strtolower($photoExt1);
+    $new_profle_pic = uniqid() . '.' . $phototest1;
+    // Image Location
+    $location = "../assets/images/doctors_img/" . $new_profle_pic;
+    // file extension
+    $file_extension = pathinfo($location, PATHINFO_EXTENSION);
+    $file_extension = strtolower($file_extension);
+    // Check extension
+    echo $d_address;
+    if (in_array($file_extension, $valid_ext)) {
+        // Compress Image
+        compressedImage($_FILES['d_image']['tmp_name'], $location, 60);
+        //Here i am enter the insert code in the step ........
+        //Pushing All data into database
+        $data = array(
+            'u_id' => $u_id,
+            'd_image'  =>   $new_profle_pic,
             'd_gender'  =>  $d_gender,
             'd_dob'  =>  $d_dob,
             'd_department'  =>  $d_department,
-            'd_address'  =>  $d_address,
+            'd_address'  =>  cleanInput($_POST['d_address']),
             'd_timings'  =>  $d_timings,
+            'd_phone'  =>  cleanInput($_POST['d_phone']),
             'd_bio'  =>  $d_bio,
-            'd_phone'  =>  $d_phone,
-            'd_fees'  =>  $d_fees,
+            'd_fees'  =>  cleanInput($_POST['d_fees']),
             'd_speciality'  =>  $d_speciality
+
         );
-        if (updateData('doctor', $pushData2, "WHERE u_id = '$u_id'") and updateOneData('user', 'u_full_name', $u_full_name, 'u_email', $email)) {
-            echo "<script>alert('Profile Updated Successfully')</script>";
-            echo "<meta http-equiv='refresh' content='0'>";
+
+        if (insertData('doctor', $data)) {
+            if (updateOneData('user', 'hms_id', generateHMSID('doctor'), 'u_email', $email) && updateOneData('user', 'u_full_name', $u_full_name, 'u_email', $email)) {
+                echo "<script>alert('Doctor Added Successfully')</script>";
+                echo "<script>location.href='index'</script>";
+            } else {
+                echo "<script>alert('Data Inserted, HMS-Id NOT generated')</script>";
+            }
         } else {
-            echo "<script>alert('Profile Not Updated')</script>";
+            echo "<script>alert('Error!! Doctor Not Added')</script>";
         }
+    } else {
+        echo "<script>alert('Error!! Only png/jpg/jpeg are Allowed')</script>";
     }
 }
+
+
+
+
 
 ?>
 <div class="container-fluid">
@@ -137,7 +131,7 @@ if (isset($_POST['add_doctor'])) {
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label">Email Id</label>
-                                    <input name="u_email" type="email" class="form-control" value="<?php echo $u_email ?>" disabled>
+                                    <input name="u_email" type="email" class="form-control" value="<?php echo $email ?>" disabled>
                                 </div>
                             </div>
                             <!--end col-->
@@ -148,9 +142,9 @@ if (isset($_POST['add_doctor'])) {
                                 <div class="mb-3">
                                     <label class="form-label">Gender</label>
                                     <select class="form-control department-name select2input" name="d_gender">
-                                        <option value="Male" <?php if ($gender == 'Male') { ?>selected<?php } ?>>Male</option>
-                                        <option value="Female" <?php if ($gender  == 'Female') { ?>selected<?php } ?>>Female</option>
-                                        <option value="Others" <?php if ($gender  == 'Others') { ?>selected<?php } ?>>Others</option>
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                        <option value="Others">Others</option>
                                     </select>
                                 </div>
                             </div>
@@ -158,73 +152,73 @@ if (isset($_POST['add_doctor'])) {
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label">Date Of Birth</label>
-                                    <input name="d_dob" type="date" class="form-control" value="<?php echo $data['d_dob'] ?>">
+                                    <input name="d_dob" type="date" class="form-control">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label">Departments</label>
                                     <select class="form-control department-name select2input" name="d_department">
-                                        <option value="Eye Care" <?php if ($department == 'Eye Care') { ?>selected<?php } ?>>Eye Care</option>
-                                        <option value="Gynecologist" <?php if ($department == 'Gynecologist') { ?>selected<?php } ?>>Gynecologist</option>
-                                        <option value="Psychotherapist" <?php if ($department == 'Psychotherapist') { ?>selected<?php } ?>>Psychotherapist</option>
-                                        <option value="Orthopedic" <?php if ($department == 'Orthopedic') { ?>selected<?php } ?>>Orthopedic</option>
-                                        <option value="Dentist" <?php if ($department == 'Dentist') { ?>selected<?php } ?>>Dentist</option>
-                                        <option value="Gastrologist" <?php if ($department == 'Gastrologist') { ?>selected<?php } ?>>Gastrologist</option>
-                                        <option value="Urologist" <?php if ($department == 'Urologist') { ?>selected<?php } ?>>Urologist</option>
-                                        <option value="Neurologist" <?php if ($department == 'Neurologist') { ?>selected<?php } ?>>Neurologist</option>
+                                        <option value="Eye Care">Eye Care</option>
+                                        <option value="Gynecologist">Gynecologist</option>
+                                        <option value="Psychotherapist">Psychotherapist</option>
+                                        <option value="Orthopedic">Orthopedic</option>
+                                        <option value="Dentist">Dentist</option>
+                                        <option value="Gastrologist">Gastrologist</option>
+                                        <option value="Urologist">Urologist</option>
+                                        <option value="Neurologist">Neurologist</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label">Phone Number</label>
-                                    <input name="d_phone" type="number" class="form-control" placeholder="Phone Number :" value="<?php echo $phone ?>">
+                                    <input name="d_phone" type="number" class="form-control" placeholder="Phone Number :">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label">Appointment Fees</label>
-                                    <input name="d_fees" type="number" class="form-control" placeholder="Appointment Fees :" value="<?php echo $fees ?>">
+                                    <input name="d_fees" type="number" class="form-control" placeholder="Appointment Fees :">
                                 </div>
                             </div>
 
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label">Address</label>
-                                    <textarea name="d_address" rows="3" class="form-control" placeholder="Address :"><?php echo apostrophePull($address) ?> </textarea>
+                                    <textarea name="d_address" rows="3" class="form-control" placeholder="Address :"></textarea>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label">Profile Image</label>
-                                    <input name="d_image" type="file" class="form-control">
+                                    <input name="d_image" type="file" class="form-control" required>
                                 </div>
                             </div>
                             <!--end col-->
                             <div class="col-md-12">
                                 <div class="mb-3">
                                     <label class="form-label">Visiting Hrs</label>
-                                    <textarea name="d_timings" rows="3" class="form-control" placeholder="Visiting Hrs :"><?php echo apostrophePull($timings)  ?></textarea>
+                                    <textarea name="d_timings" rows="3" class="form-control" placeholder="Visiting Hrs :"></textarea>
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="mb-3">
                                     <label class="form-label">Your Bio Here</label>
-                                    <textarea name="d_bio" rows="3" class="form-control" placeholder="Bio :"><?php echo apostrophePull($bio) ?></textarea>
+                                    <textarea name="d_bio" rows="3" class="form-control" placeholder="Bio :"></textarea>
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="mb-3">
                                     <label class="form-label">Your Specialities</label>
-                                    <textarea name="d_speciality" rows="3" class="form-control" placeholder="Enter specialization in your field :"><?php echo apostrophePull($speciality) ?></textarea>
+                                    <textarea name="d_speciality" rows="3" class="form-control" placeholder="Enter specialization in your field :"></textarea>
                                 </div>
                             </div>
 
                         </div>
                         <!--end row-->
 
-                        <button type="submit" name="add_doctor" class="btn btn-primary">Edit Profile</button>
+                        <button type="submit" name="add_doctor" class="btn btn-primary">Create Doctor Id</button>
                     </form>
                 </div>
             </div>

@@ -1,4 +1,4 @@
-<?php include_once('doctor_header.php') ?>
+<?php include_once('staff_header.php') ?>
 <div class="container-fluid">
                     <div class="layout-specing">
                         <div class="d-md-flex justify-content-between">
@@ -199,7 +199,7 @@
                                     </li>
 
                                     <li class="d-flex">
-                                        <h6 class="mb-0">Doctor:</h6>
+                                        <h6 class="mb-0">staff:</h6>
                                         <p class="text-muted ms-2 mb-0">Dr. Calvin Carlo</p>
                                     </li>
                                 </ul>
@@ -211,4 +211,4 @@
         </div>
         <!-- Profile End -->
         <!-- Modal end -->
-<?php include_once('doctor_footer.php') ?>
+<?php include_once('staff_footer.php') ?>
