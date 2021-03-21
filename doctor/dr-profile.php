@@ -19,11 +19,11 @@ include_once('doctor_header.php');
         <div class="card bg-white rounded shadow overflow-hidden mt-4 border-0">
             <div class="p-5 bg-primary bg-gradient"></div>
             <div class="avatar-profile d-flex margin-nagative mt-n5 position-relative ps-3">
-                <img src="../assets/images/doctors_img/<?php echo $data['d_image']; ?>" class="rounded-circle shadow-md avatar avatar-medium" alt="">
+                <img src="<?php echo $image ?>" class="rounded-circle shadow-md avatar avatar-medium" alt="">
                 <div class="mt-4 ms-3 pt-3">
-                    <h5 class="mt-3 mb-1">Dr. <?php echo $data['u_full_name']; ?></h5>
-                    <p class="text-muted mb-0"><?php echo $data['d_department']; ?></p>
-                </div>d_
+                    <h5 class="mt-3 mb-1">Dr. <?php echo $u_full_name ?></h5>
+                    <p class="text-muted mb-0"><?php echo $department ?></p>
+                </div>
             </div>
 
             <div class="row">
@@ -80,11 +80,10 @@ include_once('doctor_header.php');
 
                         <div class="tab-content mt-2" id="pills-tabContent">
                             <div class="tab-pane fade show active" id="pills-overview" role="tabpanel" aria-labelledby="overview-tab">
-                                <p class="text-muted"><?php echo apostrophePull($data['d_bio']); ?></p>
-']data['d_
+                                <p class="text-muted"><?php echo apostrophePull($bio); ?></p>
+
                                 <h6 class="mb-0">Specialties: </h6>
-                                <p><?php echo apostrophePull($data['d_speciality']); ?></p>
-d_d_
+                                <p><?php echo apostrophePull($speciality); ?></p>
                                 <!-- <ul class="list-unstyled mt-4">
                                                     <li class="mt-1"><i class="uil uil-arrow-right text-primary"></i> Women's health services</li>
                                                     <li class="mt-1"><i class="uil uil-arrow-right text-primary"></i> Pregnancy care</li>
@@ -148,7 +147,7 @@ d_d_
                                             <div class="card-body p-0 mt-4">
                                                 <h5 class="title fw-bold">Phone</h5>
                                                 <p class="text-muted">Great doctor if you need your family member to get effective immediate assistance</p>
-                                                <a href="tel:<?php echo $data['d_phone']; ?>" class="link"><?php echo $data['d_phone']; ?></a>
+                                                <a href="tel:<?php echo $phone ?>" class="link"><?php echo $phone ?></a>
                                             </div>d_
                                         </div>
                                     </div>
@@ -163,7 +162,7 @@ d_d_
                                             <div class="card-body p-0 mt-4">
                                                 <h5 class="title fw-bold">Email</h5>
                                                 <p class="text-muted">Great doctor if you need your family member to get effective immediate assistance</p>
-                                                <a href="mailto:<?php echo $data['u_email']; ?>" class="link"><?php echo $data['u_email']; ?></a>
+                                                <a href="mailto:<?php echo $u_email ?>" class="link"><?php echo $u_email ?></a>
                                             </div>
                                         </div>
                                     </div>
