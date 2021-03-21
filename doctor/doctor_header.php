@@ -20,6 +20,12 @@ if ($IdCheck == '') {
     $u_full_name = getOneData('user', 'u_full_name', 'u_email', $email);
     $image = "../assets/images/dummy.png";
     $d_department = "DEPARTMENT";
+
+    $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+    if (!strpos($actual_link, 'doctor-id')) {
+        echo "<script>alert('It seems that you have not created your HMS Id. Please create it to continue!!')</script>";
+        echo "<script>location.href='doctor-id'</script>";
+    }
 } else {
     /* FETCHING USER DATA */
 
