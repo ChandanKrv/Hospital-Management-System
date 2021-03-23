@@ -27,7 +27,7 @@ if (isset($_POST['staff_id_gen'])) {
     $phototest1 = strtolower($photoExt1);
     $new_profle_pic = uniqid() . '.' . $phototest1;
     // Image Location
-    $location = "../assets/images/doctors_img/" . $new_profle_pic;
+    $location = "../assets/images/staff_img/" . $new_profle_pic;
     // file extension
     $file_extension = pathinfo($location, PATHINFO_EXTENSION);
     $file_extension = strtolower($file_extension);
@@ -55,7 +55,7 @@ if (isset($_POST['staff_id_gen'])) {
 
         if (insertData('doctor', $data)) {
             if (updateOneData('user', 'hms_id', generateHMSID('doctor'), 'u_email', $email) && updateOneData('user', 'u_full_name', $u_full_name, 'u_email', $email)) {
-                echo "<script>alert('Doctor Added Successfully')</script>";
+                echo "<script>alert('Staff Added Successfully')</script>";
                 echo "<script>location.href='index'</script>";
             } else {
                 echo "<script>alert('Data Inserted, HMS-Id NOT generated')</script>";

@@ -24,7 +24,7 @@ if ($IdCheck == '') {
     $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
     if (!strpos($actual_link, 'staff-id')) {
         echo "<script>alert('It seems that you have not created your HMS Id. Please create it to continue!!')</script>";
-        echo "<script>location.href='doctor-id'</script>";
+        echo "<script>location.href='staff-id'</script>";
     }
 } else {
     /* FETCHING USER DATA */
@@ -37,7 +37,7 @@ if ($IdCheck == '') {
     $hms_id = $data['hms_id'];
     $gender = $data['s_gender'];
     $department = $data['s_department'];
-    $image = "../assets/images/doctors_img/" . $data['s_image'];
+    $image = "../assets/images/staff_img/" . $data['s_image'];
     $dob = $data['s_dob'];
     $address = $data['s_address'];
     $timings = $data['s_timings'];
@@ -45,8 +45,6 @@ if ($IdCheck == '') {
     $phone = $data['s_phone'];
     $fees = $data['s_fees'];
     $speciality = $data['s_speciality'];
-
-
 }
 ?>
 <!DOCTYPE html>
@@ -55,7 +53,7 @@ if ($IdCheck == '') {
 
 <head>
     <meta charset="utf-8" />
-    <title>HMS- Doctor Appointment Booking System</title>
+    <title>HMS- Staff Header</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Premium Bootstrap 4 Landing Page Template" />
     <meta name="keywords" content="Appointment, Booking, System, Dashboard, Health" />
@@ -110,16 +108,6 @@ if ($IdCheck == '') {
                     <li><a href="index"><i class="uil uil-dashboard me-2 d-inline-block"></i>Dashboard</a></li>
                     <li><a href="appointment"><i class="uil uil-stethoscope me-2 d-inline-block"></i>Appointment</a></li>
                     <li><a href="patients"><i class="uil uil-user me-2 d-inline-block"></i>Patients</a></li>
-                    <!-- <li class="sidebar-dropdown">
-                        <a href="javascript:void(0)"><i class="uil uil-user me-2 d-inline-block"></i>Patients</a>
-                        <div class="sidebar-submenu">
-                            <ul>
-                                <li><a href="patients">All Patients</a></li>
-                                <li><a href="add-doctor.html">Add Patients</a></li>
-                            </ul>
-                        </div>
-                    </li> -->
-
 
                     <li class="sidebar-dropdown">
                         <a href="javascript:void(0)"><i class="uil uil-shopping-cart me-2 d-inline-block"></i>Pharmacy</a>
