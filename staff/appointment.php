@@ -1,4 +1,4 @@
-<?php include_once('doctor_header.php') ?>
+<?php include_once('staff_header.php') ?>
 <div class="container-fluid">
                     <div class="layout-specing">
                         <div class="row">
@@ -312,4 +312,4 @@
         </div>
         <!-- Cancel Appointment End -->
         <!-- Modal end -->
-<?php include_once('doctor_footer.php') ?>
+<?php include_once('staff_footer.php') ?>

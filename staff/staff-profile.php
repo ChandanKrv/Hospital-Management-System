@@ -102,7 +102,7 @@ include_once('doctor_header.php');
                                 <div class="row">
                                     <div class="col-lg-4 col-md-12">
                                         <h4>Visiting Hours</h4>
-                                        <p><?php echo apostrophePull($data['d_timings']); ?></p>
+                                        <p><?php echo apostrophePull($data['s_timings']); ?></p>
                                         <!-- <div class="card border-0nded show">
                                                             <ul class="list-unstyled mb-0">
                                                                 <li class="d-flex justify-content-between my-1">
@@ -148,7 +148,7 @@ include_once('doctor_header.php');
                                                 <h5 class="title fw-bold">Phone</h5>
                                                 <p class="text-muted">Great doctor if you need your family member to get effective immediate assistance</p>
                                                 <a href="tel:<?php echo $phone ?>" class="link"><?php echo $phone ?></a>
-                                            </div>d_
+                                            </div>
                                         </div>
                                     </div>
                                     <!--end col-->

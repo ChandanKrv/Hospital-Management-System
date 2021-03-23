@@ -8,7 +8,7 @@ $email = $_SESSION['email'];
 //Session Checking
 if (isset($_SESSION['email']) && !empty($_SESSION['email']) && isset($_SESSION['u_role']) && !empty($_SESSION['u_role'])) {
     $u_role = $_SESSION['u_role'];
-    if ($u_role != 'doctor')
+    if ($u_role != 'staff')
         echo "<script>location.href='../$u_role'</script>";
 } else {
     header('location: ../login/login-user.php');
@@ -22,29 +22,29 @@ if ($IdCheck == '') {
     $department = "DEPARTMENT";
 
     $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-    if (!strpos($actual_link, 'doctor-id')) {
+    if (!strpos($actual_link, 'staff-id')) {
         echo "<script>alert('It seems that you have not created your HMS Id. Please create it to continue!!')</script>";
         echo "<script>location.href='doctor-id'</script>";
     }
 } else {
     /* FETCHING USER DATA */
 
-    $data = getAllData('doctor', 'user.u_email', $email);
+    $data = getAllData('staff', 'user.u_email', $email);
     $u_id = $data['u_id'];
     $u_name = $data['u_name'];
     $u_full_name = $data['u_full_name'];
     $u_email = $data['u_email'];
     $hms_id = $data['hms_id'];
-    $gender = $data['d_gender'];
-    $department = $data['d_department'];
-    $image = "../assets/images/doctors_img/" . $data['d_image'];
-    $dob = $data['d_dob'];
-    $address = $data['d_address'];
-    $timings = $data['d_timings'];
-    $bio = $data['d_bio'];
-    $phone = $data['d_phone'];
-    $fees = $data['d_fees'];
-    $speciality = $data['d_speciality'];
+    $gender = $data['s_gender'];
+    $department = $data['s_department'];
+    $image = "../assets/images/doctors_img/" . $data['s_image'];
+    $dob = $data['s_dob'];
+    $address = $data['s_address'];
+    $timings = $data['s_timings'];
+    $bio = $data['s_bio'];
+    $phone = $data['s_phone'];
+    $fees = $data['s_fees'];
+    $speciality = $data['s_speciality'];
 
 
 }
