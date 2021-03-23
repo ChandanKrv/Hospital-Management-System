@@ -7,11 +7,11 @@ if (isset($_POST['staff_id_gen'])) {
     $s_dob = $_POST["s_dob"];
     $s_department = $_POST["s_department"];
     $s_address = apostrophePush($_POST["s_address"]);
-    $s_timings = $_POST["s_timings"];
+    $s_timings = apostrophePush($_POST["s_timings"]);
     $s_phone = $_POST["s_phone"];
-    $s_bio = $_POST["s_bio"];
+    $s_bio = apostrophePush($_POST["s_bio"]);
     $s_fees = $_POST["s_fees"];
-    $s_speciality = $_POST["s_speciality"];
+    $s_speciality = apostrophePush($_POST["s_speciality"]);
     // Getting file name
     $filename = $_FILES['s_image']['name'];
     // Valid extension
@@ -37,9 +37,9 @@ if (isset($_POST['staff_id_gen'])) {
             's_department'  =>  $s_department,
             's_address'  =>  $s_address,
             's_timings'  =>  $s_timings,
-            's_phone'  =>  cleanInput($_POST['s_phone']),
+            's_phone'  =>  $s_phone,
             's_bio'  =>  $s_bio,
-            's_fees'  =>  cleanInput($_POST['s_fees']),
+            's_fees'  =>  $s_fees,
             's_speciality'  =>  $s_speciality
 
         );
