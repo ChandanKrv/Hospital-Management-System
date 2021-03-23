@@ -1,5 +1,5 @@
 <?php
-include_once('doctor_header.php');
+include_once('staff_header.php');
 //$data=getAllData('doctor','user.u_id', $u_id);
 
 ?>
@@ -191,4 +191,4 @@ include_once('doctor_header.php');
     </div>
 </div>
 <!--end container-->
-<?php include_once('doctor_footer.php') ?>
+<?php include_once('staff_footer.php') ?>

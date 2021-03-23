@@ -1,12 +1,5 @@
 <?php
-include_once('doctor_header.php');
-/* 
-if ($hms_id != '') {
-    echo "<script>location.href='index'</script>";
-} */
-
-
-
+include_once('staff_header.php');
 if (isset($_POST['staff_id_gen'])) {
     //$u_id = $_POST["u_id"];
     $u_full_name = $_POST["u_full_name"];
@@ -292,4 +285,4 @@ if (isset($_POST['staff_id_gen'])) {
     </div>
 </div>
 <!--end container-->
-<?php include_once('doctor_footer.php') ?>
+<?php include_once('staff_footer.php') ?>
