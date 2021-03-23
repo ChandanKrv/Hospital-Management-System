@@ -46,15 +46,15 @@ if (isset($_POST['staff_id_gen'])) {
 
         );
 
-        if (insertData('doctor', $data)) {
-            if (updateOneData('user', 'hms_id', generateHMSID('doctor'), 'u_email', $email) && updateOneData('user', 'u_full_name', $u_full_name, 'u_email', $email)) {
+        if (insertData('staff', $data)) {
+            if (updateOneData('user', 'hms_id', generateHMSID('staff'), 'u_email', $email) && updateOneData('user', 'u_full_name', $u_full_name, 'u_email', $email)) {
                 echo "<script>alert('Staff Added Successfully')</script>";
                 echo "<script>location.href='index'</script>";
             } else {
                 echo "<script>alert('Data Inserted, HMS-Id NOT generated')</script>";
             }
         } else {
-            echo "<script>alert('Error!! Doctor Not Added')</script>";
+            echo "<script>alert('Error!! staff Not Added')</script>";
         }
     } else {
         echo "<script>alert('Error!! Only png/jpg/jpeg are Allowed')</script>";
@@ -74,7 +74,7 @@ if (isset($_POST['staff_id_gen'])) {
             <nav aria-label="breadcrumb" class="d-inline-block mt-4 mt-sm-0">
                 <ul class="breadcrumb bg-transparent rounded mb-0 p-0">
                     <li class="breadcrumb-item"><a href="index-2">Doctris</a></li>
-                    <li class="breadcrumb-item"><a href="doctors">Doctors</a></li>
+                    <li class="breadcrumb-item"><a href="staff">staff</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Add Doctor</li>
                 </ul>
             </nav>
@@ -85,7 +85,7 @@ if (isset($_POST['staff_id_gen'])) {
                 <div class="card border-0 p-4 rounded shadow">
                     <!-- <div class="row align-items-center">
                         <div class="col-lg-2 col-md-4">
-                            <img src="../assets/images/doctors/01.jpg" class="avatar avatar-md-md rounded-pill shadow mx-auto d-block" alt="">
+                            <img src="../assets/images/staff/01.jpg" class="avatar avatar-md-md rounded-pill shadow mx-auto d-block" alt="">
                         </div>
                         <!--end col--
 
@@ -220,12 +220,12 @@ if (isset($_POST['staff_id_gen'])) {
             <div class="col-lg-4 mt-4">
                 <div class="card rounded border-0 shadow">
                     <div class="p-4 border-bottom">
-                        <h5 class="mb-0">Doctors List</h5>
+                        <h5 class="mb-0">staff List</h5>
                     </div>
 
                     <ul class="list-unstyled mb-0 p-4" data-simplebar style="height: 664px;">
                         <li class="d-md-flex align-items-center text-center text-md-start">
-                            <img src="../assets/images/doctors/01.jpg" class="avatar avatar-medium rounded-md shadow" alt="">
+                            <img src="../assets/images/staff/01.jpg" class="avatar avatar-medium rounded-md shadow" alt="">
 
                             <div class="ms-md-3 mt-4 mt-sm-0">
                                 <a href="#" class="text-dark h6">Dr. Calvin Carlo</a>
@@ -235,7 +235,7 @@ if (isset($_POST['staff_id_gen'])) {
                         </li>
 
                         <li class="d-md-flex align-items-center text-center text-md-start mt-4">
-                            <img src="../assets/images/doctors/02.jpg" class="avatar avatar-medium rounded-md shadow" alt="">
+                            <img src="../assets/images/staff/02.jpg" class="avatar avatar-medium rounded-md shadow" alt="">
 
                             <div class="ms-md-3 mt-4 mt-sm-0">
                                 <a href="#" class="text-dark h6">Dr. Alex Smith</a>
@@ -245,7 +245,7 @@ if (isset($_POST['staff_id_gen'])) {
                         </li>
 
                         <li class="d-md-flex align-items-center text-center text-md-start mt-4">
-                            <img src="../assets/images/doctors/03.jpg" class="avatar avatar-medium rounded-md shadow" alt="">
+                            <img src="../assets/images/staff/03.jpg" class="avatar avatar-medium rounded-md shadow" alt="">
 
                             <div class="ms-md-3 mt-4 mt-sm-0">
                                 <a href="#" class="text-dark h6">Dr. Cristina Luly</a>
@@ -255,7 +255,7 @@ if (isset($_POST['staff_id_gen'])) {
                         </li>
 
                         <li class="d-md-flex align-items-center text-center text-md-start mt-4">
-                            <img src="../assets/images/doctors/04.jpg" class="avatar avatar-medium rounded-md shadow" alt="">
+                            <img src="../assets/images/staff/04.jpg" class="avatar avatar-medium rounded-md shadow" alt="">
 
                             <div class="ms-md-3 mt-4 mt-sm-0">
                                 <a href="#" class="text-dark h6">Dr. Dwayen Maria</a>
@@ -265,7 +265,7 @@ if (isset($_POST['staff_id_gen'])) {
                         </li>
 
                         <li class="d-md-flex align-items-center text-center text-md-start mt-4">
-                            <img src="../assets/images/doctors/05.jpg" class="avatar avatar-medium rounded-md shadow" alt="">
+                            <img src="../assets/images/staff/05.jpg" class="avatar avatar-medium rounded-md shadow" alt="">
 
                             <div class="ms-md-3 mt-4 mt-sm-0">
                                 <a href="#" class="text-dark h6">Dr. Jenelia Focia</a>
@@ -275,7 +275,7 @@ if (isset($_POST['staff_id_gen'])) {
                         </li>
 
                         <li class="mt-4">
-                            <a href="doctors" class="btn btn-primary">All Doctors</a>
+                            <a href="staff" class="btn btn-primary">All Staffs</a>
                         </li>
                     </ul>
                 </div>
