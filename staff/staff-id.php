@@ -152,14 +152,22 @@ if (isset($_POST['staff_id_gen'])) {
                                 <div class="mb-3">
                                     <label class="form-label">Departments</label>
                                     <select class="form-control department-name select2input" name="s_department">
-                                        <option value="Eye Care">Eye Care</option>
-                                        <option value="Gynecologist">Gynecologist</option>
-                                        <option value="Psychotherapist">Psychotherapist</option>
-                                        <option value="Orthopedic">Orthopedic</option>
-                                        <option value="Dentist">Dentist</option>
-                                        <option value="Gastrologist">Gastrologist</option>
-                                        <option value="Urologist">Urologist</option>
-                                        <option value="Neurologist">Neurologist</option>
+                                        <option value="Nurse">Nurse</option>
+                                        <option value="Interns ">Interns</option>
+                                        <option value="Registrars ">Registrars </option>
+                                        <option value="Lab Technician">Lab Technician</option>
+                                        <option value="Clinic Receptionist
+">Clinic Receptionist
+                                        </option>
+                                        <option value="Lab Technician
+">Lab Technician
+                                        </option>
+                                        <option value="Diagnosis Receptionist
+">Diagnosis Receptionist
+                                        </option>
+                                        <option value="Store Manager
+">Store Manager
+                                        </option>
                                     </select>
                                 </div>
                             </div>
