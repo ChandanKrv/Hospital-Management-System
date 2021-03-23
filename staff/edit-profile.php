@@ -67,7 +67,7 @@ if (isset($_POST['add_staff'])) {
             's_fees'  =>  $s_fees,
             's_speciality'  =>  $s_speciality
         );
-        if (updateData('doctor', $pushData2, "WHERE u_id = '$u_id'") and updateOneData('user', 'u_full_name', $u_full_name, 'u_email', $email)) {
+        if (updateData('staff', $pushData2, "WHERE u_id = '$u_id'") and updateOneData('user', 'u_full_name', $u_full_name, 'u_email', $email)) {
             echo "<script>alert('Profile Updated Successfully')</script>";
             echo "<meta http-equiv='refresh' content='0'>";
         } else {
@@ -80,13 +80,13 @@ if (isset($_POST['add_staff'])) {
 <div class="container-fluid">
     <div class="layout-specing">
         <div class="d-md-flex justify-content-between">
-            <h5 class="mb-0">Add New Doctor</h5>
+            <h5 class="mb-0">Edit Profile</h5>
 
             <nav aria-label="breadcrumb" class="d-inline-block mt-4 mt-sm-0">
                 <ul class="breadcrumb bg-transparent rounded mb-0 p-0">
                     <li class="breadcrumb-item"><a href="index-2">Doctris</a></li>
-                    <li class="breadcrumb-item"><a href="doctors">Doctors</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Add Doctor</li>
+                    <li class="breadcrumb-item"><a href="doctors">Staff</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Edit Profile</li>
                 </ul>
             </nav>
         </div>

@@ -146,7 +146,7 @@ include_once('staff_header.php');
 
                                             <div class="card-body p-0 mt-4">
                                                 <h5 class="title fw-bold">Phone</h5>
-                                                <p class="text-muted">Great doctor if you need your family member to get effective immediate assistance</p>
+                                                <p class="text-muted">Great Staff if you need your family member to get effective immediate assistance</p>
                                                 <a href="tel:<?php echo $phone ?>" class="link"><?php echo $phone ?></a>
                                             </div>
                                         </div>
@@ -161,7 +161,7 @@ include_once('staff_header.php');
 
                                             <div class="card-body p-0 mt-4">
                                                 <h5 class="title fw-bold">Email</h5>
-                                                <p class="text-muted">Great doctor if you need your family member to get effective immediate assistance</p>
+                                                <p class="text-muted">Great Staff if you need your family member to get effective immediate assistance</p>
                                                 <a href="mailto:<?php echo $u_email ?>" class="link"><?php echo $u_email ?></a>
                                             </div>
                                         </div>
