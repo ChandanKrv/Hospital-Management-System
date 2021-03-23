@@ -163,14 +163,14 @@ if (isset($_POST['add_staff'])) {
                                 <div class="mb-3">
                                     <label class="form-label">Departments</label>
                                     <select class="form-control department-name select2input" name="s_department">
-                                        <option value="Nurse" <?php if ($department == 'Nurse') { ?>selected<?php } ?>>Eye Care</option>
-                                        <option value="Interns" <?php if ($department == 'Interns') { ?>selected<?php } ?>>Gynecologist</option>
-                                        <option value="Registrars" <?php if ($department == 'Registrars') { ?>selected<?php } ?>>Psychotherapist</option>
-                                        <option value="Lab Technician" <?php if ($department == 'Lab Technician') { ?>selected<?php } ?>>Orthopedic</option>
-                                        <option value="Clinic Receptionist" <?php if ($department == 'Clinic Receptionist') { ?>selected<?php } ?>>Dentist</option>
-                                        <option value="Other Team Members" <?php if ($department == 'Other Team Members') { ?>selected<?php } ?>>Gastrologist</option>
-                                        <option value="Diagnosis Receptionist" <?php if ($department == 'Diagnosis Receptionist') { ?>selected<?php } ?>>Urologist</option>
-                                        <option value="Store Manager" <?php if ($department == 'Store Manager') { ?>selected<?php } ?>>Neurologist</option>
+                                        <option value="Nurse" <?php if ($department == 'Nurse') { ?>selected<?php } ?>>Nurse</option>
+                                        <option value="Interns" <?php if ($department == 'Interns') { ?>selected<?php } ?>>Interns</option>
+                                        <option value="Registrars" <?php if ($department == 'Registrars') { ?>selected<?php } ?>>Registrars</option>
+                                        <option value="Lab Technician" <?php if ($department == 'Lab Technician') { ?>selected<?php } ?>>Lab Technician</option>
+                                        <option value="Clinic Receptionist" <?php if ($department == 'Clinic Receptionist') { ?>selected<?php } ?>>Clinic Receptionist</option>
+                                        <option value="Other Team Members" <?php if ($department == 'Other Team Members') { ?>selected<?php } ?>>Other Team Members</option>
+                                        <option value="Diagnosis Receptionist" <?php if ($department == 'Diagnosis Receptionist') { ?>selected<?php } ?>>Diagnosis Receptionist</option>
+                                        <option value="Store Manager" <?php if ($department == 'Store Manager') { ?>selected<?php } ?>>Store Manager</option>
                                     </select>
                                 </div>
                             </div>
