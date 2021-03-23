@@ -54,7 +54,7 @@ if (isset($_POST['staff_id_gen'])) {
                 echo "<script>alert('Data Inserted, HMS-Id NOT generated')</script>";
             }
         } else {
-            echo "<script>alert('Error!! staff Not Added')</script>";
+            echo "<script>alert('Error!! Staff Not Added')</script>";
         }
     } else {
         echo "<script>alert('Error!! Only png/jpg/jpeg are Allowed')</script>";
@@ -74,8 +74,8 @@ if (isset($_POST['staff_id_gen'])) {
             <nav aria-label="breadcrumb" class="d-inline-block mt-4 mt-sm-0">
                 <ul class="breadcrumb bg-transparent rounded mb-0 p-0">
                     <li class="breadcrumb-item"><a href="index-2">Doctris</a></li>
-                    <li class="breadcrumb-item"><a href="staff">staff</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Add Doctor</li>
+                    <li class="breadcrumb-item"><a href="staff">Staff</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Edit Staff</li>
                 </ul>
             </nav>
         </div>
@@ -219,7 +219,7 @@ if (isset($_POST['staff_id_gen'])) {
                         </div>
                         <!--end row-->
 
-                        <button type="submit" name="staff_id_gen" class="btn btn-primary">Create Doctor Id</button>
+                        <button type="submit" name="staff_id_gen" class="btn btn-primary">Create Staff Id</button>
                     </form>
                 </div>
             </div>
