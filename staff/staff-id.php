@@ -6,7 +6,7 @@ if (isset($_POST['staff_id_gen'])) {
     $s_gender = $_POST["s_gender"];
     $s_dob = $_POST["s_dob"];
     $s_department = $_POST["s_department"];
-    $s_address = $_POST["s_address"];
+    $s_address = apostrophePush($_POST["s_address"]);
     $s_timings = $_POST["s_timings"];
     $s_phone = $_POST["s_phone"];
     $s_bio = $_POST["s_bio"];
@@ -24,8 +24,6 @@ if (isset($_POST['staff_id_gen'])) {
     // file extension
     $file_extension = pathinfo($location, PATHINFO_EXTENSION);
     $file_extension = strtolower($file_extension);
-    // Check extension
-    echo $s_address;
     if (in_array($file_extension, $valid_ext)) {
         // Compress Image
         compressedImage($_FILES['s_image']['tmp_name'], $location, 60);
@@ -37,7 +35,7 @@ if (isset($_POST['staff_id_gen'])) {
             's_gender'  =>  $s_gender,
             's_dob'  =>  $s_dob,
             's_department'  =>  $s_department,
-            's_address'  =>  cleanInput($_POST['s_address']),
+            's_address'  =>  $s_address,
             's_timings'  =>  $s_timings,
             's_phone'  =>  cleanInput($_POST['s_phone']),
             's_bio'  =>  $s_bio,
