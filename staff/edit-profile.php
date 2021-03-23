@@ -168,7 +168,7 @@ if (isset($_POST['add_staff'])) {
                                         <option value="Registrars" <?php if ($department == 'Registrars') { ?>selected<?php } ?>>Psychotherapist</option>
                                         <option value="Lab Technician" <?php if ($department == 'Lab Technician') { ?>selected<?php } ?>>Orthopedic</option>
                                         <option value="Clinic Receptionist" <?php if ($department == 'Clinic Receptionist') { ?>selected<?php } ?>>Dentist</option>
-                                        <option value="Lab Technician" <?php if ($department == 'Lab Technician') { ?>selected<?php } ?>>Gastrologist</option>
+                                        <option value="Other Team Members" <?php if ($department == 'Other Team Members') { ?>selected<?php } ?>>Gastrologist</option>
                                         <option value="Diagnosis Receptionist" <?php if ($department == 'Diagnosis Receptionist') { ?>selected<?php } ?>>Urologist</option>
                                         <option value="Store Manager" <?php if ($department == 'Store Manager') { ?>selected<?php } ?>>Neurologist</option>
                                     </select>

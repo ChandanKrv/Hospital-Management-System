@@ -157,8 +157,7 @@ if (isset($_POST['staff_id_gen'])) {
                                         <option value="Clinic Receptionist
 ">Clinic Receptionist
                                         </option>
-                                        <option value="Lab Technician
-">Lab Technician
+                                        <option value="Other Team Members">Other Team Members
                                         </option>
                                         <option value="Diagnosis Receptionist
 ">Diagnosis Receptionist
