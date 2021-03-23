@@ -268,7 +268,7 @@ if ($IdCheck == '') {
                                     <a class="dropdown-item d-flex align-items-center text-dark" href="staff-profile">
                                         <img src="<?php echo $image ?>" class="avatar avatar-md-sm rounded-circle border shadow" alt="">
                                         <div class="flex-1 ms-2">
-                                            <span class="d-block mb-1">Dr.<?php echo $u_full_name ?></span>
+                                            <span class="d-block mb-1"><?php echo $u_full_name ?></span>
                                             <small class="text-muted"><?php echo $department ?></small>
                                         </div>
                                     </a>
