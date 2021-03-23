@@ -220,7 +220,7 @@ if (isset($_POST['staff_id_gen'])) {
             <div class="col-lg-4 mt-4">
                 <div class="card rounded border-0 shadow">
                     <div class="p-4 border-bottom">
-                        <h5 class="mb-0">staff List</h5>
+                        <h5 class="mb-0">Staffs List</h5>
                     </div>
 
                     <ul class="list-unstyled mb-0 p-4" data-simplebar style="height: 664px;">
