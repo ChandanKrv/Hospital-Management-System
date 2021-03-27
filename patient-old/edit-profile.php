@@ -1,15 +1,9 @@
 <?php
 include_once('patient_header.php');
-/* 
-if ($hms_id != '') {
-    echo "<script>location.href='index'</script>";
-} */
 
-
-
-if (isset($_POST['add_patient'])) {
+if (isset($_POST['adp_patient'])) {
     //$u_id = $_POST["u_id"];
-    $u_full_name = $_POST["u_full_name"];
+    //$p_image = $_POST["p_image"];
     $p_gender = $_POST["p_gender"];
     $p_dob = $_POST["p_dob"];
     $p_department = $_POST["p_department"];
@@ -22,18 +16,18 @@ if (isset($_POST['add_patient'])) {
     // Getting file name
     $filename = $_FILES['p_image']['name'];
     // Valid extension
-    $valid_ext = array('png', 'jpeg', 'jpg');
+    $valip_ext = array('png', 'jpeg', 'jpg');
     $photoExt1 = @end(explode('.', $filename)); // explode the image name to get the extension
     $phototest1 = strtolower($photoExt1);
     $new_profle_pic = uniqid() . '.' . $phototest1;
     // Image Location
-    $location = "../assets/images/patients_img/" . $new_profle_pic;
+    $location = "../assets/images/doctors_img/" . $new_profle_pic;
     // file extension
     $file_extension = pathinfo($location, PATHINFO_EXTENSION);
     $file_extension = strtolower($file_extension);
     // Check extension
     echo $p_address;
-    if (in_array($file_extension, $valid_ext)) {
+    if (in_array($file_extension, $valip_ext)) {
         // Compress Image
         compressedImage($_FILES['p_image']['tmp_name'], $location, 60);
         //Here i am enter the insert code in the step ........
@@ -49,19 +43,18 @@ if (isset($_POST['add_patient'])) {
             'p_phone'  =>  cleanInput($_POST['p_phone']),
             'p_bio'  =>  $p_bio,
             'p_fees'  =>  cleanInput($_POST['p_fees']),
-            'p_speciality'  =>  $p_speciality
+            'p_speciality'  =>  $p_speciality,
 
         );
-
-        if (insertData('doctor', $data)) {
-            if (updateOneData('user', 'hms_id', generateHMSID('patient'), 'u_email', $email) && updateOneData('user', 'u_full_name', $u_full_name, 'u_email', $email)) {
-                echo "<script>alert('Patient Added Successfully')</script>";
+        if (insertData('patient', $data)) {
+            if (updateOneData('user', 'hms_id', generateHMSID('patient'), 'u_email', $email)) {
+                echo "<script>alert('patient Added Successfully')</script>";
                 echo "<script>location.href='index'</script>";
             } else {
                 echo "<script>alert('Data Inserted, HMS-Id NOT generated')</script>";
             }
         } else {
-            echo "<script>alert('Error!! Patient Not Added')</script>";
+            echo "<script>alert('Error!! patient Not Added')</script>";
         }
     } else {
         echo "<script>alert('Error!! Only png/jpg/jpeg are Allowed')</script>";
@@ -76,13 +69,13 @@ if (isset($_POST['add_patient'])) {
 <div class="container-fluid">
     <div class="layout-specing">
         <div class="d-md-flex justify-content-between">
-            <h5 class="mb-0">Add New Patient</h5>
+            <h5 class="mb-0">Add New patient</h5>
 
             <nav aria-label="breadcrumb" class="d-inline-block mt-4 mt-sm-0">
                 <ul class="breadcrumb bg-transparent rounded mb-0 p-0">
                     <li class="breadcrumb-item"><a href="index-2">Doctris</a></li>
-                    <li class="breadcrumb-item"><a href="doctors">Doctors</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Add Patient</li>
+                    <li class="breadcrumb-item"><a href="patients">patients</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Add patient</li>
                 </ul>
             </nav>
         </div>
@@ -131,12 +124,12 @@ if (isset($_POST['add_patient'])) {
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label">Email Id</label>
-                                    <input name="u_email" type="email" class="form-control" value="<?php echo $email ?>" disabled>
+                                    <input name="u_email" type="email" class="form-control" value="<?php echo $u_email ?>" disabled>
                                 </div>
                             </div>
                             <!--end col-->
 
-
+                            
 
                             <div class="col-md-6">
                                 <div class="mb-3">
@@ -182,7 +175,7 @@ if (isset($_POST['add_patient'])) {
                                     <input name="p_fees" type="number" class="form-control" placeholder="Appointment Fees :">
                                 </div>
                             </div>
-
+                            
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label">Address</label>
@@ -207,18 +200,18 @@ if (isset($_POST['add_patient'])) {
                                     <label class="form-label">Your Bio Here</label>
                                     <textarea name="p_bio" rows="3" class="form-control" placeholder="Bio :"></textarea>
                                 </div>
-                            </div>
+                            </div>                            
                             <div class="col-md-12">
                                 <div class="mb-3">
                                     <label class="form-label">Your Specialities</label>
                                     <textarea name="p_speciality" rows="3" class="form-control" placeholder="Enter specialization in your field :"></textarea>
                                 </div>
                             </div>
-
+                           
                         </div>
                         <!--end row-->
 
-                        <button type="submit" name="add_patient" class="btn btn-primary">Create Doctor Id</button>
+                        <button type="submit" name="adp_patient" class="btn btn-primary">Edit Profile</button>
                     </form>
                 </div>
             </div>
@@ -227,7 +220,7 @@ if (isset($_POST['add_patient'])) {
             <div class="col-lg-4 mt-4">
                 <div class="card rounded border-0 shadow">
                     <div class="p-4 border-bottom">
-                        <h5 class="mb-0">Doctors List</h5>
+                        <h5 class="mb-0">patients List</h5>
                     </div>
 
                     <ul class="list-unstyled mb-0 p-4" data-simplebar style="height: 664px;">
@@ -282,7 +275,7 @@ if (isset($_POST['add_patient'])) {
                         </li>
 
                         <li class="mt-4">
-                            <a href="doctors" class="btn btn-primary">All Doctors</a>
+                            <a href="patients" class="btn btn-primary">All patients</a>
                         </li>
                     </ul>
                 </div>
