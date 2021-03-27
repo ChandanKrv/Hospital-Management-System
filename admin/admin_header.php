@@ -75,6 +75,7 @@ if (isset($_SESSION['email']) && !empty($_SESSION['email']) && isset($_SESSION['
 
                 <ul class="sidebar-menu pt-3">
                     <li><a href="index"><i class="uil uil-dashboard me-2 d-inline-block"></i>Dashboard</a></li>
+                    <li><a href="add-doctor-staff"><i class="uil uil-dashboard me-2 d-inline-block"></i>Add Doctor-Staff</a></li>
                     <li class="sidebar-dropdown">
                         <a href="javascript:void(0)"><i class="uil uil-user-md me-2 d-inline-block"></i>Admin</a>
                         <div class="sidebar-submenu">
