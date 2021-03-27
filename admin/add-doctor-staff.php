@@ -3,7 +3,7 @@
                     <div class="layout-specing">
                         <div class="row">
                             <div class="col-xl-9 col-lg-6 col-md-4">
-                                <h5 class="mb-0">Admission</h5>
+                                <h5 class="mb-0">Admission </h5>
                                 <nav aria-label="breadcrumb" class="d-inline-block mt-2">
                                     <ul class="breadcrumb breadcrumb-muted bg-transparent rounded mb-0 p-0">
                                         <li class="breadcrumb-item"><a href="index">Doctris</a></li>
