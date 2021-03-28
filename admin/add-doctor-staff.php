@@ -166,6 +166,7 @@ if (isset($_POST['addNow'])) {
         'role'  =>   $role,
         'unique_id'  =>  $unique_id,
         'link'  =>  $getLink,
+        'status' => "pending"
     );
     if (insertData('temp', $allData)) {
         echo "<script>alert('$ROLE Added Successfully')</script>";
