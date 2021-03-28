@@ -94,7 +94,7 @@ if (isset($_POST['signUpAsMember'])) {
         $insert_data = "INSERT INTO user (u_name,u_full_name, u_email, u_password, u_vcode, u_status, u_role,u_timestamp,u_ip)
                         values('$u_name','$name','$email', '$encpass', '$code', '$status','$u_role', '$timestamp','$ip')";
         $data_check = mysqli_query($con, $insert_data);
-        if ($data_check) {            
+        if ($data_check) {
             $subject = "Verification Code For HMS";
             $msg_with_code = "<h1>Use this OTP for registration $code</h1>";
             if (Send_Email($email, $subject, $msg_with_code)) {
@@ -106,28 +106,13 @@ if (isset($_POST['signUpAsMember'])) {
                 header('location: user-otp.php');
                 exit();
             } else {
-                $errors['otp-error'] = "Failed while sending code!";              
+                $errors['otp-error'] = "Failed while sending code!";
             }
         } else {
             $errors['db-error'] = "Failed while inserting data into database! ";
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //if user click verification code submit button
 if (isset($_POST['check'])) {
     $_SESSION['info'] = "";
