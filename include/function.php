@@ -94,6 +94,14 @@ function SendMail($user_email, $subject, $content)
     return mail($user_email, $subject, $content, $headers);
 }
 
+
+function deleteOneRow($table_name, $where_condition, $match_this)
+{
+    global $con;
+    $getData = "DELETE FROM $table_name WHERE $where_condition='$match_this'";
+    return mysqli_query($con, $getData);
+}
+
 /* DOCTOR FUNCTION */
 // Compress image
 function compressedImage($source, $path, $quality)

@@ -58,6 +58,75 @@ if (isset($_POST['signup'])) {
         }
     }
 }
+
+
+if (isset($_POST['signUpAsMember'])) {
+    $u_name = mysqli_real_escape_string($con, $_POST['u_name']);
+    $name = mysqli_real_escape_string($con, $_POST['name']);
+    $email = mysqli_real_escape_string($con, $_POST['email']);
+    $password = mysqli_real_escape_string($con, $_POST['password']);
+    $cpassword = mysqli_real_escape_string($con, $_POST['cpassword']);
+    if ($password !== $cpassword) {
+        $errors['password'] = "Confirm password not matched!";
+    }
+    $email_check = "SELECT * FROM user WHERE u_email = '$email'";
+    $res = mysqli_query($con, $email_check);
+    if (mysqli_num_rows($res) > 0) {
+        $errors['email'] = "Email that you have entered is already exist!";
+    }
+
+    $username_check = "SELECT * FROM user WHERE u_name = '$u_name'";
+    $run_username = mysqli_query($con, $username_check);
+    if (mysqli_num_rows($run_username) > 0) {
+        $errors['email'] = "Username that you have entered is already exist!";
+    }
+
+
+    if (count($errors) === 0) {
+        $encpass = password_hash($password, PASSWORD_BCRYPT);
+        $code = rand(999999, 111111);
+        $u_role = getOneData('temp', 'role', 'email', $email);
+        $status = "notverified";
+        global $ip, $timestamp;
+        // $lastIdValue = getLastIdValue('user', 'u_id');
+        //   $rm_id = "RM" . $year2 . "STU" . $lastIdValue;
+        $insert_data = "INSERT INTO user (u_name,u_full_name, u_email, u_password, u_vcode, u_status, u_role,u_timestamp,u_ip)
+                        values('$u_name','$name','$email', '$encpass', '$code', '$status','$u_role', '$timestamp','$ip')";
+        $data_check = mysqli_query($con, $insert_data);
+        if ($data_check) {
+            deleteOneRow('temp', 'email', $email);
+            $subject = "Verification Code For HMS";
+            $msg_with_code = "<h1>Use this OTP for registration $code</h1>";
+            if (Send_Email($email, $subject, $msg_with_code)) {
+                $info = "We've sent a verification code to your email - $email";
+                $_SESSION['info'] = $info;
+                $_SESSION['email'] = $email;
+                $_SESSION['password'] = $password;
+                header('location: user-otp.php');
+                exit();
+            } else {
+                $errors['otp-error'] = "Failed while sending code!";
+            }
+        } else {
+            $errors['db-error'] = "Failed while inserting data into database! ";
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //if user click verification code submit button
 if (isset($_POST['check'])) {
     $_SESSION['info'] = "";

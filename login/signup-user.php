@@ -20,14 +20,13 @@ $forgot = "";
 if (isset($_GET['ref']) && !empty($_GET['ref'])) {
     $memberSignUp = true;
     $refId = cleanInput($_GET['ref']);
-    $new_email = getOneData('temp', 'email', 'unique_id', $refId);
-    $new_role = getOneData('temp', 'role', 'unique_id', $refId);
-    if ($new_email) {
-        echo "<script>alert('Alert!! Found $new_email')</script>";
+    $email = getOneData('temp', 'email', 'unique_id', $refId);
+    $u_role = getOneData('temp', 'role', 'unique_id', $refId);
+    if ($email) {
+        echo "<script>alert('Alert!! Found $email')</script>";
     } else {
-        echo "<script>alert('Not Found $new_email')</script>";
+        echo "<script>alert('Not Found $email')</script>";
     }
-    $email = $new_email;
 } else {
     $memberSignUp = false;
 }
@@ -132,22 +131,11 @@ if (isset($_GET['ref']) && !empty($_GET['ref'])) {
                         <i class="fas fa-lock"></i>
                         <input class="form-control" type="password" name="cpassword" minlength="6" placeholder="Confirm password" required>
                     </div>
-                    <input type="submit" name="signup" class="btn" value="Sign up" />
-                    <!-- <p class="social-text">Or Sign up with social platforms</p>
-            <div class="social-media">
-              <a href="#" class="social-icon">
-                <i class="fab fa-facebook-f"></i>
-              </a>
-              <a href="#" class="social-icon">
-                <i class="fab fa-twitter"></i>
-              </a>
-              <a href="#" class="social-icon">
-                <i class="fab fa-google"></i>
-              </a>
-              <a href="#" class="social-icon">
-                <i class="fab fa-linkedin-in"></i>
-              </a>
-            </div> -->
+                    <input type="submit" <?php if ($memberSignUp) {
+                                                echo "name = 'signUpAsMember'";
+                                            } else {
+                                                echo "name = 'signup'";
+                                            } ?> class="btn" value="Sign up" />
                 </form>
             </div>
         </div>
