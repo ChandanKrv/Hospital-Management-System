@@ -156,23 +156,21 @@
 
 <?php
 if (isset($_POST['addNow'])) {
-    /*   $new_email = $_POST["email"];
+    $new_email = $_POST["email"];
     $role = $_POST["role"];
     $unique_id = $role . '-reg-' . uniqid();
-   // $currentURL = currentURL();
+    $getLink = getCurrentURL() . '/login/signup-user?ref=' . $unique_id;
     $allData = array(
         'email' => $new_email,
         'role'  =>   $role,
-        's_gender'  =>  $s_gender,
-        's_dob'  =>  $s_dob,
+        'unique_id'  =>  $unique_id,
+        'link'  =>  $getLink,
     );
     if (insertData('temp', $allData)) {
         echo "<script>alert('strtoupper($role) Added Successfully')</script>";
     } else {
         echo "<script>alert('Error!! strtoupper($role) Not Added')</script>";
-    } */
-    $currentURL = currentPageURL();
-    echo "<script>alert('Alert!! $currentURL')</script>";
+    }
 }
 ?>
 
