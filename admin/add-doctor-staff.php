@@ -164,9 +164,7 @@ if (isset($_POST['addNow'])) {
     $allData = array(
         'email' => $new_email,
         'role'  =>   $role,
-        'unique_id'  =>  $unique_id,
-        'link'  =>  $getLink,
-        'status' => "pending"
+        'unique_id'  =>  $unique_id
     );
     if (insertData('temp', $allData)) {
         echo "<script>alert('$ROLE Added Successfully')</script>";
