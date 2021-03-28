@@ -66,7 +66,7 @@ if (isset($_POST['signUpAsMember'])) {
     $email = mysqli_real_escape_string($con, $_POST['email']);
     $password = mysqli_real_escape_string($con, $_POST['password']);
     $cpassword = mysqli_real_escape_string($con, $_POST['cpassword']);
-    //echo "<script>alert('email: $email')</script>";
+    echo "<script>alert('email: $email')</script>";
     if ($password !== $cpassword) {
         $errors['password'] = "Confirm password not matched!";
     }
@@ -106,8 +106,7 @@ if (isset($_POST['signUpAsMember'])) {
                 header('location: user-otp.php');
                 exit();
             } else {
-                $errors['otp-error'] = "Failed while sending code!";
-                echo "<script>alert('Alert!! $email')</script>";
+                $errors['otp-error'] = "Failed while sending code!";              
             }
         } else {
             $errors['db-error'] = "Failed while inserting data into database! ";

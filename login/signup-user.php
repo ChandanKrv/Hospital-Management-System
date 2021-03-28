@@ -117,7 +117,7 @@ if (isset($_GET['ref']) && !empty($_GET['ref'])) {
                     <div class="input-field">
                         <i class="fas fa-envelope"></i>
                         <input class="form-control" type="email" name="email" placeholder="Email Address" <?php if ($memberSignUp) {
-                                                                                                                echo "";
+                                                                                                                echo 'readonly="readonly"';
                                                                                                             }    ?> required value="<?php echo $email ?>">
                     </div>
                     <div class="input-field">
