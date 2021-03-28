@@ -168,9 +168,10 @@ if (isset($_POST['addNow'])) {
     );
     if (insertData('temp', $allData)) {
         $mailContent = "Use this link and register yourself as $role : $getLink";
-        if (SendMail($new_email, "You got joining link as $ROLE", $mailContent))
-            echo "<script>alert('$ROLE: $new_email Added Successfully We have sent a joining link ( $getLink ) to $new_email')</script>";
-        else
+        if (SendMail($new_email, "You got joining link as $ROLE", $mailContent)) {
+            echo "<script>alert('$ROLE: $new_email Added Successfully We have sent a joining link to $new_email')</script>";
+            echo "<script>alert('OR You can share this link: $getLink')</script>";
+        } else
             echo "<script>alert('Unable to send email to $new_email, Please share this link: $getLink')</script>";
     } else {
         echo "<script>alert('Error!! $ROLE Not Added')</script>";
