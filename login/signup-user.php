@@ -23,7 +23,7 @@ if (isset($_GET['ref']) && !empty($_GET['ref'])) {
     if ($email) {
         $memberSignUp = true;
     } else {
-        echo "<script>alert('Invalid Link')</script>";
+        echo "<script>alert('Invalid Link, Please Login')</script>";
         echo "<script>location.href='../'</script>";
     }
 }
