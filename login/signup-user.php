@@ -15,6 +15,21 @@ else
 if ($u_role == "admin")
     header('location: ../admin');
 $forgot = "";
+
+
+if (isset($_GET['ref']) && !empty($_GET['ref'])) {
+
+    $refId = cleanInput($_GET['ref']);
+    $new_email = getOneData('temp', 'email', 'unique_id', $refId);
+    if ($new_email) {
+        echo "<script>alert('Alert!! Found $new_email')</script>";
+    } else {
+        echo "<script>alert('Not Found $new_email')</script>";
+    }
+}
+
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -13,16 +13,16 @@ if (isset($_SESSION['email']) && !empty($_SESSION['email']) && isset($_SESSION['
     header('location: ../login/login-user.php');
 }
 
-/* 
-$url_id = mysql_real_escape_string($_GET['ref']);
-$sql = "SELECT id FROM members WHERE id='$url_id'";
-$result = mysql_query($sql);
-if (mysql_num_rows($result) > 0) {
-    //found
-} else {
-    //not found
-} */
+if (isset($_GET['ref']) && !empty($_GET['ref'])) {
 
+    $refId = cleanInput($_GET['ref']);
+    $new_email = getOneData('temp', 'email', 'unique_id', $refId);
+    if ($new_email) {
+        echo "<script>alert('Alert!! Found $new_email')</script>";
+    } else {
+        echo "<script>alert('Not Found $new_email')</script>";
+    }
+}
 
 ?>
 
