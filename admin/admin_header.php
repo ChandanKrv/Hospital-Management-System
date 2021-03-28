@@ -13,6 +13,17 @@ if (isset($_SESSION['email']) && !empty($_SESSION['email']) && isset($_SESSION['
     header('location: ../login/login-user.php');
 }
 
+/* 
+$url_id = mysql_real_escape_string($_GET['ref']);
+$sql = "SELECT id FROM members WHERE id='$url_id'";
+$result = mysql_query($sql);
+if (mysql_num_rows($result) > 0) {
+    //found
+} else {
+    //not found
+} */
+
+
 ?>
 
 <!DOCTYPE html>
