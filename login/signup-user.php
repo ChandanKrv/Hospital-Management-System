@@ -21,11 +21,8 @@ if (isset($_GET['ref']) && !empty($_GET['ref'])) {
     $memberSignUp = true;
     $refId = cleanInput($_GET['ref']);
     $email = getOneData('temp', 'email', 'unique_id', $refId);
-    $u_role = getOneData('temp', 'role', 'unique_id', $refId);
-    if ($email) {
-        echo "<script>alert('Alert!! Found $email')</script>";
-    } else {
-        echo "<script>alert('Not Found $email')</script>";
+    if (!$email) {
+        echo "<script>alert('Invalid Link')</script>";      
     }
 } else {
     $memberSignUp = false;
