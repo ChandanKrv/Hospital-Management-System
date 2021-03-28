@@ -171,7 +171,7 @@ if (isset($_POST['addNow'])) {
     } else {
         echo "<script>alert('Error!! strtoupper($role) Not Added')</script>";
     } */
-    $currentURL = currentURL();
+    $currentURL = currentPageURL();
     echo "<script>alert('Alert!! $currentURL')</script>";
 }
 ?>
