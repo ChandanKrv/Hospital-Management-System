@@ -21,7 +21,6 @@ if (isset($_GET['ref']) && !empty($_GET['ref'])) {
     $refId = cleanInput($_GET['ref']);
     $email = getOneData('temp', 'email', 'unique_id', $refId);
     if ($email) {
-        echo "<script>alert('Alert!! Line 24 courseor $email')</script>";
         $memberSignUp = true;
     } else {
         echo "<script>alert('Invalid Link')</script>";

@@ -64,9 +64,10 @@ if (isset($_POST['signUpAsMember'])) {
     $u_name = mysqli_real_escape_string($con, $_POST['u_name']);
     $name = mysqli_real_escape_string($con, $_POST['name']);
     $email = mysqli_real_escape_string($con, $_POST['email']);
-    echo "<script>alert('Alert!! line 67 $email  ')</script>";
     $password = mysqli_real_escape_string($con, $_POST['password']);
     $cpassword = mysqli_real_escape_string($con, $_POST['cpassword']);
+
+    echo "<script>alert('Uname: $u_name, name: $name, email: $email, pass: $password, cPass: $cpassword')</script>";
     if ($password !== $cpassword) {
         $errors['password'] = "Confirm password not matched!";
     }
