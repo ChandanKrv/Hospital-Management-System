@@ -94,7 +94,7 @@ if (isset($_POST['signUpAsMember'])) {
                         values('$u_name','$name','$email', '$encpass', '$code', '$status','$u_role', '$timestamp','$ip')";
         $data_check = mysqli_query($con, $insert_data);
         if ($data_check) {
-            deleteOneRow('temp', 'email', $email);
+           // deleteOneRow('temp', 'email', $email);
             $subject = "Verification Code For HMS";
             $msg_with_code = "<h1>Use this OTP for registration $code</h1>";
             if (Send_Email($email, $subject, $msg_with_code)) {
