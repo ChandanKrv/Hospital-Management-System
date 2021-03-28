@@ -64,6 +64,7 @@ if (isset($_POST['signUpAsMember'])) {
     $u_name = mysqli_real_escape_string($con, $_POST['u_name']);
     $name = mysqli_real_escape_string($con, $_POST['name']);
     $email = mysqli_real_escape_string($con, $_POST['email']);
+    echo "<script>alert('Alert!! line 67 $email  ')</script>";
     $password = mysqli_real_escape_string($con, $_POST['password']);
     $cpassword = mysqli_real_escape_string($con, $_POST['cpassword']);
     if ($password !== $cpassword) {
@@ -86,6 +87,7 @@ if (isset($_POST['signUpAsMember'])) {
         $encpass = password_hash($password, PASSWORD_BCRYPT);
         $code = rand(999999, 111111);
         $u_role = getOneData('temp', 'role', 'email', $email);
+        echo "<script>alert('Alert!! Line 90 email: $email  Role: $u_role')</script>";
         $status = "notverified";
         global $ip, $timestamp;
         // $lastIdValue = getLastIdValue('user', 'u_id');
