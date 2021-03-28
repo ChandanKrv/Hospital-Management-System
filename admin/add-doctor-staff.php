@@ -169,7 +169,10 @@ if (isset($_POST['addNow'])) {
     );
     if (insertData('temp', $allData)) {
         echo "<script>alert('$ROLE Added Successfully')</script>";
-        echo "<script>alert('Share this link to $ROLE : $getLink ')</script>";
+        $mailContent = "Use this link and yourself as $ROLE : $getLink";
+        if (SendMail($new_email, "Joining Link As $ROLE", $mailContent))
+            echo "<script>alert('We have sent a joining link to $new_email')</script>";
+        echo "<script>alert('OR you can share this link to $ROLE : $getLink ')</script>";
     } else {
         echo "<script>alert('Error!! $ROLE Not Added')</script>";
     }

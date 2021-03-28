@@ -78,8 +78,20 @@ function getCurrentURL()
         $url = "http://";
 
     $url .= $_SERVER['SERVER_NAME'];
-    
+
     return $url;
+}
+
+
+function SendMail($user_email, $subject, $content)
+{
+    $sender_email = "admin@hospital.softcse.ml	";
+    $headers  = 'MIME-Version: 1.0' . "\r\n";
+    $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+    $headers .= 'From: Hospital Management System<' . $sender_email . ">\r\n" .
+        'Reply-To: ' . $sender_email . "\r\n" .
+        'X-Mailer: PHP/' . phpversion();
+    return mail($user_email, $subject, $content, $headers);
 }
 
 /* DOCTOR FUNCTION */
