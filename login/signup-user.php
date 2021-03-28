@@ -18,14 +18,18 @@ $forgot = "";
 
 
 if (isset($_GET['ref']) && !empty($_GET['ref'])) {
-
+    $memberSignUp = true;
     $refId = cleanInput($_GET['ref']);
     $new_email = getOneData('temp', 'email', 'unique_id', $refId);
+    $new_role = getOneData('temp', 'role', 'unique_id', $refId);
     if ($new_email) {
         echo "<script>alert('Alert!! Found $new_email')</script>";
     } else {
         echo "<script>alert('Not Found $new_email')</script>";
     }
+    $email = $new_email;
+} else {
+    $memberSignUp = false;
 }
 
 
@@ -116,7 +120,9 @@ if (isset($_GET['ref']) && !empty($_GET['ref'])) {
                     </div>
                     <div class="input-field">
                         <i class="fas fa-envelope"></i>
-                        <input class="form-control" type="email" name="email" placeholder="Email Address" required value="<?php echo $email ?>">
+                        <input class="form-control" type="email" name="email" placeholder="Email Address" <?php if ($memberSignUp) {
+                                                                                                                echo "disabled";
+                                                                                                            }    ?> required value="<?php echo $email ?>">
                     </div>
                     <div class="input-field">
                         <i class="fas fa-lock"></i>
