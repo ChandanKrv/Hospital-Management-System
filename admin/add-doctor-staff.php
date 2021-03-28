@@ -3,7 +3,7 @@
                     <div class="layout-specing">
                         <div class="row">
                             <div class="col-xl-9 col-lg-6 col-md-4">
-                                <h5 class="mb-0">Admission </h5>
+                                <h5 class="mb-0">Admission</h5>
                                 <nav aria-label="breadcrumb" class="d-inline-block mt-2">
                                     <ul class="breadcrumb breadcrumb-muted bg-transparent rounded mb-0 p-0">
                                         <li class="breadcrumb-item"><a href="index">Doctris</a></li>
@@ -107,11 +107,7 @@
                     <div class="modal-body p-3 pt-4">
                         <form>
                             <div class="row">
-                                <div class="col-lg-12">
-                                    <div class="mb-3">
-                                        <label class="form-label">Name <span class="text-danger">*</span></label>
-                                        <input name="name" id="name" type="text" class="form-control" placeholder="Name :">
-                                    </div>
+                                <div class="col-lg-12">                                 
                                 </div><!--end col-->
                                 <div class="col-lg-12">
                                     <div class="mb-3">
@@ -120,20 +116,20 @@
                                     </div>
                                 </div><!--end col-->
                                 
-                                <div class="col-lg-4 col-md-6">
+                                <div class="col-lg-12">
                                     <div class="mb-3">
-                                        <label class="form-label">Role</label>
+                                        <label class="form-label">Select Role</label>
                                         <select class="form-control department-name select2input">
-                                            <option value="patient">select</option>
-                                            <option value="doctor">doctor</option>
-                                            <option value="staff">staff</option>                                            
+                                            <option value="patient">-Select-</option>
+                                            <option value="doctor">Doctor</option>
+                                            <option value="staff">Staff</option>                                            
                                         </select>
                                     </div>
                                 </div><!--end col-->
                                
                                 <div class="col-lg-12">
                                     <div class="d-grid">
-                                        <button type="submit" class="btn btn-primary">Book An Appointment</button>
+                                        <button type="submit" class="btn btn-primary">Add Now</button>
                                     </div>
                                 </div><!--end col-->
                             </div><!--end row-->
