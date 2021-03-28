@@ -167,11 +167,11 @@ if (isset($_POST['addNow'])) {
         'unique_id'  =>  $unique_id
     );
     if (insertData('temp', $allData)) {
-        echo "<script>alert('$ROLE Added Successfully')</script>";
         $mailContent = "Use this link and register yourself as $role : $getLink";
         if (SendMail($new_email, "You got joining link as $ROLE", $mailContent))
-            echo "<script>alert('We have sent a joining link to $new_email')</script>";
-        echo "<script>alert('OR you can share this link to new $role : $getLink ')</script>";
+            echo "<script>alert('$ROLE: $new_email Added Successfully We have sent a joining link ( $getLink ) to $new_email')</script>";
+        else
+            echo "<script>alert('Unable to send email to $new_email, Please share this link: $getLink')</script>";
     } else {
         echo "<script>alert('Error!! $ROLE Not Added')</script>";
     }
