@@ -158,7 +158,8 @@
 if (isset($_POST['addNow'])) {
     $new_email = $_POST["email"];
     $role = $_POST["role"];
-    $unique_id = $role . '-reg-' . uniqid();
+    $ROLE = strtoupper($role);
+    $unique_id = uniqid();
     $getLink = getCurrentURL() . '/login/signup-user?ref=' . $unique_id;
     $allData = array(
         'email' => $new_email,
@@ -167,9 +168,10 @@ if (isset($_POST['addNow'])) {
         'link'  =>  $getLink,
     );
     if (insertData('temp', $allData)) {
-        echo "<script>alert('strtoupper($role) Added Successfully')</script>";
+        echo "<script>alert('$ROLE Added Successfully')</script>";
+        echo "<script>alert('Share this link to $ROLE : $getLink ')</script>";
     } else {
-        echo "<script>alert('Error!! strtoupper($role) Not Added')</script>";
+        echo "<script>alert('Error!! $ROLE Not Added')</script>";
     }
 }
 ?>
