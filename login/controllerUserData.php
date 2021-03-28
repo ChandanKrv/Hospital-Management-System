@@ -66,8 +66,7 @@ if (isset($_POST['signUpAsMember'])) {
     $email = mysqli_real_escape_string($con, $_POST['email']);
     $password = mysqli_real_escape_string($con, $_POST['password']);
     $cpassword = mysqli_real_escape_string($con, $_POST['cpassword']);
-
-    echo "<script>alert('Uname: $u_name, name: $name, email: $email, pass: $password, cPass: $cpassword')</script>";
+    //echo "<script>alert('email: $email')</script>";
     if ($password !== $cpassword) {
         $errors['password'] = "Confirm password not matched!";
     }
@@ -88,7 +87,6 @@ if (isset($_POST['signUpAsMember'])) {
         $encpass = password_hash($password, PASSWORD_BCRYPT);
         $code = rand(999999, 111111);
         $u_role = getOneData('temp', 'role', 'email', $email);
-        echo "<script>alert('Alert!! Line 90 email: $email  Role: $u_role')</script>";
         $status = "notverified";
         global $ip, $timestamp;
         // $lastIdValue = getLastIdValue('user', 'u_id');
@@ -97,7 +95,7 @@ if (isset($_POST['signUpAsMember'])) {
                         values('$u_name','$name','$email', '$encpass', '$code', '$status','$u_role', '$timestamp','$ip')";
         $data_check = mysqli_query($con, $insert_data);
         if ($data_check) {
-            // deleteOneRow('temp', 'email', $email);
+            deleteOneRow('temp', 'email', $email);
             $subject = "Verification Code For HMS";
             $msg_with_code = "<h1>Use this OTP for registration $code</h1>";
             if (Send_Email($email, $subject, $msg_with_code)) {
