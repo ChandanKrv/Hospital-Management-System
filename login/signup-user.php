@@ -16,17 +16,16 @@ if ($u_role == "admin")
     header('location: ../admin');
 $forgot = "";
 
-
+$memberSignUp = false;
 if (isset($_GET['ref']) && !empty($_GET['ref'])) {
-    $memberSignUp = true;
     $refId = cleanInput($_GET['ref']);
     $email = getOneData('temp', 'email', 'unique_id', $refId);
-    if (!$email) {
+    if ($email) {
+        $memberSignUp = true;
+    } else {
         echo "<script>alert('Invalid Link')</script>";
         echo "<script>location.href='../'</script>";
     }
-} else {
-    $memberSignUp = false;
 }
 
 
