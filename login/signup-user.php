@@ -22,7 +22,8 @@ if (isset($_GET['ref']) && !empty($_GET['ref'])) {
     $refId = cleanInput($_GET['ref']);
     $email = getOneData('temp', 'email', 'unique_id', $refId);
     if (!$email) {
-        echo "<script>alert('Invalid Link')</script>";      
+        echo "<script>alert('Invalid Link')</script>";
+        header('location: getCurrentURL()');
     }
 } else {
     $memberSignUp = false;
