@@ -284,9 +284,8 @@
         <!-- Modal end -->
         <?php
         if (isset($_POST['bookAnApt'])) {
-            $apt_date = $_POST['apt_date'];
-            echo "<script>alert('Alert!! $apt_date')</script>";
-            $aptToken = countRows('appointment', 'apt_timestamp', $apt_date) + 1;
+            $apt_date = $_POST['apt_date'];           
+            $aptToken = countRows('appointment', 'apt_date', $apt_date) + 1;
             if ($aptToken > 15) {
                 echo "<script>alert('Appointment is full for selected date')</script>";
             } else {
@@ -296,7 +295,7 @@
                     'apt_date' => $_POST['apt_date'],
                     'apt_message' => $_POST['apt_message'],
                     'apt_token' => $aptToken,
-                    'apt_timestamp' => $date
+                    'apt_date' => $timestamp
                 );
                 if (insertData('appointment', $dataPush)) {
                     echo "<script>alert('Success')</script>";
