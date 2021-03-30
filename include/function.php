@@ -162,7 +162,7 @@ function countRows($table_name, $where_condition, $match_this)
 function patientTokenGeneration($doctor_hms_id, $patient_hms_id, $appointment_date)
 {
     global $mysqli;
-    $get = "SELECT * FROM appointment WHERE hms_id_dc='$doctor_hms_id' AND hms_id_pt='$patient_hms_id' AND $appointment_date='$appointment_date'";
+    $get = "SELECT * FROM appointment WHERE hms_id_dc='$doctor_hms_id' AND hms_id_pt='$patient_hms_id' AND apt_date='$appointment_date'";
     $run = mysqli_query($mysqli, $get);
     $counted = mysqli_num_rows($run);
     return $counted + 1;
