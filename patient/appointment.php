@@ -183,7 +183,7 @@
 
                                 <div class="col-lg-12">
                                     <div class="d-grid">
-                                        <button type="submit" class="btn btn-primary">Book An Appointment</button>
+                                        <button type="submit" name="bookAnApt" class="btn btn-primary">Book An Appointment</button>
                                     </div>
                                 </div>
                                 <!--end col-->
@@ -299,4 +299,6 @@
         </div>
         <!-- Cancel Appointment End -->
         <!-- Modal end -->
+
+
         <?php include_once('patient_footer.php') ?>
