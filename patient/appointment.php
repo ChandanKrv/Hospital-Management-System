@@ -299,7 +299,7 @@
                     'apt_timestamp' => $timestamp
                 );
                 if (insertData('appointment', $dataPush)) {
-                    echo "<script>alert('Success')</script>";
+                    echo "<script>alert('Success, Your token number is $aptToken')</script>";
                 } else {
                     echo "<script>alert('Error!!')</script>";
                 }
