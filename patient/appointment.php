@@ -295,7 +295,7 @@
                     'apt_date' => $_POST['apt_date'],
                     'apt_message' => $_POST['apt_message'],
                     'apt_token' => $aptToken,
-                    'apt_date' => $timestamp
+                    'apt_timestamp' => $timestamp
                 );
                 if (insertData('appointment', $dataPush)) {
                     echo "<script>alert('Success')</script>";
