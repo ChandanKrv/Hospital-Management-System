@@ -287,7 +287,7 @@
             $apt_date = $_POST['apt_date'];
             $hms_id_pt = $_POST['hms_id_pt'];
             $aptToken = patientTokenGeneration($hms_id_dc, $hms_id_pt, $apt_date);
-            if ($aptToken > 15) {
+            if ($aptToken > 4) {
                 echo "<script>alert('Appointment is full for selected date')</script>";
             } else {
                 $dataPush = array(
