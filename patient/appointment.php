@@ -111,7 +111,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body p-3 pt-4">
-                        <form>
+                        <form method="post">
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="mb-3">
