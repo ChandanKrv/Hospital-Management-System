@@ -127,7 +127,7 @@
                                     <div class="mb-3">
                                         <label class="form-label">Select Doctor</label>
                                         <select class="form-control doctor-name select2input">
-                                            <?php getDropdownDoctor(); ?>
+                                            <?php $hms_id_dc = getDropdownDoctor(); ?>
                                         </select>
                                     </div>
                                 </div>
@@ -284,22 +284,26 @@
         <!-- Modal end -->
         <?php
         if (isset($_POST['bookAnApt'])) {
-            $hms_id_dc = "HMS21-DOC-021";
-            $aptToken = "1234";
-            $timestamp = "kuch b";
-
-            $dataPush = array(
-                'hms_id_dc' => $hms_id_dc,
-                'hms_id_pt' => $_POST['hms_id_pt'],
-                'apt_date' => $_POST['apt_date'],
-                'apt_message' => $_POST['apt_message'],
-                'apt_token' => $aptToken,
-                'apt_timestamp' => $timestamp
-            );
-            if (insertData('appointment', $dataPush)) {
-                echo "<script>alert('Success')</script>";
+            $apt_date = $_POST['apt_date'];
+            //$hms_id_dc = "HMS21-DOC-021";
+            echo "<script>alert('Alert!! $hms_id_dc')</script>";
+            $aptToken = countRows('appointment', 'apt_timestamp', $apt_date) + 1;
+            if ($aptToken > 15) {
+                echo "<script>alert('Appointment is full for selected date')</script>";
             } else {
-                echo "<script>alert('Error!!')</script>";
+                $dataPush = array(
+                    'hms_id_dc' => 'hms_id_dc',
+                    'hms_id_pt' => $_POST['hms_id_pt'],
+                    'apt_date' => $_POST['apt_date'],
+                    'apt_message' => $_POST['apt_message'],
+                    'apt_token' => $aptToken,
+                    'apt_timestamp' => $timestamp
+                );
+                if (insertData('appointment', $dataPush)) {
+                    echo "<script>alert('Success')</script>";
+                } else {
+                    echo "<script>alert('Error!!')</script>";
+                }
             }
         }
 
