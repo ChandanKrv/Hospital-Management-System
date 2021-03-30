@@ -10,11 +10,11 @@ if (isset($_POST['add_patient'])) {
     $u_full_name = $_POST["u_full_name"];
     $p_department = $_POST["p_department"];
     $p_address = apostrophePush($_POST["p_address"]);
-    $p_timings = apostrophePush($_POST["p_timings"]);
+    $p_proof_type = $_POST["p_proof_type"];
+    $p_proof_details = $_POST["p_proof_details"];
     $p_phone = $_POST["p_phone"];
     $p_bio = apostrophePush($_POST["p_bio"]);
-    $p_fees = $_POST["p_fees"];
-    $p_speciality = apostrophePush($_POST["p_speciality"]);
+   
     // Getting file name
     $filename = $_FILES['p_image']['name'];
 
@@ -26,7 +26,7 @@ if (isset($_POST['add_patient'])) {
         $phototest1 = strtolower($photoExt1);
         $new_profle_pic = uniqid() . '.' . $phototest1;
         // Image Location
-        $location = "../assets/images/doctors_img/" . $new_profle_pic;
+        $location = "../assets/images/patients_img/" . $new_profle_pic;
         // file extension Hello
         $file_extension = pathinfo($location, PATHINFO_EXTENSION);
         $file_extension = strtolower($file_extension);
@@ -40,13 +40,11 @@ if (isset($_POST['add_patient'])) {
                 'p_image'  =>   $new_profle_pic,
                 'p_gender'  =>  $p_gender,
                 'p_dob'  =>  $p_dob,
-                'p_department'  =>  $p_department,
-                'p_address'  =>  $p_address,
-                'p_timings'  =>  $p_timings,
+                'p_proof_type'  =>  $p_proof_type,
+                'p_proof_details'  =>  $p_proof_details,
+                'p_address'  =>  $p_address,               
                 'p_bio'  =>  $p_bio,
                 'p_phone'  =>  $p_phone,
-                'p_fees'  =>  $p_fees,
-                'p_speciality'  =>  $p_speciality
             );
             if (updateData('patient', $pushData, "WHERE u_id = '$u_id'") and updateOneData('user', 'u_full_name', $u_full_name, 'u_email', $email)) {
                 echo "<script>alert('Profile Updated Successfully')</script>";
@@ -60,14 +58,12 @@ if (isset($_POST['add_patient'])) {
     } else {
         $pushData2 = array(
             'p_gender'  =>  $p_gender,
-            'p_dob'  =>  $p_dob,
-            'p_department'  =>  $p_department,
-            'p_address'  =>  $p_address,
-            'p_timings'  =>  $p_timings,
-            'p_bio'  =>  $p_bio,
-            'p_phone'  =>  $p_phone,
-            'p_fees'  =>  $p_fees,
-            'p_speciality'  =>  $p_speciality
+                'p_dob'  =>  $p_dob,
+                'p_proof_type'  =>  $p_proof_type,
+                'p_proof_details'  =>  $p_proof_details,
+                'p_address'  =>  $p_address,               
+                'p_bio'  =>  $p_bio,
+                'p_phone'  =>  $p_phone,
         );
         if (updateData('patient', $pushData2, "WHERE u_id = '$u_id'") and updateOneData('user', 'u_full_name', $u_full_name, 'u_email', $email)) {
             echo "<script>alert('Profile Updated Successfully')</script>";
@@ -82,39 +78,20 @@ if (isset($_POST['add_patient'])) {
 <div class="container-fluid">
     <div class="layout-specing">
         <div class="d-md-flex justify-content-between">
-            <h5 class="mb-0">Add New Patient</h5>
+            <h5 class="mb-0">Edit Profile</h5>
 
             <nav aria-label="breadcrumb" class="d-inline-block mt-4 mt-sm-0">
                 <ul class="breadcrumb bg-transparent rounded mb-0 p-0">
-                    <li class="breadcrumb-item"><a href="index-2">Doctris</a></li>
-                    <li class="breadcrumb-item"><a href="doctors">Doctors</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Add Doctor</li>
+                    <li class="breadcrumb-item"><a href="index">Doctris</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Edit Profile</li>
                 </ul>
             </nav>
         </div>
 
         <div class="row">
-            <div class="col-lg-8 mt-4">
+            <div class="col-lg-12 mt-4">
                 <div class="card border-0 p-4 rounded shadow">
-                    <!-- <div class="row align-items-center">
-                        <div class="col-lg-2 col-md-4">
-                            <img src="../assets/images/doctors/01.jpg" class="avatar avatar-md-md rounded-pill shadow mx-auto d-block" alt="">
-                        </div>
-                        <!--end col--
-
-                        <div class="col-lg-5 col-md-8 text-center text-md-start mt-4 mt-sm-0">
-                            <h5 class="">Upload your picture</h5>
-                            <p class="text-muted mb-0">For best results, use an image at least 600px by 600px in either .jpg or .png format</p>
-                        </div>
-                        <!--end col--
-
-                        <div class="col-lg-5 col-md-12 text-lg-end text-center mt-4 mt-lg-0">
-                            <a href="#" class="btn btn-primary">Upload</a>
-                            <a href="#" class="btn btn-soft-primary ms-2">Remove</a>
-                        </div>
-                        <!--end col--
-                    </div>
-                    <!--end row-- -->
+                  
 
                     <form class="mt-4" action="" method="post" enctype='multipart/form-data'>
                         <div class="row">
@@ -146,7 +123,7 @@ if (isset($_POST['add_patient'])) {
 
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <label class="form-label">Gender</label>
+                                    <label class="form-label">Gender (select)</label>
                                     <select class="form-control department-name select2input" name="p_gender">
                                         <option value="Male" <?php if ($gender == 'Male') { ?>selected<?php } ?>>Male</option>
                                         <option value="Female" <?php if ($gender  == 'Female') { ?>selected<?php } ?>>Female</option>
@@ -163,17 +140,18 @@ if (isset($_POST['add_patient'])) {
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <label class="form-label">Departments</label>
-                                    <select class="form-control department-name select2input" name="p_department">
-                                        <option value="Eye Care" <?php if ($department == 'Eye Care') { ?>selected<?php } ?>>Eye Care</option>
-                                        <option value="Gynecologist" <?php if ($department == 'Gynecologist') { ?>selected<?php } ?>>Gynecologist</option>
-                                        <option value="Psychotherapist" <?php if ($department == 'Psychotherapist') { ?>selected<?php } ?>>Psychotherapist</option>
-                                        <option value="Orthopedic" <?php if ($department == 'Orthopedic') { ?>selected<?php } ?>>Orthopedic</option>
-                                        <option value="Dentist" <?php if ($department == 'Dentist') { ?>selected<?php } ?>>Dentist</option>
-                                        <option value="Gastrologist" <?php if ($department == 'Gastrologist') { ?>selected<?php } ?>>Gastrologist</option>
-                                        <option value="Urologist" <?php if ($department == 'Urologist') { ?>selected<?php } ?>>Urologist</option>
-                                        <option value="Neurologist" <?php if ($department == 'Neurologist') { ?>selected<?php } ?>>Neurologist</option>
+                                    <label class="form-label">ID Proof (select)</label>
+                                    <select class="form-control department-name select2input" name="p_proof_type">
+                                        <option value="Aadhar Card" <?php if ($p_proof_type == 'Aadhar Card') { ?>selected<?php } ?>>Aadhar Card</option>
+                                        <option value="Voter Card" <?php if ($p_proof_type == 'Voter Card') { ?>selected<?php } ?>>Voter Card</option>
+                                        
                                     </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Enter ID Proof details</label>
+                                    <input name="p_proof_details" type="text" class="form-control" placeholder="Enter Details :" value="<?php echo $p_proof_details ?>">
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -182,12 +160,7 @@ if (isset($_POST['add_patient'])) {
                                     <input name="p_phone" type="number" class="form-control" placeholder="Phone Number :" value="<?php echo $phone ?>">
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="mb-3">
-                                    <label class="form-label">Appointment Fees</label>
-                                    <input name="p_fees" type="number" class="form-control" placeholder="Appointment Fees :" value="<?php echo $fees ?>">
-                                </div>
-                            </div>
+                            
 
                             <div class="col-md-6">
                                 <div class="mb-3">
@@ -202,24 +175,14 @@ if (isset($_POST['add_patient'])) {
                                 </div>
                             </div>
                             <!--end col-->
-                            <div class="col-md-12">
-                                <div class="mb-3">
-                                    <label class="form-label">Visiting Hrs</label>
-                                    <textarea name="p_timings" rows="3" class="form-control" placeholder="Visiting Hrs :"><?php echo apostrophePull($timings)  ?></textarea>
-                                </div>
-                            </div>
+                            
                             <div class="col-md-12">
                                 <div class="mb-3">
                                     <label class="form-label">Your Bio Here</label>
                                     <textarea name="p_bio" rows="3" class="form-control" placeholder="Bio :"><?php echo apostrophePull($bio) ?></textarea>
                                 </div>
                             </div>
-                            <div class="col-md-12">
-                                <div class="mb-3">
-                                    <label class="form-label">Your Specialities</label>
-                                    <textarea name="p_speciality" rows="3" class="form-control" placeholder="Enter specialization in your field :"><?php echo apostrophePull($speciality) ?></textarea>
-                                </div>
-                            </div>
+                            
 
                         </div>
                         <!--end row-->
@@ -230,69 +193,7 @@ if (isset($_POST['add_patient'])) {
             </div>
             <!--end col-->
 
-            <div class="col-lg-4 mt-4">
-                <div class="card rounded border-0 shadow">
-                    <div class="p-4 border-bottom">
-                        <h5 class="mb-0">Doctors List</h5>
-                    </div>
-
-                    <ul class="list-unstyled mb-0 p-4" data-simplebar style="height: 664px;">
-                        <li class="d-md-flex align-items-center text-center text-md-start">
-                            <img src="../assets/images/doctors/01.jpg" class="avatar avatar-medium rounded-md shadow" alt="">
-
-                            <div class="ms-md-3 mt-4 mt-sm-0">
-                                <a href="#" class="text-dark h6">Dr. Calvin Carlo</a>
-                                <p class="text-muted my-1">Cardiologist</p>
-                                <p class="text-muted mb-0">3 Years Experienced</p>
-                            </div>
-                        </li>
-
-                        <li class="d-md-flex align-items-center text-center text-md-start mt-4">
-                            <img src="../assets/images/doctors/02.jpg" class="avatar avatar-medium rounded-md shadow" alt="">
-
-                            <div class="ms-md-3 mt-4 mt-sm-0">
-                                <a href="#" class="text-dark h6">Dr. Alex Smith</a>
-                                <p class="text-muted my-1">Dentist</p>
-                                <p class="text-muted mb-0">1 Years Experienced</p>
-                            </div>
-                        </li>
-
-                        <li class="d-md-flex align-items-center text-center text-md-start mt-4">
-                            <img src="../assets/images/doctors/03.jpg" class="avatar avatar-medium rounded-md shadow" alt="">
-
-                            <div class="ms-md-3 mt-4 mt-sm-0">
-                                <a href="#" class="text-dark h6">Dr. Cristina Luly</a>
-                                <p class="text-muted my-1">Orthopedic</p>
-                                <p class="text-muted mb-0">5 Years Experienced</p>
-                            </div>
-                        </li>
-
-                        <li class="d-md-flex align-items-center text-center text-md-start mt-4">
-                            <img src="../assets/images/doctors/04.jpg" class="avatar avatar-medium rounded-md shadow" alt="">
-
-                            <div class="ms-md-3 mt-4 mt-sm-0">
-                                <a href="#" class="text-dark h6">Dr. Dwayen Maria</a>
-                                <p class="text-muted my-1">Gastrologist</p>
-                                <p class="text-muted mb-0">2 Years Experienced</p>
-                            </div>
-                        </li>
-
-                        <li class="d-md-flex align-items-center text-center text-md-start mt-4">
-                            <img src="../assets/images/doctors/05.jpg" class="avatar avatar-medium rounded-md shadow" alt="">
-
-                            <div class="ms-md-3 mt-4 mt-sm-0">
-                                <a href="#" class="text-dark h6">Dr. Jenelia Focia</a>
-                                <p class="text-muted my-1">Psychotherapist</p>
-                                <p class="text-muted mb-0">3 Years Experienced</p>
-                            </div>
-                        </li>
-
-                        <li class="mt-4">
-                            <a href="doctors" class="btn btn-primary">All Doctors</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+           
         </div>
         <!--end row-->
     </div>

@@ -36,17 +36,14 @@ if ($IdCheck == '') {
     $u_email = $data['u_email'];
     $hms_id = $data['hms_id'];
     $gender = $data['p_gender'];
-    $department = $data['p_department'];
+    $p_proof_type = $data['p_proof_type'];
+    $p_proof_details = $data['p_proof_details'];
     $image = "../assets/images/patients_img/" . $data['p_image'];
     $dob = $data['p_dob'];
     $address = $data['p_address'];
-    $timings = $data['p_timings'];
     $bio = $data['p_bio'];
     $phone = $data['p_phone'];
-    $fees = $data['p_fees'];
-    $speciality = $data['p_speciality'];
-
-
+  
 }
 ?>
 <!DOCTYPE html>
@@ -280,8 +277,8 @@ if ($IdCheck == '') {
                                     <a class="dropdown-item d-flex align-items-center text-dark" href="pt-profile">
                                         <img src="<?php echo $image ?>" class="avatar avatar-md-sm rounded-circle border shadow" alt="">
                                         <div class="flex-1 ms-2">
-                                            <span class="d-block mb-1">Dr.<?php echo $u_full_name ?></span>
-                                            <small class="text-muted"><?php echo $department ?></small>
+                                            <span class="d-block mb-1"><?php echo $u_full_name ?></span>
+                                            <small class="text-muted">Patient</small>
                                         </div>
                                     </a>
                                     <a class="dropdown-item text-dark" href="index"><span class="mb-0 d-inline-block me-1"><i class="uil uil-dashboard align-middle h6"></i></span> Dashboard</a>

@@ -317,3 +317,21 @@ function getAllData($table_name, $where_condition, $match_this)
     $row = mysqli_fetch_array($run);
     return $row;
 }
+
+
+/* PATIENT FUNCTIONS */
+//CHOOSE FROM DROPDOWN
+function getDropdownDoctor()
+{
+    global $con;
+    $getData = "SELECT * FROM user INNER JOIN doctor ON user.u_id=doctor.u_id WHERE user.hms_id !='NULL'";
+    $run_products = mysqli_query($con, $getData);
+    while ($row_product = mysqli_fetch_array($run_products)) {
+        $full_name = $row_product['u_full_name'];
+        $hms_id = $row_product['hms_id'];
+        $department = $row_product['d_department'];        
+        $fees = $row_product['d_fees'];        
+        echo "<option value='$hms_id'>$full_name ($department) -> Rs $fees/visit</option>";
+        /* echo "<option value='$hms_id'>$full_name ($department)</option>"; */
+}
+}

@@ -22,7 +22,7 @@ include_once('patient_header.php');
                 <img src="<?php echo $image ?>" class="rounded-circle shadow-md avatar avatar-medium" alt="">
                 <div class="mt-4 ms-3 pt-3">
                     <h5 class="mt-3 mb-1">Dr. <?php echo $u_full_name ?></h5>
-                    <p class="text-muted mb-0"><?php echo $department ?></p>
+                    <p class="text-muted mb-0">Patient</p>
                 </div>
             </div>
 
@@ -59,7 +59,7 @@ include_once('patient_header.php');
                             <li class="nav-item">
                                 <a class="nav-link rounded-0" id="timetable-tab" data-bs-toggle="pill" href="#pills-timetable" role="tab" aria-controls="pills-timetable" aria-selected="false">
                                     <div class="text-center pt-1 pb-1">
-                                        <h4 class="title fw-normal mb-0">Time Table</h4>
+                                        <h4 class="title fw-normal mb-0">Contact Details</h4>
                                     </div>
                                 </a>
                                 <!--end nav link-->
@@ -82,16 +82,7 @@ include_once('patient_header.php');
                             <div class="tab-pane fade show active" id="pills-overview" role="tabpanel" aria-labelledby="overview-tab">
                                 <p class="text-muted"><?php echo apostrophePull($bio); ?></p>
 
-                                <h6 class="mb-0">Specialties: </h6>
-                                <p><?php echo apostrophePull($speciality); ?></p>
-                                <!-- <ul class="list-unstyled mt-4">
-                                                    <li class="mt-1"><i class="uil uil-arrow-right text-primary"></i> Women's health services</li>
-                                                    <li class="mt-1"><i class="uil uil-arrow-right text-primary"></i> Pregnancy care</li>
-                                                    <li class="mt-1"><i class="uil uil-arrow-right text-primary"></i> Surgical procedures</li>
-                                                    <li class="mt-1"><i class="uil uil-arrow-right text-primary"></i> Specialty care</li>
-                                                    <li class="mt-1"><i class="uil uil-arrow-right text-primary"></i> Conclusion</li>
-                                                </ul> -->
-
+                              
 
                             </div>
                             <!--end teb pane-->
@@ -101,41 +92,10 @@ include_once('patient_header.php');
                             <div class="tab-pane fade" id="pills-timetable" role="tabpanel" aria-labelledby="timetable-tab">
                                 <div class="row">
                                     <div class="col-lg-4 col-md-12">
-                                        <h4>Visiting Hours</h4>
-                                        <p><?php echo apostrophePull($timings); ?></p>
-                                        <!-- <div class="card border-0nded show">
-                                                            <ul class="list-unstyled mb-0">
-                                                                <li class="d-flex justify-content-between my-1">
-                                                                    <p class="text-muted mb-0"><i class="ri-time-fill text-primary align-middle h5 mb-0"></i> Monday</p>
-                                                                    <p class="text-primary mb-0"><span class="text-dark">Time:</span> 8.00 - 20.00</p>
-                                                                </li>
-                                                                <li class="d-flex justify-content-between my-1">
-                                                                    <p class="text-muted mb-0"><i class="ri-time-fill text-primary align-middle h5 mb-0"></i> Tuesday</p>
-                                                                    <p class="text-primary mb-0"><span class="text-dark">Time:</span> 8.00 - 20.00</p>
-                                                                </li>
-                                                                <li class="d-flex justify-content-between my-1">
-                                                                    <p class="text-muted mb-0"><i class="ri-time-fill text-primary align-middle h5 mb-0"></i> Wednesday</p>
-                                                                    <p class="text-primary mb-0"><span class="text-dark">Time:</span> 8.00 - 20.00</p>
-                                                                </li>
-                                                                <li class="d-flex justify-content-between my-1">
-                                                                    <p class="text-muted mb-0"><i class="ri-time-fill text-primary align-middle h5 mb-0"></i> Thursday</p>
-                                                                    <p class="text-primary mb-0"><span class="text-dark">Time:</span> 8.00 - 20.00</p>
-                                                                </li>
-                                                                <li class="d-flex justify-content-between my-1">
-                                                                    <p class="text-muted mb-0"><i class="ri-time-fill text-primary align-middle h5 mb-0"></i> Friday</p>
-                                                                    <p class="text-primary mb-0"><span class="text-dark">Time:</span> 8.00 - 20.00</p>
-                                                                </li>
-                                                                <li class="d-flex justify-content-between my-1">
-                                                                    <p class="text-muted mb-0"><i class="ri-time-fill text-primary align-middle h5 mb-0"></i> Saturday</p>
-                                                                    <p class="text-primary mb-0"><span class="text-dark">Time:</span> 8.00 - 18.00</p>
-                                                                </li>
-                                                                <li class="d-flex justify-content-between my-1">
-                                                                    <p class="text-muted mb-0"><i class="ri-time-fill text-primary align-middle h5 mb-0"></i> Sunday</p>
-                                                                    <p class="text-primary mb-0"><span class="text-dark">Time:</span> 8.00 - 14.00</p>
-                                                                </li>
-                                                            </ul>
-                                                        </div> -->
-                                    </div>
+                                        <h4>ID Proof</h4>
+                                        <h6><?php echo $p_proof_type; ?></h6>
+                                        <h6><?php echo $p_proof_details; ?></h6>
+                                       </div>
                                     <!--end col-->
 
                                     <div class="col-lg-4 col-md-6 mt-4 mt-lg-0 pt-2 pt-lg-0">
