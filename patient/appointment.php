@@ -284,13 +284,13 @@
         <!-- Modal end -->
         <?php
         if (isset($_POST['bookAnApt'])) {
-            $hms_id_dc = 81;
+            $hms_id_dc = "HMS21-DOC-021";
             $aptToken = "1234";
             $timestamp = "kuch b";
 
             $dataPush = array(
                 'hms_id_dc' => $hms_id_dc,
-                'hms_id_pt' => 81,
+                'hms_id_pt' => $_POST['hms_id_pt'],
                 'apt_date' => $_POST['apt_date'],
                 'apt_message' => $_POST['apt_message'],
                 'apt_token' => $aptToken,
