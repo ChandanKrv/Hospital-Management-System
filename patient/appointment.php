@@ -286,16 +286,19 @@
         if (isset($_POST['bookAnApt'])) {
             $hms_id_dc = "random";
             $aptToken = "1234";
+            $timestamp = "kuch b";
 
             $dataPush = array(
-                'hms_id_pt' => $_POST["hms_id_pt"],
                 'hms_id_dc' => $hms_id_dc,
+                'hms_id_pt' => $_POST["hms_id_pt"],
                 'apt_date' => $_POST['apt_date'],
                 'apt_message' => $_POST['apt_message'],
                 'apt_token' => $aptToken,
                 'apt_timestamp' => $timestamp
+                
 
             );
+            echo "<script>alert('Alert!! line 301')</script>";
             if (insertData('appointment', $dataPush)) {
                 echo "<script>alert('Success')</script>";
             } else {
