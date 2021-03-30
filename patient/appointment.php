@@ -102,24 +102,7 @@
                 </div>
             </div>
         </div>
-        <!--end row-->
 
-        <!-- <div class="row text-center">
-                            <div class="col-12 mt-4">
-                                <ul class="pagination justify-content-end mb-0 list-unstyled">
-                                    <li><a href="#" class="pe-3 ps-3 pt-2 pb-2 border"> Prev</a></li>
-                                    <li class="active"><a href="#" class="pe-3 ps-3 pt-2 pb-2 border">1</a></li>
-                                    <li><a href="#" class="pe-3 ps-3 pt-2 pb-2 border">2</a></li>
-                                    <li><a href="#" class="pe-3 ps-3 pt-2 pb-2 border">Next </a></li>
-                                </ul><!-end pagination--
-                            </div><!-end col--
-                        </div><!-end row-- --
-                    </div>
-                </div><--end container-->
-
-        <!-- MODAL START -->
-        <!-- Modal start -->
-        <!-- Add New Appointment Start -->
         <div class="modal fade" id="appointmentform" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-centered">
                 <div class="modal-content">
@@ -133,9 +116,9 @@
                                 <div class="col-lg-12">
                                     <div class="mb-3">
                                         Patient HMS-Id
-                                        <input name="hms_id" id="name" type="text" class="form-control" placeholder="Patient Name :" value="<?php echo $hms_id ?>" readonly>
+                                        <input name="hms_id_pt" id="name" type="text" class="form-control" placeholder="Patient Name :" value="<?php echo $hms_id ?>" readonly>
                                         <label class="form-label">Patient Name <span class="text-danger">*</span></label>
-                                        <input name="name" id="name" type="text" class="form-control" placeholder="Patient Name :" value="<?php echo $u_full_name ?>" readonly>
+                                        <input name="u_full_name" id="name" type="text" class="form-control" placeholder="Patient Name :" value="<?php echo $u_full_name ?>" readonly>
                                     </div>
                                 </div>
                                 <!--end col-->
@@ -152,14 +135,14 @@
                                 <div class="col-lg-6 col-md-9">
                                     <div class="mb-3">
                                         <label class="form-label"> Date : </label>
-                                        <input name="date" type="date" class="flatpickr flatpickr-input form-control" id="checkin-date">
+                                        <input name="apt_date" type="date" class="flatpickr flatpickr-input form-control" id="checkin-date">
                                     </div>
                                 </div>
                                 <!--end col-->
                                 <div class="col-lg-4 col-md-6">
                                     <div class="mb-3">
                                         <label class="form-label">Your Email <span class="text-danger">*</span></label>
-                                        <input name="email" id="email" type="email" class="form-control" placeholder="Your email :" value="<?php echo $u_email ?>" readonly>
+                                        <input name="pt_email" id="email" type="email" class="form-control" placeholder="Your email :" value="<?php echo $u_email ?>" readonly>
                                     </div>
                                 </div>
                                 <!--end col-->
@@ -167,7 +150,7 @@
                                 <div class="col-lg-4 col-md-6">
                                     <div class="mb-3">
                                         <label class="form-label">Your Phone <span class="text-danger">*</span></label>
-                                        <input name="phone" id="phone" type="tel" class="form-control" placeholder="Your Phone :" value="<?php echo $phone ?>" readonly>
+                                        <input name="pt_phone" id="phone" type="tel" class="form-control" placeholder="Your Phone :" value="<?php echo $phone ?>" readonly>
                                     </div>
                                 </div>
                                 <!--end col-->
@@ -176,7 +159,7 @@
                                 <div class="col-lg-12">
                                     <div class="mb-3">
                                         <label class="form-label">Any Message ? (Optional)</label>
-                                        <textarea name="comments" id="comments" rows="4" class="form-control" placeholder="Your Message :"></textarea>
+                                        <textarea name="apt_message" id="comments" rows="4" class="form-control" placeholder="Your Message :"></textarea>
                                     </div>
                                 </div>
                                 <!--end col-->
@@ -299,6 +282,27 @@
         </div>
         <!-- Cancel Appointment End -->
         <!-- Modal end -->
+        <?php
+        if (isset($_POST['bookAnApt'])) {
+            $hms_id_dc = "random";
+            $aptToken = "1234";
 
+            $dataPush = array(
+                'hms_id_pt' => $_POST["hms_id_pt"],
+                'hms_id_dc' => $hms_id_dc,
+                'apt_date' => $_POST['apt_date'],
+                'apt_message' => $_POST['apt_message'],
+                'apt_token' => $aptToken,
+                'apt_timestamp' => $timestamp
+
+            );
+            if (insertData('appointment', $dataPush)) {
+                echo "<script>alert('Success')</script>";
+            } else {
+                echo "<script>alert('Error!!')</script>";
+            }
+        }
+
+        ?>
 
         <?php include_once('patient_footer.php') ?>
