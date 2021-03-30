@@ -54,6 +54,16 @@ function apostrophePull($gimmePullingString)
     } */
     return $all;
 }
+//Returning only date from timestamp
+function getDateFromTimestamp($table_name, $column_name, $where_condition, $match_this)
+{
+    global $con;
+    $getData = "SELECT $column_name FROM $table_name WHERE $where_condition='$match_this'";
+    $run = mysqli_query($con, $getData);
+    $row = mysqli_fetch_array($run);
+    $gotDate = $row[$column_name];
+    return substr($gotDate, 0, 10);
+}
 
 function getCurrentPageURL()
 {
