@@ -294,9 +294,7 @@
                 'apt_date' => $_POST['apt_date'],
                 'apt_message' => $_POST['apt_message'],
                 'apt_token' => $aptToken,
-                'apt_timestamp' => $timestamp
-                
-
+                'apt_timestamp' => $timestamp            
             );
             echo "<script>alert('Alert!! line 301')</script>";
             if (insertData('appointment', $dataPush)) {
