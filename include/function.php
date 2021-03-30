@@ -1,9 +1,6 @@
 <?php
 require 'db.php'; //Already Started in dp.php
 
-//Common Functions
-
-
 //Some Important Global Variable
 $max_appointment_in_a_day = 2;
 
