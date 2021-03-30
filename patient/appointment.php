@@ -285,14 +285,12 @@
         <?php
         if (isset($_POST['bookAnApt'])) {
             $apt_date = $_POST['apt_date'];
-            //$hms_id_dc = "HMS21-DOC-021";
-            echo "<script>alert('Alert!! $hms_id_dc')</script>";
             $aptToken = countRows('appointment', 'apt_timestamp', $apt_date) + 1;
             if ($aptToken > 15) {
                 echo "<script>alert('Appointment is full for selected date')</script>";
             } else {
                 $dataPush = array(
-                    'hms_id_dc' => 'hms_id_dc',
+                    'hms_id_dc' => $hms_id_dc,
                     'hms_id_pt' => $_POST['hms_id_pt'],
                     'apt_date' => $_POST['apt_date'],
                     'apt_message' => $_POST['apt_message'],
