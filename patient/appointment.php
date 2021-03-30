@@ -284,14 +284,15 @@
         <!-- Modal end -->
         <?php
         if (isset($_POST['bookAnApt'])) {
-            $apt_date = $_POST['apt_date'];           
-            $aptToken = countRows('appointment', 'apt_date', $apt_date) + 1;
+            $apt_date = $_POST['apt_date'];
+            $hms_id_pt = $_POST['hms_id_pt'];
+            $aptToken = patientTokenGeneration($hms_id_dc, $hms_id_pt, $apt_date);
             if ($aptToken > 15) {
                 echo "<script>alert('Appointment is full for selected date')</script>";
             } else {
                 $dataPush = array(
                     'hms_id_dc' => $hms_id_dc,
-                    'hms_id_pt' => $_POST['hms_id_pt'],
+                    'hms_id_pt' => $hms_id_pt,
                     'apt_date' => $_POST['apt_date'],
                     'apt_message' => $_POST['apt_message'],
                     'apt_token' => $aptToken,
