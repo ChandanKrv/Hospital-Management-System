@@ -132,9 +132,10 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="mb-3">
+                                        Patient HMS-Id
                                         <input name="hms_id" id="name" type="text" class="form-control" placeholder="Patient Name :" value="<?php echo $hms_id ?>" readonly>
                                         <label class="form-label">Patient Name <span class="text-danger">*</span></label>
-                                        <input name="name" id="name" type="text" class="form-control" placeholder="Patient Name :" value="<?php echo $u_full_name ?>" disabled>
+                                        <input name="name" id="name" type="text" class="form-control" placeholder="Patient Name :" value="<?php echo $u_full_name ?>" readonly>
                                     </div>
                                 </div>
                                 <!--end col-->
@@ -158,7 +159,7 @@
                                 <div class="col-lg-4 col-md-6">
                                     <div class="mb-3">
                                         <label class="form-label">Your Email <span class="text-danger">*</span></label>
-                                        <input name="email" id="email" type="email" class="form-control" placeholder="Your email :" value="<?php echo $u_email ?>" disabled>
+                                        <input name="email" id="email" type="email" class="form-control" placeholder="Your email :" value="<?php echo $u_email ?>" readonly>
                                     </div>
                                 </div>
                                 <!--end col-->
@@ -166,7 +167,7 @@
                                 <div class="col-lg-4 col-md-6">
                                     <div class="mb-3">
                                         <label class="form-label">Your Phone <span class="text-danger">*</span></label>
-                                        <input name="phone" id="phone" type="tel" class="form-control" placeholder="Your Phone :" value="<?php echo $phone ?>" disabled>
+                                        <input name="phone" id="phone" type="tel" class="form-control" placeholder="Your Phone :" value="<?php echo $phone ?>" readonly>
                                     </div>
                                 </div>
                                 <!--end col-->
@@ -174,7 +175,7 @@
 
                                 <div class="col-lg-12">
                                     <div class="mb-3">
-                                        <label class="form-label">Comments <span class="text-danger">*</span></label>
+                                        <label class="form-label">Any Message ? (Optional)</label>
                                         <textarea name="comments" id="comments" rows="4" class="form-control" placeholder="Your Message :"></textarea>
                                     </div>
                                 </div>
