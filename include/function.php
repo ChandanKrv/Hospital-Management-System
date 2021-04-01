@@ -223,8 +223,16 @@ function updateData($table_name, $form_data, $where_clause = '')
 function appointmentDisplay($hms_id)
 {
     global $con;
+
+    $table1 = "user";
+    $columnOfT1 = "hms_id";
+    $table2 = "doctor";
+    $columnOfT2 = "u_id";
+    $table3 = "appointment";
+    $columnOfT3 = "hms_id_pt";
+
     //For local
-    $get_product = "SELECT * FROM user INNER JOIN appointment ON user.hms_id=appointment.hms_id_pt WHERE appointment.hms_id_pt='$hms_id' ORDER BY appointment.apt_token DESC";
+    $get_product = "SELECT * FROM $table1 INNER JOIN $table2 ON user.hms_id=appointment.hms_id_pt WHERE appointment.hms_id_pt='$hms_id' ORDER BY appointment.apt_token DESC";
     $run_products = mysqli_query($con, $get_product);
     while ($row_product = mysqli_fetch_array($run_products)) {
         $u_full_name = $row_product['u_full_name'];
