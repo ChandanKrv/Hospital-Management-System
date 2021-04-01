@@ -55,7 +55,7 @@
                                 <th class="border-bottom py-3">Department</th>
                                 <th class="border-bottom py-3" style="min-width: 150px;">Email</th>
                                 <th class="border-bottom py-3" style="min-width: 150px;">Date</th>
-                                <th class="border-bottom py-3">Token Number</th>                                
+                                <th class="border-bottom py-3">Token Number</th>
                                 <th class="border-bottom py-3">Fees</th>
                                 <th class="border-bottom py-3" style="min-width: 150px;"></th>
                             </tr>
@@ -70,39 +70,22 @@
                                     <a href="#" class="text-dark">
                                         <div class="d-flex align-items-center">
                                             <img src="../assets/images/client/01.jpg" class="avatar avatar-md-sm rounded-circle shadow" alt="">
-                                            <span class="ms-2">Howard Tanner</span>
+                                            <span class="ms-2">Chandan</span>
                                         </div>
                                     </a>
                                 </td>
-                                <td>howard@contact.com</td>
-                                <td>25</td>
-                                <td>Male</td>
                                 <td>Cardiology</td>
+                                <td>howard@contact.com</td>
                                 <td>20th Dec 2020</td>
-                                <td>11:00AM</td>
-                                <td>
-                                    <a href="#" class="text-dark">
-                                        <div class="d-flex align-items-center">
-                                            <img src="../assets/images/doctors/01.jpg" class="avatar avatar-md-sm rounded-circle border shadow" alt="">
-                                            <span class="ms-2">Dr. Calvin Carlo</span>
-                                        </div>
-                                    </a>
-                                </td>
-                                <td>$50/Patient</td>
-                                <td class="text-end">
-                                    <a href="#" class="btn btn-icon btn-pills btn-soft-primary" data-bs-toggle="modal" data-bs-target="#viewappointment"><i class="uil uil-eye"></i></a>
-                                    <a href="#" class="btn btn-icon btn-pills btn-soft-success" data-bs-toggle="modal" data-bs-target="#acceptappointment"><i class="uil uil-check-circle"></i></a>
-                                    <a href="#" class="btn btn-icon btn-pills btn-soft-danger" data-bs-toggle="modal" data-bs-target="#cancelappointment"><i class="uil uil-times-circle"></i></a>
-                                </td>
-
-
+                                <td>3</td>
+                                <td>$100</td>
 
 
 
 
                             </tr>
 
-                            <?php staffGigDisplay(); ?>
+
                         </tbody>
                     </table>
                 </div>
