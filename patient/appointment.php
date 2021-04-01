@@ -51,14 +51,11 @@
                         <thead>
                             <tr>
                                 <th class="border-bottom py-3" style="min-width: 50px;">#</th>
-                                <th class="border-bottom py-3" style="min-width: 180px;">Name</th>
-                                <th class="border-bottom py-3" style="min-width: 150px;">Email</th>
-                                <th class="border-bottom py-3">Age</th>
-                                <th class="border-bottom py-3">Gender</th>
+                                <th class="border-bottom py-3" style="min-width: 180px;">Doctor Name</th>
                                 <th class="border-bottom py-3">Department</th>
+                                <th class="border-bottom py-3" style="min-width: 150px;">Email</th>
                                 <th class="border-bottom py-3" style="min-width: 150px;">Date</th>
-                                <th class="border-bottom py-3">Time</th>
-                                <th class="border-bottom py-3" style="min-width: 220px;">Doctor</th>
+                                <th class="border-bottom py-3">Token Number</th>                                
                                 <th class="border-bottom py-3">Fees</th>
                                 <th class="border-bottom py-3" style="min-width: 150px;"></th>
                             </tr>
