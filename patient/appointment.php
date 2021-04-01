@@ -61,11 +61,11 @@
                             </tr>
                         </thead>
                         <tbody>
-
                             <?php
-                            echo "<script>alert('Alert!!pt $hms_id')</script>";
-                            $hms_id_dc123 = getOneData('appointment', 'hms_id_dc', 'hms_id_pt', $hms_id);
-                            echo "<script>alert('Alert!!doc $hms_id_dc123')</script>";
+                            $hms_id_dc = getOneData('appointment', 'hms_id_dc', 'hms_id_pt', $hms_id);
+
+
+                            echo "<script>alert('Alert!!doc $hms_id_dc')</script>";
                             /*   $get_product = "SELECT * FROM appointment WHERE hms_id_pt ='$hms_id' ORDER BY apt_token DESC";
                             $run_products = mysqli_query($con, $get_product);
                             while ($row_product = mysqli_fetch_array($run_products)) {
@@ -88,9 +88,9 @@
                                 </td>
                                 <td><?php $apt_date_2 ?></td>
                                 <td>howard@contact.com</td>
-                                <td><?php $apt_date_2 ?>/td>
+                                <td><?php getOneData('appointment', 'apt_date', 'hms_id_pt', $hms_id); ?>/td>
                                 <td>$100</td>
-                                <td><?php $apt_token_2 ?></td>
+                                <td><?php getOneData('appointment', 'apt_token', 'hms_id_pt', $hms_id);  ?></td>
                             </tr>
 
 
