@@ -55,16 +55,15 @@
                                 <th class="border-bottom py-3">Department</th>
                                 <th class="border-bottom py-3" style="min-width: 150px;">Email</th>
                                 <th class="border-bottom py-3" style="min-width: 150px;">Date</th>
-                                <th class="border-bottom py-3">Token Number</th>
                                 <th class="border-bottom py-3">Fees</th>
+                                <th class="border-bottom py-3">Token Number</th>
                                 <th class="border-bottom py-3" style="min-width: 150px;"></th>
                             </tr>
                         </thead>
                         <tbody>
+
+
                             <tr>
-
-
-
                                 <th>1</th>
                                 <td class="py-3">
                                     <a href="#" class="text-dark">
@@ -77,14 +76,10 @@
                                 <td>Cardiology</td>
                                 <td>howard@contact.com</td>
                                 <td>20th Dec 2020</td>
-                                <td>3</td>
                                 <td>$100</td>
-
-
-
+                                <td>3</td>
 
                             </tr>
-
 
                         </tbody>
                     </table>

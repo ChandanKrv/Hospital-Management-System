@@ -220,6 +220,31 @@ function updateData($table_name, $form_data, $where_clause = '')
     return mysqli_query($mysqli, $sql);
 }
 
+function appointmentDisplay()
+{
+    global $con;
+    //For local
+    $get_product = "SELECT * FROM user INNER JOIN appointment ON user.u_id=staff.u_id ORDER BY staff.s_id DESC";
+    $run_products = mysqli_query($con, $get_product);
+    while ($row_product = mysqli_fetch_array($run_products)) {
+        $u_full_name = $row_product['u_full_name'];
+        $s_department = $row_product['s_department'];
+        $s_image = $row_product['s_image'];
+
+        echo "<div class='col-xl col-lg-4 col-md-6 mt-4'>
+        <div class='card team border-0 rounded shadow overflow-hidden'>
+            <div class='team-img position-relative'>
+                <img src='../assets/images/staffs_img/$s_image' class='img-fluid' alt=''>
+                
+            </div>
+            <div class='card-body content text-center'>
+                <a href='dr-profile' class='title text-dark h5 d-block mb-0'>Dr. $u_full_name</a>
+                <small class='text-muted speciality'>$s_department</small>
+            </div>
+        </div>
+    </div>";
+    }
+}
 
 
 /* STAFF GIG */
