@@ -64,7 +64,8 @@
 
                             <?php
                             echo "<script>alert('Alert!! $hms_id')</script>";
-
+                            $hms_id_dc = getOneData('appointment', 'hms_id_dc', 'hms_id_pt', $hms_id);
+                            echo "<script>alert('Alert!! $hms_id_dc')</script>";
                             /*   $get_product = "SELECT * FROM appointment WHERE hms_id_pt ='$hms_id' ORDER BY apt_token DESC";
                             $run_products = mysqli_query($con, $get_product);
                             while ($row_product = mysqli_fetch_array($run_products)) {
