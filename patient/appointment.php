@@ -65,6 +65,9 @@
                         </thead>
                         <tbody>
                             <tr>
+
+
+
                                 <th>1</th>
                                 <td class="py-3">
                                     <a href="#" class="text-dark">
@@ -94,9 +97,15 @@
                                     <a href="#" class="btn btn-icon btn-pills btn-soft-success" data-bs-toggle="modal" data-bs-target="#acceptappointment"><i class="uil uil-check-circle"></i></a>
                                     <a href="#" class="btn btn-icon btn-pills btn-soft-danger" data-bs-toggle="modal" data-bs-target="#cancelappointment"><i class="uil uil-times-circle"></i></a>
                                 </td>
+
+
+
+
+
+
                             </tr>
 
-
+                            <?php staffGigDisplay(); ?>
                         </tbody>
                     </table>
                 </div>
