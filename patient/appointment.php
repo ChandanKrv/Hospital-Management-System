@@ -63,36 +63,38 @@
                         <tbody>
 
                             <?php
+                            echo "<script>alert('Alert!! $hms_id')</script>";
 
-                            $get_product = "SELECT * FROM appointment WHERE hms_id_pt ='$hms_id' ORDER BY apt_token DESC";
+                            /*   $get_product = "SELECT * FROM appointment WHERE hms_id_pt ='$hms_id' ORDER BY apt_token DESC";
                             $run_products = mysqli_query($con, $get_product);
                             while ($row_product = mysqli_fetch_array($run_products)) {
                                 $hms_id_dc_2 = $row_product['hms_id_dc'];
                                 $apt_date_2 = $row_product['apt_date'];
-                                $apt_token_2 = $row_product['apt_token'];
+                                $apt_token_2 = $row_product['apt_token']; */
 
                             ?>
 
 
-                                <tr>
-                                    <th>1</th>
-                                    <td class="py-3">
-                                        <a href="#" class="text-dark">
-                                            <div class="d-flex align-items-center">
-                                                <img src="../assets/images/client/01.jpg" class="avatar avatar-md-sm rounded-circle shadow" alt="">
-                                                <span class="ms-2"><?php $hms_id_dc_2 ?></span>
-                                            </div>
-                                        </a>
-                                    </td>
-                                    <td><?php $apt_date_2 ?></td>
-                                    <td>howard@contact.com</td>
-                                    <td><?php $apt_date_2 ?>/td>
-                                    <td>$100</td>
-                                    <td><?php $apt_token_2 ?></td>
-                                </tr>
+                            <tr>
+                                <th>1</th>
+                                <td class="py-3">
+                                    <a href="#" class="text-dark">
+                                        <div class="d-flex align-items-center">
+                                            <img src="../assets/images/client/01.jpg" class="avatar avatar-md-sm rounded-circle shadow" alt="">
+                                            <span class="ms-2"><?php $hms_id_dc_2 ?></span>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td><?php $apt_date_2 ?></td>
+                                <td>howard@contact.com</td>
+                                <td><?php $apt_date_2 ?>/td>
+                                <td>$100</td>
+                                <td><?php $apt_token_2 ?></td>
+                            </tr>
 
 
-                            <?php } ?>
+                            <?php // } 
+                            ?>
 
                         </tbody>
                     </table>
