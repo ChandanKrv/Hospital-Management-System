@@ -61,21 +61,8 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php
-                            $hms_id_dc = getOneData('appointment', 'hms_id_dc', 'hms_id_pt', $hms_id);
-                            $apt_date = getOneData('appointment', 'apt_date', 'hms_id_pt', $hms_id);
-                            $apt_token = getOneData('appointment', 'apt_token', 'hms_id_pt', $hms_id);
 
-                            /*   $get_product = "SELECT * FROM appointment WHERE hms_id_pt ='$hms_id' ORDER BY apt_token DESC";
-                            $run_products = mysqli_query($con, $get_product);
-                            while ($row_product = mysqli_fetch_array($run_products)) {
-                                $hms_id_dc_2 = $row_product['hms_id_dc'];
-                                $apt_date_2 = $row_product['apt_date'];
-                                $apt_token_2 = $row_product['apt_token']; */
-
-                            ?>
-
-
+                            <!-- 
                             <tr>
                                 <th>1</th>
                                 <td class="py-3">
@@ -91,11 +78,10 @@
                                 <td><?php $apt_date ?>/td>
                                 <td>$100</td>
                                 <td><?php $apt_token  ?></td>
-                            </tr>
+                            </tr> -->
 
 
-                            <?php // } 
-                            ?>
+                            <?php appointmentDisplay($hms_id);         ?>
 
                         </tbody>
                     </table>

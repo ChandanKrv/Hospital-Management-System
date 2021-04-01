@@ -220,29 +220,37 @@ function updateData($table_name, $form_data, $where_clause = '')
     return mysqli_query($mysqli, $sql);
 }
 
-function appointmentDisplay()
+function appointmentDisplay($hms_id)
 {
     global $con;
     //For local
-    $get_product = "SELECT * FROM user INNER JOIN appointment ON user.u_id=staff.u_id ORDER BY staff.s_id DESC";
+    $get_product = "SELECT * FROM user INNER JOIN appointment ON user.hms_id=appointment.hms_id_pt WHERE appointment.hms_id_pt='$hms_id' ORDER BY appointment.apt_token DESC";
     $run_products = mysqli_query($con, $get_product);
     while ($row_product = mysqli_fetch_array($run_products)) {
         $u_full_name = $row_product['u_full_name'];
-        $s_department = $row_product['s_department'];
-        $s_image = $row_product['s_image'];
+        $d_image = $row_product['d_image'];
+        $d_department = $row_product['d_department'];
+        $u_email = $row_product['u_email'];
+        $apt_date = $row_product['apt_date'];
+        $d_fees = $row_product['d_fees'];
+        $apt_token = $row_product['apt_token'];
 
-        echo "<div class='col-xl col-lg-4 col-md-6 mt-4'>
-        <div class='card team border-0 rounded shadow overflow-hidden'>
-            <div class='team-img position-relative'>
-                <img src='../assets/images/staffs_img/$s_image' class='img-fluid' alt=''>
-                
-            </div>
-            <div class='card-body content text-center'>
-                <a href='dr-profile' class='title text-dark h5 d-block mb-0'>Dr. $u_full_name</a>
-                <small class='text-muted speciality'>$s_department</small>
-            </div>
-        </div>
-    </div>";
+        echo "<tr>
+                                <th>1</th>
+                                <td class='py-3'>
+                                    <a href='#' class='text-dark'>
+                                        <div class='d-flex align-items-center'>
+                                            <img src='../assets/images/doctors_img/$d_image' class='avatar avatar-md-sm rounded-circle shadow' alt=''>
+                                            <span class='ms-2'><?php $u_full_name ?></span>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>$d_department</td>
+                                <td>$u_email</td>
+                                <td>$apt_date/td>
+                                <td>$d_fees</td>
+                                <td>$apt_token</td>
+                            </tr>";
     }
 }
 
