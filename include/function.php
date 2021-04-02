@@ -230,9 +230,9 @@ function appointmentDisplay($hms_id)
     $columnOfT2 = "u_id";
     $table3 = "appointment";
     $columnOfT3 = "hms_id_pt";
-
+   
     //For local
-    $get_product = "SELECT * FROM $table1 INNER JOIN $table2 ON user.hms_id=appointment.hms_id_pt WHERE appointment.hms_id_pt='$hms_id' ORDER BY appointment.apt_token DESC";
+    $get_product = "SELECT * FROM $table1 INNER JOIN $table2 ON user.u_id=doctor.u_id INNER JOIN $table3 ON user.hms_id=appointment.hms_id_dc  WHERE appointment.hms_id_pt='$hms_id' ORDER BY appointment.apt_token DESC";
     $run_products = mysqli_query($con, $get_product);
     while ($row_product = mysqli_fetch_array($run_products)) {
         $u_full_name = $row_product['u_full_name'];

@@ -81,7 +81,7 @@
                             </tr> -->
 
 
-                            <?php //appointmentDisplay($hms_id);         ?>
+                            <?php appointmentDisplay($hms_id);  ?>
 
                         </tbody>
                     </table>
