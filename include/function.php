@@ -244,21 +244,69 @@ function appointmentDisplay($hms_id)
         $apt_token = $row_product['apt_token'];
 
         echo "<tr>
-                                <th>1</th>
+                               
                                 <td class='py-3'>
                                     <a href='#' class='text-dark'>
                                         <div class='d-flex align-items-center'>
                                             <img src='../assets/images/doctors_img/$d_image' class='avatar avatar-md-sm rounded-circle shadow' alt=''>
-                                            <span class='ms-2'><?php $u_full_name ?></span>
+                                            <span class='ms-2'>$u_full_name</span>
                                         </div>
                                     </a>
                                 </td>
                                 <td>$d_department</td>
                                 <td>$u_email</td>
-                                <td>$apt_date/td>
+                                <td>$apt_date</td>
                                 <td>$d_fees</td>
-                                <td>$apt_token</td>
+                                <td><center>$apt_token</center></td>
                             </tr>";
+    }
+}
+
+/* For displaying in doctor's appointment page */
+
+function appointmentDisplayDoctor($hms_id)
+{
+    global $con;
+
+    $table1 = "user";
+    $columnOfT1 = "hms_id";
+    $table2 = "patient";
+    $columnOfT2 = "u_id";
+    $table3 = "appointment";
+    $columnOfT3 = "hms_id_pt";
+   
+    //For local
+    $get_product = "SELECT * FROM $table1 INNER JOIN $table2 ON user.u_id=patient.u_id INNER JOIN $table3 ON user.hms_id=appointment.hms_id_pt  WHERE appointment.hms_id_dc='$hms_id' ORDER BY appointment.apt_token DESC";
+    $run_products = mysqli_query($con, $get_product);
+    while ($row_product = mysqli_fetch_array($run_products)) {
+        $u_full_name = $row_product['u_full_name'];
+        $image = $row_product['p_image'];
+        $gender = $row_product['p_gender'];
+        $phone = $row_product['p_phone'];
+        $u_email = $row_product['u_email'];
+        $apt_date = $row_product['apt_date'];
+        $p_hms_id = $row_product['hms_id'];
+        $apt_token = $row_product['apt_token'];
+
+        echo "<tr>
+                                           
+        <td class='py-3'>
+            <a href='#' class='text-dark'>
+                <div class='d-flex align-items-center'>
+                    <img src='../assets/images/patients_img/$image' class='avatar avatar-md-sm rounded-circle shadow' alt=''>
+                    <span class='ms-2'>$u_full_name</span>
+                </div>
+            </a>
+        </td>
+        <td>$u_email</td>
+        <td>25</td>
+        <td>$gender</td>
+        <td>$phone</td>
+        <td>$apt_date</td>
+        <td><center>$apt_token</center></td>
+        <td>$p_hms_id</td>
+        
+    </tr>";
     }
 }
 
@@ -388,7 +436,7 @@ function getAllData($table_name, $where_condition, $match_this)
 
 /* PATIENT FUNCTIONS */
 //CHOOSE FROM DROPDOWN
-function getDropdownDoctor()
+function getDropdownDoctor($data)
 {
     global $con;
     $getData = "SELECT * FROM user INNER JOIN doctor ON user.u_id=doctor.u_id WHERE user.hms_id !='NULL'";
@@ -398,8 +446,14 @@ function getDropdownDoctor()
         $hms_id = $row_product['hms_id'];
         $department = $row_product['d_department'];
         $fees = $row_product['d_fees'];
+        if($data=='appointment')
+        {
         echo "<option value='$hms_id'>$full_name ($department) -> Rs $fees/visit</option>";
-        /* echo "<option value='$hms_id'>$full_name ($department)</option>"; */
+        }
+        else
+        {
+        echo "<option value='$hms_id'>$full_name ($department)</option>";
+        }
         return $hms_id;
     }
 }

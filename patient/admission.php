@@ -134,7 +134,7 @@
                                     <div class="mb-3">
                                         <label class="form-label">Select Doctor</label>
                                         <select class="form-control doctor-name select2input">
-                                        <?php getDropdownDoctor(); ?>
+                                        <?php getDropdownDoctor('admission'); ?>
                                         </select>
                                     </div>
                                 </div><!--end col-->
@@ -161,7 +161,7 @@
 
                                 <div class="col-lg-12">
                                     <div class="mb-3">
-                                        <label class="form-label">Comments <span class="text-danger">*</span></label>
+                                        <label class="form-label">Admission Reason<span class="text-danger">*</span></label>
                                         <textarea name="comments" id="comments" rows="4" class="form-control" placeholder="Your Message :"></textarea>
                                     </div>
                                 </div><!--end col-->

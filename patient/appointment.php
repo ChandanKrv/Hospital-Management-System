@@ -49,36 +49,19 @@
                 <div class="table-responsive shadow rounded">
                     <table class="table table-center bg-white mb-0">
                         <thead>
-                            <tr>
-                                <th class="border-bottom py-3" style="min-width: 50px;">#</th>
+                        <tr>
+                                
                                 <th class="border-bottom py-3" style="min-width: 180px;">Doctor Name</th>
                                 <th class="border-bottom py-3">Department</th>
                                 <th class="border-bottom py-3" style="min-width: 150px;">Email</th>
                                 <th class="border-bottom py-3" style="min-width: 150px;">Date</th>
-                                <th class="border-bottom py-3">Fees</th>
+                                <th class="border-bottom py-3">Fees/visit</th>
                                 <th class="border-bottom py-3">Token Number</th>
                                 <th class="border-bottom py-3" style="min-width: 150px;"></th>
                             </tr>
                         </thead>
                         <tbody>
 
-                            <!-- 
-                            <tr>
-                                <th>1</th>
-                                <td class="py-3">
-                                    <a href="#" class="text-dark">
-                                        <div class="d-flex align-items-center">
-                                            <img src="../assets/images/client/01.jpg" class="avatar avatar-md-sm rounded-circle shadow" alt="">
-                                            <span class="ms-2"><?php $hms_id_dc_2 ?></span>
-                                        </div>
-                                    </a>
-                                </td>
-                                <td><?php $apt_date_2 ?></td>
-                                <td>howard@contact.com</td>
-                                <td><?php $apt_date ?>/td>
-                                <td>$100</td>
-                                <td><?php $apt_token  ?></td>
-                            </tr> -->
 
 
                             <?php appointmentDisplay($hms_id);  ?>
@@ -113,7 +96,7 @@
                                     <div class="mb-3">
                                         <label class="form-label">Select Doctor</label>
                                         <select class="form-control doctor-name select2input">
-                                            <?php $hms_id_dc = getDropdownDoctor(); ?>
+                                            <?php $hms_id_dc = getDropdownDoctor('appointment'); ?>
                                         </select>
                                     </div>
                                 </div>
