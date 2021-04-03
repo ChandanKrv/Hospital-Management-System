@@ -257,10 +257,6 @@
         echo "<script>alert('Alert!! Age: $age  DoB: $dob2')</script>";
 
         if (isset($_POST['bookAnApt'])) {
-
-
-
-
             $apt_date = $_POST['apt_date'];
             $hms_id_pt = $_POST['hms_id_pt'];
             $aptToken = patientTokenGeneration($hms_id_dc, $hms_id_pt, $apt_date);
