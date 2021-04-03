@@ -21,10 +21,10 @@ $time = date("g:iA", strtotime($time24h));
 $timestamp = $date . ' ' . $time24h; //Date and Time
 
 
-function ageCalculator($dob)
+function ageCalculator($gimmeYourDOB)
 {
     global $date;
-    return date_diff(date_create($dob), date_create($date))->y;
+    return date_diff(date_create($gimmeYourDOB), date_create($date))->y;
 }
 
 //for getting user ip
