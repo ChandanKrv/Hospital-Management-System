@@ -21,6 +21,12 @@ $time = date("g:iA", strtotime($time24h));
 $timestamp = $date . ' ' . $time24h; //Date and Time
 
 
+function ageCalculator($dob)
+{
+    global $date;
+    return date_diff(date_create($dob), date_create($date))->y;
+}
+
 //for getting user ip
 /* function getUserIp()
 {
@@ -230,7 +236,7 @@ function appointmentDisplay($hms_id)
     $columnOfT2 = "u_id";
     $table3 = "appointment";
     $columnOfT3 = "hms_id_pt";
-   
+
     //For local
     $get_product = "SELECT * FROM $table1 INNER JOIN $table2 ON user.u_id=doctor.u_id INNER JOIN $table3 ON user.hms_id=appointment.hms_id_dc  WHERE appointment.hms_id_pt='$hms_id' ORDER BY appointment.apt_token DESC";
     $run_products = mysqli_query($con, $get_product);
@@ -274,7 +280,7 @@ function appointmentDisplayDoctor($hms_id)
     $columnOfT2 = "u_id";
     $table3 = "appointment";
     $columnOfT3 = "hms_id_pt";
-   
+
     //For local
     $get_product = "SELECT * FROM $table1 INNER JOIN $table2 ON user.u_id=patient.u_id INNER JOIN $table3 ON user.hms_id=appointment.hms_id_pt  WHERE appointment.hms_id_dc='$hms_id' ORDER BY appointment.apt_token DESC";
     $run_products = mysqli_query($con, $get_product);
@@ -446,13 +452,10 @@ function getDropdownDoctor($data)
         $hms_id = $row_product['hms_id'];
         $department = $row_product['d_department'];
         $fees = $row_product['d_fees'];
-        if($data=='appointment')
-        {
-        echo "<option value='$hms_id'>$full_name ($department) -> Rs $fees/visit</option>";
-        }
-        else
-        {
-        echo "<option value='$hms_id'>$full_name ($department)</option>";
+        if ($data == 'appointment') {
+            echo "<option value='$hms_id'>$full_name ($department) -> Rs $fees/visit</option>";
+        } else {
+            echo "<option value='$hms_id'>$full_name ($department)</option>";
         }
         return $hms_id;
     }

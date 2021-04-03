@@ -49,8 +49,8 @@
                 <div class="table-responsive shadow rounded">
                     <table class="table table-center bg-white mb-0">
                         <thead>
-                        <tr>
-                                
+                            <tr>
+
                                 <th class="border-bottom py-3" style="min-width: 180px;">Doctor Name</th>
                                 <th class="border-bottom py-3">Department</th>
                                 <th class="border-bottom py-3" style="min-width: 150px;">Email</th>
@@ -253,6 +253,11 @@
         <!-- Modal end -->
         <?php
         if (isset($_POST['bookAnApt'])) {
+
+            $age = ageCalculator($dob);
+            echo "<script>alert('Alert!! Age: $age')</script>";
+
+
             $apt_date = $_POST['apt_date'];
             $hms_id_pt = $_POST['hms_id_pt'];
             $aptToken = patientTokenGeneration($hms_id_dc, $hms_id_pt, $apt_date);
