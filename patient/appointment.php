@@ -252,9 +252,9 @@
         <!-- Cancel Appointment End -->
         <!-- Modal end -->
         <?php
-
-        $age = ageCalculator($dob);
-        echo "<script>alert('Alert!! Age: $age  DoB: $dob')</script>";
+        $dob = 1999-01-31;
+        $age = ageCalculator($dob2);
+        echo "<script>alert('Alert!! Age: $age  DoB: $dob2')</script>";
 
         if (isset($_POST['bookAnApt'])) {
 
