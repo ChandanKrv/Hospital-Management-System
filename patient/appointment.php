@@ -252,7 +252,7 @@
         <!-- Cancel Appointment End -->
         <!-- Modal end -->
         <?php
-        $dob = 1999-01-31;
+        $dob2 = 1999-01-31;
         $age = ageCalculator($dob2);
         echo "<script>alert('Alert!! Age: $age  DoB: $dob2')</script>";
 
