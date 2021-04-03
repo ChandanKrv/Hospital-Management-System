@@ -252,9 +252,9 @@
         <!-- Cancel Appointment End -->
         <!-- Modal end -->
         <?php
-        $dob2 = 1999-01-31;
+        $dob2 = "1999-01-31";
         $age = ageCalculator($dob2);
-        echo "<script>alert('Alert!! Age: $age  DoB: $dob2')</script>";
+        echo "<script>alert('Alert!! Age: $age  DoB2: $dob2')</script>";
 
         if (isset($_POST['bookAnApt'])) {
             $apt_date = $_POST['apt_date'];
