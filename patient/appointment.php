@@ -255,7 +255,7 @@
         if (isset($_POST['bookAnApt'])) {
 
             $age = ageCalculator($dob);
-            echo "<script>alert('Alert!! Age: $age')</script>";
+            echo "<script>alert('Alert!! Age: $age  DoB: $dob')</script>";
 
 
             $apt_date = $_POST['apt_date'];
