@@ -30,7 +30,7 @@
 
                             <div class="col-sm-12 col-md-auto mt-4 mt-sm-0">
                                 <div class="d-grid">
-                                    <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#additionform">+ Doctor / Staff</a>
+                                    <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#additionform">Add Admin/Doctor/Staff</a>
                                 </div>
                             </div>
                             <!--end col-->
@@ -159,6 +159,11 @@
 if (isset($_POST['addNow'])) {
     $new_email = $_POST["email"];
     $role = $_POST["role"];
+
+    $checkEmail = getOneData('temp', 'email', 'unique_id', $refId);
+
+
+
     $ROLE = strtoupper($role);
     $unique_id = uniqid();
     $getLink = getCurrentURL() . '/login/signup-user?ref=' . $unique_id;
