@@ -13,6 +13,7 @@ if (isset($_SESSION['email']) && !empty($_SESSION['email']) && isset($_SESSION['
 } else {
     header('location: ../login/login-user.php');
 }
+
 $IdCheck = getOneData('user', 'hms_id', 'u_email', $email);
 if ($IdCheck == '') {
     $u_id = getOneData('user', 'u_id', 'u_email', $email);
