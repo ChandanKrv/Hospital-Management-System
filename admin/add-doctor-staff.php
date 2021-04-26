@@ -30,7 +30,7 @@
 
                             <div class="col-sm-12 col-md-auto mt-4 mt-sm-0">
                                 <div class="d-grid">
-                                    <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#additionform">Add Admin/Doctor/Staff</a>
+                                    <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#additionform">+ Admin/Doctor/Staff</a>
                                 </div>
                             </div>
                             <!--end col-->
