@@ -159,11 +159,6 @@
 if (isset($_POST['addNow'])) {
     $new_email = $_POST["email"];
     $role = $_POST["role"];
-
-    $checkEmail = getOneData('temp', 'email', 'unique_id', $refId);
-
-
-
     $ROLE = strtoupper($role);
     $unique_id = uniqid();
     $getLink = getCurrentURL() . '/login/signup-user?ref=' . $unique_id;
