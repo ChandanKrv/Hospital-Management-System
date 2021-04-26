@@ -132,6 +132,7 @@
                                 <label class="form-label">Select Role</label>
                                 <select class="form-control department-name select2input" name="role">
                                     <option>-Select-</option>
+                                    <option value="admin">Admin</option>
                                     <option value="doctor">Doctor</option>
                                     <option value="staff">Staff</option>
                                 </select>
