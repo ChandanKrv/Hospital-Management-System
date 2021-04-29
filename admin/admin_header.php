@@ -98,7 +98,7 @@ if (isset($_GET['ref']) && !empty($_GET['ref'])) {
                         </div>
                     </li>
                     <li><a href="appointment"><i class="uil uil-stethoscope me-2 d-inline-block"></i>Appointment</a></li>
-
+                    <li><a href="admission"><i class="uil uil-book-medical me-2 d-inline-block"></i>Admission</a></li>
                     <li class="sidebar-dropdown">
                         <a href="javascript:void(0)"><i class="uil uil-user-md me-2 d-inline-block"></i>Doctors</a>
                         <div class="sidebar-submenu">
