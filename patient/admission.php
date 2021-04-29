@@ -14,25 +14,7 @@
 
                             <div class="col-xl-3 col-lg-6 col-md-8 mt-4 mt-md-0">
                                 <div class="justify-content-md-end">
-                                    <form>
-                                        <div class="row justify-content-between align-items-center">
-                                            <div class="col-sm-12 col-md">
-                                                <div class="mb-0 position-relative">
-                                                    <select class="form-control time-during select2input">
-                                                        <option value="EY">Today</option>
-                                                        <option value="GY">Tomorrow</option>
-                                                        <option value="PS">Yesterday</option>
-                                                    </select>
-                                                </div>
-                                            </div><!--end col-->
-                                            
-                                            <div class="col-sm-12 col-md-auto mt-4 mt-sm-0">
-                                                <div class="d-grid">
-                                                    <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#admissionform">+ Admission</a>
-                                                </div>
-                                            </div><!--end col-->
-                                        </div><!--end row-->
-                                    </form><!--end form-->
+                                    
                                 </div>
                             </div><!--end col-->
                         </div><!--end row-->
@@ -49,10 +31,8 @@
                                                 <th class="border-bottom py-3">Age</th>
                                                 <th class="border-bottom py-3">Gender</th>
                                                 <th class="border-bottom py-3">Department</th>
-                                                <th class="border-bottom py-3" style="min-width: 150px;">Date</th>
-                                                <th class="border-bottom py-3">Time</th>
-                                                <th class="border-bottom py-3" style="min-width: 220px;">Doctor</th>
-                                                <th class="border-bottom py-3">Fees</th>
+                                                <th class="border-bottom py-3" style="min-width: 150px;">Date</th>                                                
+                                                <th class="border-bottom py-3" style="min-width: 220px;">Doctor</th>                                                
                                                 <th class="border-bottom py-3" style="min-width: 150px;"></th>
                                             </tr>
                                         </thead>
@@ -71,8 +51,7 @@
                                                 <td>25</td>
                                                 <td>Male</td>
                                                 <td>Cardiology</td>
-                                                <td>20th Dec 2020</td>
-                                                <td>11:00AM</td>
+                                                <td>20th Dec 2020</td>                                                
                                                 <td>
                                                     <a href="#" class="text-dark">
                                                         <div class="d-flex align-items-center">
@@ -81,11 +60,14 @@
                                                         </div>
                                                     </a>
                                                 </td>
-                                                <td>$50/Patient</td>
+                                                
                                                 <td class="text-end">
-                                                    <a href="#" class="btn btn-icon btn-pills btn-soft-primary" data-bs-toggle="modal" data-bs-target="#viewadmission"><i class="uil uil-eye"></i></a>
+                                                <div class="d-grid">
+                                                    <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#admissionform">Edit</a>
+                                                </div>
+                                                    <!-- <a href="#" class="btn btn-icon btn-pills btn-soft-primary" data-bs-toggle="modal" data-bs-target="#viewadmission"><i class="uil uil-eye"></i></a>
                                                     <a href="#" class="btn btn-icon btn-pills btn-soft-success" data-bs-toggle="modal" data-bs-target="#acceptadmission"><i class="uil uil-check-circle"></i></a>
-                                                    <a href="#" class="btn btn-icon btn-pills btn-soft-danger" data-bs-toggle="modal" data-bs-target="#canceladmission"><i class="uil uil-times-circle"></i></a>
+                                                    <a href="#" class="btn btn-icon btn-pills btn-soft-danger" data-bs-toggle="modal" data-bs-target="#canceladmission"><i class="uil uil-times-circle"></i></a> -->
                                                 </td>
                                             </tr>
                                             
@@ -168,7 +150,7 @@
 
                                 <div class="col-lg-12">
                                     <div class="d-grid">
-                                        <button type="submit" class="btn btn-primary">Take Admission</button>
+                                        <button type="submit" class="btn btn-primary">Edit Admission</button>
                                     </div>
                                 </div><!--end col-->
                             </div><!--end row-->
