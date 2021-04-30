@@ -156,7 +156,7 @@
                         </div>
                         <!--end col-->
 
-                        <div class="col-lg-4 col-md-6">
+           <!--              <div class="col-lg-4 col-md-6">
                             <div class="mb-3">
                                 <label class="form-label">Doctor</label>
                                 <select class="form-control doctor-name select2input" readonly>
@@ -170,7 +170,7 @@
                                     <option value="LO">Dr. Louis Batey</option>
                                 </select>
                             </div>
-                        </div>
+                        </div> -->
                         <!--end col-->
 
                         <div class="col-lg-4 col-md-6">
