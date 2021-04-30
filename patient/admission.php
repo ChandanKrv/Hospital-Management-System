@@ -192,7 +192,7 @@
                         <div class="col-lg-4 col-md-6">
                             <div class="mb-3">
                                 <label class="form-label"> Date : </label>
-                                <input name="date" type="date" class="flatpickr flatpickr-input form-control" id="checkin-date">
+                                <input name="date" type="text" class="flatpickr flatpickr-input form-control" id="checkin-date">
                             </div>
                         </div>
                         <!--end col-->
