@@ -15,7 +15,7 @@
 
             <div class="col-xl-3 col-lg-6 col-md-8 mt-4 mt-md-0">
                 <div class="justify-content-md-end">
-                    <form method="post">
+                    <form>
                         <div class="row justify-content-between align-items-center">
                             <div class="col-sm-12 col-md">
                                 <!-- <div class="mb-0 position-relative">
@@ -129,7 +129,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body p-3 pt-4">
-                <form>
+                <form method="post">
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="mb-3">
