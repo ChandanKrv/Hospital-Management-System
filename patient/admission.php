@@ -188,22 +188,7 @@
                             </div>
                         </div>
                         <!--end col-->
-
-                        <div class="col-lg-4 col-md-6">
-                            <div class="mb-3">
-                                <label class="form-label"> Date : </label>
-                                <input name="date" type="text" class="flatpickr flatpickr-input form-control" id="checkin-date">
-                            </div>
-                        </div>
-                        <!--end col-->
-
-                        <div class="col-lg-4 col-md-6">
-                            <div class="mb-3">
-                                <label class="form-label" for="input-time">Time : </label>
-                                <input name="time" type="text" class="form-control timepicker" id="input-time" placeholder="03:30 PM">
-                            </div>
-                        </div>
-                        <!--end col-->
+             
 
                         <div class="col-lg-12">
                             <div class="mb-3">
