@@ -307,6 +307,9 @@ if (isset($_POST['bookAnAdm'])) {
     $phone = $_POST['phone'];
     $comments = $_POST['comments'];
 
+    $email = $_SESSION['email'];
+    $hms_id = getOneData('user', 'hms_id', 'u_email', $email);
+
     $dataPush = array(
         'booked_by_hmsid_pt' => $hms_id,
         'pt_name' => $name,
