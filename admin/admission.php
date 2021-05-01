@@ -28,7 +28,7 @@
                                             
                                             <div class="col-sm-12 col-md-auto mt-4 mt-sm-0">
                                                 <div class="d-grid">
-                                                    <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#admissionform">+ Admission</a>
+                                                   <!--  <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#admissionform">+ Admission</a> -->
                                                 </div>
                                             </div><!--end col-->
                                         </div><!--end row-->
@@ -109,7 +109,11 @@
 
 <!-- MODAL START -->
  <!-- Modal start -->
+
+ 
         <!-- Add New Appointment Start -->
+
+
         <div class="modal fade" id="admissionform" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-centered">
                 <div class="modal-content">
