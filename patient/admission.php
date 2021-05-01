@@ -142,41 +142,23 @@
                         <div class="col-lg-4 col-md-6">
                             <div class="mb-3">
                                 <label class="form-label">Departments</label>
-                                <select class="form-control department-name select2input">
-                                    <option value="EY">Eye Care</option>
-                                    <option value="GY">Gynecologist</option>
-                                    <option value="PS">Psychotherapist</option>
-                                    <option value="OR">Orthopedic</option>
-                                    <option value="DE">Dentist</option>
-                                    <option value="GA">Gastrologist</option>
-                                    <option value="UR">Urologist</option>
-                                    <option value="NE">Neurologist</option>
+                                <select name="dept" class="form-control department-name select2input">
+                                    <option value="Eye Care">Eye Care</option>
+                                    <option value="Gynecologist">Gynecologist</option>
+                                    <option value="Psychotherapist">Psychotherapist</option>
+                                    <option value="Orthopedic">Orthopedic</option>
+                                    <option value="Dentist">Dentist</option>
+                                    <option value="Gastrologist">Gastrologist</option>
+                                    <option value="Urologist">Urologist</option>
+                                    <option value="Neurologist">Neurologist</option>
                                 </select>
                             </div>
                         </div>
-                        <!--end col-->
-
-           <!--              <div class="col-lg-4 col-md-6">
-                            <div class="mb-3">
-                                <label class="form-label">Doctor</label>
-                                <select class="form-control doctor-name select2input" readonly>
-                                    <option value="CA">Dr. Calvin Carlo</option>
-                                    <option value="CR">Dr. Cristino Murphy</option>
-                                    <option value="AL">Dr. Alia Reddy</option>
-                                    <option value="TO">Dr. Toni Kovar</option>
-                                    <option value="JE">Dr. Jessica McFarlane</option>
-                                    <option value="EL">Dr. Elsie Sherman</option>
-                                    <option value="BE">Dr. Bertha Magers</option>
-                                    <option value="LO">Dr. Louis Batey</option>
-                                </select>
-                            </div>
-                        </div> -->
-                        <!--end col-->
 
                         <div class="col-lg-4 col-md-6">
                             <div class="mb-3">
                                 <label class="form-label">Your Email <span class="text-danger">*</span></label>
-                                <input name="email" id="email" type="email" class="form-control" placeholder="Your email :">
+                                <input required name="email" id="email" type="email" class="form-control" placeholder="Your email :">
                             </div>
                         </div>
                         <!--end col-->
@@ -184,15 +166,15 @@
                         <div class="col-lg-4 col-md-6">
                             <div class="mb-3">
                                 <label class="form-label">Your Phone <span class="text-danger">*</span></label>
-                                <input name="phone" id="phone" type="tel" class="form-control" placeholder="Your Phone :">
+                                <input required name="phone" id="phone" type="tel" class="form-control" placeholder="Your Phone :">
                             </div>
                         </div>
                         <!--end col-->
-             
+
 
                         <div class="col-lg-12">
                             <div class="mb-3">
-                                <label class="form-label">Comments <span class="text-danger">*</span></label>
+                                <label class="form-label">Comments</label>
                                 <textarea name="comments" id="comments" rows="4" class="form-control" placeholder="Your Message :"></textarea>
                             </div>
                         </div>
@@ -200,7 +182,7 @@
 
                         <div class="col-lg-12">
                             <div class="d-grid">
-                                <button type="submit" class="btn btn-primary">Book An Admission</button>
+                                <button type="submit" name="bookAnAdm" class="btn btn-primary">Book An Admission</button>
                             </div>
                         </div>
                         <!--end col-->
@@ -316,4 +298,34 @@
 </div>
 <!-- Cancel Appointment End -->
 <!-- Modal end -->
+
+<?php
+if (isset($_POST['bookAnAdm'])) {
+    $name =   $_POST['name'];
+    $dept = $_POST['dept'];
+    $emailPt = $_POST['email'];
+    $phone = $_POST['phone'];
+    $comments = $_POST['comments'];
+
+    $dataPush = array(
+        'booked_by_hmsid_pt' => $hms_id,
+        'pt_name' => $name,
+        'dept' => $dept,
+        'pt_email' => $emailPt,
+        'pt_phone' => $phone,
+        'msg' => $comments,
+        'timestamp' => $timestamp
+    );
+    if (insertData('admission', $dataPush)) {
+        echo "<script>alert('Success, We will notify you once verified')</script>";
+    } else {
+        echo "<script>alert('Error!!')</script>";
+    }
+}
+
+?>
+
+
+
+
 <?php include_once('patient_footer.php') ?>
