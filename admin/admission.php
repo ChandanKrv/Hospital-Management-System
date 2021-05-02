@@ -56,8 +56,9 @@
                                                 <!-- <th class="border-bottom py-3">Fees</th>
                                                 <th class="border-bottom py-3" style="min-width: 150px;"></th> -->
                                             </tr>
-                                        </thead>
+                                        </thead>                                        
                                         <tbody>
+                                        <form action="">
                                             <tr>
                                                 <th>1</th>
                                                 <td class="py-3">
@@ -90,7 +91,8 @@
                                                     <a href="#" class="btn btn-icon btn-pills btn-soft-success" data-bs-toggle="modal" data-bs-target="#acceptadmission"><i class="uil uil-check-circle"></i></a>
                                                     <a href="#" class="btn btn-icon btn-pills btn-soft-danger" data-bs-toggle="modal" data-bs-target="#canceladmission"><i class="uil uil-times-circle"></i></a>
                                                 </td> -->
-                                            </tr>                                       
+                                            </tr> 
+                                        </form>                                      
                                         </tbody>
                                     </table>
                                 </div>
