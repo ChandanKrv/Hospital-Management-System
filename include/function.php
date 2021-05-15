@@ -442,10 +442,13 @@ function getAllData($table_name, $where_condition, $match_this)
 
 /* PATIENT FUNCTIONS */
 //CHOOSE FROM DROPDOWN
-function getDropdownDoctor($data)
+function getDropdownDoctor($data,$category="")
 {
     global $con;
-    $getData = "SELECT * FROM user INNER JOIN doctor ON user.u_id=doctor.u_id WHERE user.hms_id !='NULL'";
+    $getData = "SELECT * FROM user INNER JOIN doctor ON user.u_id=doctor.u_id WHERE user.hms_id !='NULL' ";
+    if($category != "")
+        $getData.="AND doctor.d_department = '".$category."' ";
+    $getData.="GROUP BY doctor.d_department ";
     $run_products = mysqli_query($con, $getData);
     while ($row_product = mysqli_fetch_array($run_products)) {
         $full_name = $row_product['u_full_name'];
@@ -454,7 +457,8 @@ function getDropdownDoctor($data)
         $fees = $row_product['d_fees'];
         if ($data == 'appointment') {
             echo "<option value='$hms_id'>$full_name ($department) -> Rs $fees/visit</option>";
-        } else {
+        }
+         else {
             echo "<option value='$hms_id'>$full_name ($department)</option>";
         }
         return $hms_id;
