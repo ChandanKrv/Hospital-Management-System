@@ -495,7 +495,9 @@ function admissionDisplay()
         $date=substr($timestamp, 0, 10);
         $count++;
 
-            echo "<th>$count</th>
+            echo "
+            <tr>
+            <th>$count</th>
                                                 <td>$pt_name</td>
                                                 <td>$pt_email</td>                                                
                                                 <td>$dept</td>
@@ -512,7 +514,8 @@ function admissionDisplay()
                                                 <option value='HMSID'>First Staff(Sort by department name)</option>
                                                 </select>
                                                 </td>
-                                                <td><button type='admit' class='btn btn-primary'>Admit</button></td>";     
+                                                <td><button type='admit' class='btn btn-primary'>Admit</button></td>
+                                                </tr>";     
     }
 }
 

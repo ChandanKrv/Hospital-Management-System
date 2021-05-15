@@ -58,8 +58,7 @@
                                             </tr>
                                         </thead>                                        
                                         <tbody>
-                                        <form method="post">
-                                            <tr>
+                                        <form method="post">                                            
                                           <?php admissionDisplay(); ?>
 <!--                                        
                                                 <th>1</th>
@@ -80,8 +79,7 @@
                                                 </select>
                                                 </td>
                                                 <td><button type="admit" class="btn btn-primary">Admit</button></td> -->
-                                             
-                                            </tr> 
+                                                              
                                         </form>                                      
                                         </tbody>
                                     </table>
