@@ -44,11 +44,11 @@
                                         <thead>
                                             <tr>
                                                <th class="border-bottom py-3" style="min-width: 30px;">#</th>
-                                                <th class="border-bottom py-3" style="min-width: 100px;">Name</th>
+                                                <th class="border-bottom py-3" style="min-width: 130px;">Name</th>
                                                 <th class="border-bottom py-3" style="min-width: 130px;">Email</th>
                                                 
                                                 <th class="border-bottom py-3">Department</th>
-                                                <th class="border-bottom py-3" style="min-width: 120px;">Date</th>
+                                                <th class="border-bottom py-3" style="min-width: 140px;">Date</th>
                                                 
                                                 <th class="border-bottom py-3">Doctor</th>
                                                 <th class="border-bottom py-3">Staff</th>
