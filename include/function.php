@@ -461,7 +461,7 @@ function getDropdownDoctor($data,$category="")
          else {
             echo "<option value='$hms_id'>$full_name ($department)</option>";
         }
-        return $hms_id;
+       // return $hms_id;
     }
 }
 function copy_getDropdownDoctor($data)
