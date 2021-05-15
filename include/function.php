@@ -448,7 +448,7 @@ function getDropdownDoctor($data,$category="")
     $getData = "SELECT * FROM user INNER JOIN doctor ON user.u_id=doctor.u_id WHERE user.hms_id !='NULL' ";
     if($category != "")
         $getData.="AND doctor.d_department = '".$category."' ";
-    $getData.="GROUP BY doctor.d_department ";
+   // $getData.="GROUP BY doctor.d_department ";
     $run_products = mysqli_query($con, $getData);
     while ($row_product = mysqli_fetch_array($run_products)) {
         $full_name = $row_product['u_full_name'];
