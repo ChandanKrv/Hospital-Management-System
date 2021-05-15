@@ -139,21 +139,7 @@
                         </div>
                         <!--end col-->
 
-                        <div class="col-lg-4 col-md-6">
-                            <div class="mb-3">
-                                <label class="form-label">Departments</label>
-                                <select name="dept" class="form-control department-name select2input">
-                                    <option value="Eye Care">Eye Care</option>
-                                    <option value="Gynecologist">Gynecologist</option>
-                                    <option value="Psychotherapist">Psychotherapist</option>
-                                    <option value="Orthopedic">Orthopedic</option>
-                                    <option value="Dentist">Dentist</option>
-                                    <option value="Gastrologist">Gastrologist</option>
-                                    <option value="Urologist">Urologist</option>
-                                    <option value="Neurologist">Neurologist</option>
-                                </select>
-                            </div>
-                        </div>
+                      
 
                         <div class="col-lg-4 col-md-6">
                             <div class="mb-3">
@@ -170,7 +156,55 @@
                             </div>
                         </div>
                         <!--end col-->
+                    <div class="col-lg-4 col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label">Departments</label>
+                                <select name="dept" class="form-control department-name select2input">
+                                    <option value="Eye Care">Eye Care</option>
+                                    <option value="Gynecologist">Gynecologist</option>
+                                    <option value="Psychotherapist">Psychotherapist</option>
+                                    <option value="Orthopedic">Orthopedic</option>
+                                    <option value="Dentist">Dentist</option>
+                                    <option value="Gastrologist">Gastrologist</option>
+                                    <option value="Urologist">Urologist</option>
+                                    <option value="Neurologist">Neurologist</option>
+                                </select>
+                            </div>
+                        </div>
 
+
+                         <div class="col-lg-4 col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label">Doctor</label>
+                                <select name="dept" class="form-control department-name select2input">
+                                    <option value="Eye Care">Doctor name (Eye Care)</option>
+                                    <option value="Gynecologist">Gynecologist</option>
+                                    <option value="Psychotherapist">Psychotherapist</option>
+                                    <option value="Orthopedic">Orthopedic</option>
+                                    <option value="Dentist">Dentist</option>
+                                    <option value="Gastrologist">Gastrologist</option>
+                                    <option value="Urologist">Urologist</option>
+                                    <option value="Neurologist">Neurologist</option>
+                                </select>
+                            </div>
+                        </div>
+
+
+                          <div class="col-lg-4 col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label">Staff</label>
+                                <select name="dept" class="form-control department-name select2input">
+                                    <option value="Eye Care">Eye Care</option>
+                                    <option value="Gynecologist">Gynecologist</option>
+                                    <option value="Psychotherapist">Psychotherapist</option>
+                                    <option value="Orthopedic">Orthopedic</option>
+                                    <option value="Dentist">Dentist</option>
+                                    <option value="Gastrologist">Gastrologist</option>
+                                    <option value="Urologist">Urologist</option>
+                                    <option value="Neurologist">Neurologist</option>
+                                </select>
+                            </div>
+                        </div>
 
                         <div class="col-lg-12">
                             <div class="mb-3">

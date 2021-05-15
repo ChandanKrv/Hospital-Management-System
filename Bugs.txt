@@ -1,1 +1,2 @@
 //fetch email id to signup page if some error occurs while signup
+1. User AJAX in admission page (Patient)
