@@ -60,16 +60,8 @@
                                         <tbody>
                                         <form action="">
                                             <tr>
-                                                <th>1</th>
-                                                <td class="py-3">
-                                                    <a href="#" class="text-dark">
-                                                        <div class="d-flex align-items-center">
-                                                            <img src="../assets/images/client/01.jpg" class="avatar avatar-md-sm rounded-circle shadow" alt="">
-                                                            <span class="ms-2">Howard Tanner</span>
-                                                        </div>
-                                                    </a>
-                                                </td>
-                                                <td>howard@contact.com</td>
+                                                <td>Name</td>
+                                                <td>howard@contact.com</td>                                                
                                                 <td>Cardiology</td>
                                                 <td>20th Dec 2020</td>                                                
                                                 <td>
