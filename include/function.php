@@ -461,7 +461,7 @@ function getDropdownDoctor($data,$category="")
          else {
             echo "<option value='$hms_id'>$full_name ($department)</option>";
         }
-       // return $hms_id;
+      
     }
 }
 function getDropdownStaff()
@@ -472,11 +472,8 @@ function getDropdownStaff()
     while ($row_product = mysqli_fetch_array($run_products)) {
         $full_name = $row_product['u_full_name'];
         $hms_id = $row_product['hms_id'];
-        $department = $row_product['s_department'];
-    
-            echo "<option value='$hms_id'>$full_name ($department)</option>";
-      
-       // return $hms_id;
+        $department = $row_product['s_department'];    
+            echo "<option value='$hms_id'>$full_name ($department)</option>";     
     }
 }
 
