@@ -177,14 +177,7 @@
                             <div class="mb-3">
                                 <label class="form-label">Doctor</label>
                                 <select name="dept" class="form-control department-name select2input">
-                                    <option value="Eye Care">Doctor name (Eye Care)</option>
-                                    <option value="Gynecologist">Gynecologist</option>
-                                    <option value="Psychotherapist">Psychotherapist</option>
-                                    <option value="Orthopedic">Orthopedic</option>
-                                    <option value="Dentist">Dentist</option>
-                                    <option value="Gastrologist">Gastrologist</option>
-                                    <option value="Urologist">Urologist</option>
-                                    <option value="Neurologist">Neurologist</option>
+                               <?php getDropdownDoctor('doctor'); ?>
                                 </select>
                             </div>
                         </div>
