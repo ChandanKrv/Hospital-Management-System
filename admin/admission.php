@@ -43,7 +43,7 @@
                                     <table class="table table-center bg-white mb-0">
                                         <thead>
                                             <tr>
-                                               <!--  <th class="border-bottom py-3" style="min-width: 50px;">#</th> -->
+                                               <th class="border-bottom py-3" style="min-width: 50px;">#</th>
                                                 <th class="border-bottom py-3" style="min-width: 180px;">Name</th>
                                                 <th class="border-bottom py-3" style="min-width: 150px;">Email</th>
                                                 
@@ -60,6 +60,7 @@
                                         <tbody>
                                         <form method="post">
                                             <tr>
+                                               <td> </td>
                                                 <td>Name</td>
                                                 <td>howard@contact.com</td>                                                
                                                 <td>Cardiology</td>
