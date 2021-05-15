@@ -43,12 +43,12 @@
                                     <table class="table table-center bg-white mb-0">
                                         <thead>
                                             <tr>
-                                               <th class="border-bottom py-3" style="min-width: 50px;">#</th>
-                                                <th class="border-bottom py-3" style="min-width: 180px;">Name</th>
-                                                <th class="border-bottom py-3" style="min-width: 150px;">Email</th>
+                                               <th class="border-bottom py-3" style="min-width: 30px;">#</th>
+                                                <th class="border-bottom py-3" style="min-width: 100px;">Name</th>
+                                                <th class="border-bottom py-3" style="min-width: 130px;">Email</th>
                                                 
                                                 <th class="border-bottom py-3">Department</th>
-                                                <th class="border-bottom py-3" style="min-width: 150px;">Date</th>
+                                                <th class="border-bottom py-3" style="min-width: 120px;">Date</th>
                                                 
                                                 <th class="border-bottom py-3">Doctor</th>
                                                 <th class="border-bottom py-3">Staff</th>
