@@ -497,7 +497,7 @@ function admissionDisplay()
 
             echo "
             <tr>
-            <th>$count</th>
+            <th>$count .</th>
                                                 <td>$pt_name</td>
                                                 <td>$pt_email</td>                                                
                                                 <td>$dept</td>
