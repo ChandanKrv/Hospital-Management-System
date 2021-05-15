@@ -492,7 +492,7 @@ function admissionDisplay()
         $pt_phone = $row_product['pt_phone'];   
         $msg = $row_product['msg'];
         $timestamp = $row_product['timestamp'];
-        $date=substr($timestamp, 0, 10)
+        $date=substr($timestamp, 0, 10);
         $count++;
 
             echo "<th>$count</th>
