@@ -472,12 +472,11 @@ function getDropdownStaff()
     while ($row_product = mysqli_fetch_array($run_products)) {
         $full_name = $row_product['u_full_name'];
         $hms_id = $row_product['hms_id'];
-        $department = $row_product['d_department'];
-        $fees = $row_product['d_fees'];
+        $department = $row_product['s_department'];
     
-            echo "<option value='$hms_id'>$full_name ($department) -> Rs $fees/visit</option>";
+            echo "<option value='$hms_id'>$full_name ($department)</option>";
       
-        return $hms_id;
+       // return $hms_id;
     }
 }
 
