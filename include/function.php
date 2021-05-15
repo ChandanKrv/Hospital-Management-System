@@ -503,13 +503,12 @@ function admissionDisplay()
                                                 <td>$dept</td>
                                                 <td>$date</td>                                                
                                                 <td>
-                                                <select class='form-control' >                                                
+                                                <select class='form-control' name='assign_doc'>                                                
                                                 <option value='$assigned_to_hmsid_doc'>$assigned_to_hmsid_doc ($dept)</option>
                                                 </select>
                                                 </td>
                                                 <td>
-                                                <select class='form-control' >
-                                                <option value=''>-Select-(Sort doctor by respective department name)</option>
+                                                <select class='form-control' name='assign_staff' >                                                
                                                 <option value='assigned_to_hmsid_staff'>$assigned_to_hmsid_staff ($dept)</option>
                                                 </select>
                                                 </td>
