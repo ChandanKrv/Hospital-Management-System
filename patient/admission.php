@@ -333,7 +333,7 @@ if (isset($_POST['bookAnAdm'])) {
     $dataPush = array(
         'booked_by_hmsid_pt' => $hms_id,
         'assigned_to_hmsid_doc' => $_POST['hms_id_dc'],
-        'assigned_to_hsmid_staff' => $_POST['hms_id_staff'],
+        'assigned_to_hmsid_staff' => $_POST['hms_id_staff'],
         'pt_name' => $name,
         'dept' => $dept,
         'pt_email' => $emailPt,
