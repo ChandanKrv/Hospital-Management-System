@@ -61,7 +61,7 @@
                                         <form method="post">
                                             <tr>
 
-
+<!-- 
                                                 <th>1</th>
                                                 <td>Name</td>
                                                 <td>howard@contact.com</td>                                                
@@ -79,7 +79,7 @@
                                                 <option value="HMSID">First Staff(Sort by department name)</option>
                                                 </select>
                                                 </td>
-                                                <td><button type="admit" class="btn btn-primary">Admit</button></td>
+                                                <td><button type="admit" class="btn btn-primary">Admit</button></td> -->
                                              
                                             </tr> 
                                         </form>                                      

@@ -476,4 +476,43 @@ function getDropdownStaff()
             echo "<option value='$hms_id'>$full_name ($department)</option>";     
     }
 }
+function admissionDisplay()
+{
+    global $con;
+    $getData = "SELECT * FROM admission WHERE status='pending' ";
+    $run_products = mysqli_query($con, $getData);
+    $count=0;
+    while ($row_product = mysqli_fetch_array($run_products)) {
+        $booked_by_hmsid_pt = $row_product['booked_by_hmsid_pt'];
+        $assigned_to_hmsid_doc = $row_product['assigned_to_hmsid_doc'];
+        $assigned_to_hsmid_staff = $row_product['assigned_to_hsmid_staff'];
+        $pt_name = $row_product['pt_name'];
+        $dept = $row_product['dept'];
+        $pt_email = $row_product['pt_email'];
+        $pt_phone = $row_product['pt_phone'];   
+        $msg = $row_product['msg'];
+        $timestamp = $row_product['timestamp'];
+        $date=substr($timestamp, 0, 10)
+        $count++;
+
+            echo "<th>$count</th>
+                                                <td>$pt_name</td>
+                                                <td>$pt_email</td>                                                
+                                                <td>$dept</td>
+                                                <td>$date</td>                                                
+                                                <td>
+                                                <select class='form-control' >
+                                                <option value=''>-Select-(Sort doctor by respective department name)</option>
+                                                <option value='HMSID'>Dr. First Doctor(Sort by department name)</option>
+                                                </select>
+                                                </td>
+                                                <td>
+                                                <select class='form-control' >
+                                                <option value=''>-Select-(Sort doctor by respective department name)</option>
+                                                <option value='HMSID'>First Staff(Sort by department name)</option>
+                                                </select>
+                                                </td>
+                                                <td><button type='admit' class='btn btn-primary'>Admit</button></td>";     
+    }
+}
 
