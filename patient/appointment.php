@@ -62,8 +62,6 @@
                         </thead>
                         <tbody>
 
-
-
                             <?php appointmentDisplay($hms_id);  ?>
 
                         </tbody>
@@ -95,8 +93,8 @@
                                 <div class="col-lg-6 col-md-9">
                                     <div class="mb-3">
                                         <label class="form-label">Select Doctor</label>
-                                        <select class="form-control doctor-name select2input">
-                                            <?php $hms_id_dc = getDropdownDoctor('appointment'); ?>
+                                        <select class="form-control doctor-name select2input" name="hms_id_dc">
+                                            <?php getDropdownDoctor('appointment'); ?>
                                         </select>
                                     </div>
                                 </div>
@@ -254,13 +252,13 @@
         <?php  
         if (isset($_POST['bookAnApt'])) {
             $apt_date = $_POST['apt_date'];
-            $hms_id_pt = $_POST['hms_id_pt'];
+            $hms_id_pt = $_POST['hms_id_pt'];           
             $aptToken = patientTokenGeneration($hms_id_dc, $hms_id_pt, $apt_date);
             if ($aptToken > $max_appointment_in_a_day) {
                 echo "<script>alert('Appointment is full for selected date')</script>";
             } else {
                 $dataPush = array(
-                    'hms_id_dc' => $hms_id_dc,
+                    'hms_id_dc' => $_POST['hms_id_dc'],
                     'hms_id_pt' => $hms_id_pt,
                     'apt_date' => $_POST['apt_date'],
                     'apt_message' => $_POST['apt_message'],
