@@ -484,7 +484,7 @@ function admissionDisplay()
     $count=0;
     while ($row_product = mysqli_fetch_array($run_products)) {
         $booked_by_hmsid_pt = $row_product['booked_by_hmsid_pt'];
-        $assigned_to_hmsid_doc = $row_product['assigned_to_hmsid_doc'];
+        $assigned_to_hmsid_doc = $row_product['assigned_to_hmsid_doc'];       
         $assigned_to_hmsid_staff = $row_product['assigned_to_hmsid_staff'];
         $pt_name = $row_product['pt_name'];
         $dept = $row_product['dept'];
@@ -497,7 +497,7 @@ function admissionDisplay()
 
             echo "
             <tr>
-            <th>$count </th>
+            <th>$count</th>
                                                 <td>$pt_name</td>
                                                 <td>$pt_email</td>                                                
                                                 <td>$dept</td>
