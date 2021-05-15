@@ -60,7 +60,7 @@
                                         <tbody>
                                         <form method="post">
                                             <tr>
-                                               <td>1</td>
+                                               <th>1</th>
                                                 <td>Name</td>
                                                 <td>howard@contact.com</td>                                                
                                                 <td>Cardiology</td>
