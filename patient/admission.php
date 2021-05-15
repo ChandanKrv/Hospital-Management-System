@@ -177,7 +177,7 @@
                             <div class="mb-3">
                                 <label class="form-label">Doctor</label>
                                 <select name="dept" class="form-control department-name select2input">
-                               <?php getDropdownDoctor(); ?>
+                               <?php //getDropdownDoctor(); ?>
                                 </select>
                             </div>
                         </div>
