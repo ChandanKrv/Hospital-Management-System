@@ -60,7 +60,9 @@
                                         <tbody>
                                         <form method="post">
                                             <tr>
-                                               <th>1</th>
+
+
+                                                <th>1</th>
                                                 <td>Name</td>
                                                 <td>howard@contact.com</td>                                                
                                                 <td>Cardiology</td>
@@ -77,13 +79,8 @@
                                                 <option value="HMSID">First Staff(Sort by department name)</option>
                                                 </select>
                                                 </td>
-                                                <td><button type="submit" class="btn btn-primary" >Submit</button></td>
-                                                <!-- <td>$50/Patient</td>
-                                                <td class="text-end">
-                                                    <a href="#" class="btn btn-icon btn-pills btn-soft-primary" data-bs-toggle="modal" data-bs-target="#viewadmission"><i class="uil uil-eye"></i></a>
-                                                    <a href="#" class="btn btn-icon btn-pills btn-soft-success" data-bs-toggle="modal" data-bs-target="#acceptadmission"><i class="uil uil-check-circle"></i></a>
-                                                    <a href="#" class="btn btn-icon btn-pills btn-soft-danger" data-bs-toggle="modal" data-bs-target="#canceladmission"><i class="uil uil-times-circle"></i></a>
-                                                </td> -->
+                                                <td><button type="admit" class="btn btn-primary">Admit</button></td>
+                                             
                                             </tr> 
                                         </form>                                      
                                         </tbody>
