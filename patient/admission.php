@@ -176,7 +176,7 @@
                          <div class="col-lg-4 col-md-6">
                             <div class="mb-3">
                                 <label class="form-label">Doctor</label>
-                                <select name="dept" class="form-control department-name select2input">
+                                <select name="hms_id_dc" class="form-control department-name select2input">
                                <?php getDropdownDoctor(null); ?>
                                 </select>
                             </div>
@@ -186,7 +186,7 @@
                           <div class="col-lg-4 col-md-6">
                             <div class="mb-3">
                                 <label class="form-label">Staff</label>
-                                <select name="dept" class="form-control department-name select2input">
+                                <select name="hms_id_staff" class="form-control department-name select2input">
                                <?php getDropdownStaff(); ?>
                                 </select>
                             </div>
@@ -332,12 +332,15 @@ if (isset($_POST['bookAnAdm'])) {
 
     $dataPush = array(
         'booked_by_hmsid_pt' => $hms_id,
+        'assigned_to_hmsid_doc)' => $_POST['hms_id_dc'],
+        'assigned_to_hmsid_staff)' => $_POST['hms_id_staff'],
         'pt_name' => $name,
         'dept' => $dept,
         'pt_email' => $emailPt,
         'pt_phone' => $phone,
         'msg' => $comments,
-        'timestamp' => $timestamp
+        'timestamp' => $timestamp,
+        'status' =>"pending"
     );
     if (insertData('admission', $dataPush)) {
         echo "<script>alert('Success, We will notify you once verified')</script>";
