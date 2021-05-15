@@ -27,6 +27,7 @@
         <script src="../assets/js/feather.min.js"></script>
         <!-- Main Js -->
         <script src="../assets/js/app-admin.js"></script>
-        
+        <!-- Settings Js -->
+        <script src="../index/js/settings.js"></script>
     </body>
 </html>

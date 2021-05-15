@@ -158,10 +158,11 @@ if ($IdCheck == '') {
                         </a>
                         <div class="search-bar p-0 d-none d-md-block ms-2">
                             <div id="search" class="menu-search mb-0">
-                                <form role="search" method="get" id="searchform" class="searchform">
+                                <form id="f1" name="f1" class="searchform" action="javascript:void()" onsubmit="if(this.t1.value!=null &amp;&amp; this.t1.value!='')
+                                parent.findString(this.t1.value);return false;">
                                     <div>
-                                        <input type="text" class="border rounded-pill" name="s" id="s" placeholder="Search Keywords...">
-                                        <input type="submit" id="searchsubmit" value="Search">
+                                        <input type="text" class="border rounded-pill" id="t1" name="t1" placeholder="Search Keywords...">
+                                        <input type="submit" name="b1" value="Search">
                                     </div>
                                 </form>
                             </div>
