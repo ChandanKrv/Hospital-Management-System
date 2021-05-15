@@ -60,8 +60,8 @@
                                         <tbody>
                                         <form method="post">
                                             <tr>
-
-<!-- 
+                                          <?php admissionDisplay(); ?>
+<!--                                        
                                                 <th>1</th>
                                                 <td>Name</td>
                                                 <td>howard@contact.com</td>                                                
