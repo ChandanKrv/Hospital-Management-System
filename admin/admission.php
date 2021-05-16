@@ -114,7 +114,10 @@
            /*  $assign_doc = $_POST['assign_doc'];
             $assign_staff = $_POST['assign_staff'];     
             echo "<script>alert('$assign_doc, $assign_staff')</script>"; */
-             print_r($_POST);
+foreach ($_POST['assign_doc'] as $value)
+{
+    echo "<script>alert('$value')</script>";
+}
         }
 
     }
