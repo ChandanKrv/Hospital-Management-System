@@ -482,8 +482,7 @@ function admissionDisplay()
     global $con;
     $getData = "SELECT * FROM admission WHERE status='pending'";
     $run_products = mysqli_query($con, $getData);
-    $count=0;
-    $id=123;
+    $count=0;    
     while ($row_product = mysqli_fetch_array($run_products)) {
         $booked_by_hmsid_pt = $row_product['booked_by_hmsid_pt'];
         $assigned_to_hmsid_doc = $row_product['assigned_to_hmsid_doc'];       
@@ -494,6 +493,7 @@ function admissionDisplay()
         $pt_phone = $row_product['pt_phone'];   
         $msg = $row_product['msg'];
         $timestamp = $row_product['timestamp'];
+        $id=$row_product['id'];
         $date=substr($timestamp, 0, 10);
         $count++;
         
