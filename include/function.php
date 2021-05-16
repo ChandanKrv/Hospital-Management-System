@@ -508,7 +508,7 @@ function admissionDisplay()
             <td><?php echo $date ?></td>                                                
             <td>
             <select class='form-control' name='assign_doc'>                                                
-            <option value='$assigned_to_hmsid_doc'><?php echo getOneData('user','u_full_name','hms_id',$assigned_to_hmsid_doc) ?> ( <?php echo $dept ?>)</option>
+            <option value='$assigned_to_hmsid_doc'><?php echo getOneData('user','u_full_name','hms_id',$assigned_to_hmsid_doc) ?> ( <?php echo $id ?>)</option>
             <?php getDropdownDoctor(null) ?>
             </select>
             </td>
