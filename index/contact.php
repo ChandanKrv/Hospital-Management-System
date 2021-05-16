@@ -121,7 +121,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-12">
-                                        <button type="submit" id="submit" name="submit" class="btn btn-primary">Send Message</button>
+                                        <button type="submit" id="submit" name="submitForm" class="btn btn-primary">Send Message</button>
                                     </div><!--end col-->
                                 </div><!--end row-->
                             </form>
@@ -144,7 +144,7 @@
         </section><!--end section-->
         <!-- End -->
 <?php
-if (isset($_POST['submit'])) {
+if (isset($_POST['submitForm'])) {
     $dataPush = array(
         'name'  =>  cleanInput($_POST['name']),
         'email'  =>  cleanInput($_POST['email']),
@@ -156,6 +156,8 @@ if (isset($_POST['submit'])) {
 
     if (insertData('contact', $dataPush)) {
         echo "<script>alert('*Thank You,Your message has been sent*')</script>";
+    }else{
+        echo "<script>alert('*Error*')</script>";
     }
 }
 ?>
