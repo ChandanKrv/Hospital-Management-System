@@ -150,7 +150,7 @@ ADMITTED ON: $timestamp\r\n
      );
      if (updateData('admission', $dataUpdate, "WHERE id = '$rowId'")) {
         if(SendMail($patientEmail,$mailSubject,$mailContent))           
-            echo "<script>alert('Admitted (Notification sent to patient s email)')</script>";           
+            echo "<script>alert('Admitted (Notification sent to patient)')</script>";           
         else
          echo "<script>alert('Admitted but sending mail failed')</script>";
      } else {
