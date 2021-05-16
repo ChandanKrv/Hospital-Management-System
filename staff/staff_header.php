@@ -109,7 +109,7 @@ if ($IdCheck == '') {
                     <li><a href="appointment"><i class="uil uil-stethoscope me-2 d-inline-block"></i>Appointment</a></li>
                     <li><a href="patients"><i class="uil uil-user me-2 d-inline-block"></i>Patients</a></li>
 
-                    <li class="sidebar-dropdown">
+                   <!--  <li class="sidebar-dropdown">
                         <a href="javascript:void(0)"><i class="uil uil-shopping-cart me-2 d-inline-block"></i>Pharmacy</a>
                         <div class="sidebar-submenu">
                             <ul>
@@ -119,7 +119,7 @@ if ($IdCheck == '') {
                                 <li><a href="checkout.html">Checkout</a></li>
                             </ul>
                         </div>
-                    </li>
+                    </li> -->
 
 
 

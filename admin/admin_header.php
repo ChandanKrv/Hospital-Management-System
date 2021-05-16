@@ -113,7 +113,7 @@ if (isset($_GET['ref']) && !empty($_GET['ref'])) {
 
                     <li><a href="patients"><i class="uil uil-wheelchair me-2 d-inline-block"></i>Patients</a></li>
 
-                    <li class="sidebar-dropdown">
+                  <!--   <li class="sidebar-dropdown">
                         <a href="javascript:void(0)"><i class="uil uil-shopping-cart me-2 d-inline-block"></i>Pharmacy</a>
                         <div class="sidebar-submenu">
                             <ul>
@@ -123,7 +123,7 @@ if (isset($_GET['ref']) && !empty($_GET['ref'])) {
                                 <li><a href="checkout.html">Checkout</a></li>
                             </ul>
                         </div>
-                    </li>
+                    </li> -->
 
 
                     <li class="sidebar-dropdown">
