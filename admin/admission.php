@@ -108,7 +108,14 @@
             <!-- <td> <a href='admit-page?id=<?php echo $id ?>&d=<?php echo $assigned_to_hmsid_doc ?>&s=<?php echo $assigned_to_hmsid_staff ?>' class='btn btn-primary'>Admit</a> </td> -->
             </tr>
             </form>  
-        <?php     
+        <?php
+        
+        if (isset($_POST['admitBtn'])) {
+            $assign_doc = $_POST['assign_doc'];
+            $assign_staff = $_POST['assign_staff'];     
+            echo "<script>alert('$assign_doc, $assign_staff')</script>";
+        }
+
     }
 
 ?>
