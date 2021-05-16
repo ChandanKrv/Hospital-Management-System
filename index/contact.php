@@ -150,8 +150,7 @@ if (isset($_POST['submitForm'])) {
         'email'  =>  cleanInput($_POST['email']),
         'sub'  =>  cleanInput($_POST['sub']),
         'comment'  =>  cleanInput($_POST['comment']),     
-        'timestamp' => $timestamp,
-        'ip' => $ip
+        'timestamp' => $timestamp       
     );
 
     if (insertData('contact', $dataPush)) {
