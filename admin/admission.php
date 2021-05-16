@@ -60,76 +60,10 @@
                                         <tbody>
                                                                                 
                                           <?php                                          
-                                          //print_r(admissionDisplay());
+                                        print_r(admissionDisplay());
                                           ?>
 
-  <?php
-
-  global $con;
-    $getData = "SELECT * FROM admission WHERE status='pending'";
-    $run_products = mysqli_query($con, $getData);
-    $count=0;    
-    while ($row_product = mysqli_fetch_array($run_products)) {
-        $booked_by_hmsid_pt = $row_product['booked_by_hmsid_pt'];
-        $assigned_to_hmsid_doc = $row_product['assigned_to_hmsid_doc'];       
-        $assigned_to_hmsid_staff = $row_product['assigned_to_hmsid_staff'];
-        $pt_name = $row_product['pt_name'];
-        $dept = $row_product['dept'];
-        $pt_email = $row_product['pt_email'];
-        $pt_phone = $row_product['pt_phone'];   
-        $msg = $row_product['msg'];
-        $timestamp = $row_product['timestamp'];
-        $id=$row_product['id'];
-        $date=substr($timestamp, 0, 10);
-        $count++;
-        
-        ?>      
-        <form method="post">       
-            <tr>
-            <th><?php echo $count ?></th>
-            <td><?php echo $pt_name ?></td>
-            <td><?php echo $pt_email ?></td>                                                
-            <td><?php echo $dept ?></td>
-            <td><?php echo $date ?></td>                                                
-            <td>
-            <select class='form-control' name='assign_doc[]'>                                                
-            <option value=<?php echo $assigned_to_hmsid_doc ?> ><?php echo getOneData('user','u_full_name','hms_id',$assigned_to_hmsid_doc) ?> ( <?php echo $dept ?>)</option>
-            <?php getDropdownDoctor(null) ?>
-            </select>
-            </td>
-            <td>
-            <select class='form-control' name='assign_staff[]' >                                                
-            <option value=<?php echo $assigned_to_hmsid_staff ?> ><?php echo  getOneData('user','u_full_name','hms_id',$assigned_to_hmsid_staff) ?> (<?php echo $dept ?>)</option>
-            <?php getDropdownStaff() ?>
-            </select>
-            </td>
-           <td><button type='submit' name="admitBtn" class='btn btn-primary'>Admit</button></td>
-        
-            <!-- <td> <a href='admit-page?id=<?php echo $id ?>&d=<?php echo $assigned_to_hmsid_doc ?>&s=<?php echo $assigned_to_hmsid_staff ?>' class='btn btn-primary'>Admit</a> </td> -->
-            </tr>
-            </form>  
-        <?php
-        
-        if (isset($_POST['admitBtn2'])) {
-           /*  $assign_doc = $_POST['assign_doc'];
-            $assign_staff = $_POST['assign_staff'];     
-            echo "<script>alert('$assign_doc, $assign_staff')</script>"; */
-foreach ($_POST['assign_doc'] as $value)
-{
-    echo "<script>alert('$value')</script>";
-}
-        }
-
-    }
-
-?>
-
-
-
-
-
-
-
+  
 
 <!--                                        
                                                 <th>1</th>
@@ -173,13 +107,20 @@ foreach ($_POST['assign_doc'] as $value)
 
  <?php  
         if (isset($_POST['admitBtn'])) {
-       /*      $assign_doc = $_POST['assign_doc'];
-            $assign_staff = $_POST['assign_staff'];   */   
+          $assign_doc = $_POST['assign_doc'];
+            $assign_staff = $_POST['assign_staff'];  
            foreach ($_POST['assign_doc'] as $value)
 {
-    echo "<script>alert('$value')</script>";
+    echo "<script>alert('DOC: $value')</script>";
+}
+           foreach ($_POST['assign_staff'] as $value)
+{
+    echo "<script>alert('STAFF : $value')</script>";
 }
             
+
+echo "<script>alert('Both: $assign_doc , $assign_staff')</script>";
+
           /*  
                 $dataPush = array(
                     'hms_id_dc' => $_POST['hms_id_dc'],
