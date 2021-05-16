@@ -120,7 +120,28 @@ foreach ($_POST['id'] as $value)
 {
     $rowId =$value;
 }
-               
+       
+
+
+$patientName=getOneData('admission','pt_name','id',$rowId);
+$doctorName=getOneData('user','u_full_name','hms_id',$assign_doc);
+$staffName=getOneData('user','u_full_name','hms_id',$assign_staff);
+$patientEmail=getOneData('admission','pt_email','id',$rowId);
+$department=getOneData('admission','dept','id',$rowId);
+
+$mailSubject="Admission Success";
+$mailContent="Dear $patientName , \n
+Hospital is committed to provide efficient, 
+effective and timely service to its patients through the best medical 
+support in a clean and hygienic environment. \n
+Details:- \n
+PATIENT NAME: $patientName \n
+DOCTOR NAME: $doctorName \n
+DEPARTMENT: $department \n
+STAFF NAME: $staffName \n
+ADMITTED ON: $timestamp
+" 
+
      $dataUpdate = array(
          'assigned_to_hmsid_doc' => $assign_doc,
          'assigned_to_hmsid_staff' => $assign_staff,
@@ -128,7 +149,10 @@ foreach ($_POST['id'] as $value)
          'status' => 'active'   
      );
      if (updateData('admission', $dataUpdate, "WHERE id = '$rowId'")) {
-         echo "<script>alert('Admitted')</script>";
+        if(SendMail($patientEmail,$mailSubject,$mailContent))           
+            echo "<script>alert('Admitted and a mail sent to patient')</script>";           
+        else
+         echo "<script>alert('Admitted but sending mail failed')</script>";
      } else {
          echo "<script>alert('Error!!')</script>";
      }
