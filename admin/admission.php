@@ -59,9 +59,8 @@
                                         </thead>                                        
                                         <tbody>
                                         <form method="post">                                            
-                                          <?php                                           
-                                          $data=admissionDisplay(); 
-                                          print_r($data);
+                                          <?php                                          
+                                          print_r(admissionDisplay());
                                           ?>
 <!--                                        
                                                 <th>1</th>
