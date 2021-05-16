@@ -120,25 +120,19 @@ foreach ($_POST['id'] as $value)
 {
     $rowId =$value;
 }
-            
-
-echo "<script>alert('Both: $assign_doc , $assign_staff, $rowId')</script>";
-
-          /*  
-                $dataPush = array(
-                    'hms_id_dc' => $_POST['hms_id_dc'],
-                    'hms_id_pt' => $hms_id_pt,
-                    'apt_date' => $_POST['apt_date'],
-                    'apt_message' => $_POST['apt_message'],
-                    'apt_token' => $aptToken,
-                    'apt_timestamp' => $timestamp
-                );
-                if (insertData('appointment', $dataPush)) {
-                    echo "<script>alert('Success,')</script>";
-                } else {
-                    echo "<script>alert('Error!!')</script>";
-                }
-             */
+               
+     $dataUpdate = array(
+         'assigned_to_hmsid_doc' => $assign_doc,
+         'assigned_to_hmsid_staff' => $assign_staff,
+         'timestamp' => $timestamp,
+         'status' => 'active'   
+     );
+     if (updateData('admission', $dataUpdate, "WHERE id = '$rowId'")) {
+         echo "<script>alert('Admitted')</script>";
+     } else {
+         echo "<script>alert('Error!!')</script>";
+     }
+             
 
      
 
