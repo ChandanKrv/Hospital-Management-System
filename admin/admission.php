@@ -116,9 +116,13 @@ foreach ($_POST['assign_staff'] as $value)
 {
     $assign_staff =$value;
 }
+foreach ($_POST['id'] as $value)
+{
+    $rowId =$value;
+}
             
 
-echo "<script>alert('Both: $assign_doc , $assign_staff')</script>";
+echo "<script>alert('Both: $assign_doc , $assign_staff', $rowId)</script>";
 
           /*  
                 $dataPush = array(
