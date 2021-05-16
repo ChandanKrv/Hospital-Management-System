@@ -1,4 +1,5 @@
-<?php include_once('header.php') ?>
+<?php include_once('header.php'); ?>
+
 
         <!-- Start Hero -->
         <section class="bg-half-170 d-table w-100" style="background: url('images/bg/03.jpg');">
@@ -107,20 +108,20 @@
                                     <div class="col-md-12">
                                         <div class="mb-3">
                                             <label class="form-label">Subject</label>
-                                            <input name="subject" id="subject" class="form-control border rounded" placeholder="Your subject :">
+                                            <input name="sub" id="subject" class="form-control border rounded" placeholder="Your subject :">
                                         </div>
                                     </div><!--end col-->
 
                                     <div class="col-md-12">
                                         <div class="mb-3">
                                             <label class="form-label">Comments <span class="text-danger">*</span></label>
-                                            <textarea name="comments" id="comments" rows="4" class="form-control border rounded" placeholder="Your Message :"></textarea>
+                                            <textarea name="comment" id="comments" rows="4" class="form-control border rounded" placeholder="Your Message :"></textarea>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-12">
-                                        <button type="submit" id="submit" name="send" class="btn btn-primary">Send Message</button>
+                                        <button type="submit" id="submit" name="submit" class="btn btn-primary">Send Message</button>
                                     </div><!--end col-->
                                 </div><!--end row-->
                             </form>
@@ -142,5 +143,22 @@
             </div><!--end container-->
         </section><!--end section-->
         <!-- End -->
+<?php
+if (isset($_POST['submit'])) {
+    $dataPush = array(
+        'name'  =>  cleanInput($_POST['name']),
+        'email'  =>  cleanInput($_POST['email']),
+        'sub'  =>  cleanInput($_POST['sub']),
+        'comment'  =>  cleanInput($_POST['comment']),     
+        'timestamp' => $timestamp,
+        'ip' => $ip
+    );
+
+    if (insertData('contact', $dataPush)) {
+        echo "<script>alert('*Thank You,Your message has been sent*')</script>";
+    }
+}
+?>
+
 
         <?php include_once('footer.php') ?>

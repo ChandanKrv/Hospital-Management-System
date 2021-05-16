@@ -1,5 +1,6 @@
 <?php
-session_start();
+include_once('../include/function.php');
+
 if (isset($_SESSION['email']))
     $headerBtn="Dashboard";
  else 
