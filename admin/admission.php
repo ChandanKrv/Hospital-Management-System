@@ -173,9 +173,12 @@ foreach ($_POST['assign_doc'] as $value)
 
  <?php  
         if (isset($_POST['admitBtn'])) {
-            $assign_doc = $_POST['assign_doc'];
-            $assign_staff = $_POST['assign_staff'];     
-            echo "<script>alert('$assign_doc, $assign_staff')</script>";
+       /*      $assign_doc = $_POST['assign_doc'];
+            $assign_staff = $_POST['assign_staff'];   */   
+           foreach ($_POST['assign_doc'] as $value)
+{
+    echo "<script>alert('$value')</script>";
+}
             
           /*  
                 $dataPush = array(
