@@ -110,7 +110,7 @@
             </form>  
         <?php
         
-        if (isset($_POST['admitBtn'])) {
+        if (isset($_POST['admitBtn2'])) {
            /*  $assign_doc = $_POST['assign_doc'];
             $assign_staff = $_POST['assign_staff'];     
             echo "<script>alert('$assign_doc, $assign_staff')</script>"; */
