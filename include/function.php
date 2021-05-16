@@ -479,7 +479,7 @@ function getDropdownStaff()
 
 function admissionDisplay()
 {
-    global $con;
+  /*   global $con;
     $getData = "SELECT * FROM admission WHERE status='pending'";
     $run_products = mysqli_query($con, $getData);
     $count=0;    
@@ -522,7 +522,7 @@ function admissionDisplay()
             </tr>
            
         <?php     
-    }
+    } */
 
     
 }

@@ -92,18 +92,18 @@
             <td><?php echo $dept ?></td>
             <td><?php echo $date ?></td>                                                
             <td>
-            <select class='form-control' name='assign_doc'>                                                
+            <select class='form-control' name='assign_doc[]'>                                                
             <option value='$assigned_to_hmsid_doc'><?php echo getOneData('user','u_full_name','hms_id',$assigned_to_hmsid_doc) ?> ( <?php echo $dept ?>)</option>
             <?php getDropdownDoctor(null) ?>
             </select>
             </td>
             <td>
-            <select class='form-control' name='assign_staff' >                                                
+            <select class='form-control' name='assign_staff[]' >                                                
             <option value='$assigned_to_hmsid_staff'><?php echo  getOneData('user','u_full_name','hms_id',$assigned_to_hmsid_staff) ?> (<?php echo $dept ?>)</option>
             <?php getDropdownStaff() ?>
             </select>
             </td>
-           <td><button type='submit' name="admitBtn" class='btn btn-primary'>Admit</button></td>
+           <td><button type='submit' name="admitBtn[]" class='btn btn-primary'>Admit</button></td>
         
             <!-- <td> <a href='admit-page?id=<?php echo $id ?>&d=<?php echo $assigned_to_hmsid_doc ?>&s=<?php echo $assigned_to_hmsid_staff ?>' class='btn btn-primary'>Admit</a> </td> -->
             </tr>
@@ -111,9 +111,10 @@
         <?php
         
         if (isset($_POST['admitBtn'])) {
-            $assign_doc = $_POST['assign_doc'];
+           /*  $assign_doc = $_POST['assign_doc'];
             $assign_staff = $_POST['assign_staff'];     
-            echo "<script>alert('$assign_doc, $assign_staff')</script>";
+            echo "<script>alert('$assign_doc, $assign_staff')</script>"; */
+             print_r($_POST);
         }
 
     }
