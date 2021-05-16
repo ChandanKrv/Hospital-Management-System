@@ -1,5 +1,15 @@
+<?php
+session_start();
+error_reporting(E_ERROR | E_WARNING | E_PARSE);
+$email =  $_SESSION['email'];
+$u_role =  $_SESSION['u_role'];
 
-
+if (isset($email)) {
+    $headerBtn="Dashboard";
+} else {
+    $headerBtn="Sign In";
+}
+?>
 <!DOCTYPE html>
     <html lang="en">
 <head>
@@ -80,8 +90,8 @@
                             </div>
                         </div>
                     </li>
-                    <li class="list-inline-item mb-0 ms-1"><a href="../patient/appointment" class="btn btn-primary">Login</a></li>
-                    <li class="list-inline-item mb-0 ms-1"><a href="../patient/appointment" class="btn btn-primary">Dashboard</a></li>
+                    <li class="list-inline-item mb-0 ms-1"><a href="../login" class="btn btn-primary"><?php echo $headerBtn ?></a></li>
+                    
                 </ul>
                 <div class="menu-extras">
                     <div class="menu-item">
