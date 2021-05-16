@@ -106,16 +106,15 @@
                 </div><!--end container-->
 
  <?php  
-        if (isset($_POST['admitBtn'])) {
-          $assign_doc = $_POST['assign_doc'];
-            $assign_staff = $_POST['assign_staff'];  
-           foreach ($_POST['assign_doc'] as $value)
+        if (isset($_POST['admitBtn'])) {     
+foreach ($_POST['assign_doc'] as $value)
 {
-    echo "<script>alert('DOC: $value')</script>";
+    $assign_doc =$value;
+    
 }
-           foreach ($_POST['assign_staff'] as $value)
+foreach ($_POST['assign_staff'] as $value)
 {
-    echo "<script>alert('STAFF : $value')</script>";
+    $assign_staff =$value;
 }
             
 
