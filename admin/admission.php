@@ -130,16 +130,16 @@ $patientEmail=getOneData('admission','pt_email','id',$rowId);
 $department=getOneData('admission','dept','id',$rowId);
 
 $mailSubject="Admission Success";
-$mailContent="Dear $patientName , \n
+$mailContent="Dear $patientName , \r\n
 Hospital is committed to provide efficient, 
 effective and timely service to its patients through the best medical 
-support in a clean and hygienic environment. \n
-Details:- \n
-PATIENT NAME: $patientName \n
-DOCTOR NAME: $doctorName \n
-DEPARTMENT: $department \n
-STAFF NAME: $staffName \n
-ADMITTED ON: $timestamp
+support in a clean and hygienic environment. \r\n
+Details:- \r\n
+PATIENT NAME: $patientName \r\n
+DOCTOR NAME: $doctorName \r\n
+DEPARTMENT: $department \r\n
+STAFF NAME: $staffName \r\n
+ADMITTED ON: $timestamp\r\n
 ";
 
      $dataUpdate = array(
