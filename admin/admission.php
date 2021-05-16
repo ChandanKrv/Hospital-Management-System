@@ -102,7 +102,32 @@
                     </div>
                 </div><!--end container-->
 
+ <?php  
+        if (isset($_POST['admitBtn'])) {
+            $assign_doc = $_POST['assign_doc'];
+            $assign_staff = $_POST['assign_staff'];           
+          /*  
+                $dataPush = array(
+                    'hms_id_dc' => $_POST['hms_id_dc'],
+                    'hms_id_pt' => $hms_id_pt,
+                    'apt_date' => $_POST['apt_date'],
+                    'apt_message' => $_POST['apt_message'],
+                    'apt_token' => $aptToken,
+                    'apt_timestamp' => $timestamp
+                );
+                if (insertData('appointment', $dataPush)) {
+                    echo "<script>alert('Success,')</script>";
+                } else {
+                    echo "<script>alert('Error!!')</script>";
+                }
+             */
 
+     echo "<script>alert('Alert!! $assign_doc, $assign_staff ')</script>";
+
+
+        }
+
+        ?>
        
         <!-- Modal end -->
 <?php include_once('admin_footer.php') ?>

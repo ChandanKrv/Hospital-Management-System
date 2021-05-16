@@ -497,7 +497,7 @@ function admissionDisplay()
         $count++;
         ?>
 
-            <form action="">
+            <form method="post" action="">
             <tr>
             <th><?php echo $count ?></th>
             <td><?php echo $pt_name ?></td>
@@ -512,11 +512,11 @@ function admissionDisplay()
             </td>
             <td>
             <select class='form-control' name='assign_staff' >                                                
-            <option value='assigned_to_hmsid_staff'><?php echo  getOneData('user','u_full_name','hms_id',$assigned_to_hmsid_staff) ?> (<?php echo $dept ?>)</option>
+            <option value='$assigned_to_hmsid_staff'><?php echo  getOneData('user','u_full_name','hms_id',$assigned_to_hmsid_staff) ?> (<?php echo $dept ?>)</option>
             <?php getDropdownStaff() ?>
             </select>
             </td>
-            <td><button type='submit' name="update_btn" class='btn btn-primary'>Admit</button></td>
+            <td><button type='submit' name="admitBtn" class='btn btn-primary'>Admit</button></td>
             </tr>
             </form>
         <?php     
