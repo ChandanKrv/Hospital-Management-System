@@ -520,7 +520,7 @@ function admissionDisplay()
 <!--             <td><button type='submit' name="admitBtn" class='btn btn-primary'>Admit</button></td>
  -->          
 
- <a href='admit-page?id=$id' class='btn btn-primary'>Admit</a>
+ <td> <a href='admit-page?id=$id' class='btn btn-primary'>Admit</a> </td>
             </tr>
             </form>
         <?php     
