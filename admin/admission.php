@@ -59,7 +59,10 @@
                                         </thead>                                        
                                         <tbody>
                                         <form method="post">                                            
-                                          <?php admissionDisplay(); ?>
+                                          <?php                                           
+                                          $data=admissionDisplay(); 
+                                          print_r($data);
+                                          ?>
 <!--                                        
                                                 <th>1</th>
                                                 <td>Name</td>

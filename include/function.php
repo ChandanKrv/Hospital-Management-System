@@ -445,10 +445,9 @@ function getAllData($table_name, $where_condition, $match_this)
 function getDropdownDoctor($data)
 {
     global $con;
-    $getData = "SELECT * FROM user INNER JOIN doctor ON user.u_id=doctor.u_id WHERE user.hms_id !='NULL' ";
-/*     if($category != "")
-        $getData.="AND doctor.d_department = '".$category."' ";
-   // $getData.="GROUP BY doctor.d_department "; */
+    $getData = "SELECT * FROM user INNER JOIN doctor ON user.u_id=doctor.u_id WHERE user.hms_id !='NULL' 
+    GROUP BY doctor.d_department";
+
     $run_products = mysqli_query($con, $getData);
     while ($row_product = mysqli_fetch_array($run_products)) {
         $full_name = $row_product['u_full_name'];
@@ -467,7 +466,8 @@ function getDropdownDoctor($data)
 function getDropdownStaff()
 {
     global $con;
-    $getData = "SELECT * FROM user INNER JOIN staff ON user.u_id=staff.u_id WHERE user.hms_id !='NULL' ";
+    $getData = "SELECT * FROM user INNER JOIN staff ON user.u_id=staff.u_id WHERE user.hms_id !='NULL' 
+    GROUP BY staff.s_department";
     $run_products = mysqli_query($con, $getData);
     while ($row_product = mysqli_fetch_array($run_products)) {
         $full_name = $row_product['u_full_name'];
@@ -476,6 +476,7 @@ function getDropdownStaff()
             echo "<option value='$hms_id'>$full_name ($department)</option>";     
     }
 }
+
 function admissionDisplay()
 {
     global $con;
@@ -494,26 +495,33 @@ function admissionDisplay()
         $timestamp = $row_product['timestamp'];
         $date=substr($timestamp, 0, 10);
         $count++;
+        ?>
 
-            echo "
+            <form action="">
             <tr>
-            <th>$count</th>
-                                                <td>$pt_name</td>
-                                                <td>$pt_email</td>                                                
-                                                <td>$dept</td>
-                                                <td>$date</td>                                                
-                                                <td>
-                                                <select class='form-control' name='assign_doc'>                                                
-                                                <option value='$assigned_to_hmsid_doc'>$assigned_to_hmsid_doc ($dept)</option>
-                                                </select>
-                                                </td>
-                                                <td>
-                                                <select class='form-control' name='assign_staff' >                                                
-                                                <option value='assigned_to_hmsid_staff'>$assigned_to_hmsid_staff ($dept)</option>
-                                                </select>
-                                                </td>
-                                                <td><button type='admit' class='btn btn-primary'>Admit</button></td>
-                                                </tr>";     
+            <th><?php echo $count ?></th>
+            <td><?php echo $pt_name ?></td>
+            <td><?php echo $pt_email ?></td>                                                
+            <td><?php echo $dept ?></td>
+            <td><?php echo $date ?></td>                                                
+            <td>
+            <select class='form-control' name='assign_doc'>                                                
+            <option value='$assigned_to_hmsid_doc'><?php echo $assigned_to_hmsid_doc ?> ( <?php echo $dept ?>)</option>
+            <?php getDropdownDoctor("doctor") ?>
+            </select>
+            </td>
+            <td>
+            <select class='form-control' name='assign_staff' >                                                
+            <option value='assigned_to_hmsid_staff'><?php echo $assigned_to_hmsid_staff ?> (<?php echo $dept ?>)</option>
+            <?php getDropdownStaff() ?>
+            </select>
+            </td>
+            <td><button type='submit' name="update_btn" class='btn btn-primary'>Admit</button></td>
+            </tr>
+            </form>
+        <?php     
     }
+
+    
 }
 
