@@ -58,7 +58,7 @@
                                             </tr>
                                         </thead>                                        
                                         <tbody>
-                                        <form method="post">                                            
+                                                                                
                                           <?php                                          
                                           //print_r(admissionDisplay());
                                           ?>
@@ -83,7 +83,8 @@
         $date=substr($timestamp, 0, 10);
         $count++;
         
-        ?>         
+        ?>      
+        <form method="post">       
             <tr>
             <th><?php echo $count ?></th>
             <td><?php echo $pt_name ?></td>
@@ -106,7 +107,7 @@
         
             <!-- <td> <a href='admit-page?id=<?php echo $id ?>&d=<?php echo $assigned_to_hmsid_doc ?>&s=<?php echo $assigned_to_hmsid_staff ?>' class='btn btn-primary'>Admit</a> </td> -->
             </tr>
-           
+            </form>  
         <?php     
     }
 
@@ -139,7 +140,7 @@
                                                 </td>
                                                 <td><button type="admit" class="btn btn-primary">Admit</button></td> -->
                                                               
-                                        </form>                                      
+                                                                           
                                         </tbody>
                                     </table>
                                 </div>
