@@ -499,7 +499,7 @@ function admissionDisplay()
         
         ?>
 
-            <form method="post" action="">
+            <form method="get" action="">
             <tr>
             <th><?php echo $count ?></th>
             <td><?php echo $pt_name ?></td>
