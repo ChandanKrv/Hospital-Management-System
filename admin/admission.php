@@ -140,7 +140,7 @@ DOCTOR NAME: $doctorName \n
 DEPARTMENT: $department \n
 STAFF NAME: $staffName \n
 ADMITTED ON: $timestamp
-" 
+";
 
      $dataUpdate = array(
          'assigned_to_hmsid_doc' => $assign_doc,
