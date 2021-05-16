@@ -483,6 +483,7 @@ function admissionDisplay()
     $getData = "SELECT * FROM admission WHERE status='pending'";
     $run_products = mysqli_query($con, $getData);
     $count=0;
+    $id=123;
     while ($row_product = mysqli_fetch_array($run_products)) {
         $booked_by_hmsid_pt = $row_product['booked_by_hmsid_pt'];
         $assigned_to_hmsid_doc = $row_product['assigned_to_hmsid_doc'];       
@@ -495,7 +496,7 @@ function admissionDisplay()
         $timestamp = $row_product['timestamp'];
         $date=substr($timestamp, 0, 10);
         $count++;
-        $id=123;
+        
         ?>
 
             <form method="post" action="">
@@ -519,7 +520,6 @@ function admissionDisplay()
             </td>
 <!--             <td><button type='submit' name="admitBtn" class='btn btn-primary'>Admit</button></td>
  -->          
-
  <td> <a href='admit-page?id=$id' class='btn btn-primary'>Admit</a> </td>
             </tr>
             </form>
