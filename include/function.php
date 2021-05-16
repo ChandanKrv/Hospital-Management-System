@@ -497,9 +497,7 @@ function admissionDisplay()
         $date=substr($timestamp, 0, 10);
         $count++;
         
-        ?>
-
-            <form>
+        ?>         
             <tr>
             <th><?php echo $count ?></th>
             <td><?php echo $pt_name ?></td>
@@ -518,11 +516,11 @@ function admissionDisplay()
             <?php getDropdownStaff() ?>
             </select>
             </td>
-<!--             <td><button type='submit' name="admitBtn" class='btn btn-primary'>Admit</button></td>
- -->          
- <td> <a href='admit-page?id=<?php echo $id ?>&d=<?php echo $assigned_to_hmsid_doc ?>&s=<?php echo $assigned_to_hmsid_staff ?>' class='btn btn-primary'>Admit</a> </td>
+           <td><button type='submit' name="admitBtn" class='btn btn-primary'>Admit</button></td>
+        
+            <!-- <td> <a href='admit-page?id=<?php echo $id ?>&d=<?php echo $assigned_to_hmsid_doc ?>&s=<?php echo $assigned_to_hmsid_staff ?>' class='btn btn-primary'>Admit</a> </td> -->
             </tr>
-            </form>
+           
         <?php     
     }
 
