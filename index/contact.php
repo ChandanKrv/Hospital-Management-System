@@ -87,7 +87,7 @@
                     <div class="col-lg-7 col-md-6 mt-4 pt-2 mt-sm-0 pt-sm-0">
                         <div class="custom-form rounded shadow p-4">
                             <h5 class="mb-4">Get in touch!</h5>
-                            <form method="post" name="myForm" onsubmit="return validateForm()">
+                            <form method="post" onsubmit=" return validateForm()">
                                 <p id="error-msg"></p>
                                 <div id="simple-msg"></div>
                                 <div class="row">
@@ -121,7 +121,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-12">
-                                        <button type="submit" id="submit" name="submitForm" class="btn btn-primary">Send Message</button>
+                                        <button type="submit" name="submitForm" class="btn btn-primary">Send Message</button>
                                     </div><!--end col-->
                                 </div><!--end row-->
                             </form>
