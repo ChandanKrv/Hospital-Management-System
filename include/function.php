@@ -495,6 +495,7 @@ function admissionDisplay()
         $timestamp = $row_product['timestamp'];
         $date=substr($timestamp, 0, 10);
         $count++;
+        $id=123;
         ?>
 
             <form method="post" action="">
@@ -516,7 +517,10 @@ function admissionDisplay()
             <?php getDropdownStaff() ?>
             </select>
             </td>
-            <td><button type='submit' name="admitBtn" class='btn btn-primary'>Admit</button></td>
+<!--             <td><button type='submit' name="admitBtn" class='btn btn-primary'>Admit</button></td>
+ -->          
+
+ <a href='admit-page?id=$id' class='btn btn-primary'>Admit</a>
             </tr>
             </form>
         <?php     
