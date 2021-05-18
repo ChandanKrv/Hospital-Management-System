@@ -137,6 +137,7 @@ if (isset($_GET['ref']) && !empty($_GET['ref'])) {
                         </div>
                     </li>
                     <li><a href="#"><i class="uil uil-window me-2 d-inline-block"></i>Miscellaneous</a></li>
+                    <li><a href="#"><i class="uil uil-window me-2 d-inline-block"></i>Contact Forms</a></li>
 
                 </ul>
                 <!-- sidebar-menu  -->
