@@ -597,9 +597,11 @@ $count++;
        if($u_role=='doctor'){
           $gender = getOneData('doctor','d_gender','u_id',$u_id);
           $department = getOneData('doctor','d_department','u_id',$u_id);
+          $role="Doctor";
        }else{
           $gender = getOneData('staff','s_gender','u_id',$u_id);
           $department = getOneData('staff','s_department','u_id',$u_id);
+          $role="Staff";
        }
 
 
@@ -609,7 +611,7 @@ $count++;
                 <td>$u_full_name</td>   
                 <td>$u_email</td>
                 <td>$department</td>  
-                <td>$u_role</td>
+                <td>$role</td>
                 <td>$gender </td> 
                 <td>$hms_id</td>                                           
                 <td>$u_timestamp</td>                            
