@@ -554,8 +554,11 @@ function fetchAllData($table_name,$col1_name,$col1_value,$where_arr="")
         } 
     }
     $run_products = mysqli_query($con, $getData);
-    $row_product = mysqli_fetch_all($run_products,MYSQLI_ASSOC);
-    return $row_product;
+    $data=[];
+    while ($row_product = mysqli_fetch_array($run_products)) {
+        $data[]=$row_product;
+    }
+    return $data;
 
 }
 
