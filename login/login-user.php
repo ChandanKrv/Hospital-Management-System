@@ -40,7 +40,7 @@ if (isset($_SESSION['email']) && !empty($_SESSION['email']) && isset($_SESSION['
                     <h2 class="title">Sign In </h2>
                     <div class="input-field">
                         <i class="fas fa-user"></i>
-                        <input class="form-control " type="text" name="email" placeholder="Email Address / RM-Id" required value="<?php echo $email ?>">
+                        <input class="form-control " type="text" name="email" placeholder="Email Address" required value="<?php echo $email ?>">
                     </div>
                     <div class="input-field">
                         <i class="fas fa-lock"></i>
