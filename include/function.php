@@ -592,6 +592,17 @@ $count++;
         $u_email = $row_product['u_email'];
         $u_role = $row_product['u_role'];
         $u_timestamp = $row_product['u_timestamp'];
+        $u_id=$row_product['u_id'];
+
+       if($u_role=='doctor'){
+          $gender = getOneData('doctor','d_gender','u_id',$u_id);
+          $department = getOneData('doctor','d_department','u_id',$u_id);
+       }else{
+          $gender = getOneData('staff','s_gender','u_id',$u_id);
+          $department = getOneData('staff','s_department','u_id',$u_id);
+       }
+
+
         $count++;
         echo "<tr>                            
                 <th>$count</th>                              
@@ -600,8 +611,8 @@ $count++;
                 <td>$u_role</td>
                 <td>$hms_id</td>                               
                 <td>$u_full_name</td>                            
-                <td>$u_timestamp</td>                            
-                <td>$u_timestamp</td>                            
+                <td>$gender </td>                            
+                <td>$department</td>                            
                 <td>$u_timestamp</td>                            
             </tr>";
     }
