@@ -542,8 +542,6 @@ function admissionDisplay()
     }
 }
 
-
-
 function fetchAllData($table_name,$col1_name,$col1_value,$where_arr="")
 {
     global $con;
@@ -557,14 +555,9 @@ function fetchAllData($table_name,$col1_name,$col1_value,$where_arr="")
     }
     $run_products = mysqli_query($con, $getData);
     $row_product = mysqli_fetch_all($run_products,MYSQLI_ASSOC);
-      /*  echo"<pre>";
-        print_r($row_product);     
-       echo"<pre>"; */
     return $row_product;
 
 }
-
-
 
 
 function contactFormDisplay()
@@ -581,13 +574,13 @@ function contactFormDisplay()
         $timestamp = $row_product['timestamp'];
 
         echo "<tr>                            
-                <th>$count++</th>                              
+                <th> $count++ </th>                              
                 <td>$name</td>
                 <td>$email</td>
                 <td>$sub</td>
                 <td>$comment</td>                               
                 <td>$timestamp</td>                            
-                </tr>";
+            </tr>";
     }
 }
 
