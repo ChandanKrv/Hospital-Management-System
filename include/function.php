@@ -578,4 +578,31 @@ $count++;
             </tr>";
     }
 } 
+ function doctorStaffDisplay()
+{
+    global $con;  
+    $get_product = "SELECT * FROM user WHERE u_role='doctor' OR u_role='staff' ORDER BY u_id DESC";
+    $count=0;
+    $run_products = mysqli_query($con, $get_product);
+    while ($row_product = mysqli_fetch_array($run_products)) {
+        $hms_id = $row_product['hms_id'];
+        $u_name = $row_product['u_name'];
+        $u_full_name = $row_product['u_full_name'];
+        $u_email = $row_product['u_email'];
+        $u_role = $row_product['u_role'];
+        $u_timestamp = $row_product['u_timestamp'];
+        $count++;
+        echo "<tr>                            
+                <th>$count</th>                              
+                <td>$u_name</td>
+                <td>$u_email</td>
+                <td>$u_role</td>
+                <td>$hms_id</td>                               
+                <td>$u_full_name</td>                            
+                <td>$timestamp</td>                            
+                <td>$timestamp</td>                            
+                <td>$timestamp</td>                            
+            </tr>";
+    }
+} 
 
