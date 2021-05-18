@@ -494,7 +494,7 @@ function getDropdownStaff($data,$hms_staff_id="")
 
 function admissionDisplay()
 {
-     global $con;
+    global $con;
     $getData = "SELECT * FROM admission WHERE status='pending'";
     $run_products = mysqli_query($con, $getData);
     $count=1;    
@@ -542,3 +542,25 @@ function admissionDisplay()
     }
 }
 
+
+function fetchAllData($table_name,$col1_name,$col1_value,$where_arr="")
+{
+    global $con;
+    $getData = "SELECT * FROM $table_name WHERE $col1_name ='$col1_value' ";
+    if($where_arr != "")
+    {
+        foreach($where_arr as $key=>$value)
+        {
+            $getData.="AND $key ='$value' ";
+        } 
+    }
+    $run_products = mysqli_query($con, $getData);
+    $row_product = mysqli_fetch_all($run_products,MYSQLI_ASSOC);
+      /*  echo"<pre>";
+        print_r($row_product);     
+       echo"<pre>"; */
+    return $row_product;
+
+}
+
+//mysqli_fetch_all($result, MYSQLI_ASSOC);
