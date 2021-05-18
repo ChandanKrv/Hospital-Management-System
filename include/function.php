@@ -555,7 +555,7 @@ function fetchAllData($table_name,$col1_name,$col1_value,$where_arr="")
 }
 
 
-/* function contactFormDisplay()
+ function contactFormDisplay()
 {
     global $con;  
     $get_product = "SELECT * FROM contact ";
@@ -577,5 +577,5 @@ function fetchAllData($table_name,$col1_name,$col1_value,$where_arr="")
                 <td>$timestamp</td>                            
             </tr>";
     }
-} */
+} 
 

@@ -24,7 +24,7 @@
                         </thead>
                         <tbody>
                           <?php
-                                //echo contactFormDisplay();
+                                echo contactFormDisplay();
                           ?>
 
 
