@@ -543,7 +543,7 @@ function fetchAllData($table_name,$col1_name,$col1_value,$where_arr="")
     if($where_arr != "")
     {
         foreach($where_arr as $key=>$value)
-        {
+        { 
             $getData.="AND $key ='$value' ";
         } 
     }
@@ -554,7 +554,7 @@ function fetchAllData($table_name,$col1_name,$col1_value,$where_arr="")
 }
 
 
-function contactFormDisplay()
+/* function contactFormDisplay()
 {
     global $con;  
     $get_product = "SELECT * FROM contact ";
@@ -576,5 +576,5 @@ function contactFormDisplay()
                 <td>$timestamp</td>                            
             </tr>";
     }
-}
+} */
 
