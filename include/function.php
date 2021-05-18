@@ -548,7 +548,7 @@ function fetchAllData($table_name,$col1_name,$col1_value,$where_arr="")
         } 
     }
     $run_products = mysqli_query($con, $getData);
-    $row_product = mysqli_fetch_all($run_products,MYSQLI_ASSOC);
+    $row_product = mysqli_fetch_assoc($run_products);
     return $row_product;
 
 }
