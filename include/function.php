@@ -542,3 +542,29 @@ function admissionDisplay()
     }
 }
 
+
+
+
+function contactFormDisplay()
+{
+    global $con;  
+    $get_product = "SELECT * FROM contact ";
+    $count=1;
+    $run_products = mysqli_query($con, $get_product);
+    while ($row_product = mysqli_fetch_array($run_products)) {
+        $name = $row_product['name'];
+        $email = $row_product['email'];
+        $sub = $row_product['sub'];
+        $comment = $row_product['comment'];
+        $timestamp = $row_product['timestamp'];
+
+        echo "<tr>                            
+                <th>$count++</th>                              
+                <td>$name</td>
+                <td>$email</td>
+                <td>$sub</td>
+                <td>$comment</td>                               
+                <td>$timestamp</td>                            
+                >";
+    }
+}
