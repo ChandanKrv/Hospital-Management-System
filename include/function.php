@@ -606,13 +606,12 @@ $count++;
         $count++;
         echo "<tr>                            
                 <th>$count</th>                              
-                <td>$u_name</td>
+                <td>$u_full_name</td>   
                 <td>$u_email</td>
+                <td>$department</td>  
                 <td>$u_role</td>
-                <td>$hms_id</td>                               
-                <td>$u_full_name</td>                            
-                <td>$gender </td>                            
-                <td>$department</td>                            
+                <td>$gender </td> 
+                <td>$hms_id</td>                                           
                 <td>$u_timestamp</td>                            
             </tr>";
     }

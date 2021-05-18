@@ -51,13 +51,12 @@
                         <thead>
                             <tr>
                                 <th class="border-bottom py-3" style="min-width: 30px;">#</th>
-                                <th class="border-bottom py-3" >User Name</th>
+                                 <th class="border-bottom py-3">Name</th>                               
                                 <th class="border-bottom py-3" >Email</th>
-                                <th class="border-bottom py-3">Doctor/Staff</th>
-                                <th class="border-bottom py-3">HMS-Id</th>
-                                <th class="border-bottom py-3">Full Name</th>
-                                <th class="border-bottom py-3">Gender</th>
                                 <th class="border-bottom py-3">Department</th>
+                                <th class="border-bottom py-3">Role</th>
+                                 <th class="border-bottom py-3">Gender</th>
+                                <th class="border-bottom py-3">HMS-Id</th>                               
                                 <th class="border-bottom py-3" >Date Time</th>                             
                             </tr>
                         </thead>
