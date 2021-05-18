@@ -543,7 +543,6 @@ function admissionDisplay()
 }
 
 
-<<<<<<< HEAD
 function fetchAllData($table_name,$col1_name,$col1_value,$where_arr="")
 {
     global $con;
@@ -564,8 +563,6 @@ function fetchAllData($table_name,$col1_name,$col1_value,$where_arr="")
 
 }
 
-//mysqli_fetch_all($result, MYSQLI_ASSOC);
-=======
 
 
 function contactFormDisplay()
@@ -591,4 +588,4 @@ function contactFormDisplay()
                 >";
     }
 }
->>>>>>> bf3d4099a7714a90d12912d5f8d339939cccc4ae
+
