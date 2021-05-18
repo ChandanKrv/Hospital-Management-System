@@ -600,9 +600,9 @@ $count++;
                 <td>$u_role</td>
                 <td>$hms_id</td>                               
                 <td>$u_full_name</td>                            
-                <td>$timestamp</td>                            
-                <td>$timestamp</td>                            
-                <td>$timestamp</td>                            
+                <td>$u_timestamp</td>                            
+                <td>$u_timestamp</td>                            
+                <td>$u_timestamp</td>                            
             </tr>";
     }
 } 

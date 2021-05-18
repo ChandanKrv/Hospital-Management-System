@@ -62,7 +62,6 @@
                             </tr>
                         </thead>
                         <tbody>                       
-
                              <?php echo doctorStaffDisplay(); ?>
                         </tbody>
                     </table>
