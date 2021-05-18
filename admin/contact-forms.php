@@ -11,39 +11,7 @@
                     </ul>
                 </nav>
             </div>
-            <!--end col-->
-
-            <div class="col-xl-3 col-lg-6 col-md-8 mt-4 mt-md-0">
-                <div class="justify-content-md-end">
-                    <form method="post">
-                        <div class="row justify-content-between align-items-center">
-                            <div class="col-sm-12 col-md">
-                                <div class="mb-0 position-relative">
-                                    <select class="form-control time-during select2input">
-                                        <option value="EY">All</option>
-                                        <option value="GY">Doctor</option>
-                                        <option value="PS">Staff</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <!--end col-->
-
-                            <div class="col-sm-12 col-md-auto mt-4 mt-sm-0">
-                                <div class="d-grid">
-                                    <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#additionform">+ Admin/Doctor/Staff</a>
-                                </div>
-                            </div>
-                            <!--end col-->
-                        </div>
-                        <!--end row-->
-                    </form>
-                    <!--end form-->
-                </div>
-            </div>
-            <!--end col-->
-        </div>
-        <!--end row-->
-
+         
         <div class="row">
             <div class="col-12 mt-4">
                 <div class="table-responsive shadow rounded">
@@ -53,41 +21,20 @@
                                 <th class="border-bottom py-3" style="min-width: 50px;">#</th>
                                 <th class="border-bottom py-3" style="min-width: 180px;">Name</th>
                                 <th class="border-bottom py-3" style="min-width: 150px;">Email</th>
-                                <th class="border-bottom py-3">Age</th>
-                                <th class="border-bottom py-3">Gender</th>
-                                <th class="border-bottom py-3">Department</th>
-                                <th class="border-bottom py-3" style="min-width: 150px;">Date</th>
-                                <th class="border-bottom py-3">Time</th>
-                                <th class="border-bottom py-3" style="min-width: 220px;">Doctor</th>
-                                <th class="border-bottom py-3">Fees</th>
+                                <th class="border-bottom py-3">Subject</th>
+                                <th class="border-bottom py-3">Message</th>
+                                <th class="border-bottom py-3">Date Time</th>                              
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <th>1</th>
-                                <td class="py-3">
-                                    <a href="#" class="text-dark">
-                                        <div class="d-flex align-items-center">
-                                            <img src="../assets/images/client/01.jpg" class="avatar avatar-md-sm rounded-circle shadow" alt="">
-                                            <span class="ms-2">Howard Tanner</span>
-                                        </div>
-                                    </a>
-                                </td>
+                                <th>1</th>                              
+                                <td>Chandan</td>
                                 <td>howard@contact.com</td>
                                 <td>25</td>
-                                <td>Male</td>
-                                <td>Cardiology</td>
+                                <td>Male</td>                               
                                 <td>20th Dec 2020</td>
-                                <td>11:00AM</td>
-                                <td>
-                                    <a href="#" class="text-dark">
-                                        <div class="d-flex align-items-center">
-                                            <img src="../assets/images/doctors/01.jpg" class="avatar avatar-md-sm rounded-circle border shadow" alt="">
-                                            <span class="ms-2">Dr. Calvin Carlo</span>
-                                        </div>
-                                    </a>
-                                </td>
-                                <td>$50/Patient</td>
+                            
                             </tr>
 
 
