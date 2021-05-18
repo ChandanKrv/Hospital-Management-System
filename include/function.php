@@ -559,7 +559,7 @@ function fetchAllData($table_name,$col1_name,$col1_value,$where_arr="")
 {
     global $con;  
     $get_product = "SELECT * FROM contact ";
-    $count=1;
+    $count=0;
     $run_products = mysqli_query($con, $get_product);
     while ($row_product = mysqli_fetch_array($run_products)) {
         $name = $row_product['name'];
@@ -567,9 +567,9 @@ function fetchAllData($table_name,$col1_name,$col1_value,$where_arr="")
         $sub = $row_product['sub'];
         $comment = $row_product['comment'];
         $timestamp = $row_product['timestamp'];
-
+$count++;
         echo "<tr>                            
-                <th> $count++ </th>                              
+                <th>$count</th>                              
                 <td>$name</td>
                 <td>$email</td>
                 <td>$sub</td>
