@@ -35,29 +35,9 @@
             <div class="input-field">
               <i class="fas fa-user"></i>
               <input class="form-control" type="email" name="email" placeholder="Enter your email address" required value="<?php echo $email ?>">
-            </div>
-            
-            
-            
-            <!-- <div class="link login-link text-center">Not yet a member? <a href="signup-user.php">Signup now</a></div> -->
-            
-            <!-- <input class="form-control button" type="submit" name="login" value="Login"> -->
+            </div>          
             <input type="submit" name="check-email" value="Continue" class="btn solid" />
-            <!-- <p class="social-text">Or Sign in with social platforms</p>
-            <div class="social-media">
-              <a href="#" class="social-icon">
-                <i class="fab fa-facebook-f"></i>
-              </a>
-              <a href="#" class="social-icon">
-                <i class="fab fa-twitter"></i>
-              </a>
-              <a href="#" class="social-icon">
-                <i class="fab fa-google"></i>
-              </a>
-              <a href="#" class="social-icon">
-                <i class="fab fa-linkedin-in"></i>
-              </a>
-            </div> -->
+       
           </form>
        </div>
 
