@@ -543,6 +543,7 @@ function admissionDisplay()
 }
 
 
+<<<<<<< HEAD
 function fetchAllData($table_name,$col1_name,$col1_value,$where_arr="")
 {
     global $con;
@@ -564,3 +565,30 @@ function fetchAllData($table_name,$col1_name,$col1_value,$where_arr="")
 }
 
 //mysqli_fetch_all($result, MYSQLI_ASSOC);
+=======
+
+
+function contactFormDisplay()
+{
+    global $con;  
+    $get_product = "SELECT * FROM contact ";
+    $count=1;
+    $run_products = mysqli_query($con, $get_product);
+    while ($row_product = mysqli_fetch_array($run_products)) {
+        $name = $row_product['name'];
+        $email = $row_product['email'];
+        $sub = $row_product['sub'];
+        $comment = $row_product['comment'];
+        $timestamp = $row_product['timestamp'];
+
+        echo "<tr>                            
+                <th>$count++</th>                              
+                <td>$name</td>
+                <td>$email</td>
+                <td>$sub</td>
+                <td>$comment</td>                               
+                <td>$timestamp</td>                            
+                >";
+    }
+}
+>>>>>>> bf3d4099a7714a90d12912d5f8d339939cccc4ae
