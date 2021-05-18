@@ -4,12 +4,6 @@ require 'db.php'; //Already Started in dp.php
 //Some Important Global Variable
 $max_appointment_in_a_day = 2;
 
-
-
-
-
-
-
 //$ip = getUserIP();
 date_default_timezone_set('Asia/Kolkata');
 $date = date('Y-m-d');
