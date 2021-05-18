@@ -4,12 +4,6 @@ require 'db.php'; //Already Started in dp.php
 //Some Important Global Variable
 $max_appointment_in_a_day = 2;
 
-
-
-
-
-
-
 //$ip = getUserIP();
 date_default_timezone_set('Asia/Kolkata');
 $date = date('Y-m-d');
@@ -549,7 +543,7 @@ function fetchAllData($table_name,$col1_name,$col1_value,$where_arr="")
     if($where_arr != "")
     {
         foreach($where_arr as $key=>$value)
-        {
+        { 
             $getData.="AND $key ='$value' ";
         } 
     }
@@ -559,15 +553,14 @@ function fetchAllData($table_name,$col1_name,$col1_value,$where_arr="")
         $data[]=$row_product;
     }
     return $data;
-
 }
 
 
-function contactFormDisplay()
+ function contactFormDisplay()
 {
     global $con;  
     $get_product = "SELECT * FROM contact ";
-    $count=1;
+    $count=0;
     $run_products = mysqli_query($con, $get_product);
     while ($row_product = mysqli_fetch_array($run_products)) {
         $name = $row_product['name'];
@@ -575,9 +568,9 @@ function contactFormDisplay()
         $sub = $row_product['sub'];
         $comment = $row_product['comment'];
         $timestamp = $row_product['timestamp'];
-
+$count++;
         echo "<tr>                            
-                <th> $count++ </th>                              
+                <th>$count</th>                              
                 <td>$name</td>
                 <td>$email</td>
                 <td>$sub</td>
@@ -585,5 +578,5 @@ function contactFormDisplay()
                 <td>$timestamp</td>                            
             </tr>";
     }
-}
+} 
 

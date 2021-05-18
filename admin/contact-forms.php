@@ -24,7 +24,7 @@
                         </thead>
                         <tbody>
                           <?php
-echo contactFormDisplay();
+                                echo contactFormDisplay();
                           ?>
 
 
@@ -92,30 +92,6 @@ echo contactFormDisplay();
 </div>
 <!-- Add New Appointment End -->
 
-<?php
-if (isset($_POST['addNow'])) {
-    $new_email = $_POST["email"];
-    $role = $_POST["role"];
-    $ROLE = strtoupper($role);
-    $unique_id = uniqid();
-    $getLink = getCurrentURL() . '/login/signup-user?ref=' . $unique_id;
-    $allData = array(
-        'email' => $new_email,
-        'role'  =>   $role,
-        'unique_id'  =>  $unique_id
-    );
-    if (insertData('temp', $allData)) {
-        $mailContent = "Use this link and register yourself as $role : $getLink";
-        if (SendMail($new_email, "You got joining link as $ROLE", $mailContent)) {
-            echo "<script>alert('$ROLE: $new_email Added Successfully We have sent a joining link')</script>";
-            echo "<script>alert('OR You can share this link: $getLink')</script>";
-        } else
-            echo "<script>alert('Unable to send email to $new_email, Please share this link: $getLink')</script>";
-    } else {
-        echo "<script>alert('Error!! $ROLE Not Added')</script>";
-    }
-}
-?>
 
 <!-- Modal end -->
 <?php include_once('admin_footer.php') ?>
