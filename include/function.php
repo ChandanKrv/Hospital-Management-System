@@ -442,7 +442,7 @@ function getAllData($table_name, $where_condition, $match_this)
 
 /* PATIENT FUNCTIONS */
 //CHOOSE FROM DROPDOWN
-function getDropdownDoctor($data)
+function getDropdownDoctor($data,$hms_doc_id="")
 {
     global $con;
     $getData = "SELECT * FROM user INNER JOIN doctor ON user.u_id=doctor.u_id WHERE user.hms_id !='NULL' 
@@ -456,14 +456,21 @@ function getDropdownDoctor($data)
         $fees = $row_product['d_fees'];
         if ($data == 'appointment') {
             echo "<option value='$hms_id'>$full_name ($department) -> Rs $fees/visit</option>";
-        }
+        }else if ($data == 'admission') {
+            if($hms_doc_id != "")
+            {
+                ($hms_doc_id==$hms_id)?$val="hidden":$val=""; 
+                echo "<option value='$hms_id' $val>$full_name ($department)</option>";
+            }
+           
+        }        
          else {
             echo "<option value='$hms_id'>$full_name ($department)</option>";
         }
       
     }
 }
-function getDropdownStaff()
+function getDropdownStaff($data,$hms_staff_id="")
 {
     global $con;
     $getData = "SELECT * FROM user INNER JOIN staff ON user.u_id=staff.u_id WHERE user.hms_id !='NULL' 
@@ -472,9 +479,17 @@ function getDropdownStaff()
     while ($row_product = mysqli_fetch_array($run_products)) {
         $full_name = $row_product['u_full_name'];
         $hms_id = $row_product['hms_id'];
-        $department = $row_product['s_department'];    
-            echo "<option value='$hms_id'>$full_name ($department)</option>";     
-    }
+        $department = $row_product['s_department']; 
+        if ($data == 'admission') {
+            if($hms_staff_id != "")
+            {
+                ($hms_staff_id==$hms_id)?$val="hidden":$val=""; 
+                echo "<option value='$hms_id' $val>$full_name ($department)</option>";
+            }
+           
+        }else   
+            echo "<option value='$hms_id'>$full_name ($department)</option>";
+    }     
 }
 
 function admissionDisplay()
@@ -482,7 +497,7 @@ function admissionDisplay()
      global $con;
     $getData = "SELECT * FROM admission WHERE status='pending'";
     $run_products = mysqli_query($con, $getData);
-    $count=0;    
+    $count=1;    
     while ($row_product = mysqli_fetch_array($run_products)) {
         $booked_by_hmsid_pt = $row_product['booked_by_hmsid_pt'];
         $assigned_to_hmsid_doc = $row_product['assigned_to_hmsid_doc'];       
@@ -495,12 +510,11 @@ function admissionDisplay()
         $timestamp = $row_product['timestamp'];
         $id=$row_product['id'];
         $date=substr($timestamp, 0, 10);
-        $count++;
         
         ?>      
         <form method="post">       
             <tr>
-            <th><?php echo $count ?></th>
+            <th><?php echo $count++ ?></th>
             <td><?php echo $pt_name ?></td>
             <td><?php echo $pt_email ?></td>                                                
             <td><?php echo $dept ?></td>
@@ -508,13 +522,13 @@ function admissionDisplay()
             <td>
             <select class='form-control' name='assign_doc[]'>                                                
             <option value=<?php echo $assigned_to_hmsid_doc ?> ><?php echo getOneData('user','u_full_name','hms_id',$assigned_to_hmsid_doc) ?> ( <?php echo $dept ?>)</option>
-            <?php getDropdownDoctor(null) ?>
+            <?php getDropdownDoctor("admission", $assigned_to_hmsid_doc) ?>
             </select>
             </td>
             <td>
             <select class='form-control' name='assign_staff[]' >                                                
             <option value=<?php echo $assigned_to_hmsid_staff ?> ><?php echo  getOneData('user','u_full_name','hms_id',$assigned_to_hmsid_staff) ?> (<?php echo $dept ?>)</option>
-            <?php getDropdownStaff() ?>
+            <?php getDropdownStaff("admission",$assigned_to_hmsid_staff) ?>
             </select>
             </td>
            <td><button type='submit' name="admitBtn" class='btn btn-primary'>Admit</button></td>
