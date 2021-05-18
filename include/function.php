@@ -559,7 +559,7 @@ function contactFormDisplay()
         $timestamp = $row_product['timestamp'];
 
         echo "<tr>                            
-                <th>$count++</th>                              
+                <th> $count++ </th>                              
                 <td>$name</td>
                 <td>$email</td>
                 <td>$sub</td>
