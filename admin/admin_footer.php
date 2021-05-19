@@ -4,7 +4,7 @@
                         <div class="row align-items-center">
                             <div class="col">
                                 <div class="text-sm-start text-center">
-                                   <center> <p class="mb-0 text-muted"><script>document.write(new Date().getFullYear())</script> © Doctris. Design with <i class="mdi mdi-heart text-danger"></i> by <a href="http://shreethemes.in/" target="_blank" class="text-reset">Shreethemes</a>.</p></center>
+                                   <center> <!-- <p class="mb-0 text-muted"><script>document.write(new Date().getFullYear())</script> © Doctris. Design with <i class="mdi mdi-heart text-danger"></i> by <a href="http://shreethemes.in/" target="_blank" class="text-reset">Shreethemes</a>.</p> --></center>
                                 </div>
                             </div><!--end col-->
                         </div><!--end row-->

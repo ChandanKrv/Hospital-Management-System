@@ -15,6 +15,13 @@ $time = date("g:iA", strtotime($time24h));
 $timestamp = $date . ' ' . $time24h; //Date and Time
 $timestamp12 = $date . ' ' . $time; //Date and Time
 
+function timestampToDateTime($timestamp)
+{
+    $date=substr($timestamp,0,10);
+    $time24=substr($timestamp,11,19);
+    $time = date("g:iA", strtotime($time24));
+    return  $date . ' ' . $time;
+}
 
 function ageCalculator($gimmeYourDOB)
 {
@@ -340,19 +347,41 @@ function staffGigDisplay()
 }
 
 /* DOCTOR GIG */
-function doctorGigDisplay()
+function GigDisplay($table_name,$table)
 {
     global $con;
     //For local
-    $get_product = "SELECT * FROM user INNER JOIN doctor ON user.u_id=doctor.u_id ORDER BY doctor.s_id DESC";
+    $get_product = "SELECT * FROM user INNER JOIN $table ON user.u_id=$table.u_id ";
     $run_products = mysqli_query($con, $get_product);
     while ($row_product = mysqli_fetch_array($run_products)) {
         $u_full_name = $row_product['u_full_name'];
-        $s_department = $row_product['s_department'];
-        $s_address = $row_product['s_address'];
-        $s_timings = $row_product['s_timings'];
-        $s_price = $row_product['s_price'];
-        $s_image = $row_product['s_image'];
+        if($table=="doctor")
+        {
+            $s_department = $row_product['d_department'];
+            $s_address = $row_product['d_address'];
+            $s_timings = $row_product['d_timings'];
+            $s_price = $row_product['d_price'];
+            $s_image = $row_product['d_image'];
+        }
+        else
+        if($table=="staff")
+        {
+            $s_department = $row_product['s_department'];
+            $s_address = $row_product['s_address'];
+            $s_timings = $row_product['s_timings'];
+            $s_price = $row_product['s_price'];
+            $s_image = $row_product['s_image'];
+        }
+        else
+        if($table=="patient")
+        {
+            $s_department = $row_product['p_department'];
+            $s_address = $row_product['p_address'];
+            $s_timings = $row_product['p_timings'];
+            $s_price = $row_product['p_price'];
+            $s_image = $row_product['p_image'];
+        }
+        
         /* $s_address = $row_product['$s_address'];
          */
 
@@ -421,6 +450,8 @@ function getOneData($table_name, $column_name, $where_condition, $match_this)
     $row = mysqli_fetch_array($run);
     return $row[$column_name];
 }
+
+
 /* Get all data for profile */
 
 //SELECT * FROM user INNER JOIN staff ON user.u_id=staff.u_id ORDER BY staff.s_id DESC

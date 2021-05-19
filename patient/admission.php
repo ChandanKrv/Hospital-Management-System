@@ -50,10 +50,10 @@
                 <div class="table-responsive shadow rounded">
                 <h5><u>Admission Details</u></h5>
                         <?php                      
-                            $arr['t.booked_by_hmsid_pt'] = $hms_id;                  
-                            $data= fetchAllData("admission","status","active",$arr,"booked_by_hmsid_pt");
+                                                              
+                            $data= fetchAllData("admission","t.booked_by_hmsid_pt",$hms_id,"","booked_by_hmsid_pt");
                             if(!empty($data))
-                            {
+                            { 
                             $count1=1;
                         ?>
                         <table class="table table-center bg-white mb-0">
@@ -74,6 +74,8 @@
                             <?php
                             foreach($data as $onedata)
                             {
+                            if($onedata['status']=="active" || $onedata['status']=="pending")
+                            {
                                 $doctor_name = getOneData('user','u_full_name','hms_id',$onedata['assigned_to_hmsid_doc']);
                                 $staff_name = getOneData('user','u_full_name','hms_id',$onedata['assigned_to_hmsid_staff']);
                         ?>                                      
@@ -89,6 +91,7 @@
                             </tr> 
                         <?php
                             }
+                        }
                         ?>                        
                         </tbody>
                     </table>
@@ -120,7 +123,7 @@
                                 <th class="border-bottom py-3" style="min-width: 130px;">Email</th>
                                 <th class="border-bottom py-3" style="min-width: 130px;">Department</th>
                                 <th class="border-bottom py-3" style="min-width: 140px;">Entry DateTime</th>                                                
-                                <th class="border-bottom py-3">Exit DateTime</th>
+                                <th class="border-bottom py-3" style="min-width: 140px;">Exit DateTime</th>
                                 <th class="border-bottom py-3">Amount Due</th>
                                 <th class="border-bottom py-3">Action</th>
                             </tr>
@@ -132,16 +135,26 @@
                             {
                                 $doctor_name = getOneData('user','u_full_name','hms_id',$onedata['assigned_to_hmsid_doc']);
                                 $staff_name = getOneData('user','u_full_name','hms_id',$onedata['assigned_to_hmsid_staff']);
+                                $doctor_id = getOneData('user','u_id','hms_id',$onedata['assigned_to_hmsid_staff']);
+                                $doctor_fees = getOneData('doctor','d_fees','u_id',$doctor_id);
+                                
                         ?>                                      
                             <tr>
                             <th><?php echo $count1++ ?></th>
                             <td><?php echo $onedata['pt_name'] ?></td>
                             <td><?php echo $onedata['pt_email'] ?></td>
                             <td><?php echo $onedata['dept'] ?></td>  
-                            <td><?php echo $onedata['timestamp'] ?></td>
-                            <td><?php echo $timestamp12  ?></td>                                         
-                            <td><?php echo $date  ?></td>  
-                            <td><form method="post"><input type="hidden" value="<?php echo $onedata['id'] ?>" ><button class="btn btn-primary" name="update_btn">Pay & Release</button></form></td>  
+                            <td><?php echo $time2=timestampToDateTime($onedata['timestamp']) ?></td>
+                            <td><?php echo $time1=$timestamp12  ?></td>                                         
+                            <td><?php echo "Rs ".$amount = ($doctor_fees * round((strtotime($time1) - strtotime($time2))/3600, 1));  ?></td>  
+                            <td>
+                                <form method="post">
+                                <input type="text" value="<?php echo $onedata['id'] ?>" >
+                                <input type="text" value="<?php echo $hms_id ?>" >
+                                <input type="text" value="<?php echo $amount ?>" >
+                                <button class="btn btn-primary" name="update_btn">Pay & Release</button>
+                                </form>
+                            </td>  
                             </tr> 
                         <?php
                             }
@@ -214,19 +227,12 @@
         </div>
         <!--end row-->
 
-        <!--  <div class="row text-center">
-                            <div class="col-12 mt-4">
-                                <ul class="pagination justify-content-end mb-0 list-unstyled">
-                                    <li><a href="#" class="pe-3 ps-3 pt-2 pb-2 border"> Prev</a></li>
-                                    <li class="active"><a href="#" class="pe-3 ps-3 pt-2 pb-2 border">1</a></li>
-                                    <li><a href="#" class="pe-3 ps-3 pt-2 pb-2 border">2</a></li>
-                                    <li><a href="#" class="pe-3 ps-3 pt-2 pb-2 border">Next </a></li>
-                                </ul><!--end pagination-->
+        
     </div>
     <!--end col-->
     
 </div>
-<!--end row--> -->
+<!--end row-->
 </div>
 </div>
 <!--end container-->

@@ -86,32 +86,11 @@ if (isset($_GET['ref']) && !empty($_GET['ref'])) {
 
                 <ul class="sidebar-menu pt-3">
                     <li><a href="index"><i class="uil uil-dashboard me-2 d-inline-block"></i>Dashboard</a></li>
-                    <li><a href="add-doctor-staff"><i class="uil uil-dashboard me-2 d-inline-block"></i>Add Doctor-Staff</a></li>
-                    <li class="sidebar-dropdown">
-                        <a href="javascript:void(0)"><i class="uil uil-user-md me-2 d-inline-block"></i>Admin</a>
-                        <div class="sidebar-submenu">
-                            <ul>
-                                <li><a href="doctors">Admin</a></li>
-                                <li><a href="add-doctor">Add Admin</a></li>
-                                <li><a href="dr-profile">Profile</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <!-- <li><a href="appointment"><i class="uil uil-stethoscope me-2 d-inline-block"></i>Appointment</a></li>
-                     -->
-                     <li><a href="admission"><i class="uil uil-book-medical me-2 d-inline-block"></i>Admission</a></li>
-                    <li class="sidebar-dropdown">
-                        <a href="javascript:void(0)"><i class="uil uil-user-md me-2 d-inline-block"></i>Doctors</a>
-                        <div class="sidebar-submenu">
-                            <ul>
-                                <li><a href="doctors">Doctors</a></li>
-                                <li><a href="add-doctor">Add Doctor</a></li>
-                                <li><a href="dr-profile">Profile</a></li>
-                            </ul>
-                        </div>
-                    </li>
-
-                    <li><a href="patients"><i class="uil uil-wheelchair me-2 d-inline-block"></i>Patients</a></li>
+                    <li><a href="add-doctor-staff"><i class="uil uil-dashboard me-2 d-inline-block"></i>Add Doctor-Staff</a></li>                    
+                     <li><a href="admission"><i class="uil uil-book-medical me-2 d-inline-block"></i>Admission</a></li>          
+                     <li><a href="doctors"><i class="uil uil-user-md me-2 d-inline-block"></i>Doctor</a></li>
+                    <li><a href="employee"><i class="uil uil-user me-2 d-inline-block"></i>Staff</a></li>
+                    <li><a href="patients"><i class="uil uil-wheelchair me-2 d-inline-block"></i>Patient</a></li>
 
                   <!--   <li class="sidebar-dropdown">
                         <a href="javascript:void(0)"><i class="uil uil-shopping-cart me-2 d-inline-block"></i>Pharmacy</a>
@@ -126,17 +105,7 @@ if (isset($_GET['ref']) && !empty($_GET['ref'])) {
                     </li> -->
 
 
-                    <li class="sidebar-dropdown">
-                        <a href="javascript:void(0)"><i class="uil uil-user-nurse me-2 d-inline-block"></i>Employees</a>
-                        <div class="sidebar-submenu">
-                            <ul>
-                                <li><a href="employees">Employees</a></li>
-                                <li><a href="add-employee">Add Employee</a></li>
-                                <li><a href="emp-profile">Profile</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li><a href="#"><i class="uil uil-window me-2 d-inline-block"></i>Miscellaneous</a></li>
+                    <li><a href="javascript:void(0)"><i class="uil uil-user-nurse me-2 d-inline-block"></i>Salary</a></li>
                     <li><a href="contact-forms"><i class="uil uil-window me-2 d-inline-block"></i>Contact Forms</a></li>
 
                 </ul>
