@@ -107,6 +107,7 @@ if ($IdCheck == '') {
                 <ul class="sidebar-menu pt-3">
                     <li><a href="index"><i class="uil uil-dashboard me-2 d-inline-block"></i>Dashboard</a></li>
                     <li><a href="appointment"><i class="uil uil-stethoscope me-2 d-inline-block"></i>Appointment</a></li>
+                    <li><a href="admission"><i class="uil uil-book-medical me-2 d-inline-block"></i>Admission</a></li>
                     <li><a href="patients"><i class="uil uil-user me-2 d-inline-block"></i>Patients</a></li>
 
                    <!--  <li class="sidebar-dropdown">
