@@ -89,7 +89,7 @@ if (isset($_GET['ref']) && !empty($_GET['ref'])) {
                     <li><a href="add-doctor-staff"><i class="uil uil-dashboard me-2 d-inline-block"></i>Add Doctor-Staff</a></li>                    
                      <li><a href="admission"><i class="uil uil-book-medical me-2 d-inline-block"></i>Admission</a></li>          
                      <li><a href="doctors"><i class="uil uil-user-md me-2 d-inline-block"></i>Doctor</a></li>
-                    <li><a href="employee"><i class="uil uil-user me-2 d-inline-block"></i>Staff</a></li>
+                    <li><a href="staff"><i class="uil uil-user me-2 d-inline-block"></i>Staff</a></li>
                     <li><a href="patients"><i class="uil uil-wheelchair me-2 d-inline-block"></i>Patient</a></li>
 
                   <!--   <li class="sidebar-dropdown">
