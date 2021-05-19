@@ -54,7 +54,11 @@
                                             <td><?php echo substr($onedata['timestamp'],0,10) ?></td>
                                             <td><?php echo $doctor_name  ?></td>                                         
                                             <td><?php echo $staff_name  ?></td>  
-                                            <td><form method="post"><input type="hidden" value="<?php echo $onedata['id'] ?>" ><button class="btn btn-primary" name="update_btn">Release</button></form></td>  
+                                            <td>
+                                            <form method="post">
+                                            <input type="hidden" name="updatingID" value="<?php echo $onedata['id'] ?>" >
+                                            <button class="btn btn-primary" name="update_btn">Release</button>
+                                            </form></td>  
                                             </tr> 
                                         <?php
                                             }
@@ -134,58 +138,18 @@
                 </div><!--end container-->
 
  <?php  
-        if (isset($_POST['admitBtn'])) {     
-foreach ($_POST['assign_doc'] as $value)
-{
-    $assign_doc =$value;
-    
-}
-foreach ($_POST['assign_staff'] as $value)
-{
-    $assign_staff =$value;
-}
-foreach ($_POST['id'] as $value)
-{
-    $rowId =$value;
-}
-       
-
-
-$patientName=getOneData('admission','pt_name','id',$rowId);
-$doctorName=getOneData('user','u_full_name','hms_id',$assign_doc);
-$staffName=getOneData('user','u_full_name','hms_id',$assign_staff);
-$patientEmail=getOneData('admission','pt_email','id',$rowId);
-$department=getOneData('admission','dept','id',$rowId);
-
-$mailSubject="Admission Success";
-$mailContent="Dear $patientName , \r\n
-Hospital is committed to provide efficient, 
-effective and timely service to its patients through the best medical 
-support in a clean and hygienic environment. \r\n
-Details:- \r\n
-PATIENT NAME: $patientName \r\n
-DOCTOR NAME: $doctorName \r\n
-DEPARTMENT: $department \r\n
-STAFF NAME: $staffName \r\n
-ADMITTED ON: $timestamp\r\n
-";
-
-     $dataUpdate = array(
-         'assigned_to_hmsid_doc' => $assign_doc,
-         'assigned_to_hmsid_staff' => $assign_staff,
-         'timestamp' => $timestamp,
-         'status' => 'active'   
+  if (isset($_POST['update_btn'])) {  
+    $updatingID=$_POST['updatingID'];
+     $dataUpdate = array(      
+         'status' => 'release'   
      );
-     if (updateData('admission', $dataUpdate, "WHERE id = '$rowId'")) {
-        if(SendMail($patientEmail,$mailSubject,$mailContent))           
-            echo "<script>alert('Admitted (Notification sent to patient)')</script>";           
-        else
-         echo "<script>alert('Admitted but sending mail failed')</script>";
+     if (updateData('admission', $dataUpdate, "WHERE id = '$updatingID'")) {
+        echo "<script>alert('Success')</script>";
      } else {
          echo "<script>alert('Error!!')</script>";
      }
              
-
+        header("Refresh:0");
      //Reload code needed
 
         }
