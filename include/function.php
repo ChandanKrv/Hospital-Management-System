@@ -580,4 +580,43 @@ $count++;
             </tr>";
     }
 } 
+ function doctorStaffDisplay()
+{
+    global $con;  
+    $get_product = "SELECT * FROM user WHERE u_role='doctor' OR u_role='staff' ORDER BY u_id DESC";
+    $count=0;
+    $run_products = mysqli_query($con, $get_product);
+    while ($row_product = mysqli_fetch_array($run_products)) {
+        $hms_id = $row_product['hms_id'];
+        $u_name = $row_product['u_name'];
+        $u_full_name = $row_product['u_full_name'];
+        $u_email = $row_product['u_email'];
+        $u_role = $row_product['u_role'];
+        $u_timestamp = $row_product['u_timestamp'];
+        $u_id=$row_product['u_id'];
+
+       if($u_role=='doctor'){
+          $gender = getOneData('doctor','d_gender','u_id',$u_id);
+          $department = getOneData('doctor','d_department','u_id',$u_id);
+          $role="Doctor";
+       }else{
+          $gender = getOneData('staff','s_gender','u_id',$u_id);
+          $department = getOneData('staff','s_department','u_id',$u_id);
+          $role="Staff";
+       }
+
+
+        $count++;
+        echo "<tr>                            
+                <th>$count</th>                              
+                <td>$u_full_name</td>   
+                <td>$u_email</td>
+                <td>$department</td>  
+                <td>$role</td>
+                <td>$gender </td> 
+                <td>$hms_id</td>                                           
+                <td>$u_timestamp</td>                            
+            </tr>";
+    }
+} 
 

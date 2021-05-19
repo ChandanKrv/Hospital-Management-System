@@ -50,47 +50,18 @@
                     <table class="table table-center bg-white mb-0">
                         <thead>
                             <tr>
-                                <th class="border-bottom py-3" style="min-width: 50px;">#</th>
-                                <th class="border-bottom py-3" style="min-width: 180px;">Name</th>
-                                <th class="border-bottom py-3" style="min-width: 150px;">Email</th>
-                                <th class="border-bottom py-3">Age</th>
-                                <th class="border-bottom py-3">Gender</th>
+                                <th class="border-bottom py-3" style="min-width: 30px;">#</th>
+                                 <th class="border-bottom py-3">Name</th>                               
+                                <th class="border-bottom py-3" >Email</th>
                                 <th class="border-bottom py-3">Department</th>
-                                <th class="border-bottom py-3" style="min-width: 150px;">Date</th>
-                                <th class="border-bottom py-3">Time</th>
-                                <th class="border-bottom py-3" style="min-width: 220px;">Doctor</th>
-                                <th class="border-bottom py-3">Fees</th>
+                                <th class="border-bottom py-3">Role</th>
+                                 <th class="border-bottom py-3">Gender</th>
+                                <th class="border-bottom py-3">HMS-Id</th>                               
+                                <th class="border-bottom py-3" >Date Time</th>                             
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <th>1</th>
-                                <td class="py-3">
-                                    <a href="#" class="text-dark">
-                                        <div class="d-flex align-items-center">
-                                            <img src="../assets/images/client/01.jpg" class="avatar avatar-md-sm rounded-circle shadow" alt="">
-                                            <span class="ms-2">Howard Tanner</span>
-                                        </div>
-                                    </a>
-                                </td>
-                                <td>howard@contact.com</td>
-                                <td>25</td>
-                                <td>Male</td>
-                                <td>Cardiology</td>
-                                <td>20th Dec 2020</td>
-                                <td>11:00AM</td>
-                                <td>
-                                    <a href="#" class="text-dark">
-                                        <div class="d-flex align-items-center">
-                                            <img src="../assets/images/doctors/01.jpg" class="avatar avatar-md-sm rounded-circle border shadow" alt="">
-                                            <span class="ms-2">Dr. Calvin Carlo</span>
-                                        </div>
-                                    </a>
-                                </td>
-                                <td>$50/Patient</td>
-                            </tr>
-
-
+                        <tbody>                       
+                             <?php echo doctorStaffDisplay(); ?>
                         </tbody>
                     </table>
                 </div>
