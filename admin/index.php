@@ -121,6 +121,7 @@
                                 </div>
                             </div><!--end col-->
                         </div><!--end row-->
-                    </div>
+
+            </div>
                 </div><!--end container-->
                 <?php include_once('admin_footer.php') ?>
