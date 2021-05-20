@@ -174,6 +174,16 @@ function countRows($table_name, $where_condition, $match_this)
     return $counted;
 }
 
+
+function totalSum($table,$col_name,$where_condition, $match_this){
+   global $con;
+
+    $getData = "SELECT SUM($col_name) FROM $table WHERE $where_condition='$match_this'";
+    $run = mysqli_query($con, $getData);
+    $sum = mysqli_fetch_array($run);
+    return $sum[0]; 
+}
+
 function patientTokenGeneration($doctor_hms_id, $patient_hms_id, $appointment_date)
 {
     global $mysqli;
