@@ -42,8 +42,8 @@
                             </div>
                             <div class="card-body p-0 mt-3">
                                 <h5>Phone</h5>
-                                <p class="text-muted mt-3">Great doctor if you need your family member to get effective assistance</p>
-                                <a href="tel:+152534-468-854" class="link">+91 98574 8806</a>
+                                <p class="text-muted mt-3">Contact us in this phone number</p>
+                                <a href="tel:+91-98574-8806" class="link">+91 98574 8806</a>
                             </div>
                         </div>
                     </div><!--end col-->
@@ -55,8 +55,8 @@
                             </div>
                             <div class="card-body p-0 mt-3">
                                 <h5>Email</h5>
-                                <p class="text-muted mt-3">Great doctor if you need your family member to get effective assistance</p>
-                                <a href="mailto:contact@example.com" class="link">contact@softcse.ml.com</a>
+                                <p class="text-muted mt-3">Mail us in this email address</p>
+                                <a href="mailto:contact@softcse.ml.comy" class="link">contact@softcse.ml.com</a>
                             </div>
                         </div>
                     </div><!--end col-->
