@@ -15,7 +15,7 @@
                             </div><!--end col-->
 
                             <div class="col-xl-3 col-md-6 mt-4 mt-md-0 text-md-end">
-                                <a href="add-doctor" class="btn btn-primary">Add New Doctor</a>
+                                <a href="add-doctor-staff" class="btn btn-primary">Add New Doctor</a>
                             </div><!--end col-->
                         </div><!--end row-->
                         
@@ -23,7 +23,7 @@
 
 
                         
-                        <?php doctorGigDisplay(); ?>
+                        <?php GigDisplay("doctor"); ?>
                             
                             
                          

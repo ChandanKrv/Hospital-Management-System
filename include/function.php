@@ -347,41 +347,19 @@ function staffGigDisplay()
 }
 
 /* DOCTOR GIG */
-function GigDisplay($table_name,$table)
+function doctorGigDisplay()
 {
     global $con;
     //For local
-    $get_product = "SELECT * FROM user INNER JOIN $table ON user.u_id=$table.u_id ";
+    $get_product = "SELECT * FROM user INNER JOIN doctor ON user.u_id=doctor.u_id ORDER BY doctor.s_id DESC";
     $run_products = mysqli_query($con, $get_product);
     while ($row_product = mysqli_fetch_array($run_products)) {
         $u_full_name = $row_product['u_full_name'];
-        if($table=="doctor")
-        {
-            $s_department = $row_product['d_department'];
-            $s_address = $row_product['d_address'];
-            $s_timings = $row_product['d_timings'];
-            $s_price = $row_product['d_price'];
-            $s_image = $row_product['d_image'];
-        }
-        else
-        if($table=="staff")
-        {
-            $s_department = $row_product['s_department'];
-            $s_address = $row_product['s_address'];
-            $s_timings = $row_product['s_timings'];
-            $s_price = $row_product['s_price'];
-            $s_image = $row_product['s_image'];
-        }
-        else
-        if($table=="patient")
-        {
-            $s_department = $row_product['p_department'];
-            $s_address = $row_product['p_address'];
-            $s_timings = $row_product['p_timings'];
-            $s_price = $row_product['p_price'];
-            $s_image = $row_product['p_image'];
-        }
-        
+        $s_department = $row_product['s_department'];
+        $s_address = $row_product['s_address'];
+        $s_timings = $row_product['s_timings'];
+        $s_price = $row_product['s_price'];
+        $s_image = $row_product['s_image'];
         /* $s_address = $row_product['$s_address'];
          */
 
@@ -423,7 +401,48 @@ function GigDisplay($table_name,$table)
 }
 
 
+function GigDisplay($table)
+{
+    global $con;
+    //For local
+    $get_product = "SELECT * FROM user INNER JOIN $table ON user.u_id=$table.u_id ";
+    $run_products = mysqli_query($con, $get_product);
+    while ($row_product = mysqli_fetch_array($run_products)) {
+        $full_name = $row_product['u_full_name'];
+        if($table=="doctor")
+        {
+            $department = $row_product['d_department'];
+            $image = $row_product['d_image'];
+        }
+        else
+        if($table=="staff")
+        {
+            $department = $row_product['s_department'];
+            $image = $row_product['s_image'];
+        }
+        else
+        if($table=="patient")
+        {
+            $department = "";
+            $image = $row_product['p_image'];
+        }
 
+        if($image=="")
+            $image="https://cdn.pixabay.com/photo/2015/03/04/22/35/head-659652_960_720.png";
+        
+        echo "<div class='col-xl col-lg-4 col-md-6 mt-4'>
+                    <div class='card team border-0 rounded shadow overflow-hidden'>
+                        <div class='team-img position-relative'>
+                            <img src='../assets/images/doctors_img/$image' class='img-fluid' alt=''>
+                        </div>
+                        <div class='card-body content text-center'>
+                            <a href='dr-profile' class='title text-dark h5 d-block mb-0'>$full_name</a>
+                            <small class='text-muted speciality'>$department</small>
+                        </div>
+                    </div>
+                </div>";
+    }
+}
 
 
 
