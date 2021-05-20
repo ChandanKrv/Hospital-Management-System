@@ -2,10 +2,14 @@
 //Session Checking
 if (!isset($_SESSION['email'])) {
    
-     if (!isset($_GET['id'])) {
+     if (!isset($_GET['rowId'])) {
+               echo "<script>alert('Row-Id is missing')</script>";
+               echo "<script> location.href='../'; </script>";   
+    }
+     if (!isset($_GET['hmsId'])) {
                echo "<script>alert('HMS-Id is missing')</script>";
                echo "<script> location.href='../'; </script>";   
-           }
+    }
            if (!isset($_GET['amt'])) {
         echo "<script>alert('Amount is missing')</script>";
         echo "<script> location.href='../'; </script>";    
@@ -22,9 +26,9 @@ if (!isset($_SESSION['email'])) {
 
 include_once('../include/function.php');
 
-$hms_id = cleanInput($_GET['id']);
+$hms_id = cleanInput($_GET['hmsId']);
+$rowId = cleanInput($_GET['rowId']);
 $amt = cleanInput($_GET['amt']);
-
 
  
 ?>
@@ -54,12 +58,13 @@ $amt = cleanInput($_GET['amt']);
         
         var hms_id = "<?php echo "$hms_id" ?>";    
         var amt = "<?php echo "$amt" ?>";      
+        var rowId = "<?php echo "$rowId" ?>";      
 
 
          jQuery.ajax({
                type:'post',
                url:'payment_process.php',
-               data:"amt="+amt+"&hms_id="+hms_id,
+               data:"amt="+amt+"&hms_id="+hms_id+"&rowId="+rowId,
                success:function(result){
                    var options = {
                         "key": "rzp_test_pR7jTONv04Fa0d", 
