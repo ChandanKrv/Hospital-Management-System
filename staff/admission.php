@@ -1,4 +1,4 @@
-<?php include_once('doctor_header.php') ?>
+<?php include_once('staff_header.php') ?>
 <div class="container-fluid">
                     <div class="layout-specing">
                         <div class="row">
@@ -21,8 +21,8 @@
                                 <div class="table-responsive shadow rounded">
                                 <h5><u>Patient Admitted</u></h5>
                                         <?php                      
-                                            $arr['t.assigned_to_hmsid_doc'] = $hms_id;                  
-                                            $data= fetchAllData("admission","status","active",$arr,"assigned_to_hmsid_doc");
+                                            $arr['t.assigned_to_hmsid_staff'] = $hms_id;                  
+                                            $data= fetchAllData("admission","status","active",$arr,"assigned_to_hmsid_staff");
                                             if(!empty($data))
                                             {
                                             $count1=1;
@@ -33,10 +33,10 @@
                                                <th class="border-bottom py-3" style="min-width: 30px;">#</th>
                                                 <th class="border-bottom py-3" style="min-width: 130px;">Name</th>
                                                 <th class="border-bottom py-3" style="min-width: 130px;">Email</th>
+                                                <th class="border-bottom py-3" style="min-width: 130px;">Department</th>
                                                 <th class="border-bottom py-3" style="min-width: 140px;">Date</th>                                                
                                                 <th class="border-bottom py-3">Doctor</th>
                                                 <th class="border-bottom py-3">Staff</th>
-                                                <th class="border-bottom py-3">Action</th>
                                             </tr>
                                         </thead> 
                                                                              
@@ -51,10 +51,10 @@
                                             <th><?php echo $count1++ ?></th>
                                             <td><?php echo $onedata['pt_name'] ?></td>
                                             <td><?php echo $onedata['pt_email'] ?></td>
+                                            <td><?php echo $onedata['dept'] ?></td>  
                                             <td><?php echo substr($onedata['timestamp'],0,10) ?></td>
                                             <td><?php echo $doctor_name  ?></td>                                         
                                             <td><?php echo $staff_name  ?></td>  
-                                            <td><form method="post"><input type="hidden" value="<?php echo $onedata['id'] ?>" ><button class="btn btn-primary" name="update_btn">Release</button></form></td>  
                                             </tr> 
                                         <?php
                                             }
@@ -75,8 +75,8 @@
                                 <div class="table-responsive shadow rounded">
                                 <h5><u>Patient Released</u></h5>
                                         <?php       
-                                            $arr1['t.assigned_to_hmsid_doc'] =$hms_id;                          
-                                            $data= fetchAllData("admission","status","inactive",$arr1,"assigned_to_hmsid_doc");
+                                            $arr1['t.assigned_to_hmsid_staff'] =$hms_id;                          
+                                            $data= fetchAllData("admission","status","inactive",$arr1,"assigned_to_hmsid_staff");
                                             if(!empty($data))
                                             {
                                             $count2=1;
@@ -193,4 +193,4 @@ ADMITTED ON: $timestamp\r\n
         ?>
        
         <!-- Modal end -->
-<?php include_once('doctor_footer.php') ?>
+<?php include_once('staff_footer.php') ?>

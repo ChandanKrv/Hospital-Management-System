@@ -44,59 +44,171 @@
         </div>
         <!--end row-->
 
-        <div class="row">
+        <div class="row">  
+                            
             <div class="col-12 mt-4">
                 <div class="table-responsive shadow rounded">
-                    <table class="table table-center bg-white mb-0">
+                <h5><u>Admission Details</u></h5>
+                        <?php                      
+                            $arr['t.booked_by_hmsid_pt'] = $hms_id;                  
+                            $data= fetchAllData("admission","status","active",$arr,"booked_by_hmsid_pt");
+                            if(!empty($data))
+                            {
+                            $count1=1;
+                        ?>
+                        <table class="table table-center bg-white mb-0">
                         <thead>
                             <tr>
-                                <th class="border-bottom py-3" style="min-width: 50px;">#</th>
-                                <th class="border-bottom py-3" style="min-width: 180px;">Name</th>
-                                <th class="border-bottom py-3" style="min-width: 150px;">Email</th>
-                                <th class="border-bottom py-3">Age</th>
-                                <th class="border-bottom py-3">Gender</th>
-                                <th class="border-bottom py-3">Department</th>
-                                <th class="border-bottom py-3" style="min-width: 150px;">Date</th>
-                                <th class="border-bottom py-3">Time</th>
-                                <th class="border-bottom py-3" style="min-width: 220px;">Doctor</th>
-                                <th class="border-bottom py-3">Fees</th>
-                                <th class="border-bottom py-3" style="min-width: 150px;"></th>
+                                <th class="border-bottom py-3" style="min-width: 30px;">#</th>
+                                <th class="border-bottom py-3" style="min-width: 130px;">Name</th>
+                                <th class="border-bottom py-3" style="min-width: 130px;">Email</th>
+                                <th class="border-bottom py-3" style="min-width: 130px;">Department</th>
+                                <th class="border-bottom py-3" style="min-width: 140px;">Date</th>                                                
+                                <th class="border-bottom py-3">Doctor</th>
+                                <th class="border-bottom py-3">Staff</th>
+                                <th class="border-bottom py-3">Status</th>
                             </tr>
-                        </thead>
+                        </thead> 
+                                                                
                         <tbody>
+                            <?php
+                            foreach($data as $onedata)
+                            {
+                                $doctor_name = getOneData('user','u_full_name','hms_id',$onedata['assigned_to_hmsid_doc']);
+                                $staff_name = getOneData('user','u_full_name','hms_id',$onedata['assigned_to_hmsid_staff']);
+                        ?>                                      
                             <tr>
-                                <th>1</th>
-                                <td class="py-3">
-                                    <a href="#" class="text-dark">
-                                        <div class="d-flex align-items-center">
-                                            <img src="../assets/images/client/01.jpg" class="avatar avatar-md-sm rounded-circle shadow" alt="">
-                                            <span class="ms-2">Howard Tanner</span>
-                                        </div>
-                                    </a>
-                                </td>
-                                <td>howard@contact.com</td>
-                                <td>25</td>
-                                <td>Male</td>
-                                <td>Cardiology</td>
-                                <td>20th Dec 2020</td>
-                                <td>11:00AM</td>
-                                <td>
-                                    <a href="#" class="text-dark">
-                                        <div class="d-flex align-items-center">
-                                            <img src="../assets/images/doctors/01.jpg" class="avatar avatar-md-sm rounded-circle border shadow" alt="">
-                                            <span class="ms-2">Dr. Calvin Carlo</span>
-                                        </div>
-                                    </a>
-                                </td>
-                                <td>$50/Patient</td>
-                                <td class="text-end">
-                                    <a href="#" class="btn btn-icon btn-pills btn-soft-primary" data-bs-toggle="modal" data-bs-target="#viewadmission"><i class="uil uil-eye"></i></a>
-                                    <a href="#" class="btn btn-icon btn-pills btn-soft-success" data-bs-toggle="modal" data-bs-target="#acceptadmission"><i class="uil uil-check-circle"></i></a>
-                                    <a href="#" class="btn btn-icon btn-pills btn-soft-danger" data-bs-toggle="modal" data-bs-target="#canceladmission"><i class="uil uil-times-circle"></i></a>
-                                </td>
-                            </tr>
+                            <th><?php echo $count1++ ?></th>
+                            <td><?php echo $onedata['pt_name'] ?></td>
+                            <td><?php echo $onedata['pt_email'] ?></td>
+                            <td><?php echo $onedata['dept'] ?></td>  
+                            <td><?php echo substr($onedata['timestamp'],0,10) ?></td>
+                            <td><?php echo $doctor_name  ?></td>                                         
+                            <td><?php echo $staff_name  ?></td>  
+                            <td ><?php echo ($onedata['status'] == "active")?"Admitted":"Request Pending"; ?></td>  
+                            </tr> 
+                        <?php
+                            }
+                        ?>                        
                         </tbody>
                     </table>
+                    <?php                                        
+                            }
+                            else
+                            {
+                                echo "<h4>No data found</h4>";
+                            }
+                        ?>
+                </div>
+            </div>
+            
+            <div class="col-12 mt-4">
+                <div class="table-responsive shadow rounded">
+                <h5><u>Release Pending</u></h5>
+                        <?php                      
+                            $arr['t.booked_by_hmsid_pt'] = $hms_id;                  
+                            $data= fetchAllData("admission","status","release",$arr,"booked_by_hmsid_pt");
+                            if(!empty($data))
+                            {
+                            $count1=1;
+                        ?>
+                        <table class="table table-center bg-white mb-0">
+                        <thead>
+                            <tr>
+                                <th class="border-bottom py-3" style="min-width: 30px;">#</th>
+                                <th class="border-bottom py-3" style="min-width: 130px;">Name</th>
+                                <th class="border-bottom py-3" style="min-width: 130px;">Email</th>
+                                <th class="border-bottom py-3" style="min-width: 130px;">Department</th>
+                                <th class="border-bottom py-3" style="min-width: 140px;">Entry DateTime</th>                                                
+                                <th class="border-bottom py-3">Exit DateTime</th>
+                                <th class="border-bottom py-3">Amount Due</th>
+                                <th class="border-bottom py-3">Action</th>
+                            </tr>
+                        </thead> 
+                                                                
+                        <tbody>
+                            <?php
+                            foreach($data as $onedata)
+                            {
+                                $doctor_name = getOneData('user','u_full_name','hms_id',$onedata['assigned_to_hmsid_doc']);
+                                $staff_name = getOneData('user','u_full_name','hms_id',$onedata['assigned_to_hmsid_staff']);
+                        ?>                                      
+                            <tr>
+                            <th><?php echo $count1++ ?></th>
+                            <td><?php echo $onedata['pt_name'] ?></td>
+                            <td><?php echo $onedata['pt_email'] ?></td>
+                            <td><?php echo $onedata['dept'] ?></td>  
+                            <td><?php echo $onedata['timestamp'] ?></td>
+                            <td><?php echo $timestamp12  ?></td>                                         
+                            <td><?php echo $date  ?></td>  
+                            <td><form method="post"><input type="hidden" value="<?php echo $onedata['id'] ?>" ><button class="btn btn-primary" name="update_btn">Pay & Release</button></form></td>  
+                            </tr> 
+                        <?php
+                            }
+                        ?>                        
+                        </tbody>
+                    </table>
+                    <?php                                        
+                            }
+                            else
+                            {
+                                echo "<h4>No data found</h4>";
+                            }
+                        ?>
+                </div>
+            </div>
+
+            <div class="col-12 mt-4">
+                <div class="table-responsive shadow rounded">
+                <h5><u>Release Details</u></h5>
+                        <?php                      
+                            $arr['t.booked_by_hmsid_pt'] = $hms_id;                  
+                            $data= fetchAllData("admission","status","inactive",$arr,"booked_by_hmsid_pt");
+                            if(!empty($data))
+                            {
+                            $count1=1;
+                        ?>
+                        <table class="table table-center bg-white mb-0">
+                        <thead>
+                            <tr>
+                                <th class="border-bottom py-3" style="min-width: 30px;">#</th>
+                                <th class="border-bottom py-3" style="min-width: 130px;">Name</th>
+                                <th class="border-bottom py-3" style="min-width: 130px;">Email</th>
+                                <th class="border-bottom py-3" style="min-width: 130px;">Department</th>
+                                <th class="border-bottom py-3" style="min-width: 140px;">Date</th>                                                
+                                <th class="border-bottom py-3">Doctor</th>
+                                <th class="border-bottom py-3">Staff</th>
+                            </tr>
+                        </thead> 
+                                                                
+                        <tbody>
+                            <?php
+                            foreach($data as $onedata)
+                            {
+                                $doctor_name = getOneData('user','u_full_name','hms_id',$onedata['assigned_to_hmsid_doc']);
+                                $staff_name = getOneData('user','u_full_name','hms_id',$onedata['assigned_to_hmsid_staff']);
+                        ?>                                      
+                            <tr>
+                            <th><?php echo $count1++ ?></th>
+                            <td><?php echo $onedata['pt_name'] ?></td>
+                            <td><?php echo $onedata['pt_email'] ?></td>
+                            <td><?php echo $onedata['dept'] ?></td>  
+                            <td><?php echo substr($onedata['timestamp'],0,10) ?></td>
+                            <td><?php echo $doctor_name  ?></td>                                         
+                            <td><?php echo $staff_name  ?></td>  
+                            </tr> 
+                        <?php
+                            }
+                        ?>                        
+                        </tbody>
+                    </table>
+                    <?php                                        
+                            }
+                            else
+                            {
+                                echo "<h4>No data found</h4>";
+                            }
+                        ?>
                 </div>
             </div>
         </div>
@@ -112,6 +224,7 @@
                                 </ul><!--end pagination-->
     </div>
     <!--end col-->
+    
 </div>
 <!--end row--> -->
 </div>
@@ -177,7 +290,7 @@
                             <div class="mb-3">
                                 <label class="form-label">Doctor</label>
                                 <select name="hms_id_dc" class="form-control department-name select2input">
-                               <?php getDropdownDoctor(null); ?>
+                               <?php getDropdownDoctor(); ?>
                                 </select>
                             </div>
                         </div>

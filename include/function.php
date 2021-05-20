@@ -13,6 +13,7 @@ $plusOneYear = date('Y-m-d', strtotime('+1 year'));
 $time24h = date('H:i:s');
 $time = date("g:iA", strtotime($time24h));
 $timestamp = $date . ' ' . $time24h; //Date and Time
+$timestamp12 = $date . ' ' . $time; //Date and Time
 
 
 function ageCalculator($gimmeYourDOB)
@@ -436,7 +437,7 @@ function getAllData($table_name, $where_condition, $match_this)
 
 /* PATIENT FUNCTIONS */
 //CHOOSE FROM DROPDOWN
-function getDropdownDoctor($data,$hms_doc_id="")
+function getDropdownDoctor($data="",$hms_doc_id="")
 {
     global $con;
     $getData = "SELECT * FROM user INNER JOIN doctor ON user.u_id=doctor.u_id WHERE user.hms_id !='NULL' 
@@ -464,7 +465,7 @@ function getDropdownDoctor($data,$hms_doc_id="")
       
     }
 }
-function getDropdownStaff($data,$hms_staff_id="")
+function getDropdownStaff($data="",$hms_staff_id="")
 {
     global $con;
     $getData = "SELECT * FROM user INNER JOIN staff ON user.u_id=staff.u_id WHERE user.hms_id !='NULL' 
@@ -539,7 +540,7 @@ function admissionDisplay()
 function fetchAllData($table_name,$col1_name,$col1_value,$where_arr="")
 {
     global $con;
-    $getData = "SELECT * FROM $table_name WHERE $col1_name ='$col1_value' ";
+    $getData = "SELECT * FROM $table_name as t WHERE $col1_name ='$col1_value' ";
     if($where_arr != "")
     {
         foreach($where_arr as $key=>$value)
