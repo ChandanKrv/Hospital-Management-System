@@ -1,13 +1,13 @@
 var options = {
     series: [{
         name: 'Male',
-        data: [300, 250, 548, 440, 550, 570, 560, 610, 580, 630, 600, 660]
+        data: [3, 2, 5, 4, 5, 5, 5, 6, 5, 6, 6, 6]
     }, {
         name: 'Female',
-        data: [256, 480, 560, 760, 850, 1010, 980, 870, 1050, 910, 1140, 940]
+        data: [2, 4, 5, 7, 8, 10, 9, 8, 10, 9, 11, 9]
     }, {
         name: 'Children',
-        data: [480, 223, 256, 350, 410, 360, 260, 450, 480, 520, 530, 410]
+        data: [4, 2, 2, 3, 4, 3, 2, 4, 4, 5, 5, 4]
     }],
     chart: {
         type: 'bar',
@@ -93,7 +93,7 @@ var options = {
                     show: true,
                     label: 'Total',
                     formatter: function (w) {
-                        return 280 + ' ' + 'Patients'
+                        return 8 + ' ' + 'Patients'
                     }
                 }
             }
