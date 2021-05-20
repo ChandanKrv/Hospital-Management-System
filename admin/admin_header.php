@@ -141,7 +141,7 @@ if (isset($_GET['ref']) && !empty($_GET['ref'])) {
                     </div>
 
                     <ul class="list-unstyled mb-0">
-                        <li class="list-inline-item mb-0 ms-1">
+                    <!--     <li class="list-inline-item mb-0 ms-1">
                             <div class="dropdown dropdown-primary">
                                 <button type="button" class="btn btn-icon btn-pills btn-soft-primary dropdown-toggle p-0" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="uil uil-bell icons"></i></button>
                                 <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">3 <span class="visually-hidden">unread messages</span></span>
@@ -190,9 +190,9 @@ if (isset($_GET['ref']) && !empty($_GET['ref'])) {
                                     </a>
                                 </div>
                             </div>
-                        </li>
+                        </li> -->
 
-                        <li class="list-inline-item mb-0 ms-1">
+                      <!--   <li class="list-inline-item mb-0 ms-1">
                             <div class="dropdown dropdown-primary">
                                 <button type="button" class="btn btn-icon btn-pills btn-soft-primary dropdown-toggle p-0" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="uil uil-envelope icons"></i></button>
                                 <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">4 <span class="visually-hidden">unread mail</span></span>
@@ -241,7 +241,7 @@ if (isset($_GET['ref']) && !empty($_GET['ref'])) {
                                     </a>
                                 </div>
                             </div>
-                        </li>
+                        </li> -->
 
                         <li class="list-inline-item mb-0 ms-1">
                             <div class="dropdown dropdown-primary">
@@ -254,8 +254,8 @@ if (isset($_GET['ref']) && !empty($_GET['ref'])) {
                                             <small class="text-muted">Orthopedic</small>
                                         </div>
                                     </a>
-                                    <a class="dropdown-item text-dark" href="index-2.html"><span class="mb-0 d-inline-block me-1"><i class="uil uil-dashboard align-middle h6"></i></span> Dashboard</a>
-                                    <a class="dropdown-item text-dark" href="dr-profile.html"><span class="mb-0 d-inline-block me-1"><i class="uil uil-setting align-middle h6"></i></span> Profile Settings</a>
+                                    <a class="dropdown-item text-dark" href="index"><span class="mb-0 d-inline-block me-1"><i class="uil uil-dashboard align-middle h6"></i></span> Dashboard</a>
+                                 <!--    <a class="dropdown-item text-dark" href="dr-profile.html"><span class="mb-0 d-inline-block me-1"><i class="uil uil-setting align-middle h6"></i></span> Profile Settings</a> -->
                                     <div class="dropdown-divider border-top"></div>
                                     <a class="dropdown-item text-dark" href="../login/logout"><span class="mb-0 d-inline-block me-1"><i class="uil uil-sign-out-alt align-middle h6"></i></span> Logout</a>
                                 </div>

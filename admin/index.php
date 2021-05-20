@@ -20,21 +20,7 @@
                                     </div>
                                 </div>
                             </div><!--end col-->
-                            
-                            <div class="col-xl-2 col-lg-4 col-md-4 mt-4">
-                                <div class="card features feature-primary rounded border-0 shadow p-4">
-                                    <div class="d-flex align-items-center">
-                                        <div class="icon text-center rounded-md">
-                                            <i class="uil uil-file-medical-alt h3 mb-0"></i>
-                                        </div>
-                                        <div class="flex-1 ms-2">
-                                            <h5 class="mb-0">$2164</h5>
-                                            <p class="text-muted mb-0">Total Payments</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div><!--end col-->
-
+                         
                             <div class="col-xl-2 col-lg-4 col-md-4 mt-4">
                                 <div class="card features feature-primary rounded border-0 shadow p-4">
                                     <div class="d-flex align-items-center">
@@ -91,6 +77,22 @@
                                     </div>
                                 </div>
                             </div><!--end col-->
+
+   
+                            <div class="col-xl-2 col-lg-4 col-md-4 mt-4">
+                                <div class="card features feature-primary rounded border-0 shadow p-4">
+                                    <div class="d-flex align-items-center">
+                                        <div class="icon text-center rounded-md">
+                                            <i class="uil uil-file-medical-alt h3 mb-0"></i>
+                                        </div>
+                                        <div class="flex-1 ms-2">
+                                            <h5 class="mb-0">$2164</h5>
+                                            <p class="text-muted mb-0">Total Payments</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!--end col-->
+
                         </div><!--end row-->
 
                         <div class="row">
