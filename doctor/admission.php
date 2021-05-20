@@ -149,7 +149,7 @@
          echo "<script>alert('Error!!')</script>";
      }
              
-
+        header("Refresh:0");
      //Reload code needed
 
         }
