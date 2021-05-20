@@ -1,20 +1,32 @@
 <?php
-if (isset($_SESSION['email']) && !empty($_SESSION['email']) {
-    header("location:../login/login-user.php");
+//Session Checking
+if (!isset($_SESSION['email'])) {
+   
+     if (!isset($_GET['id'])) {
+               echo "<script>alert('HMS-Id is missing')</script>";
+               echo "<script> location.href='../'; </script>";   
+           }
+           if (!isset($_GET['amt'])) {
+        echo "<script>alert('Amount is missing')</script>";
+        echo "<script> location.href='../'; </script>";    
+  }
+       
+       
+} else {
+  echo "<script>alert('Please login as a patient')</script>";
+   echo "<script>alert('Alert!! HEoo else')</script>";
 }
-include_once('../include/function.php');
 
+
+ 
+
+include_once('../include/function.php');
 
 $hms_id = cleanInput($_GET['id']);
 $amt = cleanInput($_GET['amt']);
 
-if(empty($hms_id) or empty($amt)){
-    echo "<script>alert('Amount or HMS-Id is missing')</script>";
-    echo "<script>location.href='../index'</script>";
-    exit();
-}
 
-
+ 
 ?>
 
 
