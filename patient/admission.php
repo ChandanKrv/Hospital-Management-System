@@ -138,6 +138,7 @@
                                 $doctor_id = getOneData('user','u_id','hms_id',$onedata['assigned_to_hmsid_staff']);
                                 $doctor_fees = getOneData('doctor','d_fees','u_id',$doctor_id);
                                 
+                                
                         ?>                                      
                             <tr>
                             <th><?php echo $count1++ ?></th>
@@ -148,16 +149,14 @@
                             <td><?php echo $time1=$timestamp12  ?></td>                                         
                             <td><?php echo "Rs ".$amount = ($doctor_fees * round((strtotime($time1) - strtotime($time2))/3600, 1));  ?></td>  
                             <td>
-                                <form method="post">
-                                <input type="text" value="<?php echo $onedata['id'] ?>" >
-                                <input type="text" value="<?php echo $hms_id ?>" >
-                                <input type="text" value="<?php echo $amount ?>" >
-                                <button class="btn btn-primary" name="update_btn">Pay & Release</button>
-                                </form>
+                                    
+                                <a href="../payment?rowId=<?php echo $onedata['id'] ?>&hmsId=<?php echo $hms_id ?>&amt=<?php echo $amount ?>" class="btn btn-primary">Pay & Release</a>
+                             
                             </td>  
                             </tr> 
                         <?php
                             }
+                           
                         ?>                        
                         </tbody>
                     </table>
@@ -467,6 +466,10 @@ if (isset($_POST['bookAnAdm'])) {
         echo "<script>alert('Error!!')</script>";
     }
 }
+
+
+
+
 
 ?>
 
