@@ -1,3 +1,23 @@
+<?php
+if (isset($_SESSION['email']) && !empty($_SESSION['email']) {
+    header("location:../login/login-user.php");
+}
+include_once('../include/function.php');
+
+
+$hms_id = cleanInput($_GET['id']);
+$amt = cleanInput($_GET['amt']);
+
+if(empty($hms_id) or empty($amt)){
+    echo "<script>alert('Amount or HMS-Id is missing')</script>";
+    echo "<script>location.href='../index'</script>";
+    exit();
+}
+
+
+?>
+
+
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <form>
@@ -6,11 +26,24 @@
     <input type="button" name="btn" id="btn" value="Pay Now" onclick="pay_now()"/>
 </form>
 
+
+<body onload="pay_now()">
+
+<button onclick="pay_now()"> Continue </button>
+
+</body>
+
+
+
 <script>
     function pay_now(){       
-       var hms_id=jQuery('#hms_id').val();
-       var amt=jQuery('#amt').val(); 
+ /*       var hms_id=jQuery('#hms_id').val();
+       var amt=jQuery('#amt').val();  */
         
+        var hms_id = "<?php echo "$hms_id" ?>";    
+        var amt = "<?php echo "$amt" ?>";      
+
+
          jQuery.ajax({
                type:'post',
                url:'payment_process.php',
