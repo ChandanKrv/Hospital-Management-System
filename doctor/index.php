@@ -7,127 +7,53 @@ if ($IdCheck == '') {
 ?>
 
 <div class="container-fluid">
-    <div class="layout-specing">
+    <div class="layout-specing" style="background-color:#f8f9fc">
         <h5 class="mb-0">Doctor's Dashboard</h5>
 
         <br>
-                <div class="card container mt-100 mt-60 layout-spec" style="background-color:#ffffff">
-                <div class="row justify-content-center">
-                    <div class="col-12">
-                        <div class="section-title mb-4 pb-2 text-center">
-                            <span class="badge badge-pill badge-soft-primary mb-3">Departments</span>
-                            <h4 class="title mb-4">Our Medical Services</h4>
-                            <p class="text-muted mx-auto para-desc mb-0">Great doctor if you need your family member to get effective immediate assistance, emergency treatment or a simple consultation.</p>
-                        </div>
-                    </div><!--end col-->
-                </div><!--end row-->
-
+                <!-- Cta Start -->
+        <section class="section" style="background: url('../index/images/cta.jpg') center center;">
+            <div class="bg-overlay" style="opacity: 0.3;"></div>
+            <div class="container">
                 <div class="row">
-                    <div class="col-xl-3 col-md-4 col-12 mt-5">
-                        <div class="card features feature-primary border-0">
-                            <div class="icon text-center rounded-md">
-                                <i class="ri-eye-fill h3 mb-0"></i>
+                    <div class="col-lg-5 offset-lg-7 col-md-7 offset-md-5">
+                        <div class="features feature-bg-primary d-flex bg-white p-4 rounded-md shadow position-relative overflow-hidden">
+                            <i class="uil uil-briefcase icons h2 mb-0 text-primary"></i>
+                            <div class="ms-3">
+                                <h5 class="titles">Our Mission</h5>
+                                <p class="text-muted para mb-0">The most well-known dummy text is the 'Lorem Ipsum', which is said to have originated in the 16th century.</p>
                             </div>
-                            <div class="card-body p-0 mt-3">
-                                <a href="departments" class="title text-dark h5">Eye Care</a>
-                                <p class="text-muted mt-3">There is now an abundance of readable dummy texts required purely to fill a space.</p>
-                                <!--  <a href="departments" class="link">Read More <i class="ri-arrow-right-line align-middle"></i></a> -->
+                            <div class="big-icon">
+                                <i class="uil uil-briefcase"></i>
                             </div>
                         </div>
-                    </div><!--end col-->
 
-                    <div class="col-xl-3 col-md-4 col-12 mt-5">
-                        <div class="card features feature-primary border-0">
-                            <div class="icon text-center rounded-md">
-                                <i class="ri-psychotherapy-fill h3 mb-0"></i>
+                        <div class="features feature-bg-primary d-flex bg-white p-4 rounded-md shadow position-relative overflow-hidden mt-4">
+                            <i class="uil uil-airplay icons h2 mb-0 text-primary"></i>
+                            <div class="ms-3">
+                                <h5 class="titles">Our Vision</h5>
+                                <p class="text-muted para mb-0">The most well-known dummy text is the 'Lorem Ipsum', which is said to have originated in the 16th century.</p>
                             </div>
-                            <div class="card-body p-0 mt-3">
-                                <a href="departments" class="title text-dark h5">Psychotherapy</a>
-                                <p class="text-muted mt-3">There is now an abundance of readable dummy texts required purely to fill a space.</p>
-                                <!--  <a href="departments" class="link">Read More <i class="ri-arrow-right-line align-middle"></i></a> -->
+                            <div class="big-icon">
+                                <i class="uil uil-airplay"></i>
                             </div>
                         </div>
-                    </div><!--end col-->
 
-                    <div class="col-xl-3 col-md-4 col-12 mt-5">
-                        <div class="card features feature-primary border-0">
-                            <div class="icon text-center rounded-md">
-                                <i class="ri-stethoscope-fill h3 mb-0"></i>
+                        <div class="features feature-bg-primary d-flex bg-white p-4 rounded-md shadow position-relative overflow-hidden mt-4">
+                            <i class="uil uil-flip-v icons h2 mb-0 text-primary"></i>
+                            <div class="ms-3">
+                                <h5 class="titles">Who We Are ?</h5>
+                                <p class="text-muted para mb-0">The most well-known dummy text is the 'Lorem Ipsum', which is said to have originated in the 16th century.</p>
                             </div>
-                            <div class="card-body p-0 mt-3">
-                                <a href="departments" class="title text-dark h5">Primary Care</a>
-                                <p class="text-muted mt-3">There is now an abundance of readable dummy texts required purely to fill a space.</p>
-                                <!--  <a href="departments" class="link">Read More <i class="ri-arrow-right-line align-middle"></i></a> -->
-                            </div>
-                        </div>
-                    </div><!--end col-->
-
-                    <div class="col-xl-3 col-md-4 col-12 mt-5">
-                        <div class="card features feature-primary border-0">
-                            <div class="icon text-center rounded-md">
-                                <i class="ri-capsule-fill h3 mb-0"></i>
-                            </div>
-                            <div class="card-body p-0 mt-3">
-                                <a href="departments" class="title text-dark h5">Dental Care</a>
-                                <p class="text-muted mt-3">There is now an abundance of readable dummy texts required purely to fill a space.</p>
-                                <!--  <a href="departments" class="link">Read More <i class="ri-arrow-right-line align-middle"></i></a> -->
-                            </div>
-                        </div>
-                    </div><!--end col-->
-                    
-                    <div class="col-xl-3 col-md-4 col-12 mt-5">
-                        <div class="card features feature-primary border-0">
-                            <div class="icon text-center rounded-md">
-                                <i class="ri-microscope-fill h3 mb-0"></i>
-                            </div>
-                            <div class="card-body p-0 mt-3">
-                                <a href="departments" class="title text-dark h5">Orthopedic</a>
-                                <p class="text-muted mt-3">There is now an abundance of readable dummy texts required purely to fill a space.</p>
-                                <!--  <a href="departments" class="link">Read More <i class="ri-arrow-right-line align-middle"></i></a> -->
-                            </div>
-                        </div>
-                    </div><!--end col-->
-
-                    <div class="col-xl-3 col-md-4 col-12 mt-5">
-                        <div class="card features feature-primary border-0">
-                            <div class="icon text-center rounded-md">
-                                <i class="ri-pulse-fill h3 mb-0"></i>
-                            </div>
-                            <div class="card-body p-0 mt-3">
-                                <a href="departments" class="title text-dark h5">Cardiology</a>
-                                <p class="text-muted mt-3">There is now an abundance of readable dummy texts required purely to fill a space.</p>
-                                <!--  <a href="departments" class="link">Read More <i class="ri-arrow-right-line align-middle"></i></a> -->
-                            </div>
-                        </div>
-                    </div><!--end col-->
-
-                    <div class="col-xl-3 col-md-4 col-12 mt-5">
-                        <div class="card features feature-primary border-0">
-                            <div class="icon text-center rounded-md">
-                                <i class="ri-empathize-fill h3 mb-0"></i>
-                            </div>
-                            <div class="card-body p-0 mt-3">
-                                <a href="departments" class="title text-dark h5">Gynecology</a>
-                                <p class="text-muted mt-3">There is now an abundance of readable dummy texts required purely to fill a space.</p>
-                                <!--  <a href="departments" class="link">Read More <i class="ri-arrow-right-line align-middle"></i></a> -->
-                            </div>
-                        </div>
-                    </div><!--end col-->
-
-                    <div class="col-xl-3 col-md-4 col-12 mt-5">
-                        <div class="card features feature-primary border-0">
-                            <div class="icon text-center rounded-md">
-                                <i class="ri-mind-map h3 mb-0"></i>
-                            </div>
-                            <div class="card-body p-0 mt-3">
-                                <a href="departments" class="title text-dark h5">Neurology</a>
-                                <p class="text-muted mt-3">There is now an abundance of readable dummy texts required purely to fill a space.</p>
-                                <!--  <a href="departments" class="link">Read More <i class="ri-arrow-right-line align-middle"></i></a> -->
+                            <div class="big-icon">
+                                <i class="uil uil-flip-v"></i>
                             </div>
                         </div>
                     </div><!--end col-->
                 </div><!--end row-->
             </div><!--end container-->
+        </section><!--end section-->
+        <!-- Cta End -->
     </div>
 </div>
 <!--end container-->
