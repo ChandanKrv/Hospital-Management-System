@@ -231,63 +231,15 @@ if (isset($_POST['add_staff'])) {
             <div class="col-lg-4 mt-4">
                 <div class="card rounded border-0 shadow">
                     <div class="p-4 border-bottom">
-                        <h5 class="mb-0">Doctors List</h5>
+                        <h5 class="mb-0">Staff List</h5>
                     </div>
 
                     <ul class="list-unstyled mb-0 p-4" data-simplebar style="height: 664px;">
-                        <li class="d-md-flex align-items-center text-center text-md-start">
-                            <img src="../assets/images/doctors/01.jpg" class="avatar avatar-medium rounded-md shadow" alt="">
-
-                            <div class="ms-md-3 mt-4 mt-sm-0">
-                                <a href="#" class="text-dark h6">Dr. Calvin Carlo</a>
-                                <p class="text-muted my-1">Cardiologist</p>
-                                <p class="text-muted mb-0">3 Years Experienced</p>
-                            </div>
-                        </li>
-
-                        <li class="d-md-flex align-items-center text-center text-md-start mt-4">
-                            <img src="../assets/images/doctors/02.jpg" class="avatar avatar-medium rounded-md shadow" alt="">
-
-                            <div class="ms-md-3 mt-4 mt-sm-0">
-                                <a href="#" class="text-dark h6">Dr. Alex Smith</a>
-                                <p class="text-muted my-1">Dentist</p>
-                                <p class="text-muted mb-0">1 Years Experienced</p>
-                            </div>
-                        </li>
-
-                        <li class="d-md-flex align-items-center text-center text-md-start mt-4">
-                            <img src="../assets/images/doctors/03.jpg" class="avatar avatar-medium rounded-md shadow" alt="">
-
-                            <div class="ms-md-3 mt-4 mt-sm-0">
-                                <a href="#" class="text-dark h6">Dr. Cristina Luly</a>
-                                <p class="text-muted my-1">Orthopedic</p>
-                                <p class="text-muted mb-0">5 Years Experienced</p>
-                            </div>
-                        </li>
-
-                        <li class="d-md-flex align-items-center text-center text-md-start mt-4">
-                            <img src="../assets/images/doctors/04.jpg" class="avatar avatar-medium rounded-md shadow" alt="">
-
-                            <div class="ms-md-3 mt-4 mt-sm-0">
-                                <a href="#" class="text-dark h6">Dr. Dwayen Maria</a>
-                                <p class="text-muted my-1">Gastrologist</p>
-                                <p class="text-muted mb-0">2 Years Experienced</p>
-                            </div>
-                        </li>
-
-                        <li class="d-md-flex align-items-center text-center text-md-start mt-4">
-                            <img src="../assets/images/doctors/05.jpg" class="avatar avatar-medium rounded-md shadow" alt="">
-
-                            <div class="ms-md-3 mt-4 mt-sm-0">
-                                <a href="#" class="text-dark h6">Dr. Jenelia Focia</a>
-                                <p class="text-muted my-1">Psychotherapist</p>
-                                <p class="text-muted mb-0">3 Years Experienced</p>
-                            </div>
-                        </li>
-
-                        <li class="mt-4">
-                            <a href="doctors" class="btn btn-primary">All Doctors</a>
-                        </li>
+                     
+                     <?php
+                        echo GigDisplay('staff','profile');
+                     ?>
+                   
                     </ul>
                 </div>
             </div>

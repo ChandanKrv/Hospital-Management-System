@@ -48,6 +48,7 @@ if ($IdCheck == '') {
 
 
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -110,36 +111,10 @@ if ($IdCheck == '') {
                     <li><a href="index"><i class="uil uil-dashboard me-2 d-inline-block"></i>Dashboard</a></li>
                     <li><a href="appointment"><i class="uil uil-stethoscope me-2 d-inline-block"></i>Appointment</a></li>
                     <li><a href="admission"><i class="uil uil-book-medical me-2 d-inline-block"></i>Admission</a></li>
-                    <li><a href="patients"><i class="uil uil-user me-2 d-inline-block"></i>Patients</a></li>
-                    <!-- <li class="sidebar-dropdown">
-                        <a href="javascript:void(0)"><i class="uil uil-user me-2 d-inline-block"></i>Patients</a>
-                        <div class="sidebar-submenu">
-                            <ul>
-                                <li><a href="patients">All Patients</a></li>
-                                <li><a href="add-doctor.html">Add Patients</a></li>
-                            </ul>
-                        </div>
-                    </li> -->
-
-
-                   <!--  <li class="sidebar-dropdown">
-                        <a href="javascript:void(0)"><i class="uil uil-shopping-cart me-2 d-inline-block"></i>Pharmacy</a>
-                        <div class="sidebar-submenu">
-                            <ul>
-                                <li><a href="shop.html">Shop</a></li>
-                                <li><a href="product-detail.html">Shop Detail</a></li>
-                                <li><a href="shopcart.html">Shopcart</a></li>
-                                <li><a href="checkout.html">Checkout</a></li>
-                            </ul>
-                        </div>
-                    </li> -->
-
-
-
-                    <li><a href="components.html"><i class="uil uil-cube me-2 d-inline-block"></i>Staff</a></li>
+                   
+       
                     <li><a href="dr-profile"><i class="uil uil-user-md me-2 d-inline-block"></i>Profile</a></li>
-                    <li><a href="components.html"><i class="uil uil-window me-2 d-inline-block"></i>Miscellaneous</a></li>
-
+         
                 </ul>
                 <!-- sidebar-menu  -->
             </div>

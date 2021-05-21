@@ -411,7 +411,7 @@ function doctorGigDisplay()
 }
 
 
-function GigDisplay($table)
+function GigDisplay($table,$target=null)
 {
     global $con;
     //For local
@@ -419,6 +419,8 @@ function GigDisplay($table)
     $run_products = mysqli_query($con, $get_product);
     while ($row_product = mysqli_fetch_array($run_products)) {
         $full_name = $row_product['u_full_name'];
+        $hms_id = $row_product['hms_id'];
+
         if($table=="doctor")
         {
             $department = $row_product['d_department'];
@@ -440,6 +442,20 @@ function GigDisplay($table)
         if($image=="")
             $image="https://cdn.pixabay.com/photo/2015/03/04/22/35/head-659652_960_720.png";
         
+      if($target=='profile'){
+          echo "<li class='d-md-flex align-items-center text-center text-md-start'>
+                    <img src='../assets/images/doctors_img/$image' class='avatar avatar-medium rounded-md shadow' alt=''>
+
+                    <div class='ms-md-3 mt-4 mt-sm-0'>
+                        <a href='#' class='text-dark h6'>$full_name</a>
+                         <p class='text-muted my-1'>$hms_id</p>   
+                        <p class='text-muted my-1'>$department</p>                                   
+                    </div>
+                </li>
+                <br>
+                ";
+      }else{
+
         echo "<div class='col-xl col-lg-4 col-md-6 mt-4'>
                     <div class='card team border-0 rounded shadow overflow-hidden'>
                         <div class='team-img position-relative'>
@@ -451,6 +467,7 @@ function GigDisplay($table)
                         </div>
                     </div>
                 </div>";
+      }
     }
 }
 
