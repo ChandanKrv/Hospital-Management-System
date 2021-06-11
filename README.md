@@ -1,7 +1,6 @@
 -------------------------------
 + Hospital-Management-System + 
-+ 
-+    {"gitdown": "Visit", "name": "https://hospital.softcse.ml"} 
++ Visit: https://hospital.softcse.ml
 -------------------------------
 
 #College Name: NiT
