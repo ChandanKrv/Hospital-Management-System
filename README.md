@@ -1,6 +1,5 @@
 -------------------------------
 + Hospital-Management-System + 
-+ Visit: https://hospital.softcse.ml
 -------------------------------
 
 #College Name: NiT
